@@ -3,7 +3,7 @@ const app = express();
 const path = require('path');
 const PORT = 5000;
 
-app.use(express.static(path.join(__dirname, '/public')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.listen(
     PORT, () => {
@@ -13,18 +13,18 @@ app.listen(
 
 app.get(
     "/home", (req, res) => {
-        res.sendFile(path.join(__dirname, "/views/index.html"));
+        res.sendFile(path.join(__dirname, "views", "index.html"));
     }
 )
 
 app.get(
     "/login", (req, res) => {
-        res.sendFile(path.join(__dirname, "/views/login.html"));
+        res.sendFile(path.join(__dirname, "views", "login.html"));
     }
 )
 
 app.get(
     "/sign-up", (req, res) => {
-        res.sendFile(path.join(__dirname, "/views/sign-up.html"));
+        res.sendFile(path.join(__dirname, "views", "sign-up.html"));
     }
 )
