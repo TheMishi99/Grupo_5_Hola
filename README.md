@@ -18,5 +18,7 @@
 ## Integrantes del Proyecto 
 - Veronica Bianchi : 31 años de edad, vive en Santiago del Estero, Argentina. Estudiante avanzada de Ing. Electrónica en la U.N.S.E. Trabaja en una distribuidora de cristales oftalmológicos. Amante de los animales, el estudio y el aprendizaje.
 
+- Rocio Diaz : 34 años de edad, vive en Santiago del Estero, Argentina. Graduada de Tecnica en Turismo Cultural y Regional y de la Carrera de Marketing Digital. Trabaja en el rubro automotor con 8 años en Customer Experience. Estudiante de programacion. Fan Army de BTS, apasionada por la danza, las montañas y la maternidad. 
+
 ## Comentario Adicional
 - En la medida en la que se desarrolle el proyecto es posible que se 	amplíe la información suministrada. 
