@@ -14,34 +14,102 @@
 <body class="login">
     <header>
         <nav>
-            <ul>
-                <li>
+            <ul id="ul-1">
+                <li id="li-1">
                     <a href="/home">
                         <img src="img/Logo-cutted.png" alt="Logo" />
                     </a>
                 </li>
-                <li>
+                <li id="li-2">
                     <input type="search" placeholder="Buscar Cositas uwu..." />
                 </li>
-                <li>
+                <li id="li-3">
                     <a href="/shopping-cart">
                         <ion-icon name="cart" id="shopping-cart_icon"></ion-icon>
                     </a>
                 </li>
-                <li>
+                <li id="li-4">
                     <a href="/login">Iniciar Sesion</a>
                 </li>
-                <li>
+                <li id="li-5">
                     <a href="/sign-up">Registrarse</a>
+                </li>
+            </ul>
+            <ul id="ul-2">
+                <li id="li-1">
+                    <a href=""></a>
+                </li>
+                <li id="li-2">
+                    <a href=""></a>
+                </li>
+                <li id="li-3">
+                    <a href=""></a>
+                </li>
+                <li id="li-4">
+                    <a href=""></a>
+                </li>
+                <li id="li-5">
+                    <a href=""></a>
                 </li>
             </ul>
         </nav>
     </header>
     <main>
-        <h2>Aqui irá el formulario de login</h2>
+        <div class="formulario">
+            <form onsubmit="">
+                <ion-icon name="person-circle"></ion-icon>
+                <input type="text" id="username" name="username" placeholder="Username" required autocomplete="off"
+                    autocapitalize="off" />
+                <input type="password" id="password" name="password" placeholder="Password" required
+                    autocomplete="off" autocapitalize="off" />
+                <a href="">Forgot Password?</a>
+                <button type="submit">Login</button>
+                <p class="form-footer">Don't have an account? <a href="/sign-up">Sign Up</a></p>
+            </form>
+        </div>
     </main>
     <footer>
-        <h3>Referencias a redes sociales</h3>
+        <div class="col-1">
+            <img src="img/Logo-cutted.png" alt="Logo" />
+        </div>
+        <div class="col-2">
+            <div class="links">
+                <ul>
+                    <li>Titulo</li>
+                    <li><a href="">Enlace</a></li>
+                    <li><a href="">Enlace</a></li>
+                    <li><a href="">Enlace</a></li>
+                </ul>
+                <ul>
+                    <li>Titulo</li>
+                    <li><a href="">Enlace</a></li>
+                    <li><a href="">Enlace</a></li>
+                    <li><a href="">Enlace</a></li>
+                </ul>
+                <ul>
+                    <li>Titulo</li>
+                    <li><a href="">Enlace</a></li>
+                    <li><a href="">Enlace</a></li>
+                    <li><a href="">Enlace</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-3">
+            <a href="">
+                <ion-icon name="logo-facebook" id="facebook-logo"></ion-icon>
+            </a><a href="">
+                <ion-icon name="logo-twitter" id="twitter-logo"></ion-icon>
+            </a><a href="">
+                <ion-icon name="logo-instagram" id="instagram-logo"></ion-icon>
+            </a><a href="">
+                <ion-icon name="logo-paypal" id="paypal-logo"></ion-icon>
+            </a>
+        </div>
+        <div class="col-4">
+            <a href="">
+                <ion-icon name="chatbox" id="chat-logo"></ion-icon>
+            </a>
+        </div>
     </footer>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>

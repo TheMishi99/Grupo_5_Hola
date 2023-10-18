@@ -12,6 +12,7 @@ body {
 
 body header {
     background-color: white;
+    border-bottom: 1px solid black;
 }
 
 body header nav ul {
@@ -28,17 +29,17 @@ body header nav ul li {
     font-size: 2vw;
 }
 
-body header nav ul li:nth-child(1) img {
+body header nav ul #li-1 img {
     width: 10vw;
 }
 
-body header nav ul li:nth-child(2) input {
+body header nav ul #li-2 input {
     width: 45vw;
     height: 5vw;
     font-size: 2vw;
 }
 
-body header nav ul li:nth-child(3) #shopping-cart_icon {
+body header nav ul #li-3 #shopping-cart_icon {
     font-size: 3vw;
 }
 
@@ -56,6 +57,80 @@ body header nav ul li a:hover {
 body header nav ul li a:active {
     color: darkcyan;
 }
+
+body footer {
+    padding: 0px 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    border-top: 1px solid black;
+    background-color: white;
+}
+
+body footer .col-1 img {
+    width: 8vw;
+}
+
+body footer .col-2 .links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body footer .col-2 .links ul {
+    list-style: none;
+    margin: 20px 50px;
+}
+
+body footer .col-2 .links ul li a:link,
+body footer .col-2 .links ul li a:visited {
+    text-decoration: none;
+    color: lightslategrey;
+}
+
+body footer .col-2 .links ul li a:hover {
+    color: orange;
+}
+
+body footer .col-2 .links ul li a:active {
+    color: lightseagreen;
+}
+
+body footer .col-3 ion-icon,
+body footer .col-4 ion-icon {
+    margin: 15px;
+    font-size: 3vw;
+}
+
+body footer .col-3 a:link,
+body footer .col-3 a:visited {
+    text-decoration: none;
+    color: black;
+}
+
+body footer .col-3 a:hover {
+    color: orange;
+}
+
+body footer .col-3 a:active {
+    color: lightseagreen;
+}
+
+body footer .col-4 a:link,
+body footer .col-4 a:visited {
+    text-decoration: none;
+    color: black;
+}
+
+body footer .col-4 a:hover {
+    color: orange;
+}
+
+body footer .col-4 a:active {
+    color: lightseagreen;
+}
+
 /*Index*/
 
 /*Login*/
@@ -63,6 +138,77 @@ body header nav ul li a:active {
     background-image: url(../img/fondo-gatos.jpg);
     background-size: 100%;
     background-attachment: fixed;
+}
+
+.login main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login main .formulario {
+    margin: 15px 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 25vw;
+    height: 35vw;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 25px;
+}
+
+.login main .formulario ion-icon {
+    font-size: 10vw;
+}
+
+.login main .formulario form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.login main .formulario form input {
+    margin: 5px;
+    width: 20vw;
+    height: 3vw;
+    font-size: 20px;
+}
+
+.login main .formulario form a {
+    align-self: flex-end;
+}
+
+.login main .formulario form a:link,
+.login main .formulario form a:visited {
+    color: lightslategray;
+    text-decoration: none;
+}
+
+.login main .formulario form a:hover {
+    color: orange;
+}
+
+.login main .formulario form a:active {
+    color: lightseagreen;
+}
+
+.login main .formulario form button {
+    margin: 20px;
+    background-color: orange;
+    border: 1px solid black;
+    color: white;
+    width: 5vw;
+    height: 2vw;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.login main .formulario form .form-footer {
+    margin: 80px 0px 0px;
+    align-self: flex-start;
 }
 
 /*SignUp*/
