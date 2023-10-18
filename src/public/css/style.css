@@ -23,7 +23,7 @@ body header nav ul {
 }
 
 body header nav ul li {
-    margin: 5px;
+    margin: 5px 10px;
     align-items: center;
     justify-content: center;
     font-size: 2vw;
@@ -216,4 +216,75 @@ body footer .col-4 a:active {
     background-image: url(../img/fondo-gatos.jpg);
     background-size: 100%;
     background-attachment: fixed;
+}
+
+.signup main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.signup main .formulario {
+    margin: 15px 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 25vw;
+    height: 35vw;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 25px;
+}
+
+.signup main .formulario ion-icon {
+    font-size: 10vw;
+}
+
+.signup main .formulario form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.signup main .formulario form input {
+    margin: 5px;
+    width: 20vw;
+    height: 3vw;
+    font-size: 20px;
+}
+
+.signup main .formulario form a {
+    align-self: flex-end;
+}
+
+.signup main .formulario form a:link,
+.signup main .formulario form a:visited {
+    color: lightslategray;
+    text-decoration: none;
+}
+
+.signup main .formulario form a:hover {
+    color: orange;
+}
+
+.signup main .formulario form a:active {
+    color: lightseagreen;
+}
+
+.signup main .formulario form button {
+    margin: 20px;
+    background-color: orange;
+    border: 1px solid black;
+    color: white;
+    width: 5vw;
+    height: 2vw;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.signup main .formulario form .form-footer {
+    margin: 50px 0px 0px;
+    align-self: flex-start;
 }
