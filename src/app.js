@@ -18,6 +18,12 @@ app.get(
 )
 
 app.get(
+    "/shopping-cart", (req, res) => {
+        res.sendFile(path.join(__dirname, "views", "shopping-cart.html"));
+    }
+)
+
+app.get(
     "/login", (req, res) => {
         res.sendFile(path.join(__dirname, "views", "login.html"));
     }
