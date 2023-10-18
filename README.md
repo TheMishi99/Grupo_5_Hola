@@ -1,12 +1,12 @@
 # PROYECTO INTEGRADOR 
 ## Nombre del Sitio: MISHI
 ## Temática del Sitio 
-- La temática de nuestro sitio web está orientado a una tienda online de venta de productos y oferta de servicios referidos a gatos, dónde los dueños de dichas mascotas puedan acceder a los mismos. 
+- La temática de nuestro sitio web está orientado a una tienda online de venta de productos y oferta de servicios referidos a gatos, dónde los dueños y aficionados de dichas mascotas puedan acceder a los mismos. 
 ## Servicios y Productos ofrecidos
 - Servicios: Veterinaria y peluquería para gatos. También sugerencias de lugares PetFriendly, articulos informativos y sitios de adopción.
 - Productos: Alimentos, medicamentos, accesorios, juguetes, articulos de higiene y aseo para gatos.
 ## Público objetivo 
-- El proyecto se encuentra destinado a dueños y aficionados de los gatos con el objetivo de brindarles los productos y servicios necesarios para el cuidado de sus mascotas.
+- El proyecto se encuentra destinado a dueños de los gatos con el objetivo de brindarles los productos y servicios necesarios para el cuidado de sus mascotas. Además será un sitio de interés para aficionados de dichos animales que deseen obtener información e incluso realizar una adopcion.
 ## Páginas web referentes
 - https://www.veterinariaalem.com
 - https://www.puppis.com.ar
