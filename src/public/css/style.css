@@ -4,6 +4,10 @@
 }
 
 /*HEADER FOOTER*/
+body header nav ul {
+    list-style: none;
+}
+
 body header nav ul li a:link,
 body header nav ul li a:visited {
     color: black;
