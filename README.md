@@ -24,5 +24,7 @@
 
 - Denise Agostina Geraldine Diaz: 21 años de edad, vive en Santiago del Estero, Argentina. Estudiante avanzada de Lic. en Sistemas de Informacion en la U.N.S.E. Realiza en sus tiempos libres cursos de idiomas y de programación, se encuentra en busquedad de un trabajo a medio tiempo. Le gusta cantar y escuchar musica a todo volumen.
 
+- Enzo Joaquin Bolzon: 27 años de edad, vive en Santiago del Estero, Argentina. Amante de los videojuegos y la informática en general, siempre con ganas de aprender cosas nuevas. Trabaja en venta de insumos informáticos y atención al cliente en una Arena Gaming local. Vivan los mishis ♥
+
 ## Comentario Adicional
 - En la medida en la que se desarrolle el proyecto es posible que se 	amplíe la información suministrada. 
