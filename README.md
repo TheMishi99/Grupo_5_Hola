@@ -6,7 +6,7 @@
 - Servicios: Veterinaria y peluquería para gatos. También sugerencias de lugares PetFriendly, articulos informativos y sitios de adopción.
 - Productos: Alimentos, medicamentos, accesorios, juguetes, articulos de higiene y aseo para gatos.
 ## Público objetivo 
-- El proyecto se encuentra destinado a dueños de los gatos con el objetivo de brindarles los productos y servicios necesarios para el cuidado de sus mascotas. Además será un sitio de interés para aficionados de dichos animales que deseen obtener información e incluso realizar una adopción.
+- El proyecto se encuentra destinado a dueños de gatos con el objetivo de brindarles los productos y servicios necesarios para el cuidado de sus mascotas. Además será un sitio de interés para aficionados de dichos animales que deseen obtener información e incluso realizar una adopción.
 ## Páginas web referentes
 - https://www.veterinariaalem.com
 - https://www.puppis.com.ar
