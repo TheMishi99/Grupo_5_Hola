@@ -20,5 +20,7 @@
 
 - Rocio Diaz : 34 años de edad, vive en Santiago del Estero, Argentina. Graduada de Tecnica en Turismo Cultural y Regional y de la Carrera de Marketing Digital. Trabaja en el rubro automotor con 8 años en Customer Experience. Estudiante de programacion. Fan Army de BTS, apasionada por la danza, las montañas y la maternidad. 
 
+- Matias Sayago : 20 años de edad, vive en Santiago del Estero, Argentina. Estudiante de la Licenciatura en Sistemas de Informacion en la U.N.S.E. Apasionado por la Programacion, la Ciberseguridad, la Inteligencia Artificial y las Redes Informaticas. Le encantan los animales, en especial los gatos :3.
+
 ## Comentario Adicional
 - En la medida en la que se desarrolle el proyecto es posible que se 	amplíe la información suministrada. 
