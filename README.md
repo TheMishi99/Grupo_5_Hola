@@ -2,7 +2,7 @@
 ## Nombre del Sitio: MISHI
 ## Temática del Sitio 
 - La temática de nuestro sitio web está orientado a una tienda online de venta de productos y oferta de servicios referidos a gatos, dónde los dueños y aficionados de dichas mascotas puedan acceder a los mismos. 
-## Servicios y Productos ofrecidos
+## Servicios y Productos ofrecidos (Tentativa)
 - Servicios: Veterinaria y peluquería para gatos. También sugerencias de lugares PetFriendly, articulos informativos y sitios de adopción.
 - Productos: Alimentos, medicamentos, accesorios, juguetes, articulos de higiene y aseo para gatos.
 ## Público objetivo 
