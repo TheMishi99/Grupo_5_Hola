@@ -1,5 +1,5 @@
 # PROYECTO INTEGRADOR 
-## Nombre del Sitio: MISHI
+## Nombre del Sitio: MISHIS
 ## Temática del Sitio 
 - La temática de nuestro sitio web está orientado a una tienda online de venta de productos y oferta de servicios referidos a gatos, dónde los dueños y aficionados de dichas mascotas puedan acceder a los mismos. 
 ## Servicios y Productos ofrecidos (Tentativa)
