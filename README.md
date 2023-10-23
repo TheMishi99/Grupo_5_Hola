@@ -29,7 +29,7 @@ Las páginas arriba comentadas, fueron seleccionadas como referente por ser agra
 
 - Enzo Joaquin Bolzon: 27 años de edad, vive en Santiago del Estero, Argentina. Amante de los videojuegos y la informática en general, siempre con ganas de aprender cosas nuevas. Trabaja en venta de insumos informáticos y atención al cliente en una Arena Gaming local. Vivan los mishis ♥
 
-- Lucas Emanuel Diaz: 25 años de edad, vive en Santiago del Estero, Argentina. Experiencia en desarrollo de aplicaciones web (SPA) tanto del backend como frontend. Trabaja en una empresa de contruccion como administrativo de obra. Le encantan los animales y el deporte.
+- Lucas Emanuel Diaz: 25 años de edad, vive en Santiago del Estero, Argentina. Experiencia en desarrollo de aplicaciones web (SPA). Trabaja en una empresa de contruccion como administrativo de obra. Le encantan los animales y el deporte.
 
 ## Comentario Adicional
 - En la medida en la que se desarrolle el proyecto es posible que se 	amplíe la información suministrada. 
