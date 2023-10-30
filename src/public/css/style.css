@@ -13,12 +13,12 @@ header {
 }
 
 header img {
-  height: 12vh;
+  height: 11vh;
 }
 header form {
-  width: 40%;
+  width: 35%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   background-color: #f2f2f2;
   border-radius: 10px;
   padding: 5px;
@@ -29,7 +29,7 @@ header form button {
 }
 
 header form input {
-  width: 90%;
+  width: 85%;
   background: none;
   border: none;
   outline: none;
@@ -55,7 +55,27 @@ header form input {
 .login span {
   margin-left: 2px;
   margin-right: 3px;
-  font-size: small;
+  font-size: x-small;
   color: rgb(86, 79, 79);
   font-weight: 600;
+}
+
+.home__navbar{
+  padding: 10px;
+  background-color: #f2f2f2;
+}
+.home__navbar ul{
+  list-style: none;
+  font-size: small;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+.home__navbar ul li {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.home__navbar a {
+  text-decoration: none;
+  color: rgb(86, 79, 79);
 }
