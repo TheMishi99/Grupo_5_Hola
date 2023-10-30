@@ -1,0 +1,61 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+header {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: row;
+  padding: 20px 0 10px 0px;
+}
+
+header img {
+  height: 12vh;
+}
+header form {
+  width: 40%;
+  display: flex;
+  justify-content: space-between;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  padding: 5px;
+}
+header form button {
+  border: none;
+  background: none;
+}
+
+header form input {
+  width: 90%;
+  background: none;
+  border: none;
+  outline: none;
+  text-decoration: underline;
+}
+.cart {
+  border: none;
+  background: none;
+  padding: 4px;
+  font-size: medium;
+}
+
+.login {
+  display: flex;
+  align-items: center;
+  padding: 4px;
+  background-color: #f28c0f;
+  border-radius: 15px;
+}
+.fa-circle-user {
+  font-size: large;
+}
+.login span {
+  margin-left: 2px;
+  margin-right: 3px;
+  font-size: small;
+  color: rgb(86, 79, 79);
+  font-weight: 600;
+}
