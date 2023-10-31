@@ -89,7 +89,13 @@ header form input {
     display: initial;
   }
 }
-
+.banner{
+  margin: 10px 0 10px 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .slider{
   padding-top: 1rem;
   padding-left: 0.5rem;
