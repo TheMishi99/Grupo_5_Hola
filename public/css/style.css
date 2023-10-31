@@ -68,7 +68,6 @@ header form input {
   background-color: #f2f2f2;
 }
 .home__navbar ul {
-  display: none;
   list-style: none;
   font-size: small;
   display: flex;
@@ -83,10 +82,20 @@ header form input {
   text-decoration: none;
   color: rgb(86, 79, 79);
 }
-
-@media (min-width:468px) {
-  .home__navbar ul{
+.home__navbar ul li a{
+  display: none;
+}
+.home__hamburguer{
+  background: none;
+  border: none;
+  font-size: medium;
+}
+@media (min-width:570px) {
+  .home__navbar ul li a{
     display: initial;
+  }
+  .home__hamburguer{
+    display: none;
   }
 }
 .banner{
