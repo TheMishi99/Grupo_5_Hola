@@ -92,15 +92,12 @@ header form input {
 
 .slider{
   padding-top: 1rem;
-  padding-bottom: 1rem;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
   text-align: center;
 }
 
 .recent-products{
-  font-family: 'League Spartan', sans-serif;
-  font-family: 'Roboto', sans-serif;
   margin-left: 1rem;
   display: flex;
   justify-content:flex-start;
@@ -110,4 +107,37 @@ header form input {
 h6{
   color: #d97652;
   margin-left: 1rem;
+}
+
+p{
+  color: #d97652;
+  margin-left: 1rem;
+}
+
+.products-img{
+  text-align: center;
+}
+
+section{
+  margin-bottom: 10px;
+  border: 15px;
+  flex: 1;
+  margin-top: 10px;
+  background-color: #f2f2f2;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+article{
+  background-color: #d97652;
+  text-align: center;
+}
+
+main{
+  font-family: 'League Spartan', sans-serif;
+  font-family: 'Roboto', sans-serif;
+}
+
+.container{
+  margin-top: 1rem;
 }
