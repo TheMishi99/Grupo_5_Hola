@@ -2,6 +2,8 @@
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
+  /*font-family: 'League Spartan', sans-serif;
+  font-family: 'Roboto', sans-serif;*/
 }
 
 header {
@@ -10,6 +12,7 @@ header {
   align-items: center;
   flex-direction: row;
   padding: 20px 0 10px 0px;
+  background-color: #d97652;
 }
 
 header img {
@@ -85,4 +88,26 @@ header form input {
   .home__navbar ul{
     display: initial;
   }
+}
+
+.slider{
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  text-align: center;
+}
+
+.recent-products{
+  font-family: 'League Spartan', sans-serif;
+  font-family: 'Roboto', sans-serif;
+  margin-left: 1rem;
+  display: flex;
+  justify-content:flex-start;
+  align-items: center;
+}
+
+h6{
+  color: #d97652;
+  margin-left: 1rem;
 }

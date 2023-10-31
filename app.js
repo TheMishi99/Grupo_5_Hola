@@ -3,12 +3,12 @@ const app = express();
 const path = require("path");
 const PORT = 5000;
 
-app.use(express.static(path.join(__dirname, "src/public")));
+app.use(express.static(path.join(__dirname, "./public")));
 
 app.listen(PORT, () => {
   console.log(`Servidor escuchando en el puerto ${PORT}`);
 });
 
 app.get("/home", (req, res) => {
-  res.sendFile(path.join(__dirname, "src", "views", "index.html"));
+  res.sendFile(path.join(__dirname, "views", "index.html"));
 });
