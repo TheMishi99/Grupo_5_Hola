@@ -1,18 +1,14 @@
-const express = require('express');
+const express = require("express");
 const app = express();
-const path = require('path');
+const path = require("path");
 const PORT = 5000;
 
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "src/public")));
 
-app.listen(
-    PORT, () => {
-        console.log(`Servidor escuchando en el puerto ${PORT}`);
-    }
-)
+app.listen(PORT, () => {
+  console.log(`Servidor escuchando en el puerto ${PORT}`);
+});
 
-app.get(
-    "/home", (req, res) => {
-        res.sendFile(path.join(__dirname, "src", "views", "index.html"));
-    }
-)
+app.get("/home", (req, res) => {
+  res.sendFile(path.join(__dirname, "src", "views", "index.html"));
+});

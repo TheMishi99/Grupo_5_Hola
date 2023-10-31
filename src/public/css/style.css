@@ -60,11 +60,12 @@ header form input {
   font-weight: 600;
 }
 
-.home__navbar{
+.home__navbar {
   padding: 10px;
   background-color: #f2f2f2;
 }
-.home__navbar ul{
+.home__navbar ul {
+  display: none;
   list-style: none;
   font-size: small;
   display: flex;
@@ -78,4 +79,10 @@ header form input {
 .home__navbar a {
   text-decoration: none;
   color: rgb(86, 79, 79);
+}
+
+@media (min-width:468px) {
+  .home__navbar ul{
+    display: initial;
+  }
 }
