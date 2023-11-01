@@ -104,16 +104,6 @@ header form input {
   font-size: medium;
 }
 
-@media (min-width:570px) {
-  .home__navbar ul li a {
-    display: initial;
-  }
-
-  .home__hamburguer {
-    display: none;
-  }
-}
-
 .banner {
   /*margin: 10px 0 10px 0;*/
   width: 100%;
@@ -179,6 +169,7 @@ article{
   margin-left: 1rem;
   margin-right: 1rem;
   padding-bottom: 0.1rem;
+  width: 100%;
 }
 
 main {
@@ -208,6 +199,20 @@ footer {
   margin-bottom: 1rem;
 }
 
+.icons i{
+  font-size: 35px;
+  margin: 10px 10px 0 0;
+  padding: 0 10px 0 10px;
+}
+
+.promotion{
+  background-color: red;
+  width: 100%;
+  text-align: center;
+  padding: 0.5rem;
+  color: white
+}
+
 /* colocarlo en el media de desktop y tablet
 .recent-products{
   margin-left: 1rem;
@@ -215,3 +220,43 @@ footer {
   justify-content:flex-start;
   align-items: center;
 }*/
+
+/*tablet*/
+@media (min-width:361px) {
+  .home__navbar ul li a {
+    display: initial;
+  }
+
+  .home__hamburguer {
+    display: none;
+  }
+
+  .container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 600px;
+  }
+
+  article{
+    width: 700px;
+  }
+
+}
+
+/*desktop*/
+@media (min-width:769px) {
+
+  .container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1000px;
+  }
+
+  article{
+    width: 300px;
+    box-shadow: 0px 0px 10px rgb(100, 100, 100);
+  }
+
+}
