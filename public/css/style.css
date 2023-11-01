@@ -162,14 +162,13 @@ h4{
 
 article{
   margin-bottom: 1rem;
-  border: 15px;
-  flex: 1;
   margin-top: 10px;
   background-color: #f2f2f2;
-  margin-left: 1rem;
-  margin-right: 1rem;
+  margin-left: 5%;
+    margin-right: 5%;
   padding-bottom: 0.1rem;
-  width: 100%;
+  width: 90%;
+  text-align: center;
 }
 
 main {
@@ -213,13 +212,9 @@ footer {
   color: white
 }
 
-/* colocarlo en el media de desktop y tablet
 .recent-products{
-  margin-left: 1rem;
-  display: flex;
-  justify-content:flex-start;
-  align-items: center;
-}*/
+  margin: 1rem;
+}
 
 /*tablet*/
 @media (min-width:361px) {
@@ -231,15 +226,13 @@ footer {
     display: none;
   }
 
-  .container{
+  .container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-    max-width: 600px;
   }
 
   article{
-    width: 700px;
+    width: 40%;
   }
 
 }
@@ -247,16 +240,17 @@ footer {
 /*desktop*/
 @media (min-width:769px) {
 
-  .container{
+  .container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-    max-width: 1000px;
+    justify-content: space-around
   }
 
   article{
-    width: 300px;
     box-shadow: 0px 0px 10px rgb(100, 100, 100);
+    width: 20%;
+    margin: 0;
+    margin-bottom: 1rem;
   }
 
 }
