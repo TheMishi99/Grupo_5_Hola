@@ -6,6 +6,9 @@
   font-family: 'Roboto', sans-serif;*/
 }
 
+/*
+  Header (para todas las paginas?)
+*/
 header {
   display: flex;
   justify-content: space-evenly;
@@ -18,6 +21,7 @@ header {
 header img {
   height: 11vh;
 }
+
 header form {
   width: 35%;
   display: flex;
@@ -26,6 +30,7 @@ header form {
   border-radius: 10px;
   padding: 5px;
 }
+
 header form button {
   border: none;
   background: none;
@@ -38,6 +43,7 @@ header form input {
   outline: none;
   text-decoration: underline;
 }
+
 .cart {
   border: none;
   background: none;
@@ -52,9 +58,11 @@ header form input {
   background-color: #f28c0f;
   border-radius: 15px;
 }
+
 .fa-circle-user {
   font-size: large;
 }
+
 .login span {
   margin-left: 2px;
   margin-right: 3px;
@@ -67,6 +75,7 @@ header form input {
   padding: 10px;
   background-color: #f2f2f2;
 }
+
 .home__navbar ul {
   list-style: none;
   font-size: small;
@@ -74,66 +83,74 @@ header form input {
   justify-content: center;
   flex-direction: row;
 }
+
 .home__navbar ul li {
   margin-left: 5px;
   margin-right: 5px;
 }
+
 .home__navbar a {
   text-decoration: none;
   color: rgb(86, 79, 79);
 }
-.home__navbar ul li a{
+
+.home__navbar ul li a {
   display: none;
 }
-.home__hamburguer{
+
+.home__hamburguer {
   background: none;
   border: none;
   font-size: medium;
 }
+
 @media (min-width:570px) {
-  .home__navbar ul li a{
+  .home__navbar ul li a {
     display: initial;
   }
-  .home__hamburguer{
+
+  .home__hamburguer {
     display: none;
   }
 }
-.banner{
+
+.banner {
   margin: 10px 0 10px 0;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.slider{
+
+.slider {
   padding-top: 1rem;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
   text-align: center;
 }
 
-.recent-products{
+.recent-products {
   margin-left: 1rem;
   display: flex;
-  justify-content:flex-start;
+  justify-content: flex-start;
   align-items: center;
 }
 
-h6{
+h6 {
   color: #d97652;
   margin-left: 1rem;
 }
 
-p{
+p {
   color: #d97652;
   margin-left: 1rem;
 }
 
-.products-img{
+.products-img {
   text-align: center;
 }
 
-section{
+section {
   margin-bottom: 10px;
   border: 15px;
   flex: 1;
@@ -143,36 +160,67 @@ section{
   margin-right: 1rem;
 }
 
-article{
+article {
   background-color: #d97652;
   text-align: center;
 }
 
-main{
+main {
   font-family: 'League Spartan', sans-serif;
   font-family: 'Roboto', sans-serif;
 }
 
-.container{
+.container {
   margin-top: 1rem;
 }
 
-footer{
+
+/*
+  Footer (para todas las paginas?)
+*/
+footer {
   background-color: #d97652;
   font-family: 'League Spartan', sans-serif;
   font-family: 'Roboto', sans-serif;
   display: flex;
-  justify-content:flex-start;
+  justify-content: flex-start;
   align-items: center;
   padding: 1rem;
   margin-top: 1rem;
 }
 
-.list{
-  font-size:8px;
+.list {
+  font-size: 8px;
   text-align: center;
 }
 
-h6.footer-h6{
+h6.footer-h6 {
   color: black;
+}
+
+/*                            Login                            */
+main.login-main {
+  width: 100vw;
+  height: 20vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+main .login-container {
+  border: 1px solid orange;
+  border-radius: 5px;
+  width: 40%;
+  height: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+main .login-container .login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
 }
