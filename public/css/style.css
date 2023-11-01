@@ -97,20 +97,11 @@ header form input {
   text-align: center;
 }
 
+h4{
+  color: #d97652;
+}
+
 .recent-products{
-  margin-left: 1rem;
-  display: flex;
-  justify-content:flex-start;
-  align-items: center;
-}
-
-h6{
-  color: #d97652;
-  margin-left: 1rem;
-}
-
-p{
-  color: #d97652;
   margin-left: 1rem;
 }
 
@@ -118,19 +109,32 @@ p{
   text-align: center;
 }
 
-section{
-  margin-bottom: 10px;
+.product-name,
+.product-price{
+  text-align: center;
+  margin: 1rem;
+  margin-top: 0;
+}
+
+.bottom-buy{
+  background-color: rgb(90, 180, 90);
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  border-radius: 10px;
+  margin: 1rem;
+  font-size:larger
+}
+
+article{
+  margin-bottom: 1rem;
   border: 15px;
   flex: 1;
   margin-top: 10px;
   background-color: #f2f2f2;
   margin-left: 1rem;
   margin-right: 1rem;
-}
-
-article{
-  background-color: #d97652;
-  text-align: center;
+  padding-bottom: 0.1rem;
 }
 
 main{
@@ -161,3 +165,11 @@ footer{
 h6.footer-h6{
   color: black;
 }
+
+/* colocarlo en el media de desktop y tablet
+.recent-products{
+  margin-left: 1rem;
+  display: flex;
+  justify-content:flex-start;
+  align-items: center;
+}*/
