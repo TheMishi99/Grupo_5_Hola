@@ -4,19 +4,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Register</title>
+    <script src="https://kit.fontawesome.com/6d37a11b52.js" crossorigin="anonymous"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;800;900&family=Roboto:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
 </head>
 
 <body>
     <header>
-
+        <img src="/img/logo2.png" alt="logo" />
+        <form action="">
+            <input type="text" />
+            <button>
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+        </form>
+        <button class="cart">
+            <i class="fa-solid fa-cart-shopping"></i>
+        </button>
+        <button class="login">
+            <i class="fa-solid fa-circle-user"></i>
+            <span>UserName</span>
+            <i class="fa-solid fa-angle-down"></i>
+        </button>
     </header>
+    <nav class="home__navbar">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Productos</a></li>
+            <li><a href="#">Marcas</a></li>
+            <li><a href="#">Promociones</a></li>
+            <li><a href="#">Sucursales</a></li>
+            <li><a href="#">Contáctanos</a></li>
+        </ul>
+        <button class="home__hamburguer">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+    </nav>
     <main>
-
+        <title>Formulario de registro</title>
+        <form action="resultado.html" method="POST">
+            <section>
+                <p>
+                    <label for="usuario">Nombre de usuario</label>
+                    <input type="text" name="usuario" id="usuario" required>
+                </p>
+                <p>
+                    <label for="email">e-mail</label>
+                    <input type="email" name="email" id="email" required>
+                </p>
+                <p>
+                    <label for="nombre">Password</label>
+                    <input type="password" name="password" id="password" required>
+                </p>
+                <p>
+                    <label>Registrarse</label>
+                    <input type="submit" value="Enviar"> Enviar
+                </p>
+            </section>
+        </form>
     </main>
     <footer>
-
+        <img src="/img/logo2.png" width="20%" alt="logo" />
+        <div class="links">
+            <h6 class="footer-h6">Nosotros</h6>
+            <div class="list">
+                <ul>
+                    <li><a href="#">Sobre Mishis</a></li>
+                    <li><a href="#">Trabaja con nosotros</a></li>
+                    <li><a href="#">Proovedores</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="links">
+            <h6 class="footer-h6">Tienda Online</h6>
+            <div class="list">
+                <ul>
+                    <li><a href="#">Formas de Entrega</a></li>
+                    <li> <a href="#">Cambios y Devoluciones</a></li>
+                    <li><a href="#">Defensa al Consumidor</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="links">
+            <h6 class="footer-h6">Información</h6>
+            <div class="list">
+                <ul>
+                    <li><a href="#">Términos y Condiciones</a></li>
+                    <li><a href="#">Políticas de Privacidad</a></li>
+                    <li><a href="#">Preguntas Frecuentes</a></li>
+                </ul>
+            </div>
+        </div>
     </footer>
 </body>
 

@@ -5,18 +5,91 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="css/style.css">
+    <script src="https://kit.fontawesome.com/6d37a11b52.js" crossorigin="anonymous"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;800;900&family=Roboto:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
 </head>
 
 <body>
     <header>
-
+        <img src="/img/logo2.png" alt="logo" />
+        <form action="">
+            <input type="text" />
+            <button>
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+        </form>
+        <button class="cart">
+            <i class="fa-solid fa-cart-shopping"></i>
+        </button>
+        <button class="login">
+            <i class="fa-solid fa-circle-user"></i>
+            <span>UserName</span>
+            <i class="fa-solid fa-angle-down"></i>
+        </button>
     </header>
-    <main>
-
+    <nav class="home__navbar">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Productos</a></li>
+            <li><a href="#">Marcas</a></li>
+            <li><a href="#">Promociones</a></li>
+            <li><a href="#">Sucursales</a></li>
+            <li><a href="#">Contáctanos</a></li>
+        </ul>
+        <button class="home__hamburguer">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+    </nav>
+    <main class="login-main">
+        <div class="login-container">
+            <i id="user-icon" class="fa-solid fa-circle-user"></i>
+            <form class="login-form" action="#" method="post">
+                <input type="text" name="username" id="username" placeholder="Username">
+                <input type="password" name="password" id="password" placeholder="Password">
+                <a href="#">Forgot Password?</a>
+                <button type="submit">Login</button>
+            </form>
+            <span>Don't have an account? <a href="#">Register</a> now</span>
+        </div>
     </main>
     <footer>
-
+        <img src="/img/logo2.png" width="20%" alt="logo" />
+        <div class="links">
+            <h6 class="footer-h6">Nosotros</h6>
+            <div class="list">
+                <ul>
+                    <li><a href="#">Sobre Mishis</a></li>
+                    <li><a href="#">Trabaja con nosotros</a></li>
+                    <li><a href="#">Proovedores</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="links">
+            <h6 class="footer-h6">Tienda Online</h6>
+            <div class="list">
+                <ul>
+                    <li><a href="#">Formas de Entrega</a></li>
+                    <li> <a href="#">Cambios y Devoluciones</a></li>
+                    <li><a href="#">Defensa al Consumidor</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="links">
+            <h6 class="footer-h6">Información</h6>
+            <div class="list">
+                <ul>
+                    <li><a href="#">Términos y Condiciones</a></li>
+                    <li><a href="#">Políticas de Privacidad</a></li>
+                    <li><a href="#">Preguntas Frecuentes</a></li>
+                </ul>
+            </div>
+        </div>
     </footer>
 </body>
 
