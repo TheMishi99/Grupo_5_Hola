@@ -115,7 +115,7 @@ header form input {
 }
 
 .banner {
-  margin: 10px 0 10px 0;
+  /*margin: 10px 0 10px 0;*/
   width: 100%;
   display: flex;
   align-items: center;
@@ -139,6 +139,18 @@ h4{
 
 .products-img {
   text-align: center;
+}
+
+.promotion{
+  position: relative;
+  display: inline-block;
+}
+
+.promotion i{
+  position: absolute;
+  color: white; 
+  padding: 5px; 
+  border-radius: 50%; 
 }
 
 .product-name,
@@ -178,7 +190,6 @@ main {
   margin-top: 1rem;
 }
 
-
 /*
   Footer (para todas las paginas?)
 */
@@ -186,20 +197,15 @@ footer {
   background-color: #d97652;
   font-family: 'League Spartan', sans-serif;
   font-family: 'Roboto', sans-serif;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  padding: 1rem;
-  margin-top: 1rem;
-}
-
-.list {
-  font-size: 8px;
   text-align: center;
+  padding-bottom: 10%;
+  /*display: flex;
+  justify-content: flex-start;
+  */
 }
 
-h6.footer-h6 {
-  color: black;
+.links{
+  margin-bottom: 1rem;
 }
 
 /* colocarlo en el media de desktop y tablet
