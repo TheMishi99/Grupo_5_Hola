@@ -1,0 +1,31 @@
+/*ESTILOS PARA REGISTER*/
+
+
+form.register-form {
+    color: white;
+    background-image: url(/img/fondo-login2.webp);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding:5px;
+  }
+  
+  section.register-section {
+    background-color: rgba(0,0,0,0.5);
+    border: 1px solid #d97652;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+  }
+  
+  .register-button {
+    width: 20%;
+    height: 100%;
+  }
+  
+  

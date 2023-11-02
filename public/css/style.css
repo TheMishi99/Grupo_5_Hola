@@ -119,6 +119,7 @@ header form input {
   text-align: center;
 }
 
+
 h4{
   color: #d97652;
 }
@@ -215,6 +216,8 @@ footer {
 .recent-products{
   margin: 1rem;
 }
+
+/*MEDIAS QUERIES*/
 
 /*tablet*/
 @media (min-width:361px) {
