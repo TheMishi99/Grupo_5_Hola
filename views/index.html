@@ -23,29 +23,35 @@
       rel="stylesheet"
     />
 
-      <!--Hoja de Estilo para Footer y Header-->
+    <!--Hoja de Estilo para Footer y Header-->
 
-      <!--Hoja de Estilo para home -->
-    <link href="css/home-style.css" rel="stylesheet">
-  
+    <!--Hoja de Estilo para home -->
+    <link href="css/home-style.css" rel="stylesheet" />
   </head>
   <body>
     <header>
-      <a href="/"><img src="/img/logo2.png" alt="logo" /></a>
-      <form action="">
-        <input type="text" />
-        <button>
-          <i class="fa-solid fa-magnifying-glass"></i>
+      <div class="container-logo-cart-user">
+        <button class="home__hamburguer">
+          <i class="fa-solid fa-bars"></i>
         </button>
-      </form>
-      <button class="cart">
-        <i class="fa-solid fa-cart-shopping"></i>
-      </button>
-      <button class="login">
-        <i class="fa-solid fa-circle-user"></i>
-        <span>UserName</span>
-        <i class="fa-solid fa-angle-down"></i>
-      </button>
+        <a href="/"><img src="/img/logo2.png" alt="logo" /></a>
+        <button class="cart">
+          <i class="fa-solid fa-cart-shopping"></i>
+        </button>
+        <button class="login">
+          <i class="fa-solid fa-circle-user"></i>
+          <span>UserName</span>
+          <i class="fa-solid fa-angle-down"></i>
+        </button>
+      </div>
+      <div class="search-bar">
+        <form action="">
+          <input type="text" />
+          <button>
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </form>
+      </div>
     </header>
     <nav class="home__navbar">
       <ul>
@@ -56,9 +62,6 @@
         <li><a href="#">Sucursales</a></li>
         <li><a href="#">Contáctanos</a></li>
       </ul>
-      <button class="home__hamburguer">
-        <i class="fa-solid fa-bars"></i>
-      </button>
     </nav>
     <main>
       <div class="banner">

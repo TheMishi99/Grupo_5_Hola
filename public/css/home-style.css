@@ -2,28 +2,43 @@
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
-  /*font-family: 'League Spartan', sans-serif;
-  font-family: 'Roboto', sans-serif;*/
+  font-family: 'League Spartan', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 /*
   Header (para todas las paginas?)
 */
 header {
-  display: flex;
+  /*display: flex;
   justify-content: space-evenly;
   align-items: center;
-  flex-direction: row;
+  flex-direction: row;*/
   padding: 20px 0 20px 0px;
   background-color: #d97652;
 }
 
+div.container-logo-cart-user {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  padding: 0% 5%;
+}
+
+div.search-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0% 5%;
+}
+
 header img {
-  height: 11vh;
+  height: 9vh;
 }
 
 header form {
-  width: 35%;
+  width: 100%;
   display: flex;
   justify-content: space-evenly;
   background-color: #f2f2f2;
@@ -52,7 +67,7 @@ header form input {
 }
 
 .login {
-  display: flex;
+  display: none;
   align-items: center;
   padding: 4px;
   background-color: #f28c0f;
@@ -72,6 +87,7 @@ header form input {
 }
 
 .home__navbar {
+  display:none;
   padding: 10px;
   background-color: #f2f2f2;
 }
@@ -80,7 +96,7 @@ header form input {
   list-style: none;
   font-size: small;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   flex-direction: row;
 }
 
@@ -101,7 +117,7 @@ header form input {
 .home__hamburguer {
   background: none;
   border: none;
-  font-size: medium;
+  font-size: 1.5rem;
 }
 
 .banner {
@@ -231,12 +247,43 @@ ul {
 
 /*tablet*/
 @media (min-width: 576px) {
+
+  .home__navbar{
+    display:block;
+  }
+  
   .home__navbar ul li a {
+    display: initial;
+  }
+
+  .login{
     display: initial;
   }
 
   .home__hamburguer {
     display: none;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+  }
+
+  div.container-logo-cart-user {
+    display: contents;
+
+  }
+
+  .login,
+  .cart {
+    order: 1
+  }
+
+  div.search-bar{
+    width: 50%;
+    margin: 0
   }
 
   .container {
@@ -255,14 +302,15 @@ ul {
 
 /*desktop*/
 @media (min-width: 992px) {
-  header form {
-    width: 35%;
+  
+  /*header form {
+    width: 100%;
     display: flex;
     justify-content: space-evenly;
     background-color: #f2f2f2;
     border-radius: 10px;
     padding: 5px;
-  }
+  }*/
 
   .container {
     display: flex;
