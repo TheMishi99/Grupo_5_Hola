@@ -10,10 +10,6 @@
   Header (para todas las paginas?)
 */
 header {
-  /*display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  flex-direction: row;*/
   padding: 20px 0 20px 0px;
   background-color: #d97652;
 }
@@ -121,7 +117,6 @@ header form input {
 }
 
 .banner {
-  /*margin: 10px 0 10px 0;*/
   width: 100%;
   display: flex;
   align-items: center;
@@ -140,7 +135,7 @@ h4 {
 }
 
 .recent-products {
-  margin-left: 1rem;
+  margin: 1rem 2rem;
 }
 
 .products-img {
@@ -205,6 +200,7 @@ main {
 }
 .brands{
   width: 25%;
+  padding: 2%
 }
 .brands img{
   width: 100%;
@@ -218,9 +214,6 @@ footer {
   font-family: "Roboto", sans-serif;
   text-align: center;
   padding-bottom: 10%;
-  /*display: flex;
-  justify-content: flex-start;
-  */
 }
 
 ul {
@@ -245,12 +238,10 @@ ul {
   color: white;
 }
 
-.recent-products {
-  margin: 1rem;
-}
-
 .logo {
-  padding: 2%;
+  padding: 2% 0% 0%;
+  width: 50%;
+  display: inline-block;
 }
 
 .list {
@@ -307,22 +298,28 @@ ul {
     width: 40%;
   }
 
-  .list {
-    display: initial;
+  .contenedor-footer {
+    display: flex;
+    padding: 5% 5% 2% 5%;
+  }
+
+  .links {
+    width: 40%;
+    padding-top: 4rem;
+  }
+
+  .logo {
+    padding: 0;
+    width: 40%;
+  }
+
+  footer {
+    padding-bottom: 5%;
   }
 }
 
 /*desktop*/
 @media (min-width: 992px) {
-  
-  /*header form {
-    width: 100%;
-    display: flex;
-    justify-content: space-evenly;
-    background-color: #f2f2f2;
-    border-radius: 10px;
-    padding: 5px;
-  }*/
 
   .container {
     display: flex;
@@ -342,13 +339,18 @@ ul {
     padding: 5% 2% 2% 5%;
   }
 
+  .list {
+    display: initial;
+  }
+
   .links {
     width: 40%;
+    padding-top: 4rem;
   }
 
   .logo {
     padding: 0;
-    width: 20%;
+    width: 40%;
   }
 
   footer {
