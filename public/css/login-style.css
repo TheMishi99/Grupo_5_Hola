@@ -9,31 +9,43 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding:5px;
   }
   
-  form.login-form {
+form.login-form {
     background-color: rgba(0,0,0,0.5);
-    border: 1px solid #d97652;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding:5px;
-  }
-  
-  a.login-acces {
+    padding: 10px;
+    line-height: 2.5em;
+    font-size: 1.17em;
+    margin: 20px;
+    border-radius:20px;
+}
+
+.login-acces {
     color: #d97652;
-  }
+    font-weight: bold;
+}
   
-  i.login-icons {
-    font-size: 35px;
+i.login-icons {
+    color: #d97652;
+    font-size: 3em;
     margin: 10px 10px 0 0;
     padding: 0 10px 10px 10px;
-  }
+}
   
-  .login-button {
+.login-button {
+    color: #d97652;
     width: 100%;
     height: 100%;
-  }
+    font-size: 1em;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+main div input {
+    font-size: 1em;
+}
   
