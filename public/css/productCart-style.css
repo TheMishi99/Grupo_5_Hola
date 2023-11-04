@@ -3,6 +3,20 @@ main {
   margin: 0;
   padding: 0;
 }
+
+main h2{
+  color: white;
+  margin-left: 5%;
+}
+
+.name-page{
+  display: flex;
+  padding: 5% 2% 0% 5%;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
 .product-cart {
   padding-bottom: 20px;
   border-bottom: 3px solid black;
@@ -13,13 +27,8 @@ main {
 .single-product {
   background-color: #f2f2f2;
   margin: 5% 2%;
-  padding: 2%;
+  padding: 2% 2% 4% 2%;
 }
-
-/* .product-img {
-  background-color: white;
-  width: 40%;
-} */
 
 .product-name {
   display: flex;
@@ -32,13 +41,22 @@ main {
 
 .product-details {
   display: none;
+  text-align: center;
 }
 
 .cant {
   border: 1px solid rgb(158, 150, 150);
-  border-radius: 10%;
-  width: 20%;
+  border-radius: 10px;
+  width: 30%;
   text-align: center;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  padding: 1%;
+}
+
+div.icons-math{
+  padding-top: 1.5%;
 }
 
 .container-line {
@@ -75,6 +93,25 @@ main {
 
 /* tablet */
 @media (min-width: 576px) {
+  .single-product{
+    display: flex;
+    align-items: center;
+  }
+
+  .container-line{
+    width: 50%;
+  }
+
+  .product-details{
+    display: initial;
+    display: flex;
+    align-items: center;
+  }
+
+  .product-details p{
+   margin: 1rem
+  }
+  
 }
 
 /* desktop  */
