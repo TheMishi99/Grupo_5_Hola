@@ -1,0 +1,38 @@
+main{
+    background-color: #d97652;
+    margin: 0;
+    padding:0
+}
+
+.single-product{
+    background-color: #f2f2f2;
+    margin: 5% 2%;    
+    padding: 2%;
+}
+
+.product-img{
+    background-color: white;
+    width: 40%;
+}
+
+.product-name,
+.product-price{
+    text-align: center;
+}
+
+.product-details{
+    display: none;
+}
+
+.cant{
+    border: 1px solid rgb(158, 150, 150);
+    border-radius: 10%;
+    width: 20%;
+    text-align: center;
+}
+
+.container-line{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+}
