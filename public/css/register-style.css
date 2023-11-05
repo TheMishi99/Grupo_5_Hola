@@ -3,9 +3,10 @@
 
 .register-main{
     color: white;
-    background-image: url(/img/fondo-login2.webp);
+    background-image: url(/img/fondo-login.png);
+    background-color: #cc9c84;
     background-position: center;
-    background-size: cover;
+    background-size: contain;
     background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
@@ -14,7 +15,7 @@
     font-size: 1.17em;
 }
 form.register-form{
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0,0,0,0.8);
     padding:15px;
     line-height: 1.4em;
     border-radius:20px;
