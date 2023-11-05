@@ -4,30 +4,33 @@ main {
   padding: 0;
 }
 
-main h2{
+.name-page h2 {
   color: white;
   margin-left: 5%;
 }
 
-.name-page{
+.name-page {
   display: flex;
-  padding: 5% 2% 0% 5%;
+  padding: 5% 2% 0% 6%;
   flex-direction: row;
-  justify-content: center;
   align-items: center;
 }
 
 .product-cart {
-  padding-bottom: 20px;
-  border-bottom: 3px solid black;
+  padding-bottom: 10%;
+  border-bottom: 1px solid #d97652;
 }
+
 .product-cart h2 {
   text-align: center;
 }
+
 .single-product {
   background-color: #f2f2f2;
-  margin: 5% 2%;
   padding: 2% 2% 4% 2%;
+  border: 1px;
+  border-radius: 15px;
+  margin: 5% 5%;
 }
 
 .product-name {
@@ -55,7 +58,7 @@ main h2{
   padding: 1%;
 }
 
-div.icons-math{
+div.icons-math {
   padding-top: 1.5%;
 }
 
@@ -74,14 +77,17 @@ div.icons-math{
   filter: brightness(1.1);
   mix-blend-mode: multiply;
 }
+
 .product-img img {
   object-fit: contain;
   height: 90%;
 }
+
 .cart__buttons {
   display: flex;
   justify-content: space-around;
 }
+
 .cart__button {
   background-color: rgb(90, 180, 90);
   color: white;
@@ -91,29 +97,77 @@ div.icons-math{
   font-size: medium;
 }
 
+.discount {
+  background-color: #f2f2f2;
+  margin: 2% 5%;
+  border: 1px;
+  border-radius: 10px;
+  padding: 4% 2%;
+  text-align: center;
+}
+
+.discount h3 {
+  color: black;
+  margin-right: 5%;
+  text-align: center;
+}
+
+input.cupon{
+  width: 70%;
+}
+
+.resumen{
+  background-color: #f28c0f;
+  text-align: center;
+  color: #ffffff;
+  margin: 3% 5%;
+  border: 1px;
+  border-radius: 10px;
+  padding: 2%;
+}
+
+
 /* tablet */
 @media (min-width: 576px) {
-  .single-product{
+  .single-product {
     display: flex;
     align-items: center;
   }
 
-  .container-line{
+  .container-line {
     width: 50%;
   }
+}
 
-  .product-details{
+/* desktop  */
+@media (min-width: 992px) {
+  .product-details {
     display: initial;
     display: flex;
     align-items: center;
   }
 
-  .product-details p{
-   margin: 1rem
+  .product-details p {
+    margin: 1rem;
   }
-  
-}
 
-/* desktop  */
-@media (min-width: 992px) {
+  .single-product {
+    padding: 0%;
+    margin: 2% 5%;
+  }
+
+  .container-line {
+    justify-content: space-evenly;
+  }
+
+  .discount{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  input.cupon{
+    width: 300px;
+  }
+
 }

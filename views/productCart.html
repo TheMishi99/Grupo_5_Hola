@@ -139,6 +139,7 @@
             </div>
             <div class="product-details">
               <p>Marca: Purina Tidy Cats</p>
+              <p>Acción: Prolongada</p>
               <p>Peso: 1,8Kg</p>
             </div>
           </div>
@@ -187,10 +188,21 @@
             </div>
           </div>
         </div>
-
-        <br /><br />
-        <h2>Total: 65.500,00</h2>
-        <br /><br />
+        <div class="discount">
+          <h3>¿Tenés un cupón de descuento?</h3>
+          <br>
+          <form action="procesar_cupon.php" method="post">
+            <input class="cupon" type="text" id="cupon" name="cupon" />
+            <input type="submit" value="Añadir" />
+          </form>
+        </div>
+        <div class="resumen">
+          <h3>SubTotal: 65.500,00</h3>
+          <br>
+          <h3>Descuento: 10.000,00</h3>
+          <br>
+          <h2>Total: 55.500,00</h2>
+        </div>
         <div class="cart__buttons">
           <button class="cart__button">Seguir comprando</button>
           <button class="cart__button">Pagar</button>
