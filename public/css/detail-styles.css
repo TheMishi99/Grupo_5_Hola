@@ -123,27 +123,63 @@ header form input {
     justify-content: center;
 }
 
-div .product-name {
-    color: #d97652;
-    padding: 1rem;
+.slider {
+    padding-top: 1rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
     text-align: center;
-    border-radius: 10px;
-    margin: 1rem;
-    font-size: larger;
 }
 
 h4 {
+    display: flex;
     color: #d97652;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 10px;
+    border: 1px
 }
 
+.recent-products {
+    margin: 1rem 2rem;
+}
+
+/*Product*/
+
 .products-img {
+    display: block;
+    position: relative;
+    left: 50px;
+    justify-content: flex-start;
+    width: 50%;
+    height: 20px;
+    margin-top: 1rem;
     text-align: center;
+}
+
+.product-name {
+    display: flex;
 }
 
 .product-price {
     text-align: center;
     margin: 1rem;
     margin-top: 0;
+    position: relative;
+    right: 40px;
+    top: 100px;
+}
+
+.promotion {
+    position: relative;
+    display: inline-block;
+}
+
+.promotion i {
+    position: absolute;
+    color: white;
+    padding: 5px;
+    border-radius: 50%;
 }
 
 .bottom-buy {
@@ -156,21 +192,26 @@ h4 {
     font-size: larger;
 }
 
+article {
+    margin-bottom: 1rem;
+    margin-top: 10px;
+    background-color: white;
+    margin-left: 5%;
+    margin-right: 5%;
+    padding-bottom: 0.1rem;
+    width: 90%;
+    text-align: center;
+}
+
 main {
     font-family: "League Spartan", sans-serif;
     font-family: "Roboto", sans-serif;
     background-color: #f2f2f2;
 }
 
-.container {
-    margin-top: 1rem;
-}
-
-
-
-
-/*Footer*/
-
+/*
+    Footer (para todas las paginas?)
+  */
 footer {
     background-color: #d97652;
     font-family: "League Spartan", sans-serif;
