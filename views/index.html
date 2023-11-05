@@ -1,269 +1,288 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home</title>
-    <script
-      src="https://kit.fontawesome.com/b42ec8045a.js"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://kit.fontawesome.com/6d37a11b52.js"
-      crossorigin="anonymous"
-    ></script>
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-      rel="stylesheet"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;800;900&family=Roboto:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
 
-    <!--Hoja de Estilo-->
-    <link href="css/home-style.css" rel="stylesheet" />
-  </head>
-  <body>
-    <header>
-      <div class="container-logo-cart-user">
-        <button class="home__hamburguer">
-          <i class="fa-solid fa-bars"></i>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home</title>
+  <script src="https://kit.fontawesome.com/b42ec8045a.js" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/6d37a11b52.js" crossorigin="anonymous"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;800;900&family=Roboto:wght@400;700&display=swap"
+    rel="stylesheet" />
+
+  <!--Hoja de Estilo-->
+  <link href="css/home-style.css" rel="stylesheet" />
+</head>
+
+<body>
+  <header>
+    <div class="container-logo-cart-user">
+      <button class="home__hamburguer">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      <a href="/"><img src="/img/logo2.png" alt="logo" /></a>
+      <button class="cart">
+        <a href="/productCart"><i class="fa-solid fa-cart-shopping"></i></a>
+      </button>
+      <button class="login">
+        <i class="fa-solid fa-circle-user"></i>
+        <span>UserName</span>
+        <i class="fa-solid fa-angle-down"></i>
+      </button>
+    </div>
+    <div class="search-bar">
+      <form action="">
+        <input type="text" />
+        <button>
+          <i class="fa-solid fa-magnifying-glass"></i>
         </button>
-        <a href="/"><img src="/img/logo2.png" alt="logo" /></a>
-        <button class="cart">
-          <a href="/productCart"><i class="fa-solid fa-cart-shopping"></i></a>
-        </button>
-        <button class="login">
-          <i class="fa-solid fa-circle-user"></i>
-          <span>UserName</span>
-          <i class="fa-solid fa-angle-down"></i>
-        </button>
-      </div>
-      <div class="search-bar">
-        <form action="">
-          <input type="text" />
-          <button>
-            <i class="fa-solid fa-magnifying-glass"></i>
-          </button>
-        </form>
-      </div>
-    </header>
-    <nav class="home__navbar">
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="#">Productos</a></li>
-        <li><a href="#">Marcas</a></li>
-        <li><a href="#">Promociones</a></li>
-        <li><a href="#">Sucursales</a></li>
-        <li><a href="#">Contáctanos</a></li>
-      </ul>
-    </nav>
-    <main>
-      <div class="banner">
-        <img src="img/cat-banner-2.gif" width="100%" alt="gift-banner" />
-      </div>
-      <div class="slider">
-        <img src="img/gatos-banner.png" width="95%" alt="banner-promotion" />
-      </div>
-      <div class="recent-products">
-        <h3>Productos más recientes</h3>
-        <h4>Ver todos los productos ></h4>
-      </div>
+      </form>
+    </div>
+  </header>
+  <nav class="home__navbar">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="#">Productos</a></li>
+      <li><a href="#">Marcas</a></li>
+      <li><a href="#">Promociones</a></li>
+      <li><a href="#">Sucursales</a></li>
+      <li><a href="#">Contáctanos</a></li>
+    </ul>
+  </nav>
+  <main>
+    <div class="banner">
+      <img src="img/cat-banner-2.gif" width="100%" alt="gift-banner" />
+    </div>
+    <div class="slider">
+      <img src="img/gatos-banner.png" width="95%" alt="banner-promotion" />
+    </div>
+    <div class="recent-products">
+      <h3>Productos más recientes</h3>
+      <h4>Ver todos los productos ></h4>
+    </div>
 
-      <div class="container">
-        <article>
-          <div class="products-img">
-            <img src="/img/alimento-purina.png" width="100%" alt=" " />
-          </div>
-          <div class="product-name">
-            <p>
-              Alimento Pro Plan OptiRenal Sterilized para gato adulto sabor
-              salmón y arroz en bolsa de 7.5 kg
-            </p>
-          </div>
-          <div class="product-price">
-            <h3>$34.000,00</h3>
-          </div>
-          <a href="/productDetail"><div class="bottom-buy"><strong>Comprar</strong></div></a>
-        </article>
-
-        <article>
-          <div class="products-img">
-            <img src="/img/alimento-whiskas.png" width="100%" alt=" " />
-          </div>
-          <div class="product-name">
-            <p>
-              Alimento Whiskas 1+ Whiskas Gatos para gato adulto sabor carne en
-              bolsa de 3 kg
-            </p>
-          </div>
-          <div class="product-price">
-            <h3>$17.000,00</h3>
-          </div>
-          <a href="#"><div class="bottom-buy"><strong>Comprar</strong></div></a>
-        </article>
-
-        <article>
-          <div class="products-img">
-            <img src="/img/piedras-purina.png" width="100%" alt=" " />
-          </div>
-          <div class="product-name">
-            <p>Piedras sanitarias para gatos Purina Tidy Cats 1,8Kg</p>
-          </div>
-          <div class="product-price">
-            <h3>$1.500,00</h3>
-          </div>
-          <a href="#"><div class="bottom-buy"><strong>Comprar</strong></div></a>
-        </article>
-
-        <article>
-          <div class="products-img">
-            <img src="/img/comida-humeda-whiskas.png" width="100%" alt=" " />
-          </div>
-          <div class="product-name">
-            <p>
-              Alimento Whiskas para gato de temprana edad sabor carne en salsa
-              en sobre de 85 g
-            </p>
-          </div>
-          <div class="product-price">
-            <h3>$5.000,00</h3>
-          </div>
-          <a href="#"><div class="bottom-buy"><strong>Comprar</strong></div></a>
-        </article>
-      </div>
-
-      <div class="recent-products">
-        <h3>Promociones vigentes</h3>
-        <h4>Ver todas las promociones ></h4>
-      </div>
-
-      <div class="container">
-        <article>
-          <div class="promotion"><h2>2x1</h2></div>
-          <div class="products-img">
-            <img src="/img/alimento-purina.png" width="100%" alt=" " />
-          </div>
-          <div class="product-name">
-            <p>
-              Alimento Pro Plan OptiRenal Sterilized para gato adulto sabor
-              salmón y arroz en bolsa de 7.5 kg
-            </p>
-          </div>
-          <div class="product-price">
-            <h3>$34.000,00</h3>
-          </div>
-          <a href="/productDetail"><div class="bottom-buy"><strong>Comprar</strong></div></a>
-        </article>
-
-        <article>
-          <div class="promotion"><h2>30% de descuento</h2></div>
-          <div class="products-img">
-            <img src="/img/alimento-whiskas.png" width="100%" alt=" " />
-          </div>
-          <div class="product-name">
-            <p>
-              Alimento Whiskas 1+ Whiskas Gatos para gato adulto sabor carne en
-              bolsa de 3 kg
-            </p>
-          </div>
-          <div class="product-price">
-            <h3>$17.000,00</h3>
-          </div>
-          <a href="#"><div class="bottom-buy"><strong>Comprar</strong></div></a>
-        </article>
-
-        <article>
-          <div class="promotion"><h2>Llevate un regalo</h2></div>
-          <div class="products-img">
-            <img src="/img/piedras-purina.png" width="100%" alt=" " />
-          </div>
-          <div class="product-name">
-            <p>Piedras sanitarias para gatos Purina Tidy Cats 1,8Kg</p>
-          </div>
-          <div class="product-price">
-            <h3>$1.500,00</h3>
-          </div>
-          <a href="#"><div class="bottom-buy"><strong>Comprar</strong></div></a>
-        </article>
-
-        <article>
-          <div class="promotion"><h2>20% de Descuento</h2></div>
-          <div class="products-img">
-            <img src="/img/comida-humeda-whiskas.png" width="100%" alt=" " />
-          </div>
-          <div class="product-name">
-            <p>
-              Alimento Whiskas para gato de temprana edad sabor carne en salsa
-              en sobre de 85 g
-            </p>
-          </div>
-          <div class="product-price">
-            <h3>$5.000,00</h3>
-          </div>
-          <a href="#"><div class="bottom-buy"><strong>Comprar</strong></div></a>
-        </article>
-      </div>
-
-      <div class="recent-products">
-        <h3>Nuestras marcas</h3>
-        <h4>Ver todas las marcas ></h4>
-      </div>
-
-      <div class="container-brands">
-        <div class="brands"><a href="https://www.purina.com.ar/purina-one"><img src="/img/logo-purina.png" alt=" " /></a></div>
-        <div class="brands"><a href="https://www.whiskas.com.ar"><img src="/img/logo-whiskas.png" alt=" " /></a></div>
-        <div class="brands"><a href="https://www.royalcanin.com/ar"><img src="/img/logo-royalcanin.png" alt=" " /></a></div>
-        <div class="brands"><a href="https://catpro.com.ar"><img src="/img/logo-catpro.png" alt=" " /></a></div>
-      </div>
-    </main>
-
-    <footer>
-      <div class="contenedor-footer">
-        <div class="logo">
-          <img src="/img/logo2.png" width="100%" alt="logo" />
+    <div class="container">
+      <article>
+        <div class="products-img">
+          <img src="/img/alimento-purina.png" width="100%" alt=" " />
         </div>
-        <div class="links">
-          <h3 class="footer-h6">Nosotros</h3>
-          <div class="list">
-            <ul>
-              <li>Sobre Mishis</li>
-              <li>Trabaja con nosotros</li>
-              <li>Proovedores</li>
-            </ul>
-          </div>
+        <div class="product-name">
+          <p>
+            Alimento Pro Plan OptiRenal Sterilized para gato adulto sabor
+            salmón y arroz en bolsa de 7.5 kg
+          </p>
         </div>
-        <div class="links">
-          <h3 class="footer-h6">Tienda Online</h3>
-          <div class="list">
-            <ul>
-              <li>Formas de Entrega</li>
-              <li>Cambios y Devoluciones</li>
-              <li>Defensa al Consumidor</li>
-            </ul>
-          </div>
+        <div class="product-price">
+          <h3>$34.000,00</h3>
         </div>
-        <div class="links">
-          <h3 class="footer-h6">Información</h3>
-          <div class="list">
-            <ul>
-              <li>Términos y Condiciones</li>
-              <li>Políticas de Privacidad</li>
-              <li>Preguntas Frecuentes</li>
-            </ul>
-          </div>
+        <a href="/productDetail">
+          <div class="bottom-buy"><strong>Comprar</strong></div>
+        </a>
+      </article>
+
+      <article>
+        <div class="products-img">
+          <img src="/img/alimento-whiskas.png" width="100%" alt=" " />
+        </div>
+        <div class="product-name">
+          <p>
+            Alimento Whiskas 1+ Whiskas Gatos para gato adulto sabor carne en
+            bolsa de 3 kg
+          </p>
+        </div>
+        <div class="product-price">
+          <h3>$17.000,00</h3>
+        </div>
+        <a href="#">
+          <div class="bottom-buy"><strong>Comprar</strong></div>
+        </a>
+      </article>
+
+      <article>
+        <div class="products-img">
+          <img src="/img/piedras-purina.png" width="100%" alt=" " />
+        </div>
+        <div class="product-name">
+          <p>Piedras sanitarias para gatos Purina Tidy Cats 1,8Kg</p>
+        </div>
+        <div class="product-price">
+          <h3>$1.500,00</h3>
+        </div>
+        <a href="#">
+          <div class="bottom-buy"><strong>Comprar</strong></div>
+        </a>
+      </article>
+
+      <article>
+        <div class="products-img">
+          <img src="/img/comida-humeda-whiskas.png" width="100%" alt=" " />
+        </div>
+        <div class="product-name">
+          <p>
+            Alimento Whiskas para gato de temprana edad sabor carne en salsa
+            en sobre de 85 g
+          </p>
+        </div>
+        <div class="product-price">
+          <h3>$5.000,00</h3>
+        </div>
+        <a href="#">
+          <div class="bottom-buy"><strong>Comprar</strong></div>
+        </a>
+      </article>
+    </div>
+
+    <div class="recent-products">
+      <h3>Promociones vigentes</h3>
+      <h4>Ver todas las promociones ></h4>
+    </div>
+
+    <div class="container">
+      <article>
+        <div class="promotion">
+          <h2>2x1</h2>
+        </div>
+        <div class="products-img">
+          <img src="/img/alimento-purina.png" width="100%" alt=" " />
+        </div>
+        <div class="product-name">
+          <p>
+            Alimento Pro Plan OptiRenal Sterilized para gato adulto sabor
+            salmón y arroz en bolsa de 7.5 kg
+          </p>
+        </div>
+        <div class="product-price">
+          <h3>$34.000,00</h3>
+        </div>
+        <a href="/productDetail">
+          <div class="bottom-buy"><strong>Comprar</strong></div>
+        </a>
+      </article>
+
+      <article>
+        <div class="promotion">
+          <h2>30% de descuento</h2>
+        </div>
+        <div class="products-img">
+          <img src="/img/alimento-whiskas.png" width="100%" alt=" " />
+        </div>
+        <div class="product-name">
+          <p>
+            Alimento Whiskas 1+ Whiskas Gatos para gato adulto sabor carne en
+            bolsa de 3 kg
+          </p>
+        </div>
+        <div class="product-price">
+          <h3>$17.000,00</h3>
+        </div>
+        <a href="#">
+          <div class="bottom-buy"><strong>Comprar</strong></div>
+        </a>
+      </article>
+
+      <article>
+        <div class="promotion">
+          <h2>Llevate un regalo</h2>
+        </div>
+        <div class="products-img">
+          <img src="/img/piedras-purina.png" width="100%" alt=" " />
+        </div>
+        <div class="product-name">
+          <p>Piedras sanitarias para gatos Purina Tidy Cats 1,8Kg</p>
+        </div>
+        <div class="product-price">
+          <h3>$1.500,00</h3>
+        </div>
+        <a href="#">
+          <div class="bottom-buy"><strong>Comprar</strong></div>
+        </a>
+      </article>
+
+      <article>
+        <div class="promotion">
+          <h2>20% de Descuento</h2>
+        </div>
+        <div class="products-img">
+          <img src="/img/comida-humeda-whiskas.png" width="100%" alt=" " />
+        </div>
+        <div class="product-name">
+          <p>
+            Alimento Whiskas para gato de temprana edad sabor carne en salsa
+            en sobre de 85 g
+          </p>
+        </div>
+        <div class="product-price">
+          <h3>$5.000,00</h3>
+        </div>
+        <a href="#">
+          <div class="bottom-buy"><strong>Comprar</strong></div>
+        </a>
+      </article>
+    </div>
+
+    <div class="recent-products">
+      <h3>Nuestras marcas</h3>
+      <h4>Ver todas las marcas ></h4>
+    </div>
+
+    <div class="container-brands">
+      <div class="brands"><a href="https://www.purina.com.ar/purina-one"><img src="/img/logo-purina.png" alt=" " /></a>
+      </div>
+      <div class="brands"><a href="https://www.whiskas.com.ar"><img src="/img/logo-whiskas.png" alt=" " /></a></div>
+      <div class="brands"><a href="https://www.royalcanin.com/ar"><img src="/img/logo-royalcanin.png" alt=" " /></a>
+      </div>
+      <div class="brands"><a href="https://catpro.com.ar"><img src="/img/logo-catpro.png" alt=" " /></a></div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="contenedor-footer">
+      <div class="logo">
+        <img src="/img/logo2.png" width="100%" alt="logo" />
+      </div>
+      <div class="links">
+        <h3 class="footer-h6">Nosotros</h3>
+        <div class="list">
+          <ul>
+            <li>Sobre Mishis</li>
+            <li>Trabaja con nosotros</li>
+            <li>Proovedores</li>
+          </ul>
         </div>
       </div>
-      <div class="icons">
-        <a href="#"><i class="fa-brands fa-square-facebook" font-size="20px"></i></a>
-        <a href="#"><i class="fa-brands fa-square-x-twitter" font-size="20px"></i></a>
-        <a href="#"><i class="fa-brands fa-square-instagram" font-size="20px"></i></a>
-        <a href="#"><i class="fa-brands fa-cc-paypal" font-size="20px"></i></a>
-        <a href="#"><i class="fa-solid fa-message" font-size="20px"></i></a>
+      <div class="links">
+        <h3 class="footer-h6">Tienda Online</h3>
+        <div class="list">
+          <ul>
+            <li>Formas de Entrega</li>
+            <li>Cambios y Devoluciones</li>
+            <li>Defensa al Consumidor</li>
+          </ul>
+        </div>
       </div>
-    </footer>
-  </body>
+      <div class="links">
+        <h3 class="footer-h6">Información</h3>
+        <div class="list">
+          <ul>
+            <li>Términos y Condiciones</li>
+            <li>Políticas de Privacidad</li>
+            <li>Preguntas Frecuentes</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="icons">
+      <a href="#"><i class="fa-brands fa-square-facebook" font-size="20px"></i></a>
+      <a href="#"><i class="fa-brands fa-square-x-twitter" font-size="20px"></i></a>
+      <a href="#"><i class="fa-brands fa-square-instagram" font-size="20px"></i></a>
+      <a href="#"><i class="fa-brands fa-cc-paypal" font-size="20px"></i></a>
+      <a href="#"><i class="fa-solid fa-message" font-size="20px"></i></a>
+    </div>
+  </footer>
+</body>
+
 </html>
