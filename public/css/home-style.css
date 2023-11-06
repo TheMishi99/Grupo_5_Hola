@@ -2,8 +2,8 @@
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
-  font-family: 'League Spartan', sans-serif;
-  font-family: 'Roboto', sans-serif;
+  font-family: "League Spartan", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 /*
@@ -68,7 +68,7 @@ header form input {
   padding: 1%;
   background-color: #f28c0f;
   border-radius: 15px;
-  border: 1px
+  border: 1px;
 }
 
 .fa-circle-user {
@@ -84,7 +84,7 @@ header form input {
 }
 
 .home__navbar {
-  display:none;
+  display: none;
   padding: 10px;
   background-color: #f2f2f2;
 }
@@ -192,18 +192,18 @@ main {
 .container {
   margin-top: 1rem;
 }
-.container-brands{
+.container-brands {
   display: flex;
   align-items: center;
   padding: 10px;
   width: 100%;
   margin-top: 1rem;
 }
-.brands{
+.brands {
   width: 25%;
-  padding: 2%
+  padding: 2%;
 }
-.brands img{
+.brands img {
   width: 100%;
 }
 /*
@@ -251,16 +251,15 @@ ul {
 
 /*tablet*/
 @media (min-width: 576px) {
-
-  .home__navbar{
-    display:block;
+  .home__navbar {
+    display: block;
   }
-  
+
   .home__navbar ul li a {
     display: initial;
   }
 
-  .login{
+  .login {
     display: initial;
   }
 
@@ -277,17 +276,16 @@ ul {
 
   div.container-logo-cart-user {
     display: contents;
-
   }
 
   .login,
   .cart {
-    order: 1
+    order: 1;
   }
 
-  div.search-bar{
+  div.search-bar {
     width: 50%;
-    margin: 0
+    margin: 0;
   }
 
   .container {
@@ -297,6 +295,8 @@ ul {
 
   article {
     width: 40%;
+    display: grid;
+    align-items: center;
   }
 
   .contenedor-footer {
@@ -321,16 +321,15 @@ ul {
 
 /*desktop*/
 @media (min-width: 992px) {
-
-  .login{
-  width: 14%;
+  .login {
+    width: 14%;
   }
 
-  .login span{
+  .login span {
     font-size: large;
   }
-  
-  .cart{
+
+  .cart {
     font-size: 30px;
   }
 
@@ -341,10 +340,13 @@ ul {
   }
 
   article {
-    box-shadow: 0px 0px 10px rgb(100, 100, 100);
     width: 20%;
     margin: 0;
     margin-bottom: 1rem;
+  }
+
+  article:hover {
+    box-shadow: 0px 0px 10px rgb(100, 100, 100);
   }
 
   .contenedor-footer {

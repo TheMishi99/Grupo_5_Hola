@@ -126,6 +126,12 @@ input.cupon{
   padding: 2%;
 }
 
+.single-product i.fa-xmark {
+  font-size: 24px; 
+  color: #ff0000; 
+  cursor: pointer;
+}
+
 
 /* tablet */
 @media (min-width: 576px) {
@@ -137,6 +143,17 @@ input.cupon{
   .container-line {
     width: 50%;
   }
+
+  .single-product i.fa-xmark {
+    display: initial;
+    position: relative;
+    top: -80px; 
+    right: 15px; 
+    font-size: 24px; 
+    color: #ff0000; 
+    cursor: pointer;
+  }
+
 }
 
 /* desktop  */
