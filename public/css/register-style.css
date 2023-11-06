@@ -1,7 +1,7 @@
 /*ESTILOS PARA REGISTER*/
 
 
-.register-main{
+.register-main {
     color: white;
     background-image: url(/img/fondo-login.png);
     background-color: #cc9c84;
@@ -14,31 +14,34 @@
     padding: 15px;
     font-size: 1.17em;
 }
-form.register-form{
-    background-color: rgba(0,0,0,0.8);
-    padding:15px;
+
+form.register-form {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 15px;
     line-height: 1.4em;
-    border-radius:20px;
+    border-radius: 20px;
 }
-.tit-links{
-  color: #d97652
+
+.tit-links {
+    color: #d97652
 }
+
 section.register-title-form {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-  
+
 section.register-section {
     color: darkgrey;
     font-size: 0.9em;
 }
 
-div.campos input{
-  width: 100%;
+div.campos input {
+    width: 100%;
 }
-  
+
 .register-button {
     color: #d97652;
     width: 40%;
@@ -46,6 +49,5 @@ div.campos input{
     font-size: 1em;
     padding: 5px;
     border-radius: 20px;
+    cursor: pointer;
 }
-  
-  
