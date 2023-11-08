@@ -1,133 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detalle de producto</title>
+    <script
+      src="https://kit.fontawesome.com/6d37a11b52.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;800;900&family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Detalle de producto</title>
-  <script src="https://kit.fontawesome.com/6d37a11b52.js" crossorigin="anonymous"></script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;800;900&family=Roboto:wght@400;700&display=swap"
-    rel="stylesheet">
+    <!--Hoja de Estilos para footer y header-->
+    <link href="css/home-style.css" rel="stylesheet" />
+    <!--Hoja de Estilos para detalle de producto-->
+    <link href="css/productDetail-style.css" rel="stylesheet" />
+  </head>
 
-  <!--Hoja de Estilos para footer y header-->
-  <link href="css/home-style.css" rel="stylesheet">
-  <!--Hoja de Estilos para register-->
-  <link href="/css/register-style.css" rel="stylesheet">
-  <!--Hoja de Estilos para detalle de producto-->
-  <link href="/css/detail-style.css" rel="stylesheet">
-</head>
-
-<body>
-  <header>
-    <div class="container-logo-cart-user">
+  <body>
+    <header>
+      <div class="container-logo-cart-user">
+        <button class="home__hamburguer">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <a href="/"><img src="/img/logo2.png" alt="logo" /></a>
+        <button class="cart">
+          <a href="/productCart"><i class="fa-solid fa-cart-shopping"></i></a>
+        </button>
+        <button class="login">
+          <i class="fa-solid fa-circle-user"></i>
+          <span>UserName</span>
+          <i class="fa-solid fa-angle-down"></i>
+        </button>
+      </div>
+      <div class="search-bar">
+        <form action="">
+          <input type="text" />
+          <button>
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </form>
+      </div>
+    </header>
+    <nav class="home__navbar">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="#">Productos</a></li>
+        <li><a href="#">Marcas</a></li>
+        <li><a href="#">Promociones</a></li>
+        <li><a href="#">Sucursales</a></li>
+        <li><a href="#">Contáctanos</a></li>
+      </ul>
       <button class="home__hamburguer">
         <i class="fa-solid fa-bars"></i>
       </button>
-      <a href="/"><img src="/img/logo2.png" alt="logo" /></a>
-      <button class="cart">
-        <a href="/productCart"><i class="fa-solid fa-cart-shopping"></i></a>
-      </button>
-      <button class="login">
-        <i class="fa-solid fa-circle-user"></i>
-        <span>UserName</span>
-        <i class="fa-solid fa-angle-down"></i>
-      </button>
-    </div>
-    <div class="search-bar">
-      <form action="">
-        <input type="text" />
-        <button>
-          <i class="fa-solid fa-magnifying-glass"></i>
-        </button>
-      </form>
-    </div>
-  </header>
-  <nav class="home__navbar">
-    <ul>
-      <li><a href="/">Home</a></li>
-      <li><a href="#">Productos</a></li>
-      <li><a href="#">Marcas</a></li>
-      <li><a href="#">Promociones</a></li>
-      <li><a href="#">Sucursales</a></li>
-      <li><a href="#">Contáctanos</a></li>
-    </ul>
-    <button class="home__hamburguer">
-      <i class="fa-solid fa-bars"></i>
-    </button>
-  </nav>
-  <main>
-    <section>
-      <h4 class="titulo">Detalle del Producto</h4>
-      <article>
-        <div class="products-img">
-          <img src="/img/alimento-purina.png" alt=" " />
+    </nav>
+    <main>
+      <section>
+        <div class="name-page">
+          <h2>Detalle del Producto</h2>
         </div>
-        <div class="product-name">
-          <h2>Alimento para gatos adultos</h2>
-        </div>
-        <div class="product-details">
-          <ul>
-            <li>Marca: Pro Plan OptiRenal Sterilized</li>
-            <li>Sabor: Salmón y Arroz</li>
-            <li>Peso: 7.5Kg</li>
-          </ul>
-          <div class="product-price">
-            <h3>$34.000,00</h3>
+        <div class="product">
+          <div class="product-img">
+            <img src="/img/alimento-purina.png" width="100%" alt=" " />
           </div>
-          <div class="bottom-buy"><strong>Comprar</strong></div>
-      </article>
-      </div>
-      </article>
-    </section>
-  </main>
-  <footer>
-    <div class="contenedor-footer">
-      <div class="logo">
-        <img src="/img/logo2.png" width="100%" alt="logo" />
-      </div>
-      <div class="links">
-        <h3 class="footer-h6">Nosotros</h3>
-        <div class="list">
-          <ul>
-            <li>Sobre Mishis</li>
-            <li>Trabaja con nosotros</li>
-            <li>Proovedores</li>
-          </ul>
+          <div class="product-name-details">
+            <h3>Alimento para gatos adultos</h3>
+            <ul>
+              <li><p>Marca: Pro Plan OptiRenal Sterilized</p></li>
+              <li><p>Sabor: Salmón y Arroz</p></li>
+              <li><p>Peso: 7.5Kg</p></li>
+            </ul>
+          </div>
+          <div class="product-code">
+            <h4>Codigo de producto: #A1</h4>
+          </div>
+          <div class="add-favorite">
+            <i class="fa-regular fa-heart" style="color: #d97652"></i>
+            <h4>Añadir favorito</h4>
+          </div>
+          <div class="product-price">
+            <h3>$5.000,00</h3>
+          </div>
+          <div class="cant">
+            <div class="icons-math">
+              <i class="fa-solid fa-plus" style="color: #000000"></i>
+            </div>
+            <h3>1</h3>
+            <div class="icons-math">
+              <i class="fa-solid fa-minus" style="color: #000000"></i>
+            </div>
+          </div>
+          <div class="add-product">
+            <i class="fa-solid fa-cart-plus" style="color: #d97652"></i>
+            <h4>Agregar al carrito</h4>
+          </div>
+          <div class="product-description">
+            <h3>Descripción:</h3>
+            <p>Pro Plan Sterilized Cat tiene en cuenta los cambios hormonales que la castración produce en tu gato, por lo que combina sus ingredientes para garantizar un funcionamiento renal óptimo. Aporta un alto contenido de fibras y proteínas reduciendo el contenido de grasa, lo que causa una reducción en las calorías de la dieta y garantizando una condición corporal ideal. Además, controla la formación de bolas de pelo.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="contenedor-footer">
+        <div class="logo">
+          <img src="/img/logo2.png" width="100%" alt="logo" />
+        </div>
+        <div class="links">
+          <h3 class="footer-h6">Nosotros</h3>
+          <div class="list">
+            <ul>
+              <li>Sobre Mishis</li>
+              <li>Trabaja con nosotros</li>
+              <li>Proovedores</li>
+            </ul>
+          </div>
+        </div>
+        <div class="links">
+          <h3 class="footer-h6">Tienda Online</h3>
+          <div class="list">
+            <ul>
+              <li>Formas de Entrega</li>
+              <li>Cambios y Devoluciones</li>
+              <li>Defensa al Consumidor</li>
+            </ul>
+          </div>
+        </div>
+        <div class="links">
+          <h3 class="footer-h6">Información</h3>
+          <div class="list">
+            <ul>
+              <li>Términos y Condiciones</li>
+              <li>Políticas de Privacidad</li>
+              <li>Preguntas Frecuentes</li>
+            </ul>
+          </div>
         </div>
       </div>
-      <div class="links">
-        <h3 class="footer-h6">Tienda Online</h3>
-        <div class="list">
-          <ul>
-            <li>Formas de Entrega</li>
-            <li>Cambios y Devoluciones</li>
-            <li>Defensa al Consumidor</li>
-          </ul>
-        </div>
+      <div class="icons">
+        <a href="#"
+          ><i class="fa-brands fa-square-facebook" font-size="20px"></i
+        ></a>
+        <a href="#"
+          ><i class="fa-brands fa-square-x-twitter" font-size="20px"></i
+        ></a>
+        <a href="#"
+          ><i class="fa-brands fa-square-instagram" font-size="20px"></i
+        ></a>
+        <a href="#"><i class="fa-brands fa-cc-paypal" font-size="20px"></i></a>
+        <a href="#"><i class="fa-solid fa-message" font-size="20px"></i></a>
       </div>
-      <div class="links">
-        <h3 class="footer-h6">Información</h3>
-        <div class="list">
-          <ul>
-            <li>Términos y Condiciones</li>
-            <li>Políticas de Privacidad</li>
-            <li>Preguntas Frecuentes</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="icons">
-      <a href="#"><i class="fa-brands fa-square-facebook" font-size="20px"></i></a>
-      <a href="#"><i class="fa-brands fa-square-x-twitter" font-size="20px"></i></a>
-      <a href="#"><i class="fa-brands fa-square-instagram" font-size="20px"></i></a>
-      <a href="#"><i class="fa-brands fa-cc-paypal" font-size="20px"></i></a>
-      <a href="#"><i class="fa-solid fa-message" font-size="20px"></i></a>
-    </div>
-  </footer>
-</body>
-
+    </footer>
+  </body>
 </html>
