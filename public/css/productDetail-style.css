@@ -17,6 +17,15 @@ main {
   padding: 5%;
 }
 
+.name-page h2 {
+  text-align: center;
+  background-color: white;
+  border-radius: 15px;
+  Color: #f28c0f;
+  width: 100%;
+  padding: 5px;
+}
+
 .product {
   display: flex;
   flex-direction: column;
