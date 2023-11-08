@@ -7,73 +7,91 @@
 }
 
 /* MAIN */
-main{
+main {
   background-color: #d97652;
   padding-bottom: 5%;
   border-bottom: 1px solid black;
 }
 
-.name-page{
+.name-page {
   padding: 5%;
 }
 
+.product {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .product-img {
   background-color: #f2f2f2;
   width: 90%;
-  margin: 5%;
+  margin: 20px;
   border: 1px;
   border-radius: 15px;
+  max-width: 600px;
+}
+.product-img img{
+  display: block;
+ margin: auto;
+  width: 80%;
+  max-width: 500px;
 }
 
-.product-name-details{
+.product-name-details {
   background-color: #f2f2f2;
   width: 90%;
-  margin: 5%;
+  margin: 20px;
   border: 1px;
   border-radius: 15px;
   text-align: center;
-  padding: 3% 0%
+  padding: 3% 0%;
+  max-width: 450px;
 }
 
 .product-code,
 .add-favorite,
-.add-product{
+.add-product {
   background-color: #f2f2f2;
   width: 90%;
-  margin: 5%;
+  margin: 20px;
   border: 1px;
   border-radius: 15px;
   text-align: center;
-  padding: 3% 0%
+  padding: 3% 0%;
+  max-width: 450px;
 }
 
-.add-favorite{
+.add-favorite {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  max-width: 450px;
 }
 
-.add-favorite i{
+.add-favorite i {
   font-size: 20px;
   margin-right: 5%;
 }
 
-.product-price{
+.product-price {
   background-color: #f2f2f2;
   width: 90%;
-  margin: 5%;
+  margin: 20px;
   border: 1px;
   border-radius: 15px;
   text-align: center;
-  padding: 3% 0%
+  padding: 3% 0%;
+  max-width: 450px;
 }
 
 .cant {
   background-color: #f2f2f2;
   border: 1px solid rgb(158, 150, 150);
   width: 90%;
-  margin: 5%;
+  max-width: 450px;
+  margin: 20px;
   border: 1px;
   border-radius: 15px;
   text-align: center;
@@ -83,15 +101,36 @@ main{
   justify-content: space-around;
 }
 
-.product-description{
-  background-color: #f2f2f2;
-  width: 90%;
-  margin: 5%;
-  border: 1px;
-  border-radius: 15px;
-  text-align: center;
-  padding: 3% 0%;
+.product-description {
   display: none;
 }
 
-
+/* tablet */
+@media (min-width: 576px) {
+  .product-description {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .product-description h3 {
+    width: 50%;
+    text-align: center;
+    border: 2px solid #d97652;
+    border-radius: 15px 15px 0 0;
+    background-color: #f2f2f2;
+    max-width: 350px;
+  }
+  .product-description p {
+    background-color: #f2f2f2;
+    width: 90%;
+    border: 2px solid #d97652;
+    border-radius: 15px;
+    text-align: center;
+    padding: 3% 0%;
+    max-width: 750px;
+  }
+}
+/* desktop  */
+@media (min-width: 992px) {
+}
