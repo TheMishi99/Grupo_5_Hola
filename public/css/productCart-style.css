@@ -112,11 +112,11 @@ div.icons-math {
   text-align: center;
 }
 
-input.cupon{
+input.cupon {
   width: 70%;
 }
 
-.resumen{
+.resumen {
   background-color: #f28c0f;
   text-align: center;
   color: #ffffff;
@@ -127,11 +127,10 @@ input.cupon{
 }
 
 .single-product i.fa-xmark {
-  font-size: 24px; 
-  color: #ff0000; 
+  font-size: 24px;
+  color: #ff0000;
   cursor: pointer;
 }
-
 
 /* tablet */
 @media (min-width: 576px) {
@@ -147,13 +146,12 @@ input.cupon{
   .single-product i.fa-xmark {
     display: initial;
     position: relative;
-    top: -80px; 
-    right: 15px; 
-    font-size: 24px; 
-    color: #ff0000; 
+    top: -80px;
+    right: 15px;
+    font-size: 24px;
+    color: #ff0000;
     cursor: pointer;
   }
-
 }
 
 /* desktop  */
@@ -177,14 +175,13 @@ input.cupon{
     justify-content: space-evenly;
   }
 
-  .discount{
+  .discount {
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
-  input.cupon{
+  input.cupon {
     width: 300px;
   }
-
 }

@@ -56,21 +56,30 @@ header form input {
 }
 
 .cart {
+  cursor: pointer;
   border: none;
   background: none;
   padding: 4px;
   font-size: 1.5rem;
 }
-
+.cart:hover{
+  transition: all 0.3s;
+  transform: scale(1.1);
+}
 .login {
   display: none;
   align-items: center;
   padding: 1%;
   background-color: #f28c0f;
+  box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.4);
   border-radius: 15px;
   border: 1px;
+  cursor: pointer;
 }
-
+.login:hover {
+  transition: all 0.5s;
+  transform: scale(1.05);
+}
 .fa-circle-user {
   font-size: large;
 }
@@ -85,6 +94,7 @@ header form input {
 
 .home__navbar {
   display: none;
+  border: 4px double black;
   padding: 10px;
   background-color: #f2f2f2;
 }
@@ -109,6 +119,17 @@ header form input {
 
 .home__navbar ul li a {
   display: none;
+  padding: 5px;
+  border-radius: 10px;
+}
+.home__navbar ul li a:hover {
+  transition: all 0.5s;
+  color: #f2f2f2;
+  background-color: rgba(217, 119, 84, 0.7);
+}
+.home__navbar ul li a:active {
+  color: #f2f2f2;
+  background-color: rgba(217, 119, 84, 1);
 }
 
 .home__hamburguer {
@@ -181,6 +202,15 @@ article {
   padding-bottom: 0.1rem;
   width: 90%;
   text-align: center;
+}
+
+article a {
+  text-decoration: none;
+}
+
+article a:hover {
+  transition: all linear 0.3s;
+  transform: scale(1.05);
 }
 
 main {
