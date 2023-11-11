@@ -1,5 +1,5 @@
 COMENZAR A HACER
-Trabajar en ramas y revisar el trabajo del compañero para mergearlo.
+Crear una rama developer para trabajar y luego mergear.
 
 HACER MAS:
 Revisar el Trello para asegurarnos que todas las tareas ya han sido cumplidas.
