@@ -14,17 +14,17 @@ app.get("/", (req, res) => {
 });
 
 app.get("/register", (req, res) => {
-  res.sendFile(path.join(__dirname, "views", "register.html"));
+  res.sendFile(path.join(__dirname, "views/users/", "register.html"));
 });
 
 app.get("/login", (req, res) => {
-  res.sendFile(path.join(__dirname, "views", "login.html"));
+  res.sendFile(path.join(__dirname, "views/users/", "login.html"));
 });
 
 app.get("/productCart", (req, res) => {
-  res.sendFile(path.join(__dirname, "views", "productCart.html"));
+  res.sendFile(path.join(__dirname, "views/products/", "productCart.html"));
 });
 
 app.get("/productDetail", (req, res) => {
-  res.sendFile(path.join(__dirname, "views", "productDetail.html"));
+  res.sendFile(path.join(__dirname, "views/products", "productDetail.html"));
 });
