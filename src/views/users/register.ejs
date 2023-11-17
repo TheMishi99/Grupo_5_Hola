@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register</title>
+  <script src="https://kit.fontawesome.com/6d37a11b52.js" crossorigin="anonymous"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;800;900&family=Roboto:wght@400;700&display=swap"
+    rel="stylesheet" />
+
+  <!--Hoja de Estilos para footer y header-->
+  <link href="../css/home-style.css" rel="stylesheet" />
+  <!--Hoja de Estilos para register-->
+  <link href="../css/register-style.css" rel="stylesheet" />
+</head>
+
+<body>
+  <%- include("../partials/header") %>
+  <main class="register-main">
+    <form class="register-form" action="resultado.html" method="POST">
+      <section class="register-title-form">
+        <h1 class="tit-links">Crear cuenta</h1>
+        <a>Comprá más rápido y llevá el control de tus pedidos, ¡en un solo
+          lugar!</a>
+      </section>
+      <section class="register-section">
+        <div class="campos">
+          <p><label for="name">Nombre y apellido</label></p>
+          <input type="text" name="name" id="name" placeholder="Ej. Juan Perez" required autocomplete="off" />
+
+          <p><label for="email">Correo electrónico</label></p>
+          <input type="email" name="email" id="email" placeholder="Ej. correo@email.com" required autocomplete="off" />
+
+          <p><label for="password">Contraseña</label></p>
+          <input type="password" name="password" id="password" placeholder="******" required autocomplete="off" />
+
+          <p><label for="confirmpassword">Confirmar contraseña</label></p>
+          <input type="password" name="confirmpassword" id="confirmpassword" placeholder="******" required
+            autocomplete="off" />
+
+          <p><label for="phonenumber">Teléfono</label></p>
+          <input type="tel" name="phonenumber" id="phonenumber" placeholder="Ej.3851234567" required
+            autocomplete="off" />
+        </div>
+        <div>
+          <input type="checkbox" name="termycond" id="termycond" value="términosyCondiciones" required />
+          <a>Acepto los </a><a class="tit-links" href="#">Términos y Condiciones</a>
+        </div>
+        <div>
+          <input type="checkbox" name="politicPriv" id="politicPriv" value="políticasDePrivacidad" required />
+          <a>Acepto las </a><a class="tit-links" href="#">Políticas de Privacidad</a>
+        </div>
+        <div>
+          <input class="register-button" type="submit" value="Registrarme" />
+        </div>
+      </section>
+      <span>
+        ¿Ya tienes una cuenta?
+        <p>Iniciá sesión <a class="tit-links" href="/users/login">aquí </a></p>
+      </span>
+    </form>
+  </main>
+  <%- include("../partials/footer") %>
+</body>
+
+</html>
