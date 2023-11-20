@@ -1,9 +1,9 @@
 const path = require("path");
-const productCart=require("./cartController")
+const list =require("./listController")
 
 const productsController = {
   cart: (req, res) => {
-    res.render("./products/productCart", {productCart : productCart});
+    res.render("./products/productCart", {list : list});
   },
   detail: (req, res) => {
     res.render("./products/productDetail");
