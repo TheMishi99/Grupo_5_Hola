@@ -10,6 +10,10 @@ const usersRoutes = require("./routes/users");
 
 app.use(express.static(path.join(__dirname, "../public")));
 
+/* EJS Seteado */
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
+
 app.listen(PORT, () => {
   console.log(`Servidor escuchando en el puerto ${PORT}`);
 });
