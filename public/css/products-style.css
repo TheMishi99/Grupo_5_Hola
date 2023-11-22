@@ -1,6 +1,8 @@
 .section__allProducts {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px 0;
 }
 
 .section__allProducts article {
