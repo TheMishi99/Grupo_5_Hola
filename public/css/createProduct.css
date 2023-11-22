@@ -1,6 +1,11 @@
+<<<<<<< HEAD
 /*ESTILOS PARA CREAR PRODUCTO*/
 .create-main {
     color: white;
+=======
+
+.container_createProduct{
+>>>>>>> defcf1410fc5c0dc73fc1000d1ba931dffec89c1
     background-image: url(/img/fondo-login.png);
     background-color: #cc9c84;
     background-position: center;
