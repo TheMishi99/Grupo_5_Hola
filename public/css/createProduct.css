@@ -1,9 +1,10 @@
-<<<<<<< HEAD
+
 /*ESTILOS PARA CREAR PRODUCTO*/
 .create-main {
     color: white;
-=======
-.container_createProduct{
+}
+
+div.container_createProduct {
     background-image: url(/img/fondo-login.png);
     background-color: #cc9c84;
     background-position: center;
@@ -39,8 +40,6 @@ form.create-form input {
     width: 100%;
 }
 
-
-
 label{
     cursor: default;
     font-family: "Roboto", sans-serif;
@@ -58,10 +57,11 @@ label{
     padding: 5px;
     border-radius: 20px;
     cursor: pointer;
-  }
-  .create-button:hover {
+};
+
+.create-button:hover {
     transition: all 0.5s;
     color: #f2f2f2;
     background-color: #d97652;
     transform: scale(1.03);
-  }
+}
