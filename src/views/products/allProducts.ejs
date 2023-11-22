@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <%- include("../partials/head") %>
+    <title>Store</title>
+    <script
+      src="https://kit.fontawesome.com/b42ec8045a.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://kit.fontawesome.com/6d37a11b52.js"
+      crossorigin="anonymous"
+    ></script>
+    <link href="../../css/home-style.css" rel="stylesheet" />
+    <link href="../../css/products-style.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <%- include("../partials/header") %>
+    <main>
+      <div class="container__allProducts">
+        <h1 class="title__allProducts">LISTADO DE PRODUCTOS</h1>
+        <div class="containerButtons__allProducts">
+          <a href="/products/create"> <button>Crear anuncio</button></a>
+          <a href="/products/modify/1">
+            <button>Modificar un producto</button></a
+          >
+        </div>
+      </div>
+      <section class="section__allProducts">
+        <% list.forEach(product => { %>
+        <article>
+          <div class="products-img">
+            <img src="/img/<%= product.img %>" width="92%" alt=" " />
+          </div>
+          <div class="product-name">
+            <p><%= product.descripcion %></p>
+          </div>
+          <div class="product-price">
+            <h3><%= product.precio %></h3>
+          </div>
+          <a href="/products/details">
+            <div class="bottom-buy"><strong>Comprar</strong></div>
+          </a>
+        </article>
+        <% }) %>
+      </section>
+    </main>
+    <%- include("../partials/footer") %>
+  </body>
+</html>
