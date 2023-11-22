@@ -13,11 +13,13 @@
       src="https://kit.fontawesome.com/6d37a11b52.js"
       crossorigin="anonymous"
     ></script>
+    <link rel="stylesheet" href="../css/createProduct.css"/>
   </head>
 
   <body>
     <%- include("../partials/header") %>
     <main>
+      <div class="container_createProduct">
       <form
         action="/products/create"
         method="post"
@@ -51,6 +53,7 @@
         <br />
         <input type="submit" value="Crear Producto" />
       </form>
+    </div>
     </main>
     <script>
       function showSuccessAlert() {
