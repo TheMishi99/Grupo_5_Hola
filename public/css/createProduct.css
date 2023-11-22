@@ -1,12 +1,64 @@
-
-.container-createProduct{
+/*ESTILOS PARA CREAR PRODUCTO*/
+.create-main {
+    color: white;
     background-image: url(/img/fondo-login.png);
     background-color: #cc9c84;
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
-};
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    font-size: 1.17em;
+}
+
+form.create-form {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 15px;
+    line-height: 1.4em;
+    border-radius: 20px;
+
+}
+
+.tit-links {
+    color: #d97652;
+}
+
+section.register-title-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+form.create-form input {
+    width: 100%;
+}
 
 
 
+label{
+    cursor: default;
+    font-family: "Roboto", sans-serif;
+}
 
+.create-descrip {
+    width: 100%;
+}
+
+.create-button {
+    color: #d97652;
+    width: 40%;
+    height: 100%;
+    font-size: 1em;
+    padding: 5px;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+  .create-button:hover {
+    transition: all 0.5s;
+    color: #f2f2f2;
+    background-color: #d97652;
+    transform: scale(1.03);
+  }
