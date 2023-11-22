@@ -23,11 +23,16 @@ const productsController = {
       descripcion: descripcion,
     };
     list.push(nuevoProducto);
-    console.log(list);
-    res.redirect("/");
+    res.redirect("/products");
   },
   createView: (req, res) => {
     res.render("./products/createProduct");
+  },
+  modifyView: (req, res) => {
+    res.render("./products/modifyProduct", { list: list });
+  },
+  showAll: (req, res) => {
+    res.render("./products/allProducts", { list: list });
   },
 };
 

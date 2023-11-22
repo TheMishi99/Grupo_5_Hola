@@ -9,7 +9,8 @@ router.get("/details", productsController.detail);
 router.get("/create", productsController.createView);
 router.post("/create", productsController.create);
 
-/* router.get("/modify/:id", productsController.modifyView);
-router.put("/modify/:id", productsController.create); */
+router.get("/modify/:id", productsController.modifyView);
+// router.put("/modify/:id", productsController.modify);
 
+router.get("/", productsController.showAll)
 module.exports = router;

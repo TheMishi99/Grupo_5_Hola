@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Creación de producto</title>
     <%- include("../partials/head") %>
+    <title>Modify Product</title>
     <script
       src="https://kit.fontawesome.com/b42ec8045a.js"
       crossorigin="anonymous"
@@ -13,12 +13,24 @@
       src="https://kit.fontawesome.com/6d37a11b52.js"
       crossorigin="anonymous"
     ></script>
+    <link href="../../css/home-style.css" rel="stylesheet" />
   </head>
 
   <body>
     <%- include("../partials/header") %>
     <main>
-      <h1>EDITING VIEW</h1>
+      <div class="container__modifyProducts">
+        <h1>Modifying</h1>
+        <label for="modifyProduct"
+          >Elige el producto que desees modificar</label
+        >
+        <br />
+        <select name="modifyProduct" id="modifyProduct">
+          <% list.forEach(product => { %>
+          <option value="<%= product.id %>"><%= product.titulo %></option>
+          <% }) %>
+        </select>
+      </div>
     </main>
     <%- include("../partials/footer") %>
   </body>
