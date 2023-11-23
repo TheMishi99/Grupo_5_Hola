@@ -13,7 +13,7 @@ const list = [
     {
         id: 2,
         img: "alimento-whiskas.png",
-        titulo: "Alimento para gatos adultos2",
+        titulo: "Alimento para gatos adultos",
         marca: "Whiskas",
         sabor: "Carne",
         peso: "3Kg",
