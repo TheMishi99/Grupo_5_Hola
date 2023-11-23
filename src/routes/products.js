@@ -9,7 +9,7 @@ router.get("/details", productsController.detail);
 router.get("/create", productsController.createView);
 router.post("/create", productsController.create);
 
-router.get("/modify/:id", productsController.modifyView);
+router.get("/modify", productsController.modifyView);
 // router.put("/modify/:id", productsController.modify);
 
 router.get("/", productsController.showAll)
