@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carrito de producto</title>
+    <%- include("../partials/head") %>
+    <script
+      src="https://kit.fontawesome.com/b42ec8045a.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://kit.fontawesome.com/6d37a11b52.js"
+      crossorigin="anonymous"
+    ></script>
+    <!--Hoja de Estilo para carrito de producto-->
+    <link href="../css/productCart-style.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <%- include("../partials/header") %>
+    <main>
+      <div class="product-cart">
+        <div class="name-page">
+          <i class="fa-solid fa-basket-shopping" style="color: #ffffff"></i>
+          <h2>Carrito de Compras</h2>
+        </div>
+        <!--Add Tags-->
+        <% list.forEach(product => { %>
+        <div class="single-product">
+          <div class="container-line">
+            <div class="product-img">
+              <img src="/img/<%= product.img %>" alt=" " />
+            </div>
+            <div class="product-name">
+              <p><%= product.titulo %></p>
+            </div>
+            <div class="product-details">
+              <p>Marca: <%= product.marca %></p>
+              <% if (product.sabor == null) { %>
+              <p>Acción: <%= product.accion %></p>
+              <% } else { %>
+              <p>Sabor: <%= product.sabor %></p>
+              <% } %>
+              <p>Peso: <%= product.peso %></p>
+            </div>
+          </div>
+          <div class="container-line">
+            <div class="cant">
+              <div class="icons-math">
+                <i class="fa-solid fa-minus" style="color: #000000"></i>
+              </div>
+              <h3>1</h3>
+              <div class="icons-math">
+                <i class="fa-solid fa-plus" style="color: #000000"></i>
+              </div>
+            </div>
+            <div class="total">
+              <h3><%= product.precio %></h3>
+            </div>
+          </div>
+          <i class="fa-solid fa-xmark" style="color: #000000"></i>
+        </div>
+        <% }) %>
+
+        <div class="discount">
+          <h3>¿Tenés un cupón de descuento?</h3>
+          <br />
+          <form action="procesar_cupon.php" method="post">
+            <input class="cupon" type="text" id="cupon" name="cupon" />
+            <input type="submit" value="Añadir" />
+          </form>
+        </div>
+        <div class="resumen">
+          <h3>SubTotal: 65.500,00</h3>
+          <br />
+          <h3>Descuento: 10.000,00</h3>
+          <br />
+          <h2>Total: 55.500,00</h2>
+        </div>
+        <div class="cart__buttons">
+          <button class="cart__button">Seguir comprando</button>
+          <button class="cart__button">Pagar</button>
+        </div>
+      </div>
+    </main>
+    <%- include("../partials/footer") %>
+  </body>
+</html>

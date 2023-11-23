@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <%- include("partials/head") %>
+  <title>Home</title>
+  <script src="https://kit.fontawesome.com/b42ec8045a.js" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/6d37a11b52.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <%- include("./partials/header") %>
+  <main>
+    <div class="banner">
+      <img src="img/cat-banner-2.gif" width="100%" alt="gift-banner" />
+    </div>
+    <div class="slider">
+      <img src="img/gatos-banner.png" width="95%" alt="banner-promotion" />
+    </div>
+
+    <div class="recent-products">
+      <h3>Productos más recientes</h3>
+      <h4>Ver todos los productos ></h4>
+    </div>
+    <div class="container">
+      <% list.forEach(product => { %>
+          <article>
+              <div class="products-img">
+                <img src="/img/<%= product.img %>" width="92%" alt=" " />
+              </div>
+              <div class="product-name">
+                <p><%= product.descripcion %></p>
+              </div>
+              <div class="product-price">
+                <h3><%= product.precio %></h3>
+              </div>
+              <a href="/products/details">
+                <div class="bottom-buy"><strong>Comprar</strong></div>
+              </a>
+          </article>
+       <% }) %>
+    </div>
+
+    <div class="recent-products">
+      <h3>Promociones vigentes</h3>
+      <h4>Ver todas las promociones ></h4>
+    </div>
+    <div class="container">
+      <% list.forEach(product => { %>
+         <article>
+            <div class="promotion">
+              <h2><%= product.off %></h2>
+            </div>
+            <div class="products-img">
+              <img src="/img/<%= product.img %>" width="92%" alt=" " />
+            </div>
+            <div class="product-name">
+              <p><%= product.descripcion %></p>
+            </div>
+            <div class="product-price">
+              <h3><%= product.precio %></h3>
+            </div>
+            <a href="#">
+              <div class="bottom-buy"><strong>Comprar</strong></div>
+            </a>
+        </article>
+      <% }) %>
+    </div>
+
+    <div class="recent-products">
+      <h3>Nuestras marcas</h3>
+      <h4>Ver todas las marcas ></h4>
+    </div>
+    <div class="container-brands">
+      <div class="brands">
+        <a href="https://www.purina.com.ar/purina-one"><img src="/img/logo-purina.png" alt=" " /></a>
+      </div>
+      <div class="brands">
+        <a href="https://www.whiskas.com.ar"><img src="/img/logo-whiskas.png" alt=" " /></a>
+      </div>
+      <div class="brands">
+        <a href="https://www.royalcanin.com/ar"><img src="/img/logo-royalcanin.png" alt=" " /></a>
+      </div>
+      <div class="brands">
+        <a href="https://catpro.com.ar"><img src="/img/logo-catpro.png" alt=" " /></a>
+      </div>
+    </div>
+  </main>
+  <%- include("./partials/footer") %>
+</body>
+
+</html>

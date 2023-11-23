@@ -1,8 +1,9 @@
 const path = require("path");
+const list =require("./listController")
 
 const mainController = {
   index: (req, res) => {
-    res.sendFile(path.join(__dirname, "../views", "index.html"));
+    res.render("index", {list : list});
   },
 };
 

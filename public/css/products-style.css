@@ -1,0 +1,35 @@
+.section__allProducts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px 0;
+}
+
+.section__allProducts article {
+  margin: 15px;
+}
+.title__allProducts {
+  color: #f28c0f;
+  display: block;
+  padding: 10px;
+  text-align: center;
+  margin-bottom: 15px;
+}
+.container__allProducts {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.containerButtons__allProducts > a > button {
+  align-self: center;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 0 10px 20px 0;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+.containerButtons__allProducts > a:hover > button {
+  transform: scale(1.05);
+}
