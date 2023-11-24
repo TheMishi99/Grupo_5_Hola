@@ -13,13 +13,20 @@
       src="https://kit.fontawesome.com/6d37a11b52.js"
       crossorigin="anonymous"
     ></script>
+    <link href="../../css/home-style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../../css/error.css" />
   </head>
 
   <body>
     <%- include("../partials/header") %>
     <main>
-      <h1>Error 404</h1>
-      <h3>Página no encontrada</h3>
+      <div class="error__container">
+        <div class="error__description">
+          <h1>Error 404</h1>
+          <h3>Página no encontrada</h3>
+          <a href="/"><button class="error__button">⬅ Regresar</button></a>
+        </div>
+      </div>
     </main>
     <%- include("../partials/footer") %>
   </body>
