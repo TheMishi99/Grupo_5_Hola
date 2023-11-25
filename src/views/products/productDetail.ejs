@@ -20,27 +20,27 @@
       </div>
       <div class="product">
         <div class="product-img">
-          <img src="/img/alimento-purina.png" width="100%" alt=" " />
+          <img src="<%= productoBuscado.img %>" width="100%" alt=" " />
         </div>
         <div class="product-details">
           <div class="product-name-details">
-            <h3>Alimento para gatos adultos</h3>
+            <h3><%= productoBuscado.titulo %></h3>
             <ul>
               <li>
-                <p>Marca: Pro Plan OptiRenal Sterilized</p>
+                <p>Marca: <%= productoBuscado.marca %></p>
               </li>
               <li>
-                <p>Sabor: Salmón y Arroz</p>
+                <p>Caracteristicas: <%= productoBuscado.caracteristica %></p>
               </li>
               <li>
-                <p>Peso: 7.5Kg</p>
+                <p>Peso: <%= productoBuscado.peso %> Kg</p>
               </li>
             </ul>
           </div>
 
           <div class="product-buttons">
             <div class="product-code">
-              <h4>Codigo de producto: #A1</h4>
+              <h4>Codigo de producto: <%= productoBuscado.code %></h4>
             </div>
             <div class="add-favorite">
               <i class="fa-regular fa-heart" style="color: #d97652"></i>
@@ -65,18 +65,12 @@
             </div>
           </div>
           <div class="product-price">
-            <h3>$5.000,00</h3>
+            <h3>$<%= productoBuscado.precio %></h3>
           </div>
           <div class="product-description">
             <h3>Descripción:</h3>
             <p>
-              Pro Plan Sterilized Cat tiene en cuenta los cambios hormonales
-              que la castración produce en tu gato, por lo que combina sus
-              ingredientes para garantizar un funcionamiento renal óptimo.
-              Aporta un alto contenido de fibras y proteínas reduciendo el
-              contenido de grasa, lo que causa una reducción en las calorías
-              de la dieta y garantizando una condición corporal ideal. Además,
-              controla la formación de bolas de pelo.
+              <%= productoBuscado.descripcion %>
             </p>
           </div>
         </div>
