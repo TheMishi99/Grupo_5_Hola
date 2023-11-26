@@ -24,9 +24,6 @@
         <h1 class="title__allProducts">LISTADO DE PRODUCTOS</h1>
         <div class="containerButtons__allProducts">
           <a href="/products/create"> <button>Crear anuncio</button></a>
-          <a href="/products/modify">
-            <button>Modificar un producto</button></a
-          >
         </div>
       </div>
       <section class="section__allProducts">
@@ -36,12 +33,12 @@
             <img src="<%= product.img %>" width="92%" alt=" " />
           </div>
           <div class="product-name">
-            <p><%= product.titulo %></p>
+            <p><%= product.title %></p>
           </div>
           <div class="product-price">
-            <h3><%= product.precio %></h3>
+            <h3>$<%= product.price %></h3>
           </div>
-          <a href="/products/details">
+          <a href="/products/<%= product.id %>">
             <div class="bottom-buy"><strong>Comprar</strong></div>
           </a>
         </article>
