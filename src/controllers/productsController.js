@@ -1,4 +1,5 @@
-const path = require("path");
+const { readFileSync } = require("fs");
+const { join } = require("path");
 const list = require("./listController");
 const { index, findOne, save } = require("../models/product-model");
 
@@ -7,25 +8,33 @@ const productsController = {
     res.render("./products/productCart", { list: list });
   },
   detail: (req, res) => {
-    const id = req.params.id
-    const productoBuscado = findOne(id)
-    res.render("./products/productDetail", {productoBuscado: productoBuscado});
+    const id = req.params.id;
+    const productoBuscado = findOne(id);
+    res.render("./products/productDetail", {
+      productoBuscado: productoBuscado,
+    });
   },
   create: (req, res) => {
-    const { titulo, marca, img, sabor, peso, precio, descripcion } = req.body;
+    const { title, code, brand, img, info, weight, price, description } =
+      req.body;
 
     const nuevoProducto = {
       id: Math.floor(Math.random() * 100),
+      code: code ? code : "N/C",
       img: img,
-      titulo: titulo,
-      marca: marca,
-      sabor: sabor,
-      peso: peso,
-      precio: precio,
+      title: title,
+      brand: brand,
+      info: info,
+      weight: parseFloat(weight),
+      price: parseFloat(price),
       off: null,
-      descripcion: descripcion,
+      description: description,
     };
-    list.push(nuevoProducto);
+    const productosActuales = JSON.parse(
+      readFileSync(join(__dirname, "../data", "productsDataBase.json"), "utf-8")
+    );
+    productosActuales.push(nuevoProducto);
+    save(productosActuales);
     res.redirect("/products");
   },
   createView: (req, res) => {
@@ -36,8 +45,8 @@ const productsController = {
 
     const id = req.params.id;
     const { title, brand, info, price, description } = req.body;
-    
-    const productIndex = products.findIndex(product => product.id == id);
+
+    const productIndex = products.findIndex((product) => product.id == id);
 
     products[productIndex].title = title;
     products[productIndex].brand = brand;
