@@ -21,4 +21,7 @@ router.get("/:id", productsController.detail);
 router.get("/:id/edit", productsController.modifyView);
 router.put("/:id", productsController.modify);
 
+/* ACCION ELIMINAR  */
+router.delete("/:id",productsController.destroy);
+
 module.exports = router;
