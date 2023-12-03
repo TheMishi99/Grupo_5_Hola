@@ -17,11 +17,10 @@ const productsController = {
   create: (req, res) => {
     const { title, code, brand, img, info, weight, price, description } =
       req.body;
-
     const nuevoProducto = {
       id: Math.floor(Math.random() * 100),
       code: code ? code : "N/C",
-      img: img,
+      img: req.file.filename,
       title: title,
       brand: brand,
       info: info,
@@ -63,12 +62,12 @@ const productsController = {
     const product = findOne(id);
     res.render("./products/modifyProduct", { product });
   },
-  destroy: (req,res)=>{
+  destroy: (req, res) => {
     const id = req.params.id;
-    console.log("ID:",id);
+    console.log("ID:", id);
     const products = index();
-    console.log("Products:",products)
-    const productsUpdates = products.filter(product => product.id != id);
+    console.log("Products:", products);
+    const productsUpdates = products.filter((product) => product.id != id);
     console.log("Productos Updates:", productsUpdates);
     save(productsUpdates);
     res.redirect("/products");
@@ -77,7 +76,6 @@ const productsController = {
     const lista = index();
     res.render("./products/allProducts", { list: lista });
   },
-
 };
 
 module.exports = productsController;

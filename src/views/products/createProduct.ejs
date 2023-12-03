@@ -25,13 +25,14 @@
           action="/products/"
           method="post"
           onsubmit="showSuccessAlert()"
+          enctype="multipart/form-data"
         >
           <section class="register-title-form">
             <h1 class="tit-links">Crear tu producto</h1>
           </section>
           <div class="campos">
-            <label for="img">Imágen (URL):</label>
-            <input type="text" name="img" id="img" required />
+            <label for="img">Imágen:</label>
+            <input type="file" name="img" id="img" required />
             <br />
             <label for="title">Título:</label>
             <input type="text" name="title" id="title" required />
