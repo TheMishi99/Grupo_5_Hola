@@ -1,8 +1,15 @@
+main {
+    background-color: #f2f2f2;
+    padding: 5% 10%;
+}
+
 div.container__modifyProducts {
     padding: 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
+    background-color: #d97652;
+    width: 100%;
+    margin: auto;
+    border-radius: 30px;
 }
 
 form.edit_product {
@@ -12,11 +19,11 @@ form.edit_product {
     align-items: center;
     text-align: left;
     width: 80%;
-    background-color: #d97652;
     padding: 15px;
     line-height: 1.4em;
     border-radius: 20px;
     box-shadow: none;
+    margin: auto;
 }
 
 h3.modify_title_article {
@@ -89,6 +96,6 @@ button.save_button i {
     }
 
     form.edit_product {
-        width: 40%;
+        width: 70%;
     }
 }
