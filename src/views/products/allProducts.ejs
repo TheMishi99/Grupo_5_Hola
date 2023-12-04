@@ -30,7 +30,11 @@
         <% list.forEach(product => { %>
         <article>
           <div class="products-img">
-            <img src="<%= product.img %>" width="92%" alt=" " />
+            <img
+              src="../img/<%= product.img %>"
+              width="92%"
+              alt="<%= product.title %>"
+            />
           </div>
           <div class="product-name">
             <p><%= product.title %></p>
