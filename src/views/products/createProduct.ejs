@@ -1,45 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Creación de producto</title>
-  <%- include("../partials/head") %>
-    <script src="https://kit.fontawesome.com/b42ec8045a.js" crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/6d37a11b52.js" crossorigin="anonymous"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Creación de producto</title>
+    <%- include("../partials/head") %>
+    <script
+      src="https://kit.fontawesome.com/b42ec8045a.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://kit.fontawesome.com/6d37a11b52.js"
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" href="../css/createProduct.css" />
-</head>
+  </head>
 
-<body>
-  <%- include("../partials/header") %>
+  <body>
+    <%- include("../partials/header") %>
     <main class="create-main">
       <div class="container_createProduct">
-        <form class="create-form" action="/products/create" method="post" onsubmit="showSuccessAlert()">
+        <form
+          class="create-form"
+          action="/products/"
+          method="post"
+          onsubmit="showSuccessAlert()"
+          enctype="multipart/form-data"
+        >
           <section class="register-title-form">
             <h1 class="tit-links">Crear tu producto</h1>
           </section>
           <div class="campos">
-            <label for="img">Imagen:</label>
-            <input type="file" name="img" id="img" accept="image/*" required />
+            <label for="img">Imágen:</label>
+            <input type="file" name="img" id="img" required />
             <br />
-            <label for="titulo">Título:</label>
-            <input type="text" name="titulo" id="titulo" required />
+            <label for="title">Título:</label>
+            <input type="text" name="title" id="title" required />
             <br />
-            <label for="marca">Marca:</label>
-            <input type="text" name="marca" id="marca" required />
+            <label for="code">Código:</label>
+            <input type="text" name="code" id="code" required />
             <br />
-            <label for="sabor">Sabor:</label>
-            <input type="text" name="sabor" id="sabor" required />
+            <label for="brand">Marca:</label>
+            <input type="text" name="brand" id="brand" required />
             <br />
-            <label for="peso">Peso:</label>
-            <input type="number" name="peso" id="peso" required />
+            <label for="info">Características:</label>
+            <input type="text" name="info" id="info" required />
             <br />
-            <label for="precio">Precio:</label>
-            <input type="number" name="precio" id="precio" required />
+            <label for="weight">Peso:</label>
+            <input type="number" name="weight" id="weight" required />
             <br />
-            <label class="create-descrip" for="descripcion">Descripción:</label>
-            <textarea name="descripcion" id="descripcion" rows="4" required></textarea>
+            <label for="price">Precio:</label>
+            <input type="number" name="price" id="price" required />
+            <br />
+            <label class="create-descrip" for="description">Descripción:</label>
+            <textarea
+              name="description"
+              id="description"
+              rows="4"
+              required
+            ></textarea>
             <br />
             <input class="create-button" type="submit" value="Crear Producto" />
           </div>
@@ -56,6 +75,5 @@
       }
     </script>
     <%- include("../partials/footer") %>
-</body>
-
+  </body>
 </html>

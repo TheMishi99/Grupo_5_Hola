@@ -21,84 +21,41 @@
     <%- include("../partials/header") %>
     <main>
       <div class="container__modifyProducts">
-        <h1 class="modify_title">Administrar productos</h1>
-        <div class="modify_title_elect">
-          <label for="modifyProduct"
-          >Elige el producto que desees modificar</label
-        >
-        <br />
-        <select name="modifyProduct" id="modifyProduct">
-          <% list.forEach(product => { %>
-            <option value="<%= product.id %>"><%= product.titulo %></option>
-          <% }) %>
-        </select>
-        </div>
-        <div class="modify_products">
-          <% list.forEach(product => { %>
-            <% if (product.titulo=='Alimento para gatos adultos') { %>
-             <article class="modify_products">
-              <div class="caract_product">
-                <img src="/img/<%= product.img %>" width="100%" alt=" " />
-              </div>
-              <div class="caract_product">
-                <p><%= product.descripcion %></p>
-              </div>
-              <div class="caract_product">
-                <p><%= product.precio %></p>
-              </div>
-              <div class="caract_product">
-                <a href="">
-                  <i class="fa-solid fa-pen-to-square"><strong class="edit_button">Editar</strong></i>
-                </a>
-              </div>
-              <div class="caract_product">
-                <a href="">
-                  <i class="fa-solid fa-trash-can"><strong class="edit_button">Eliminar</strong></i>
-                </a>
-              </div>
-              </article>
-            <% } %> 
-          <% }) %>
-        </div>   
-        <div class="edit_product">
-          <% list.forEach(product => { %>
-            <% if (product.id=='2') { %>
-              <article class="edit_product">
-                <h3 class="modify_title_article">Editar producto</h3>
-                <div class="modify_camp">
-                  <h4>Imagen</h4>
-                  <img src="/img/<%= product.img %>" width="40%" alt=" "/>
-                </div>
-                <div class="modify_camp">
-                  <h4>Título</h4>
-                  <p><%= product.titulo %></p>
-                </div>
-                <div class="modify_camp">
-                  <h4>Marca</h4>
-                  <p><%= product.marca %></p>
-                </div>
-                <div class="modify_camp">
-                  <h4>Característica</h4>
-                  <p><%= product.sabor %></p>
-                </div>
-                <div class="modify_camp">
-                  <h4>Precio</h4>
-                  <p><%= product.precio %></p>
-                </div>
-                <div class="modify_camp">
-                  <h4>Descripción</h4>
-                  <p><%= product.descripcion %></p>
-                </div>
-                <div class="save_button">
-                  <a href="">
-                    <i class="fa-solid fa-floppy-disk"><strong>Guardar cambios</strong></i>
-                  </a>
-                </div>
-              </article>
-            <% } %> 
-          <% }) %>
-          
-        </div>
+        <form class="edit_product" action="/products/<%= product.id %>?_method=PUT" method="POST">
+          <h3 class="modify_title_article">Editar producto</h3>
+          <div class="modify_camp">
+            <h4>Imagen</h4>
+            <img src="<%= product.img %>" width="100%" text-align="center" alt="foto-producto"/>
+          </div>
+          <div class="modify_camp">
+            <h4>Título</h4>
+            <input type="text" name="title" id="title" value="<%= product.title %>">
+          </div>
+          <div class="modify_camp">
+            <h4>Marca</h4>
+            <input type="text" name="brand" id="brand" value="<%= product.brand %>">
+          </div>
+          <div class="modify_camp">
+            <h4>Característica</h4>
+            <input type="text" name="info" id="info" value="<%= product.info %>">
+          </div>
+          <div class="modify_camp">
+            <h4>Precio</h4>
+            <input type="text" name="price" id="price" value="<%= product.price %>">
+          </div>
+          <div class="modify_camp">
+            <h4>Descripción</h4>
+            <textarea name="description" id="description"><%= product.description %></textarea>
+          </div>
+          <button type="submit" class="save_button">
+            <i class="fa-solid fa-floppy-disk"> <strong>Guardar cambios</strong></i>
+          </button>
+        </form>
+        <form class="edit_product" action="/products/<%= product.id %>?_method=DELETE" method="POST">
+          <button type="submit" class="save_button">
+            <i class="fa-solid fa-floppy-disk"> <strong>Eliminar</strong></i>
+          </button>
+        </form>
       </div>
     </main>
     <%- include("../partials/footer") %>

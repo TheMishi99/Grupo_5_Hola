@@ -3,14 +3,27 @@ const router = express.Router();
 
 const productsController = require("../controllers/productsController");
 
-router.get("/cart", productsController.cart);
-router.get("/details", productsController.detail);
+/* IMPORTACION MIDDLEWARES */
+const { upload } = require("../middlewares/multer");
 
+/* MOSTRAR TODOS LOS PRODUCTOS */
+router.get("/", productsController.showAll);
+
+/* FORMULARIO Y ACCION DE CREACION DE PRODUCTO */
 router.get("/create", productsController.createView);
-router.post("/create", productsController.create);
+router.post("/", upload.single("img"), productsController.create);
 
-router.get("/modify", productsController.modifyView);
-// router.put("/modify/:id", productsController.modify);
+/* VISTA DE CARRITO */
+router.get("/cart", productsController.cart);
 
-router.get("/", productsController.showAll)
+/* OBTENER DETALLES DEL PRODUCTO POR ID */
+router.get("/:id", productsController.detail);
+
+/* FORMULARIO Y ACCION DE EDITAR EL PRODUCTO POR ID */
+router.get("/:id/edit", productsController.modifyView);
+router.put("/:id", productsController.modify);
+
+/* ACCION ELIMINAR  */
+router.delete("/:id", productsController.destroy);
+
 module.exports = router;

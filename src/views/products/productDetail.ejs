@@ -1,89 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detalle de producto</title>
+    <%- include("../partials/head") %>
+    <script
+      src="https://kit.fontawesome.com/6d37a11b52.js"
+      crossorigin="anonymous"
+    ></script>
+    <!--Hoja de Estilos para detalle de producto-->
+    <link href="../css/productDetail-style.css" rel="stylesheet" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Detalle de producto</title>
-  <%- include("../partials/head") %>
-  <script src="https://kit.fontawesome.com/6d37a11b52.js" crossorigin="anonymous"></script>
-  <!--Hoja de Estilos para detalle de producto-->
-  <link href="../css/productDetail-style.css" rel="stylesheet" />
-</head>
-
-<body>
-  <%- include("../partials/header") %>
-  <main>
-    <section>
-      <div class="name-page">
-        <h2>Detalle del Producto</h2>
-      </div>
-      <div class="product">
-        <div class="product-img">
-          <img src="/img/alimento-purina.png" width="100%" alt=" " />
+  <body>
+    <%- include("../partials/header") %>
+    <main>
+      <section>
+        <div class="name-page">
+          <h2>Detalle del Producto</h2>
         </div>
-        <div class="product-details">
-          <div class="product-name-details">
-            <h3>Alimento para gatos adultos</h3>
-            <ul>
-              <li>
-                <p>Marca: Pro Plan OptiRenal Sterilized</p>
-              </li>
-              <li>
-                <p>Sabor: Salmón y Arroz</p>
-              </li>
-              <li>
-                <p>Peso: 7.5Kg</p>
-              </li>
-            </ul>
+        <div class="product">
+          <div class="product-img">
+            <img src="<%= productoBuscado.img %>" width="100%" alt=" " />
           </div>
+          <div class="product-details">
+            <div class="product-name-details">
+              <h3><%= productoBuscado.title %></h3>
+              <ul>
+                <li>
+                  <p>Marca: <%= productoBuscado.brand %></p>
+                </li>
+                <li>
+                  <p>Caracteristicas: <%= productoBuscado.info %></p>
+                </li>
+                <li>
+                  <p>Peso: <%= productoBuscado.weight %> Kg</p>
+                </li>
+              </ul>
+            </div>
 
-          <div class="product-buttons">
-            <div class="product-code">
-              <h4>Codigo de producto: #A1</h4>
-            </div>
-            <div class="add-favorite">
-              <i class="fa-regular fa-heart" style="color: #d97652"></i>
-              <h4>Añadir favorito</h4>
-            </div>
-            <div class="cant">
-              <div class="icons-math">
-                <button>
-                  <i class="fa-solid fa-minus cart-minus-btn"></i>
-                </button>
+            <div class="product-buttons">
+              <div class="product-code">
+                <h4>Codigo de producto: <%= productoBuscado.code %></h4>
               </div>
-              <h3>1</h3>
-              <div class="icons-math">
-                <button>
-                  <i class="fa-solid fa-plus cart-plus-btn"></i>
-                </button>
+              <div class="add-favorite">
+                <i class="fa-regular fa-heart" style="color: #d97652"></i>
+                <h4>Añadir favorito</h4>
+              </div>
+              <div class="cant">
+                <div class="icons-math">
+                  <button>
+                    <i class="fa-solid fa-minus cart-minus-btn"></i>
+                  </button>
+                </div>
+                <h3>1</h3>
+                <div class="icons-math">
+                  <button>
+                    <i class="fa-solid fa-plus cart-plus-btn"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="add-product">
+                <i class="fa-solid fa-cart-plus" style="color: #d97652"></i>
+                <h4>Agregar al carrito</h4>
               </div>
             </div>
-            <div class="add-product">
-              <i class="fa-solid fa-cart-plus" style="color: #d97652"></i>
-              <h4>Agregar al carrito</h4>
+            <div class="product-price">
+              <h3>Precio: $<%= productoBuscado.price %></h3>
             </div>
-          </div>
-          <div class="product-price">
-            <h3>$5.000,00</h3>
-          </div>
-          <div class="product-description">
-            <h3>Descripción:</h3>
-            <p>
-              Pro Plan Sterilized Cat tiene en cuenta los cambios hormonales
-              que la castración produce en tu gato, por lo que combina sus
-              ingredientes para garantizar un funcionamiento renal óptimo.
-              Aporta un alto contenido de fibras y proteínas reduciendo el
-              contenido de grasa, lo que causa una reducción en las calorías
-              de la dieta y garantizando una condición corporal ideal. Además,
-              controla la formación de bolas de pelo.
-            </p>
+            <div class="product-description">
+              <h3>Descripción:</h3>
+              <p><%= productoBuscado.description %></p>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
-  </main>
-  <%- include("../partials/footer") %>
-</body>
-
+      </section>
+    </main>
+    <%- include("../partials/footer") %>
+  </body>
 </html>

@@ -1,0 +1,45 @@
+.error__container {
+  text-align: center;
+  justify-content: center;
+  height: 80vh;
+  background-image: url("../img/fondo-error.png");
+  background-size: contain;
+  background-position: center;
+}
+.error__description {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.error__description > h1,
+.error__description > h3 {
+  background-color: rgba(217, 119, 84, 0.9);
+  border-radius: 15px;
+  padding: 15px;
+  color: #f2f2f2;
+  margin: 50px 0;
+}
+
+.error__description > h1{
+    font-size: 40px;
+}
+.error__description > h3{
+    font-size: 28px;
+}
+
+.error__button {
+  font-weight: bolder;
+  font-size: 15px;
+  padding: 5px;
+  border-radius: 10px;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.error__button:hover {
+  transform: scale(1.08);
+  color: #f2f2f2;
+  background-color: #d97652;
+}
