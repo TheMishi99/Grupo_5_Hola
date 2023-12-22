@@ -1,6 +1,6 @@
 const { readFileSync } = require("fs");
 const { join } = require("path");
-const list = require("./listController");
+const list = require("../data/productsDataBase");
 const { index, findOne, save } = require("../models/product-model");
 
 const productsController = {
