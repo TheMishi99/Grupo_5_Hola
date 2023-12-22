@@ -64,11 +64,8 @@ const productsController = {
   },
   destroy: (req, res) => {
     const id = req.params.id;
-    console.log("ID:", id);
     const products = index();
-    console.log("Products:", products);
     const productsUpdates = products.filter((product) => product.id != id);
-    console.log("Productos Updates:", productsUpdates);
     save(productsUpdates);
     res.redirect("/products");
   },
