@@ -14,7 +14,7 @@
 <body>
   <%- include("../partials/header") %>
   <main class="register-main">
-    <form class="register-form" action="resultado.html" method="POST">
+    <form class="register-form" action="/users/" method="POST" enctype="multipart/form-data">
       <section class="register-title-form">
         <h1 class="tit-links">Crear cuenta</h1>
         <a>Comprá más rápido y llevá el control de tus pedidos, ¡en un solo
@@ -38,13 +38,17 @@
           <p><label for="phonenumber">Teléfono</label></p>
           <input type="tel" name="phonenumber" id="phonenumber" placeholder="Ej.3851234567" required
             autocomplete="off" />
+          
+          <p><label for="profilePicture">Foto de perfil</label></p>
+          <input type="file" name="profilePicture" id="profilePicture"  required
+            autocomplete="off" />
         </div>
         <div>
-          <input type="checkbox" name="termycond" id="termycond" value="términosyCondiciones" required />
+          <input type="checkbox" name="termycond" id="termycond" value="aceptaTérminosyCondiciones" required />
           <a>Acepto los </a><a class="tit-links" href="#">Términos y Condiciones</a>
         </div>
         <div>
-          <input type="checkbox" name="politicPriv" id="politicPriv" value="políticasDePrivacidad" required />
+          <input type="checkbox" name="politicPriv" id="politicPriv" value="aceptaPolíticasDePrivacidad" required />
           <a>Acepto las </a><a class="tit-links" href="#">Políticas de Privacidad</a>
         </div>
         <div>

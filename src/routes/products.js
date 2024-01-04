@@ -4,7 +4,7 @@ const router = express.Router();
 const productsController = require("../controllers/productsController");
 
 /* IMPORTACION MIDDLEWARES */
-const { upload } = require("../middlewares/multer");
+const { upload } = require("../middlewares/multerProducts");
 
 /* MOSTRAR TODOS LOS PRODUCTOS */
 router.get("/", productsController.showAll);

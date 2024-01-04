@@ -1,13 +1,12 @@
 const { readFileSync, writeFileSync } = require("fs");
-
 const { join } = require("path");
 
-const model = {
-  file: join(__dirname, "../data", "productsDataBase.json"),
+const userModel = {
+  file: join(__dirname, "../data", "usersDataBase.json"),
   index: () => JSON.parse(readFileSync(model.file)),
   findOne: (id) => model.index().find((p) => p.id == id),
   filterCategory: (category) => model.index().filter((p) => p.category == category),
-  save: (products) => writeFileSync(join(__dirname, "../data", "productsDataBase.json"), JSON.stringify(products, null, 2))
+  save: (users) => writeFileSync(join(__dirname, "../data", "usersDataBase.json"), JSON.stringify(users, null, 2))
 };
 
-module.exports = model;
+module.exports = userModel;
