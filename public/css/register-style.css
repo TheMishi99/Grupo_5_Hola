@@ -56,3 +56,9 @@ div.campos input {
   background-color: #d97652;
   transform: scale(1.03);
 }
+
+.text-error{
+  color:red;
+  font-weight: lighter ;
+  font-style: italic;
+}
