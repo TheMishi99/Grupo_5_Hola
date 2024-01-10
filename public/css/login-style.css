@@ -55,3 +55,10 @@ i.login-icons {
 main div input {
   font-size: 1em;
 }
+
+div.text-danger{
+  color: red;
+  font-size: medium;
+  text-align: center;
+  margin: auto;
+}

@@ -13,7 +13,7 @@ const userModel = {
     return userFound;
   },
   getData: function () {
-    return JSON.parse(readFileSync(this.file, "utf-8")); // Cambiado de fs.readFileSync(this.fileName a readFileSync(this.file
+    return JSON.parse(readFileSync(this.file, "utf-8")); 
   },
   findAll: function () {
     return this.getData();

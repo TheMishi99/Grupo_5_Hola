@@ -19,16 +19,16 @@
           <h2>Iniciar sesión</h2>
           <i id="user-icon" class="fa-solid fa-circle-user login-icons"></i>
           <div>
-            <input type="text" name="username" id="username" placeholder="Usuario" required autocomplete="off" />
+            <input type="email" name="email" id="email" placeholder="Email" required autocomplete="off" />
           </div>
           <div>
             <input type="password" name="password" id="password" placeholder="Contraseña" required autocomplete="off" />
-            <% if(locals.errros && errors.email) { %>
-              <div class="text-danger">
-                <% erros.email.msg %>
-              </div>
+            <% if (locals.errors && errors.email) { %>
+                <div class="text-danger">
+                    <%= errors.email.msg %>
+                </div>
             <% } %>
-          </div>
+        </div>
           <a class="login-access" href="#">¿Olvidaste tu contraseña?</a>
           <a><input type="checkbox" name="remember" value="recordarUsuarioyContraseña" />
             Recordar usuario y contraseña</a>

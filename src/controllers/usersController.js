@@ -1,10 +1,8 @@
 const { readFileSync } = require("fs");
 const { join } = require("path");
-const { save } = require("../models/user-model");
 const { validationResult } = require("express-validator")
 const bcryptjs = require('bcryptjs')
 const userModel = require("../models/user-model");
-
 
 const usersController = {
   register: (req, res) => {
@@ -35,7 +33,7 @@ const usersController = {
         readFileSync(join(__dirname, "../data", "usersDataBase.json"), "utf-8")
       );
       registrosActuales.push(nuevoRegistro);
-      save(registrosActuales);
+      userModel.save(registrosActuales);
       res.redirect("./login");
     }   
   },
@@ -44,7 +42,6 @@ const usersController = {
   },
   loginProcess: (req, res) => {
     let userToLogin = userModel.findByField("email", req.body.email)
-    console.log(userToLogin);
     if (userToLogin){
       let isOkThePassword = bcryptjs.compareSync(req.body.password, userToLogin.password);
       console.log(isOkThePassword);
