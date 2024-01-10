@@ -2,6 +2,7 @@ const { readFileSync } = require("fs");
 const { join } = require("path");
 const { save } = require("../models/user-model");
 const { validationResult } = require("express-validator")
+const bcryptjs = require('bcryptjs')
 
 
 const usersController = {
@@ -23,7 +24,7 @@ const usersController = {
         name: name,
         email: email,
         password: password,
-        confirmPassword: confirmpassword,
+        confirmPassword: bcryptjs.hashSync(confirmpassword,10),
         phoneNumber: phonenumber,
         profilePicture: req.file.filename,
         termycond: termycond,
