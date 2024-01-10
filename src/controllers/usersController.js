@@ -19,7 +19,7 @@ const usersController = {
       const { name, email, password, confirmpassword, phonenumber, profilePicture, termycond, politicPriv} =
         req.body;
       const nuevoRegistro = {
-        id: Math.floor(Math.random() * 100),
+        id: userModel.generateId(),
         name: name,
         email: email,
         password: bcryptjs.hashSync(password,10),
