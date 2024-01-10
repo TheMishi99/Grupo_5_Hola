@@ -3,6 +3,8 @@ const { join } = require("path");
 
 const userModel = {
   file: join(__dirname, "../data", "usersDataBase.json"),
+  index: () => JSON.parse(readFileSync(userModel.file)),
+  findOne: (id) => userModel.index().find((p) => p.id == id),
   save: (users) => writeFileSync(join(__dirname, "../data", "usersDataBase.json"), JSON.stringify(users, null, 2)),
   findByPk: function (id){
     let allUsers = this.findAll();

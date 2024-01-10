@@ -59,7 +59,7 @@ const usersController = {
   },
   profile: (req, res) => {
     const id = req.params.id;
-    const user = userModel.findByPk(id);
+    const user = userModel.findOne(id);
     res.render("./users/profile", { user });
   }
 };
