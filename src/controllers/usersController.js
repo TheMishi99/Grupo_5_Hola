@@ -22,7 +22,7 @@ const usersController = {
         id: Math.floor(Math.random() * 100),
         name: name,
         email: email,
-        password: password,
+        password: bcryptjs.hashSync(password,10),
         confirmPassword: bcryptjs.hashSync(confirmpassword,10),
         phoneNumber: phonenumber,
         profilePicture: req.file.filename,
@@ -44,9 +44,8 @@ const usersController = {
     let userToLogin = userModel.findByField("email", req.body.email)
     if (userToLogin){
       let isOkThePassword = bcryptjs.compareSync(req.body.password, userToLogin.password);
-      console.log(isOkThePassword);
       if (isOkThePassword){
-        return res.render('/profile', { user: userToLogin });
+        return res.render('./users/profile', { user: userToLogin });
       }
     }
 
