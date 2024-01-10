@@ -163,5 +163,16 @@
     "profilePicture": "/neque/sapien/placerat/ante/nulla.json?at=eget&velit=massa&eu=tempor&est=convallis&congue=nulla&elementum=neque&in=libero&hac=convallis&habitasse=eget&platea=eleifend&dictumst=luctus&morbi=ultricies&vestibulum=eu&velit=nibh&id=quisque&pretium=id&iaculis=justo&diam=sit&erat=amet&fermentum=sapien&justo=dignissim&nec=vestibulum&condimentum=vestibulum&neque=ante&sapien=ipsum&placerat=primis&ante=in&nulla=faucibus&justo=orci&aliquam=luctus&quis=et&turpis=ultrices&eget=posuere&elit=cubilia&sodales=curae&scelerisque=nulla&mauris=dapibus&sit=dolor&amet=vel&eros=est&suspendisse=donec&accumsan=odio&tortor=justo&quis=sollicitudin&turpis=ut&sed=suscipit&ante=a&vivamus=feugiat&tortor=et&duis=eros&mattis=vestibulum&egestas=ac&metus=est&aenean=lacinia&fermentum=nisi&donec=venenatis&ut=tristique&mauris=fusce&eget=congue&massa=diam&tempor=id&convallis=ornare&nulla=imperdiet&neque=sapien&libero=urna&convallis=pretium&eget=nisl&eleifend=ut&luctus=volutpat&ultricies=sapien&eu=arcu&nibh=sed",
     "termycond": "Self-enabling interactive knowledge user",
     "politicPriv": "Triple-buffered bottom-line matrix"
+  },
+  {
+    "id": 93,
+    "name": "Denise Agostina Geraldine Diaz",
+    "email": "dgeraldineuniversidad@gmail.com",
+    "password": "vivabts123",
+    "confirmPassword": "$2a$10$eY9r.CZr3nP36S650pRTcurRc1K46QdsRsR8h1LySPFIU85UUq1Km",
+    "phoneNumber": "03856193862",
+    "profilePicture": "user-1704910002282-fondo-login.png",
+    "termycond": "aceptaTérminosyCondiciones",
+    "politicPriv": "aceptaPolíticasDePrivacidad"
   }
 ]

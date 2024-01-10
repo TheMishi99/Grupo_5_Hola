@@ -23,6 +23,11 @@
           </div>
           <div>
             <input type="password" name="password" id="password" placeholder="Contraseña" required autocomplete="off" />
+            <% if(locals.errros && errors.email) { %>
+              <div class="text-danger">
+                <% erros.email.msg %>
+              </div>
+            <% } %>
           </div>
           <a class="login-access" href="#">¿Olvidaste tu contraseña?</a>
           <a><input type="checkbox" name="remember" value="recordarUsuarioyContraseña" />

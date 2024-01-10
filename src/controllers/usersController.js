@@ -3,6 +3,7 @@ const { join } = require("path");
 const { save } = require("../models/user-model");
 const { validationResult } = require("express-validator")
 const bcryptjs = require('bcryptjs')
+const userModel = require("../models/user-model");
 
 
 const usersController = {
@@ -40,6 +41,30 @@ const usersController = {
   },
   login: (req, res) => {
     res.render("./users/login");
+  },
+  loginProcess: (req, res) => {
+    let userToLogin = userModel.findByField("email", req.body.email)
+    console.log(userToLogin);
+    if (userToLogin){
+      let isOkThePassword = bcryptjs.compareSync(req.body.password, userToLogin.password);
+      console.log(isOkThePassword);
+      if (isOkThePassword){
+        return res.render('/profile', { user: userToLogin });
+      }
+    }
+
+    return res.render('./users/login', {
+      errors: {
+        email: {
+          msg: 'Las credenciales son inválidas.'
+        }
+      }
+    })
+  },
+  profile: (req, res) => {
+    const id = req.params.id;
+    const user = userModel.findOne(id);
+    res.render("./users/profile", { user });
   }
 };
 
