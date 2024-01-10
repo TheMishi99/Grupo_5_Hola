@@ -1,16 +1,5 @@
 [
   {
-    "id": 93,
-    "name": "Denise Agostina Geraldine Diaz",
-    "email": "dgeraldineuniversidad@gmail.com",
-    "password": "vivabts123",
-    "confirmPassword": "$2a$10$eY9r.CZr3nP36S650pRTcurRc1K46QdsRsR8h1LySPFIU85UUq1Km",
-    "phoneNumber": "03856193862",
-    "profilePicture": "user-1704910002282-fondo-login.png",
-    "termycond": "aceptaTérminosyCondiciones",
-    "politicPriv": "aceptaPolíticasDePrivacidad"
-  },
-  {
     "id": 12,
     "name": "joaco",
     "email": "joaco@gmail.com",
