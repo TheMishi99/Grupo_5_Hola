@@ -41,25 +41,30 @@ const usersController = {
     res.render("./users/login");
   },
   loginProcess: (req, res) => {
-    let userToLogin = userModel.findByField("email", req.body.email)
-    if (userToLogin){
-      let isOkThePassword = bcryptjs.compareSync(req.body.password, userToLogin.password);
-      if (isOkThePassword){
-
-        if(req.body.remember){
-          res.cookie('userEmail', req.body.email, {MaxAge: (1000 * 60) * 60})
-        }
-        return res.render('./users/profile', { user: userToLogin });
-      }
+    if (req.session.isLogged == undefined) {
+      req.session.isLogged = false
     }
-
-    return res.render('./users/login', {
-      errors: {
-        email: {
-          msg: 'Las credenciales son inválidas.'
+    let userToLogin = userModel.findByField("email", req.body.email)
+    if(req.session.isLogged == false){
+      if (userToLogin){
+        let isOkThePassword = bcryptjs.compareSync(req.body.password, userToLogin.password);
+        if (isOkThePassword){
+          if(req.body.remember){
+            res.cookie('userEmail', req.body.email, {MaxAge: (1000 * 60) * 60})
+          }
+          req.session.isLogged = true
+          return res.render('./users/profile', { user: userToLogin });
         }
       }
-    })
+      return res.render('./users/login', {
+        errors: {
+          email: {
+            msg: 'Las credenciales son inválidas.'
+          }
+        }
+      })
+    }
+    return res.render('./users/profile', { user: userToLogin });
   },
   profile: (req, res) => {
     const id = req.params.id;
