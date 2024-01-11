@@ -65,7 +65,13 @@ const usersController = {
     const id = req.params.id;
     const user = userModel.findOne(id);
     res.render("./users/profile", { user });
-  }
+  },
+
+  logout: (req, res) => {
+    res.clearCookie('userEmail');
+    req.session.destroy();
+    return res.redirect('/');
+  } 
 };
 
 module.exports = usersController
