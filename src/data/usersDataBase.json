@@ -9,5 +9,16 @@
     "profilePicture": "user-1704916916773-320161635_1199762810748263_7301277919038224907_n.jpg",
     "termycond": "aceptaTérminosyCondiciones",
     "politicPriv": "aceptaPolíticasDePrivacidad"
+  },
+  {
+    "id": 13,
+    "name": "Rocio Chochi Diaz",
+    "email": "Katrhina_ro@hotmail.com",
+    "password": "$2a$10$0cgZgcRY6O4riqy96WDYkeS.2bjcPC1BtDrc2ACb8NtrUwS.apwgC",
+    "confirmPassword": "$2a$10$WhI.57IvGv6pBXMej82y2.zga3L5EGApByMdAkuGjNv.Cxe42qjeK",
+    "phoneNumber": "3854132687",
+    "profilePicture": "user-1704939334545-IMG-20231021-WA0090.jpg",
+    "termycond": "aceptaTérminosyCondiciones",
+    "politicPriv": "aceptaPolíticasDePrivacidad"
   }
 ]
