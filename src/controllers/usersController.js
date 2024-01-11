@@ -53,7 +53,6 @@ const usersController = {
             res.cookie('userEmail', req.body.email, {MaxAge: (1000 * 60) * 60})
           }
           req.session.isLogged = true
-          console.log(req.session.isLogged);
           return res.render('./users/profile', { user: userToLogin });
         }
       }
