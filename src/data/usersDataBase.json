@@ -9,5 +9,16 @@
     "profilePicture": "user-1704916916773-320161635_1199762810748263_7301277919038224907_n.jpg",
     "termycond": "aceptaTérminosyCondiciones",
     "politicPriv": "aceptaPolíticasDePrivacidad"
+  },
+  {
+    "id": 13,
+    "name": "Luciana",
+    "email": "mlfluli@gmail.com",
+    "password": "$2a$10$hyHl1ZA7Q9JWB8l/Xp5r.OzGX7Ka6BBvH2UlXyuVIohTeoH6yv78q",
+    "confirmPassword": "$2a$10$fy2psK5RAAUM5thfbQUdO.S0i9OCTeHe2L58ZHk/onEVzkjNskiFC",
+    "phoneNumber": "1234",
+    "profilePicture": "user-1704928845042-leon.jpeg",
+    "termycond": "aceptaTérminosyCondiciones",
+    "politicPriv": "aceptaPolíticasDePrivacidad"
   }
 ]

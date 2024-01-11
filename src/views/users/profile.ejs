@@ -8,21 +8,30 @@
     <title>Profile</title>
     <script src="https://kit.fontawesome.com/6d37a11b52.js" crossorigin="anonymous"></script>
     <!--Hoja de Estilo para Profile-->
-    <link href="../css/profile-style.css" rel="stylesheet" />
+    <link href="../../css/profile-style.css" rel="stylesheet" />
 </head>
 
 <body>
   <%- include("../partials/header") %>
-    <main class="profile-main">
+    <main>
       <div class="profile-container">
-        <h1>Perfil de <%= user.name %></h1>
-        <p>Email: <%= user.email %></p>
-        <p>Número de Teléfono: <%= user.phoneNumber %></p>
-        <p>Foto de Perfil: <%= user.profilePicture %></p>
+        <div class="information-container">
+          <div class="text"><h1>¡Hola!</h1></div>
+          <div class="profile-photo"><img src="../../../public/img/Users/<%= user.profilePicture %>" alt="Foto de Perfil de <%= user.name %>" /></div>
+          <div class="text"><h1><%= user.name %></h1></div>
+  
+          <div class="text-information">Email</div>
+          <div class="profile-usem">
+            <p><%= user.email %></p>
+          </div>
+          
+          <div class="text-information">Número de Teléfono</div>
+          <div class="profile-usnum">
+              <p><%= user.phoneNumber %></p>
+          </div>
+        </div>
       </div>
     </main>
-    <h4>Foto de Perfil</h4>
-    <img src="<%= user.profilePicture %>" width="100%" text-align="center" alt="foto-usuario"/>
     <%- include("../partials/footer") %>
 </body>
 
