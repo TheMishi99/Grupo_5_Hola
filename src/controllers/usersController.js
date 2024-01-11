@@ -40,11 +40,12 @@ const usersController = {
   login: (req, res) => {
     res.render("./users/login");
   },
-  loginProcess: (req, res) => {
+  loginProcess: async (req, res) => {
     if (req.session.isLogged == undefined) {
       req.session.isLogged = false
     }
-    let userToLogin = userModel.findByField("email", req.body.email)
+    let userToLogin = await userModel.findByField("email", req.body.email)
+    
     if(req.session.isLogged == false){
       if (userToLogin){
         let isOkThePassword = bcryptjs.compareSync(req.body.password, userToLogin.password);
