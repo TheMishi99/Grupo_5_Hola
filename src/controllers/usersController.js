@@ -45,6 +45,10 @@ const usersController = {
     if (userToLogin){
       let isOkThePassword = bcryptjs.compareSync(req.body.password, userToLogin.password);
       if (isOkThePassword){
+
+        if(req.body.remember){
+          res.cookie('userEmail', req.body.email, {MaxAge: (1000 * 60) * 60})
+        }
         return res.render('./users/profile', { user: userToLogin });
       }
     }
