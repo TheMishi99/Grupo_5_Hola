@@ -22,7 +22,7 @@ router.get("/cart", productsController.cart);
 router.get("/:id", productsController.detail);
 
 /* FORMULARIO Y ACCION DE EDITAR EL PRODUCTO POR ID */
-router.get("/:id/edit", productsController.modifyView);
+router.get("/:id/edit", userloggedMiddleware, productsController.modifyView);
 router.put("/:id", productsController.modify);
 
 /* ACCION ELIMINAR  */
