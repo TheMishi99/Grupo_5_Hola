@@ -6,13 +6,13 @@ const productsController = require("../controllers/productsController");
 /* IMPORTACION MIDDLEWARES */
 
 const { upload } = require("../middlewares/multerProducts");
-const isLogged = require("../middlewares/sessionValidate");
+const userloggedMiddleware = require("../middlewares/userLogged");
 
 /* MOSTRAR TODOS LOS PRODUCTOS */
 router.get("/", productsController.showAll);
 
 /* FORMULARIO Y ACCION DE CREACION DE PRODUCTO */
-router.get("/create", isLogged, productsController.createView);
+router.get("/create", userloggedMiddleware, productsController.createView);
 router.post("/", upload.single("img"), productsController.create);
 
 /* VISTA DE CARRITO */

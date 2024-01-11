@@ -1,18 +1,16 @@
 const User = require('../models/user-model');
 
-function userloggedMiddleware(req, res, next) {
-    let emailInCookie = req.cookies.userEmail;
-    let userFromCookie = User.findByField('email', emailInCookie);
+async function userloggedMiddleware(req, res, next) {
+    let userToLogin = await User.findByField("email", req.cookies.userEmail);
 
-    if(userFromCookie){
-        req.session.isLogged = userFromCookie;
+    if (userToLogin) {
+      req.session.isLogged = userToLogin;
     }
-
-/*     if(req.session.isLogged){
-        res.locals.isLogged = true;
-        res.local.userLogged = req.session.isLogged;
+  
+    if (!req.session.isLogged) {
+      req.session.isLogged = false;
     }
- */
+  
     next();
 }
 

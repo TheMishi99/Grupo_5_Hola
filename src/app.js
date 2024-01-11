@@ -29,9 +29,10 @@ app.set("view engine", "ejs");
 app.listen(PORT, () => {
   console.log(`
   Servidor escuchando en el puerto ${PORT}
-  *************************************************
-  Ingresa al siguiente link: http://localhost:${PORT}/
-  *************************************************
+  *****************************************************
+  * Ingresa al siguiente link(ctrl + click):          *
+  *           http://localhost:${PORT}/                  *
+  *****************************************************
   `);
 });
 

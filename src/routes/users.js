@@ -6,14 +6,14 @@ const usersController = require("../controllers/usersController")
 const { upload } = require("../middlewares/multerUsers");
 const registerValidate = require("../middlewares/registerValidate")
 const userloggedMiddleware = require("../middlewares/userLogged")
-const sessionValidate = require("../middlewares/sessionValidate")
+const sessionValidate = require("../middlewares/loginValidate")
 
 /*FORMULARIO Y PROCESAMIENTO DEL LOGIN*/
 router.get("/login", sessionValidate ,usersController.login)
-router.post("/login", userloggedMiddleware, usersController.loginProcess)
+router.post("/login", sessionValidate, usersController.loginProcess)
 
 /* FORMULARIO Y ACCION DE CREACION DE USUARIO */
-router.get("/register", usersController.register)
+router.get("/register",sessionValidate, usersController.register)
 router.post("/", upload.single("profilePicture"), registerValidate, usersController.createRegister)
 
 /* FORMULARIO DE PERFIL DE USUARIO */
