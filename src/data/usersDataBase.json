@@ -20,5 +20,16 @@
     "profilePicture": "user-1704939334545-IMG-20231021-WA0090.jpg",
     "termycond": "aceptaTérminosyCondiciones",
     "politicPriv": "aceptaPolíticasDePrivacidad"
-  }
+  },
+  {
+    "id": 14,
+    "name": "Luciana",
+    "email": "mlfluli@gmail.com",
+    "password": "$2a$10$0PRHECR9RwxzzmfDofKN1.LVZIwDo/j/KY8xhtIgNE.BD0iyCJ99i",
+    "confirmPassword": "$2a$10$GTtLXJ8mQHWkdadLkRJ8NeRMcn/wxKmxp/51kXbR9L4HzPsi9ar.a",
+    "phoneNumber": "1234",
+    "profilePicture": "user-1704940551245-mujer-bonita-joven-alegre-mirando-al-frente-sonriendo-aislado-pared-verde-oliva.jpg",
+    "termycond": "aceptaTérminosyCondiciones",
+    "politicPriv": "aceptaPolíticasDePrivacidad"
+  },
 ]
