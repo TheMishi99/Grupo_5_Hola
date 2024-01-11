@@ -11,7 +11,6 @@ const registerValidate = [
         .isEmail().withMessage("Introduzca una dirección de correo electrónico válida").bail()
         .custom((value, {req}) =>{
             let userInDB = userModel.findByField('email' , req.body.email)
-            console.log(userInDB)
             if(userInDB){
                 throw new Error("El correo electrónico ingresado ya se encuentra registrado")
             }
