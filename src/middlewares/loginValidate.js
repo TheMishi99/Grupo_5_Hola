@@ -11,7 +11,7 @@ const isLogged = async (req, res, next) => {
   if (!req.session.isLogged) {
     req.session.isLogged = false;
   } else {
-    return res.render("./users/profile", { user: userToLogin });
+    return res.redirect(`/users/${userToLogin.id}/profile`);
   }
 
   next();

@@ -5,7 +5,6 @@ const usersController = require("../controllers/usersController")
 /* IMPORTACION MIDDLEWARES */
 const { upload } = require("../middlewares/multerUsers");
 const registerValidate = require("../middlewares/registerValidate")
-const userloggedMiddleware = require("../middlewares/userLogged")
 const sessionValidate = require("../middlewares/loginValidate")
 
 /*FORMULARIO Y PROCESAMIENTO DEL LOGIN*/
