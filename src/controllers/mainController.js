@@ -17,6 +17,7 @@ const mainController = {
     res.render("index", {
       latestProducts: latest4Products,
       off: off4Products,
+      userLogged: req.session.isLogged
     });
   },
 };

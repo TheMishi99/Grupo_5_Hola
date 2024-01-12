@@ -31,5 +31,16 @@
     "profilePicture": "user-1704940551245-mujer-bonita-joven-alegre-mirando-al-frente-sonriendo-aislado-pared-verde-oliva.jpg",
     "termycond": "aceptaTérminosyCondiciones",
     "politicPriv": "aceptaPolíticasDePrivacidad"
+  },
+  {
+    "id": 15,
+    "name": "Matias Demian Sayago",
+    "email": "matiasgd99@gmail.com",
+    "password": "$2a$10$Ypo0pC20UY6YDFuc9urYa.AskC2P4zVR.3aFwpn5SC/ModV9NMPi.",
+    "confirmPassword": "$2a$10$q69naBDVNzx1g3bFkD3rBOzbUj9x2aVVSfsZf0JpJnjnG0MVOVylm",
+    "phoneNumber": "+5438561231231",
+    "profilePicture": "user-1705075228342-abstract-art-design-smoke-wallpaper-thumb.jpg",
+    "termycond": "aceptaTérminosyCondiciones",
+    "politicPriv": "aceptaPolíticasDePrivacidad"
   }
 ]

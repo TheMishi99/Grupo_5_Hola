@@ -13,9 +13,10 @@ router.post("/login", sessionValidate, usersController.loginProcess)
 
 /* FORMULARIO Y ACCION DE CREACION DE USUARIO */
 router.get("/register",sessionValidate, usersController.register)
-router.post("/", upload.single("profilePicture"), registerValidate, usersController.createRegister)
+router.post("/register", sessionValidate, upload.single("profilePicture"), registerValidate, usersController.createRegister)
 
-/* FORMULARIO DE PERFIL DE USUARIO */
+/* PERFIL Y LOGOUT DE USUARIO */
 router.get("/:id/profile", usersController.profile)
+router.get("/:id/logout", usersController.logout)
 
 module.exports = router

@@ -6,7 +6,7 @@ const userModel = require("../models/user-model");
 
 const usersController = {
   register: (req, res) => {
-    res.render("./users/register");
+    res.render("./users/register", { userLogged: req.session.isLogged });
   },
   createRegister: (req, res) => {
     const resultValidation = validationResult(req);
@@ -14,6 +14,7 @@ const usersController = {
       res.render("./users/register", {
         errors: resultValidation.mapped(),
         old: req.body,
+        userLogged: req.session.isLogged,
       });
     } else {
       const {
@@ -46,7 +47,7 @@ const usersController = {
     }
   },
   login: (req, res) => {
-    res.render("./users/login");
+    res.render("./users/login", { userLogged: req.session.isLogged });
   },
   loginProcess: async (req, res) => {
     try {
@@ -71,7 +72,7 @@ const usersController = {
             }
 
             req.session.isLogged = userToLogin;
-            return res.render("./users/profile", { user: userToLogin });
+            return res.redirect("/users/" + userToLogin.id + "/profile");
           }
         }
         throw new Error("Las credenciales son inválidas.");
@@ -80,7 +81,7 @@ const usersController = {
           "email",
           userEmailCookie
         );
-        return res.render("./users/profile", { user: userToLogin });
+        return res.redirect("/users/" + userToLogin.id + "/profile");
       }
     } catch (error) {
       return res.render("./users/login", {
@@ -89,13 +90,14 @@ const usersController = {
             msg: error.message || "Error en el inicio de sesión.",
           },
         },
+        userLogged: req.session.isLogged
       });
     }
   },
   profile: (req, res) => {
     const id = req.params.id;
     const user = userModel.findOne(id);
-    res.render("./users/profile", { user });
+    res.render("./users/profile", { user, userLogged: req.session.isLogged });
   },
 
   logout: (req, res) => {

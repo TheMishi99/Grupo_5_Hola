@@ -7,17 +7,31 @@
     <button class="cart">
       <a href="/products/cart"><i class="fa-solid fa-cart-shopping"></i></a>
     </button>
-    <div class="dropdown">
-      <button class="login">
-        <i class="fa-solid fa-circle-user"></i>
-        <span>UserName</span>
-        <i class="fa-solid fa-angle-down"></i>
-      </button>
-      <div class="dropdown-content">
-          <a href="/users/register">Registrarse</a>
-          <a href="/users/login">Iniciar Sesión</a>
+    <% if (userLogged === undefined || userLogged === null || userLogged === false) { %>
+      <div class="dropdown">
+        <button class="login">
+          <i class="fa-solid fa-circle-user"></i>
+          <span>UserName</span>
+          <i class="fa-solid fa-angle-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <a href="/users/register">Registrarse</a>
+            <a href="/users/login">Iniciar Sesión</a>
+        </div>
       </div>
-  </div>
+      <% } else { %>
+        <div class="dropdown">
+          <button class="login">
+            <i class="fa-solid fa-circle-user"></i>
+            <span><%= userLogged.name %></span>
+            <i class="fa-solid fa-angle-down"></i>
+          </button>
+          <div class="dropdown-content">
+              <a href="/users/<%= userLogged.id %>/profile">Mi Perfil</a>
+              <a href="/users/<%= userLogged.id %>/logout">Cerrar Sesión</a>
+          </div>
+        </div>
+    <% } %>
   </div>
   <div class="search-bar">
     <form action="">

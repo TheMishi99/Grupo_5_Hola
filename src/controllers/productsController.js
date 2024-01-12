@@ -5,13 +5,14 @@ const { index, findOne, save } = require("../models/product-model");
 
 const productsController = {
   cart: (req, res) => {
-    res.render("./products/productCart", { list: list });
+    res.render("./products/productCart", { list: list, userLogged: req.session.isLogged });
   },
   detail: (req, res) => {
     const id = req.params.id;
     const productoBuscado = findOne(id);
     res.render("./products/productDetail", {
       productoBuscado: productoBuscado,
+      userLogged: req.session.isLogged
     });
   },
   create: (req, res) => {
@@ -37,7 +38,7 @@ const productsController = {
     res.redirect("/products");
   },
   createView: (req, res) => {
-    res.render("./products/createProduct");
+    res.render("./products/createProduct", { userLogged: req.session.isLogged });
   },
   modify: (req, res) => {
     const products = index();
@@ -60,7 +61,7 @@ const productsController = {
   modifyView: (req, res) => {
     const id = req.params.id;
     const product = findOne(id);
-    res.render("./products/modifyProduct", { product });
+    res.render("./products/modifyProduct", { product, userLogged: req.session.isLogged });
   },
   destroy: (req, res) => {
     const id = req.params.id;
@@ -71,7 +72,7 @@ const productsController = {
   },
   showAll: (req, res) => {
     const lista = index();
-    res.render("./products/allProducts", { list: lista });
+    res.render("./products/allProducts", { list: lista, userLogged: req.session.isLogged });
   },
 };
 
