@@ -1,92 +1,35 @@
 [
   {
-    "full_name": "Rudolfo Bestall",
-    "email": "rbestall0@sfgate.com",
-    "password": "bP1%wuRA",
-    "phone": "138-931-7642"
+    "id": 12,
+    "name": "joaco",
+    "email": "joaco@gmail.com",
+    "password": "$2a$10$yHzqKtFBAgdyT6gf.e0FOuRoME97hMlAPIJ7h5LqcAi/Ei4IpLdyq",
+    "confirmPassword": "$2a$10$HMl3rCkYAOWnN5lrdfCWUuRSeD015u7D3E.jCsuHvocfylSLAZcHK",
+    "phoneNumber": "+5493856182988",
+    "profilePicture": "user-1704916916773-320161635_1199762810748263_7301277919038224907_n.jpg",
+    "termycond": "aceptaTérminosyCondiciones",
+    "politicPriv": "aceptaPolíticasDePrivacidad"
   },
   {
-    "full_name": "Karlene Antosik",
-    "email": "kantosik1@blog.com",
-    "password": "nR7$1KEQN",
-    "phone": "636-637-8833"
+    "id": 13,
+    "name": "Rocio Chochi Diaz",
+    "email": "Katrhina_ro@hotmail.com",
+    "password": "$2a$10$0cgZgcRY6O4riqy96WDYkeS.2bjcPC1BtDrc2ACb8NtrUwS.apwgC",
+    "confirmPassword": "$2a$10$WhI.57IvGv6pBXMej82y2.zga3L5EGApByMdAkuGjNv.Cxe42qjeK",
+    "phoneNumber": "3854132687",
+    "profilePicture": "user-1704939334545-IMG-20231021-WA0090.jpg",
+    "termycond": "aceptaTérminosyCondiciones",
+    "politicPriv": "aceptaPolíticasDePrivacidad"
   },
   {
-    "full_name": "Rebekah Glancey",
-    "email": "rglancey2@army.mil",
-    "password": "sX0>%AH|/+",
-    "phone": "738-702-4774"
-  },
-  {
-    "full_name": "Carlotta Knuckles",
-    "email": "cknuckles3@wiley.com",
-    "password": "dR8|*.,JO)eybS\"",
-    "phone": "896-921-2549"
-  },
-  {
-    "full_name": "Lesley Darco",
-    "email": "ldarco4@netlog.com",
-    "password": "bW3\"WH4<L/",
-    "phone": "703-457-8497"
-  },
-  {
-    "full_name": "Nalani Claw",
-    "email": "nclaw5@ask.com",
-    "password": "hS9{MaV$RLZ$?MH",
-    "phone": "267-840-1824"
-  },
-  {
-    "full_name": "Putnam Fountain",
-    "email": "pfountain6@rediff.com",
-    "password": "qB3$>XS0",
-    "phone": "259-719-6484"
-  },
-  {
-    "full_name": "Shawn Curedell",
-    "email": "scuredell7@microsoft.com",
-    "password": "jL7&_tzW",
-    "phone": "419-964-4503"
-  },
-  {
-    "full_name": "Dione Bootell",
-    "email": "dbootell8@oracle.com",
-    "password": "vD6=Mbk5im<",
-    "phone": "144-344-8912"
-  },
-  {
-    "full_name": "Gabriella Loudyan",
-    "email": "gloudyan9@wisc.edu",
-    "password": "oQ0*_1PJ`O#2GS{",
-    "phone": "372-674-7261"
-  },
-  {
-    "full_name": "Izabel Spini",
-    "email": "ispinia@meetup.com",
-    "password": "sJ8'wOToR",
-    "phone": "914-538-4362"
-  },
-  {
-    "full_name": "Hyacinthe Teresse",
-    "email": "hteresseb@boston.com",
-    "password": "sD2$ik4KX",
-    "phone": "707-107-5888"
-  },
-  {
-    "full_name": "Tyrone Trathan",
-    "email": "ttrathanc@networksolutions.com",
-    "password": "zI0%S%o|Mk1k",
-    "phone": "332-779-6350"
-  },
-  {
-    "full_name": "Duncan Brettoner",
-    "email": "dbrettonerd@qq.com",
-    "password": "iX2..B5=",
-    "phone": "712-870-2210"
-  },
-  {
-    "full_name": "Lionel Draisey",
-    "email": "ldraiseye@joomla.org",
-    "password": "rM5/i|}a0czZ",
-    "phone": "412-364-2591"
+    "id": 14,
+    "name": "Luciana",
+    "email": "mlfluli@gmail.com",
+    "password": "$2a$10$0PRHECR9RwxzzmfDofKN1.LVZIwDo/j/KY8xhtIgNE.BD0iyCJ99i",
+    "confirmPassword": "$2a$10$GTtLXJ8mQHWkdadLkRJ8NeRMcn/wxKmxp/51kXbR9L4HzPsi9ar.a",
+    "phoneNumber": "1234",
+    "profilePicture": "user-1704940551245-mujer-bonita-joven-alegre-mirando-al-frente-sonriendo-aislado-pared-verde-oliva.jpg",
+    "termycond": "aceptaTérminosyCondiciones",
+    "politicPriv": "aceptaPolíticasDePrivacidad"
   }
 ]

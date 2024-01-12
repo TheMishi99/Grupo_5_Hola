@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <%- include("../partials/head") %>
+    <title>Profile</title>
+    <script src="https://kit.fontawesome.com/6d37a11b52.js" crossorigin="anonymous"></script>
+    <!--Hoja de Estilo para Profile-->
+    <link href="../../css/profile-style.css" rel="stylesheet" />
+</head>
+
+<body>
+  <%- include("../partials/header") %>
+    <main>
+      <div class="profile-container">
+        <div class="information-container">
+          <div class="text"><h1>¡Hola!</h1></div>
+
+          <div class="container-photo">
+            <div class="profile-photo">
+              <img src="/img/Users/<%= user.profilePicture %>" alt="Foto de Perfil de <%= user.name %>" />
+            </div>
+          </div>
+          <div class="text"><h1><%= user.name %></h1></div>
+  
+          <div class="text-information">Email</div>
+          <div class="profile-usem">
+            <p><%= user.email %></p>
+          </div>
+          
+          <div class="text-information">Número de Teléfono</div>
+          <div class="profile-usnum">
+              <p><%= user.phoneNumber %></p>
+          </div>
+        </div>
+      </div>
+    </main>
+    <%- include("../partials/footer") %>
+</body>
+
+</html>

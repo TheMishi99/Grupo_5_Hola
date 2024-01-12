@@ -29,5 +29,7 @@ Las páginas arriba comentadas, fueron seleccionadas como referente por ser agra
 
 - Enzo Joaquin Bolzon: 27 años de edad, vive en Santiago del Estero, Argentina. Amante de los videojuegos y la informática en general, siempre con ganas de aprender cosas nuevas. Trabaja en venta de insumos informáticos y atención al cliente en una Arena Gaming local. Vivan los mishis ♥
 
+- Maria Luciana Figueroa: 22 años de edad, vive en Santiago del Estero, Argentina. Estudiante avanzada de Lic. en Sistemas de Informacion en la U.N.S.E. Realiza en sus tiempos libres cursos de idiomas y de programación, también le gusta salir a caminar y a correr. Se encuentra en busquedad de un trabajo a medio tiempo.
+
 ## Comentario Adicional
 - En la medida en la que se desarrolle el proyecto es posible que se 	amplíe la información suministrada. 

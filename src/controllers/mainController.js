@@ -1,5 +1,4 @@
 const path = require("path");
-// const list = require("./listController");
 const { index } = require("../models/product-model");
 
 const mainController = {
