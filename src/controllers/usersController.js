@@ -4,6 +4,10 @@ const { validationResult } = require("express-validator");
 const bcryptjs = require("bcryptjs");
 const userModel = require("../models/user-model");
 
+/* IMPLEMENTANDO BASE DE DATOS */
+const db = require("../database/models")
+/* ************************* */
+
 const usersController = {
   register: (req, res) => {
     res.render("./users/register", { userLogged: req.session.isLogged });
