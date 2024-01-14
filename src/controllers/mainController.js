@@ -1,9 +1,14 @@
 const path = require("path");
 const { index } = require("../models/product-model");
 
+/* IMPLEMENTANDO BASE DE DATOS */
+const db = require("../database/models")
+/* ************************* */
+
 const mainController = {
-  index: (req, res) => {
+  index: async (req, res) => {
     const list = index();
+    // const list = await db.Productos.findAll();
     const offProducts = [];
     const latestProducts = index().reverse();
     const latest4Products = latestProducts.slice(0, 4);
