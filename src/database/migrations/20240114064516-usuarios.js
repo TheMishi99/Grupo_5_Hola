@@ -21,16 +21,22 @@ module.exports = {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      confirmPassword: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
       phoneNumber: {
         type: DataTypes.INTEGER,
+        allowNull: false
       },
       profilePicture: {
         type: DataTypes.STRING,
+        allowNull: false
       },
+      authLevel: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      active: {
+        type: DataTypes.INTEGER,
+        allowNull: false
+      }
     });
   },
 

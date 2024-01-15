@@ -8,8 +8,14 @@ const db = require("../database/models")
 /* ************************* */
 
 const productsController = {
-  cart: (req, res) => {
-    res.render("./products/productCart", { list: list, userLogged: req.session.isLogged });
+  cart: async (req, res) => {
+    const id = req.session.isLogged.id;
+    const user = await db.Usuarios.findByPk(id, {
+      include: [{association: "carritoProductos"}]
+    })
+    const myProductsCart = user.carritoProductos;
+
+    res.render("./products/productCart", { list: myProductsCart, userLogged: req.session.isLogged });
   },
   detail: (req, res) => {
     const id = req.params.id;

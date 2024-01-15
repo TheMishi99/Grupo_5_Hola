@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <%- include("../partials/head") %>
+  <title>Edit</title>
+  <script src="https://kit.fontawesome.com/6d37a11b52.js" crossorigin="anonymous"></script>
+  <!--Hoja de Estilos para edit-->
+  <link href="../../css/userEdit-style.css" rel="stylesheet" />
+</head>
+
+<body>
+  <%- include("../partials/header") %>
+  <main class="userEdit-main">
+    <form class="userEdit-form" action="/users/<%= user.id %>/edit?_method=PUT" method="POST" enctype="multipart/form-data">
+      <section class="userEdit-title-form">
+        <h1 class="tit-links">Editar Usuario</h1>
+      </section>
+      <section class="userEdit-section">
+        <div class="campos">
+          <p><label for="name">Nombre y apellido</label></p>
+          <input type="text" name="name" id="name" placeholder="Ej. Juan Perez" 
+              value="<%= locals.old && old.name ? old.name : user.name %>" />
+              <% if(locals.errors && errors.name){%>
+                <div class="text-error"><%= errors.name.msg %></div>
+              <%}%>
+          <p><label for="phonenumber">Teléfono</label></p>
+          <input type="tel" name="phonenumber" id="phonenumber" placeholder="Ej.3851234567" 
+              value="<%= locals.old && old.phonenumber ? old.phonenumber : user.phoneNumber %>"/>
+              <% if(locals.errors && errors.phonenumber){%>
+                <div class="text-error"><%= errors.phonenumber.msg %></div>
+              <%}%>         
+          <p><label for="profilePicture">Imagen de perfil</label></p>
+          <div class="image">
+            <img src="../../img/Users/<%= user.profilePicture %>" alt="picturePreview" id="preview">
+          </div>
+          <input type="file" name="profilePicture" id="profilePicture" 
+              value="<%= locals.old && old.profilePicture ? old.profilePicture : user.profilePicture %>" onchange="loadImage(event)"/>
+              <% if(locals.errors && errors.profilePicture){%>
+                <div class="text-error"><%= errors.profilePicture.msg %></div>
+              <%}%>
+        </div>
+        <div>
+          <input class="userEdit-button" type="submit" value="Confimar" />
+        </div>
+      </section>
+    </form>
+  </main>
+  <%- include("../partials/footer") %>
+  
+  <script>
+    
+    let loadImage = (event) => {
+      let image = document.getElementById("preview");
+      image.src = URL.createObjectURL(event.target.files[0]);
+    };
+  </script>
+</body>
+
+</html>
