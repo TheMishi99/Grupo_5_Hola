@@ -2,7 +2,9 @@ const { readFileSync } = require("fs");
 const { join } = require("path");
 const { validationResult } = require("express-validator");
 const bcryptjs = require("bcryptjs");
-const userModel = require("../models/user-model");
+
+/* YA NO SE USARA */
+// const userModel = require("../models/user-model");
 
 /* IMPLEMENTANDO BASE DE DATOS */
 const db = require("../database/models")
@@ -31,27 +33,54 @@ const usersController = {
         termycond,
         politicPriv,
       } = req.body;
-      const nuevoRegistro = {
-        id: userModel.generateId(),
+      db.Usuarios.create({
         name: name,
         email: email,
         password: bcryptjs.hashSync(password, 10),
-        confirmPassword: bcryptjs.hashSync(confirmpassword, 10),
         phoneNumber: phonenumber,
         profilePicture: req.file.filename,
-        termycond: termycond,
-        politicPriv: politicPriv,
-      };
-      const registrosActuales = JSON.parse(
-        readFileSync(join(__dirname, "../data", "usersDataBase.json"), "utf-8")
-      );
-      registrosActuales.push(nuevoRegistro);
-      userModel.save(registrosActuales);
+        authLevel: 2,
+        active: 1
+      })
+      // const nuevoRegistro = {
+      //   id: userModel.generateId(),
+      //   name: name,
+      //   email: email,
+      //   password: bcryptjs.hashSync(password, 10),
+      //   confirmPassword: bcryptjs.hashSync(confirmpassword, 10),
+      //   phoneNumber: phonenumber,
+      //   profilePicture: req.file.filename,
+      //   termycond: termycond,
+      //   politicPriv: politicPriv,
+      // };
+      // const registrosActuales = JSON.parse(
+      //   readFileSync(join(__dirname, "../data", "usersDataBase.json"), "utf-8")
+      // );
+      // registrosActuales.push(nuevoRegistro);
+      // userModel.save(registrosActuales);
       res.redirect("./login");
     }
   },
-  login: (req, res) => {
-    res.render("./users/login", { userLogged: req.session.isLogged });
+  login: async (req, res) => {
+    /* SI SIGUE VIVA LA COOKIE */
+    if(req.cookies.userEmail){
+      /* LO BUSCO Y LO LOGUEO AUTOMATICAMENTE */
+      const userToLogin = await db.Usuarios.findOne({
+        where: {
+          email: req.cookies.userEmail
+        }
+      })
+      
+      req.session.isLogged = userToLogin; 
+      
+      /* ACTUALIZO LA COOKIE POR 15 MINUTOS NUEVAMENTE*/
+      let email = req.cookies.userEmail;
+      res.clearCookie("userEmail");
+      res.cookie("userEmail", email, { maxAge: 900000 });
+
+      return res.redirect("/users/" + userToLogin.id + "/profile")
+    }
+    return res.render("./users/login", { userLogged: req.session.isLogged });
   },
   loginProcess: async (req, res) => {
     try {
@@ -63,9 +92,14 @@ const usersController = {
       const { email, password, remember } = req.body;
 
       if (!userEmailCookie) {
-        const userToLogin = await userModel.findByField("email", email);
-
-        if (userToLogin) {
+        // const userToLogin = await userModel.findByField("email", email);
+        const userToLogin = await db.Usuarios.findOne({
+          where: {
+            email: email
+          }
+        })
+        console.log(userToLogin);
+        if (userToLogin && userToLogin.active == 1) {
           const isOkThePassword = bcryptjs.compareSync(
             password,
             userToLogin.password
@@ -77,16 +111,34 @@ const usersController = {
 
             req.session.isLogged = userToLogin;
             return res.redirect("/users/" + userToLogin.id + "/profile");
+          }else{
+            throw new Error("Las credenciales son inválidas.");
           }
+        }else{
+          throw new Error("El usuario esta bloqueado. Contactate con un administrador");
         }
-        throw new Error("Las credenciales son inválidas.");
       } else {
-        const userToLogin = await userModel.findByField(
-          "email",
-          userEmailCookie
-        );
-        return res.redirect("/users/" + userToLogin.id + "/profile");
+        const userToLogin = await db.Usuarios.findOne({
+          where: {
+            email: email
+          }
+        })
+        if(userToLogin && userToLogin.active == 1){
+          const isOkThePassword = bcryptjs.compareSync(
+            password,
+            userToLogin.password
+          );
+          if (isOkThePassword) {
+            req.session.isLogged = userToLogin;
+            return res.redirect("/users/" + userToLogin.id + "/profile");
+          }else{
+            throw new Error("Las credenciales son inválidas.");
+          }
+        }else{
+          throw new Error("El usuario esta bloqueado. Contactate con un administrador");
+        }
       }
+
     } catch (error) {
       return res.render("./users/login", {
         errors: {
@@ -98,17 +150,77 @@ const usersController = {
       });
     }
   },
-  profile: (req, res) => {
-    const id = req.params.id;
-    const user = userModel.findOne(id);
-    res.render("./users/profile", { user, userLogged: req.session.isLogged });
+  profile: async (req, res) => {
+    const id = req.session.isLogged.id;
+    const user = await db.Usuarios.findByPk(id)
+    return res.render("./users/profile", { user, userLogged: req.session.isLogged });
   },
+  edit: async (req, res) => {
+    const id = req.params.id;
+    const user = await db.Usuarios.findByPk(id)
+    res.render("./users/edit", { user, userLogged: req.session.isLogged })
+  },
+  editProcess: async (req, res) => {
+    const user = await db.Usuarios.findByPk(req.params.id)
+    const resultValidation = validationResult(req);
+    if (resultValidation.errors.length > 0) {
+      res.render("./users/edit", {
+        user,
+        errors: resultValidation.mapped(),
+        old: req.body,
+        userLogged: req.session.isLogged,
+      });
+    } else {
+      const {
+        name,
+        phonenumber
+      } = req.body;
+      db.Usuarios.update(
+        {
+          name: name,
+          phoneNumber: phonenumber,
+          profilePicture: req.file.filename
+        },
+        {
+          where: {
+            id: req.params.id
+          }
+        }
+      )
 
+      return res.redirect("/users/" + user.id + "/profile");
+    }
+  },
   logout: (req, res) => {
-    res.clearCookie("userEmail");
-    req.session.destroy();
+    if(req.params.id == req.session.isLogged.id){
+      res.clearCookie("userEmail");
+      req.session.destroy();
+    }
     return res.redirect("/");
   },
+  delete: async (req, res) => {
+    const id = req.params.id;
+    const user = await db.Usuarios.findByPk(id)
+    res.render("./users/delete", { user, userLogged: req.session.isLogged })
+  },
+  deleteProcess: (req, res) => {
+    if(req.params.id == req.session.isLogged.id){
+      db.Usuarios.update(
+        {
+          active: 0
+        },
+        {
+          where: {
+            id: req.params.id
+          }
+        }
+      )
+
+      res.clearCookie("userEmail");
+      req.session.destroy();
+    }
+    return res.redirect("/");
+  }
 };
 
 module.exports = usersController;

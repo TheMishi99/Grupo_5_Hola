@@ -1,6 +1,7 @@
 const { body } = require("express-validator");
 const path  = require("path");
-const userModel = require("../models/user-model");
+// const userModel = require("../models/user-model");
+const db = require("../database/models");
 
 const registerValidate = [
     body('name')
@@ -9,8 +10,14 @@ const registerValidate = [
     body('email')
         .notEmpty().withMessage("Debes completar este campo").bail()
         .isEmail().withMessage("Introduzca una dirección de correo electrónico válida").bail()
-        .custom((value, {req}) =>{
-            let userInDB = userModel.findByField('email' , req.body.email)
+        .custom(async (value, {req}) =>{
+            // let userInDB = userModel.findByField('email' , req.body.email)
+            let userInDB = await db.Usuarios.findOne({
+                where: {
+                    email: req.body.email
+                }
+            })
+            console.log(userInDB);
             if(userInDB){
                 throw new Error("El correo electrónico ingresado ya se encuentra registrado")
             }

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <%- include("../partials/head") %>
+  <title>Delete</title>
+  <script src="https://kit.fontawesome.com/6d37a11b52.js" crossorigin="anonymous"></script>
+  <!--Hoja de Estilos para edit-->
+  <link href="../../css/userDelete-style.css" rel="stylesheet" />
+</head>
+
+<body>
+  <%- include("../partials/header") %>
+  <main class="userDelete-main">
+    <form class="userDelete-form" action="/users/<%= user.id %>/delete?_method=DELETE" method="POST" enctype="multipart/form-data">
+      <section class="userDelete-title-form">
+        <h1 class="tit-links">Eliminar Usuario</h1>
+      </section>
+      <section class="userDelete-section">
+        <h1>Estas seguro que quieres eliminar al usuario: <%= user.name %></h1>
+        <div>
+          <input class="userDelete-button" type="submit" value="Confimar" />
+        </div>
+      </section>
+    </form>
+  </main>
+  <%- include("../partials/footer") %>
+  
+  <script>
+    
+    let loadImage = (event) => {
+      let image = document.getElementById("preview");
+      image.src = URL.createObjectURL(event.target.files[0]);
+    };
+  </script>
+</body>
+
+</html>
