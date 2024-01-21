@@ -30,7 +30,7 @@ module.exports = {
         allowNull: false
       },
       authLevel: {
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
         allowNull: false
       },
       active: {
