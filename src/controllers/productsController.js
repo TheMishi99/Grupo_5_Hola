@@ -1,10 +1,13 @@
 const { readFileSync } = require("fs");
 const { join } = require("path");
-const list = require("../data/productsDataBase");
-const { index, findOne, save } = require("../models/product-model");
+
+/*const list = require("../data/productsDataBase");
+const { index, findOne, save } = require("../models/product-model");*/
 
 /* IMPLEMENTANDO BASE DE DATOS */
 const db = require("../database/models")
+const sequelize = db.sequelize;
+const { Op } = require("sequelize");
 /* ************************* */
 
 const productsController = {
@@ -17,6 +20,33 @@ const productsController = {
 
     res.render("./products/productCart", { list: myProductsCart, userLogged: req.session.isLogged });
   },
+  list: async (req,res) =>{
+    const list = await db.Productos.findAll()
+    res.render('./products/allProducts', { list , userLogged: req.session.isLogged})
+  },
+  createView: (req, res) => {
+    res.render("./products/createProduct", { userLogged: req.session.isLogged });
+  },
+  create: async (req,res)=>{
+    try { 
+      const { img, title, code, brand, info, weight, price, description } = req.body;
+      await db.Productos.create({
+        img: req.file.filename,
+        title: title,
+        code: code ? code : "N/C",
+        brand: brand,
+        info: info,
+        weight: parseFloat(weight),
+        price: parseFloat(price),
+        off: null,
+        description: description,
+      })
+      res.redirect('/products')
+    }catch(error){
+      res.send(error);
+    } 
+  },
+  //
   detail: (req, res) => {
     const id = req.params.id;
     const productoBuscado = findOne(id);
@@ -25,7 +55,7 @@ const productsController = {
       userLogged: req.session.isLogged
     });
   },
-  create: (req, res) => {
+  /*create: (req, res) => {
     const { title, code, brand, img, info, weight, price, description } =
       req.body;
     const nuevoProducto = {
@@ -46,10 +76,7 @@ const productsController = {
     productosActuales.push(nuevoProducto);
     save(productosActuales);
     res.redirect("/products");
-  },
-  createView: (req, res) => {
-    res.render("./products/createProduct", { userLogged: req.session.isLogged });
-  },
+  },*/
   modify: (req, res) => {
     const products = index();
 
@@ -80,10 +107,10 @@ const productsController = {
     save(productsUpdates);
     res.redirect("/products");
   },
-  showAll: (req, res) => {
+  /*showAll: (req, res) => {
     const lista = index();
     res.render("./products/allProducts", { list: lista, userLogged: req.session.isLogged });
-  },
+  },*/
 };
 
 module.exports = productsController;
