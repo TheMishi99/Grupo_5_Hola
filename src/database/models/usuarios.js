@@ -22,6 +22,10 @@ module.exports = (sequelize, dataTypes) => {
       type: dataTypes.INTEGER,
       allowNull: false,
     },
+    adress: {
+      type: dataTypes.STRING,
+      allowNull: false,
+    },
     profilePicture: {
       type: dataTypes.STRING,
       allowNull: false,
@@ -33,7 +37,7 @@ module.exports = (sequelize, dataTypes) => {
     active: {
       type: dataTypes.INTEGER,
       allowNull: false,
-    }
+    },
   };
   let config = {
     tableName: "users",
@@ -47,9 +51,9 @@ module.exports = (sequelize, dataTypes) => {
       through: "CarritoProductos",
       foreignKey: "user_id",
       otherKey: "product_id",
-      timestamps: false
-    })
-  }
+      timestamps: false,
+    });
+  };
 
   return Usuario;
 };
