@@ -24,12 +24,16 @@
         <form class="edit_product" action="/products/<%= product.id %>?_method=PUT" method="POST">
           <h3 class="modify_title_article">Editar producto</h3>
           <div class="modify_camp">
-            <h4>Imagen</h4>
-            <img src="<%= product.img %>" width="100%" text-align="center" alt="foto-producto"/>
+            <h4>Imágen:</h4>
+            <input type="file" name="img" id="img"/>
           </div>
           <div class="modify_camp">
             <h4>Título</h4>
             <input type="text" name="title" id="title" value="<%= product.title %>">
+          </div>
+          <div class="modify_camp">
+            <h4>Código</h4>
+            <input type="text" name="code" id="code" value="<%= product.code %>">
           </div>
           <div class="modify_camp">
             <h4>Marca</h4>
@@ -40,8 +44,16 @@
             <input type="text" name="info" id="info" value="<%= product.info %>">
           </div>
           <div class="modify_camp">
+            <h4>Peso</h4>
+            <input type="text" name="weight" id="weight" value="<%= product.weight %>">
+          </div>
+          <div class="modify_camp">
             <h4>Precio</h4>
             <input type="text" name="price" id="price" value="<%= product.price %>">
+          </div>
+          <div class="modify_camp">
+            <h4>Oferta</h4>
+            <input type="text" name="off" id="off" value="<%= product.off %>">
           </div>
           <div class="modify_camp">
             <h4>Descripción</h4>
@@ -49,11 +61,6 @@
           </div>
           <button type="submit" class="save_button">
             <i class="fa-solid fa-floppy-disk"> <strong>Guardar cambios</strong></i>
-          </button>
-        </form>
-        <form class="edit_product" action="/products/<%= product.id %>?_method=DELETE" method="POST">
-          <button type="submit" class="save_button">
-            <i class="fa-solid fa-floppy-disk"> <strong>Eliminar</strong></i>
           </button>
         </form>
       </div>

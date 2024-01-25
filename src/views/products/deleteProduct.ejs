@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detalle de producto</title>
+    <%- include("../partials/head") %>
+    <script
+      src="https://kit.fontawesome.com/6d37a11b52.js"
+      crossorigin="anonymous"
+    ></script>
+    <!--Hoja de Estilos para Delete de producto-->
+    <link href="../css/productDetail-style.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <%- include("../partials/header") %>
+    <main>
+      <section>
+        <div class="confirm">
+          <h2>¿Desea eliminar de forma permanente este producto?</h2>
+            <form action="/products/<%= product.id %>?_method=DELETE" method="POST">
+            <button type="submit" class="save_button">
+              <i class="fa-solid fa-floppy-disk"> <strong>SI</strong></i>
+            </button>
+            </form>
+            <a href="/products/<%= product.id %>"><button>NO</button></a>
+        </div>
+        <div class="product">
+          <div class="product-img">
+            <img src="<%= product.img %>" width="100%" alt=" " />
+          </div>
+          <div class="product-details">
+            <div class="product-name-details">
+              <h3><%= product.title %></h3>
+              <ul>
+                <li>
+                  <p>Marca: <%= product.brand %></p>
+                </li>
+                <li>
+                  <p>Caracteristicas: <%= product.info %></p>
+                </li>
+                <li>
+                  <p>Peso: <%= product.weight %> Kg</p>
+                </li>
+                <li>
+                  <p>Codigo de producto: <%= product.code %></p>
+                </li>
+                <li>
+                    <p>Precio: <%= product.price %> Kg</p>
+                </li>
+                <li>
+                    <p>Descripción: <%= product.description %> Kg</p>
+                </li>
+              </ul>
+            </div>    
+          </div>
+        </div>
+      </section>
+    </main>
+    <%- include("../partials/footer") %>
+  </body>
+</html>

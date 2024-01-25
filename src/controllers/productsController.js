@@ -29,7 +29,7 @@ const productsController = {
   },
   create: async (req,res)=>{
     try { 
-      const { img, title, code, brand, info, weight, price, description } = req.body;
+      const {title, code, brand, info, weight, price, description } = req.body;
       await db.Productos.create({
         img: req.file.filename,
         title: title,
@@ -46,71 +46,49 @@ const productsController = {
       res.send(error);
     } 
   },
-  //
-  detail: (req, res) => {
-    const id = req.params.id;
-    const productoBuscado = findOne(id);
-    res.render("./products/productDetail", {
-      productoBuscado: productoBuscado,
-      userLogged: req.session.isLogged
-    });
+  detail: async  (req, res) => {
+      const product = await db.Productos.findByPk(req.params.id)
+      res.render('./products/productDetail', {product: product, userLogged: req.session.isLogged});
   },
-  /*create: (req, res) => {
-    const { title, code, brand, img, info, weight, price, description } =
-      req.body;
-    const nuevoProducto = {
-      id: Math.floor(Math.random() * 100),
-      code: code ? code : "N/C",
-      img: req.file.filename,
-      title: title,
-      brand: brand,
-      info: info,
-      weight: parseFloat(weight),
-      price: parseFloat(price),
-      off: null,
-      description: description,
-    };
-    const productosActuales = JSON.parse(
-      readFileSync(join(__dirname, "../data", "productsDataBase.json"), "utf-8")
-    );
-    productosActuales.push(nuevoProducto);
-    save(productosActuales);
+  modifyView: async (req, res) => {
+      const product = await db.Productos.findByPk(req.params.id)
+      res.render("./products/modifyProduct", {product: product, userLogged: req.session.isLogged});
+  },
+  modify: async (req, res) => {
+    try{
+      const id = req.params.id
+      const {title, code, brand, info, weight, price, description } = req.body;
+      await db.Productos.update({
+        img: req.file.filename,
+        title: title,
+        code: code ? code : "N/C",
+        brand: brand,
+        info: info,
+        weight: parseFloat(weight),
+        price: parseFloat(price),
+        off: null,
+        description: description,
+      },
+       {
+          where: {id: id}
+       }
+      );
+      res.redirect("/products");
+    }catch(error){
+        res.send(error);
+    }
+  },
+  delete: async (req,res) => {
+      const product = await db.Productos.findByPk(req.params.id)
+      res.render("./products/deleteProduct", {product: product, userLogged: req.session.isLogged});
+  },
+  destroy: async (req, res) => {
+    const id = req.params.id
+    await db.Productos.destroy({
+      where: {id: req.params.id}
+    })
     res.redirect("/products");
-  },*/
-  modify: (req, res) => {
-    const products = index();
-
-    const id = req.params.id;
-    const { title, brand, info, price, description } = req.body;
-
-    const productIndex = products.findIndex((product) => product.id == id);
-
-    products[productIndex].title = title;
-    products[productIndex].brand = brand;
-    products[productIndex].info = info;
-    products[productIndex].price = parseFloat(price);
-    products[productIndex].description = description;
-
-    save(products);
-
-    res.redirect("/products/" + id);
-  },
-  modifyView: (req, res) => {
-    const id = req.params.id;
-    const product = findOne(id);
-    res.render("./products/modifyProduct", { product, userLogged: req.session.isLogged });
-  },
-  destroy: (req, res) => {
-    const id = req.params.id;
-    const products = index();
-    const productsUpdates = products.filter((product) => product.id != id);
-    save(productsUpdates);
-    res.redirect("/products");
-  },
-  /*showAll: (req, res) => {
-    const lista = index();
-    res.render("./products/allProducts", { list: lista, userLogged: req.session.isLogged });
-  },*/
+  }
 };
 
 module.exports = productsController;
