@@ -57,25 +57,27 @@ const productsController = {
   modify: async (req, res) => {
     try{
       const id = req.params.id
-      const {title, code, brand, info, weight, price, description } = req.body;
+      const {title, code, brand, info, weight, price, off, description } = req.body;
+      const product = await db.Productos.findByPk(req.params.id)
+      const img = req.file ? req.file.filename : product.img
       await db.Productos.update({
-        img: req.file.filename,
+        img: img,
         title: title,
         code: code ? code : "N/C",
         brand: brand,
         info: info,
         weight: parseFloat(weight),
         price: parseFloat(price),
-        off: null,
+        off: off,
         description: description,
       },
        {
           where: {id: id}
        }
       );
-      res.redirect("/products");
+      res.redirect("/products/" + id);
     }catch(error){
-        res.send(error);
+      res.send(error)
     }
   },
   delete: async (req,res) => {

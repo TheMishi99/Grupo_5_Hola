@@ -21,7 +21,7 @@
     <%- include("../partials/header") %>
     <main>
       <div class="container__modifyProducts">
-        <form class="edit_product" action="/products/<%= product.id %>?_method=PUT" method="POST">
+        <form class="edit_product" action="/products/<%= product.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
           <h3 class="modify_title_article">Editar producto</h3>
           <div class="modify_camp">
             <h4>Imágen:</h4>
