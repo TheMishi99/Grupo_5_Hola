@@ -11,9 +11,9 @@ const productsController = {
   cart: async (req, res) => {
     const id = req.session.isLogged.id;
     const user = await db.Usuarios.findByPk(id, {
-      include: [{association: "carritoProductos"}]
+      include: [{association: "productsCart"}]
     })
-    const myProductsCart = user.carritoProductos;
+    const myProductsCart = user.productsCart;
 
     res.render("./products/productCart", { list: myProductsCart, userLogged: req.session.isLogged });
   },

@@ -17,8 +17,9 @@ module.exports = {
           elaborationDate: "2024-01-19",
           expirationDate: "2028-01-19",
           price: 24399.99,
-          idDiscount: 1,
-          idBrand:1
+          category_id: 1,
+          discount_id: 1,
+          brand_id:1
         },
         {
           id: 2,
@@ -31,8 +32,9 @@ module.exports = {
           elaborationDate: "2024-01-19",
           expirationDate: "2034-01-19",
           price: 8239.99,
-          idDiscount: 2,
-          idBrand:2
+          category_id: 2,
+          discount_id: 2,
+          brand_id:2
         },
         {
           id: 3,
@@ -45,8 +47,9 @@ module.exports = {
           elaborationDate: "2024-01-19",
           expirationDate: "2030-01-19",
           price: 3990,
-          idDiscount: 3,
-          idBrand:3
+          category_id: 3,
+          discount_id: 3,
+          brand_id:3
         },
         {
           id: 4,
@@ -59,8 +62,9 @@ module.exports = {
           elaborationDate: "2024-01-19",
           expirationDate: "2028-01-19",
           price: 29900,
-          idDiscount: 4,
-          idBrand:4
+          category_id: 4,
+          discount_id: 4,
+          brand_id:4
         },
       ],
       {}

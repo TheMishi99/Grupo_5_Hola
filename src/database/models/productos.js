@@ -27,30 +27,39 @@ module.exports = (sequelize, dataTypes) => {
       allowNull: false
     },
     elaborationDate: {
-      type: dataTypes.STRING,
+      type: dataTypes.DATE,
       allowNull: false
     },
     expirationDate: {
-      type: dataTypes.STRING,
+      type: dataTypes.DATE,
       allowNull: false
     },
     price: {
       type: dataTypes.DECIMAL(10,2),
       allowNull: false,
     },
-    idDiscount: {
+    category_id: {
       type: dataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: "Categorias",
+        key: "id"
+      },
+    },
+    discount_id: {
+      type: dataTypes.INTEGER,
+      allowNull: false,
       references: {
         model: "Descuentos",
-        key: "idDiscount"
-      }
+        key: "id"
+      },
     },
-    idBrand: {
+    brand_id: {
       type: dataTypes.INTEGER,
       allowNull: false,
       references: {
         model: "Marcas",
-        key: "idBrand"
+        key: "id"
       }
     }
   };
@@ -62,11 +71,19 @@ module.exports = (sequelize, dataTypes) => {
 
   Productos.associate = (models) => {
     Productos.belongsToMany(models.Usuarios, {
-      as: "paraUsuarios",
+      as: "forUsers",
       through: "CarritoProductos",
       foreignKey: "product_id",
       otherKey: "user_id",
       timestamps: false
+    })
+    Productos.belongsTo(models.Descuentos, {
+      as: "discount",
+      foreignKey: "discount_id"
+    })
+    Productos.belongsTo(models.Marcas, {
+      as: "brand",
+      foreignKey: "brand_id"
     })
   }
 

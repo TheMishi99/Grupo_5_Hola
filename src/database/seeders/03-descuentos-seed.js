@@ -7,22 +7,22 @@ module.exports = {
       "discounts",
       [
         {
-          idDiscount: 1,
+          id: 1,
           quantity: 0,
           description: "Sin descuento",
         },
         {
-          idDiscount: 2,
+          id: 2,
           quantity: 10,
           description: "Descuento del 10%",
         },
         {
-          idDiscount: 3,
+          id: 3,
           quantity: 20,
           description: "Descuento del 20%",
         },
         {
-          idDiscount: 4,
+          id: 4,
           quantity: 30,
           description: "Descuento del 30%",
         },
