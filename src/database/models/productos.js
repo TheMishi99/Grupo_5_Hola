@@ -19,7 +19,6 @@ module.exports = (sequelize, dataTypes) => {
     },
     brand: {
       type: dataTypes.STRING,
-      allowNull: false,
     },
     info: {
       type: dataTypes.INTEGER,
