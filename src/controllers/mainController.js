@@ -25,6 +25,9 @@ const mainController = {
       userLogged: req.session.isLogged
     });
   },
+  stores: async (req, res) => {
+    res.render("stores",{userLogged: req.session.isLogged})
+  },
 };
 
 module.exports = mainController;

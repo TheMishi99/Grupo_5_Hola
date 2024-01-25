@@ -3,48 +3,43 @@ const { DataTypes } = require("sequelize");
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable("users", {
+    await queryInterface.createTable("product_cart", {
       id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
       },
-      name: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      email: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      password: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      phoneNumber: {
+      user_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
+        references: {
+          model: "users",
+          key: "id",
+        },
       },
-      adress: {
+      product_id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        references: {
+          model: "products",
+          key: "id",
+        },
+      },
+      paymentMethod: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      profilePicture: {
-        type: DataTypes.STRING,
+      total: {
+        type: DataTypes.FLOAT,
         allowNull: false,
       },
-      authLevel: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-      },
-      active: {
-        type: DataTypes.INTEGER,
+      yesDelivery: {
+        type: DataTypes.BOOLEAN,
         allowNull: false,
       },
     });
   },
-
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable("users");
+    await queryInterface.dropTable("product_cart");
   },
 };

@@ -29,16 +29,18 @@ const usersController = {
         password,
         confirmpassword,
         phonenumber,
+        province,
+        adress,
         profilePicture,
         termycond,
         politicPriv,
-        adress
       } = req.body;
       db.Usuarios.create({
         name: name,
         email: email,
         password: bcryptjs.hashSync(password, 10),
         phoneNumber: phonenumber,
+        province:province,
         adress: adress,
         profilePicture: req.file.filename,
         authLevel: 2,

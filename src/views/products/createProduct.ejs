@@ -31,34 +31,40 @@
             <h1 class="tit-links">Crear tu producto</h1>
           </section>
           <div class="campos">
+            <label for="code">Código de Barra:</label>
+            <input type="text" name="code" id="code" required />
+            <br>
             <label for="img">Imágen:</label>
             <input type="file" name="img" id="img" required />
             <br />
-            <label for="title">Título:</label>
-            <input type="text" name="title" id="title" required />
+            <label for="name">Nombre:</label>
+            <input type="text" name="name" id="name" required />
             <br />
-            <label for="code">Código:</label>
-            <input type="text" name="code" id="code" required />
+            <label for="stock">Stock:</label>
+            <input type="number" name="stock" id="stock" required />
             <br />
-            <label for="brand">Marca:</label>
-            <input type="text" name="brand" id="brand" required />
-            <br />
-            <label for="info">Características:</label>
-            <input type="text" name="info" id="info" required />
-            <br />
-            <label for="weight">Peso:</label>
-            <input type="number" name="weight" id="weight" required />
-            <br />
-            <label for="price">Precio:</label>
-            <input type="number" name="price" id="price" required />
-            <br />
-            <label class="create-descrip" for="description">Descripción:</label>
+            <label class="description" for="description">Descripción:</label>
             <textarea
               name="description"
               id="description"
               rows="4"
               required
             ></textarea>
+            <br />
+            <label for="elaborationDate">Fecha de Elaboración:</label>
+            <input type="text" name="elaborationDate" id="elaborationDate" required />
+            <br />
+            <label for="expirationDate">Fecha de Expiración:</label>
+            <input type="number" name="expirationDate" id="expirationDate" required />
+            <br />
+            <label for="price">Precio:</label>
+            <input type="number" name="price" id="price" required />
+            <br />
+            <label for="idDiscount">Id Descuento:</label>
+            <input type="number" name="idDiscount" id="idDiscount" required />
+            <br />
+            <label for="idBrand">id Marca:</label>
+            <input type="number" name="idBrand" id="idBrand" required />
             <br />
             <input class="create-button" type="submit" value="Crear Producto" />
           </div>

@@ -11,9 +11,9 @@ const productsController = {
   cart: async (req, res) => {
     const id = req.session.isLogged.id;
     const user = await db.Usuarios.findByPk(id, {
-      include: [{association: "carritoProductos"}]
+      include: [{association: "productsCart"}]
     })
-    const myProductsCart = user.carritoProductos;
+    const myProductsCart = user.productsCart;
 
     res.render("./products/productCart", { list: myProductsCart, userLogged: req.session.isLogged });
   },
@@ -26,19 +26,20 @@ const productsController = {
     });
   },
   create: (req, res) => {
-    const { title, code, brand, img, info, weight, price, description } =
+    const { code, img, name, stock, description, elaborationDate, expirationDate, price,idDiscount,idBrand} =
       req.body;
     const nuevoProducto = {
       id: Math.floor(Math.random() * 100),
       code: code ? code : "N/C",
       img: req.file.filename,
-      title: title,
-      brand: brand,
-      info: info,
-      weight: parseFloat(weight),
-      price: parseFloat(price),
-      off: null,
+      name: name,
+      stock: stock,
       description: description,
+      elaborationDate: elaborationDate,
+      expirationDate:expirationDate,
+      price: parseFloat(price),
+      idDiscount:idDiscount,
+      idBrand:idBrand
     };
     const productosActuales = JSON.parse(
       readFileSync(join(__dirname, "../data", "productsDataBase.json"), "utf-8")
