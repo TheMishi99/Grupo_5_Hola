@@ -21,6 +21,18 @@ module.exports = (sequelize, dataTypes) => {
           model: "Productos",
           key: "id"
       }
+    },
+    paymentMethod:{
+      type:dataTypes.STRING,
+      allowNull: false
+    },
+    total:{
+      type:dataTypes.FLOAT,
+      allowNull: false
+    },
+    yesDelivery:{
+      type:dataTypes.BOOLEAN,
+      allowNull: false
     }
   };
   let config = {

@@ -25,6 +25,10 @@ module.exports = {
         type: DataTypes.INTEGER,
         allowNull: false,
       },
+      province: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
       adress: {
         type: DataTypes.STRING,
         allowNull: false,

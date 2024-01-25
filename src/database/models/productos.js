@@ -7,36 +7,52 @@ module.exports = (sequelize, dataTypes) => {
       autoIncrement: true,
     },
     code: {
-      type: dataTypes.STRING,
+      type: dataTypes.INTEGER,
       allowNull: false,
     },
     img: {
       type: dataTypes.STRING,
+      allowNull: false
     },
-    title: {
+    name: {
       type: dataTypes.STRING,
       allowNull: false,
     },
-    brand: {
-      type: dataTypes.STRING,
-    },
-    info: {
+    stock: {
       type: dataTypes.INTEGER,
-    },
-    weight: {
-      type: dataTypes.DECIMAL(10, 2),
-      allowNull: false,
-    },
-    price: {
-      type: dataTypes.DECIMAL(10, 2),
-      allowNull: false,
-    },
-    off: {
-      type: dataTypes.STRING,
+      allowNull: false
     },
     description: {
       type: dataTypes.STRING,
+      allowNull: false
     },
+    elaborationDate: {
+      type: dataTypes.STRING,
+      allowNull: false
+    },
+    expirationDate: {
+      type: dataTypes.STRING,
+      allowNull: false
+    },
+    price: {
+      type: dataTypes.DECIMAL(10,2),
+      allowNull: false,
+    },
+    idDiscount: {
+      type: dataTypes.INTEGER,
+      references: {
+        model: "Descuentos",
+        key: "idDiscount"
+      }
+    },
+    idBrand: {
+      type: dataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: "Marcas",
+        key: "idBrand"
+      }
+    }
   };
   let config = {
     tableName: "products",

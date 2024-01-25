@@ -10,37 +10,39 @@ module.exports = {
         autoIncrement: true,
       },
       code: {
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
         allowNull: false,
       },
       img: {
         type: DataTypes.STRING,
       },
-      title: {
+      name: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      brand: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      info: {
+      stock: {
         type: DataTypes.INTEGER,
       },
-      weight: {
-        type: DataTypes.DECIMAL(10, 2),
-        allowNull: false,
+      description: {
+        type: DataTypes.STRING,
+      },
+      elaborationDate: {
+        type: DataTypes.DATE,
+      },
+      expirationDate: {
+        type: DataTypes.DATE,
       },
       price: {
         type: DataTypes.DECIMAL(10, 2),
         allowNull: false,
       },
-      off: {
+      idDiscount: {
         type: DataTypes.STRING,
       },
-      description: {
+      idBrand: {
         type: DataTypes.STRING,
-      },
+        allowNull: false,
+      }
     });
   },
   async down(queryInterface, Sequelize) {
