@@ -23,20 +23,28 @@ module.exports = {
       },
       phoneNumber: {
         type: DataTypes.INTEGER,
-        allowNull: false
+        allowNull: false,
+      },
+      province: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      adress: {
+        type: DataTypes.STRING,
+        allowNull: false,
       },
       profilePicture: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: false,
       },
       authLevel: {
         type: DataTypes.INTEGER,
-        allowNull: false
+        allowNull: false,
       },
       active: {
         type: DataTypes.INTEGER,
-        allowNull: false
-      }
+        allowNull: false,
+      },
     });
   },
 

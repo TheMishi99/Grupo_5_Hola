@@ -10,36 +10,60 @@ module.exports = {
         autoIncrement: true,
       },
       code: {
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
         allowNull: false,
       },
       img: {
         type: DataTypes.STRING,
+        allowNull: false,
       },
-      title: {
+      name: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      brand: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      info: {
+      stock: {
         type: DataTypes.INTEGER,
+        allowNull: false,
       },
-      weight: {
-        type: DataTypes.DECIMAL(10, 2),
+      description: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      elaborationDate: {
+        type: DataTypes.DATE,
+        allowNull: false,
+      },
+      expirationDate: {
+        type: DataTypes.DATE,
         allowNull: false,
       },
       price: {
         type: DataTypes.DECIMAL(10, 2),
         allowNull: false,
       },
-      off: {
-        type: DataTypes.STRING,
+      category_id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        references: {
+          model: "categories",
+          key: "id",
+        },
       },
-      description: {
-        type: DataTypes.STRING,
+      discount_id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        references: {
+          model: "discounts",
+          key: "id",
+        },
+      },
+      brand_id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        references: {
+          model: "brands",
+          key: "id",
+        },
       },
     });
   },

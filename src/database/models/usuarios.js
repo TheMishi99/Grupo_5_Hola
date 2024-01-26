@@ -22,6 +22,14 @@ module.exports = (sequelize, dataTypes) => {
       type: dataTypes.INTEGER,
       allowNull: false,
     },
+    province: {
+      type: dataTypes.STRING,
+      allowNull: false,
+    },
+    adress: {
+      type: dataTypes.STRING,
+      allowNull: false,
+    },
     profilePicture: {
       type: dataTypes.STRING,
       allowNull: false,
@@ -33,7 +41,7 @@ module.exports = (sequelize, dataTypes) => {
     active: {
       type: dataTypes.INTEGER,
       allowNull: false,
-    }
+    },
   };
   let config = {
     tableName: "users",
@@ -43,13 +51,13 @@ module.exports = (sequelize, dataTypes) => {
 
   Usuario.associate = (models) => {
     Usuario.belongsToMany(models.Productos, {
-      as: "carritoProductos",
+      as: "productsCart",
       through: "CarritoProductos",
       foreignKey: "user_id",
       otherKey: "product_id",
-      timestamps: false
-    })
-  }
+      timestamps: false,
+    });
+  };
 
   return Usuario;
 };

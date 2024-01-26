@@ -57,7 +57,7 @@ section.register-section {
 }
 
 div.campos input {
-  width: 100%;
+  width: 25vh;
   border: none;
   padding: 12px;
   border-radius: 10px;
@@ -109,16 +109,17 @@ div.campos input {
 p{
   text-align: center;
 }
+
 /* tablet */
 @media (min-width: 576px) {
   div.campos input {
-    width: 130%;
+    width:40vh;
   }
 }
 
 /* desktop  */
 @media (min-width: 992px) {
   div.campos input {
-    width: 130%;
+    width: 40vh;
   }
 }

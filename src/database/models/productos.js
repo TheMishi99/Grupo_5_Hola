@@ -7,37 +7,61 @@ module.exports = (sequelize, dataTypes) => {
       autoIncrement: true,
     },
     code: {
-      type: dataTypes.STRING,
+      type: dataTypes.INTEGER,
       allowNull: false,
     },
     img: {
       type: dataTypes.STRING,
+      allowNull: false
     },
-    title: {
+    name: {
       type: dataTypes.STRING,
       allowNull: false,
     },
-    brand: {
-      type: dataTypes.STRING,
-      allowNull: false,
-    },
-    info: {
+    stock: {
       type: dataTypes.INTEGER,
-    },
-    weight: {
-      type: dataTypes.DECIMAL(10, 2),
-      allowNull: false,
-    },
-    price: {
-      type: dataTypes.DECIMAL(10, 2),
-      allowNull: false,
-    },
-    off: {
-      type: dataTypes.STRING,
+      allowNull: false
     },
     description: {
       type: dataTypes.STRING,
+      allowNull: false
     },
+    elaborationDate: {
+      type: dataTypes.DATE,
+      allowNull: false
+    },
+    expirationDate: {
+      type: dataTypes.DATE,
+      allowNull: false
+    },
+    price: {
+      type: dataTypes.DECIMAL(10,2),
+      allowNull: false,
+    },
+    category_id: {
+      type: dataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: "Categorias",
+        key: "id"
+      },
+    },
+    discount_id: {
+      type: dataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: "Descuentos",
+        key: "id"
+      },
+    },
+    brand_id: {
+      type: dataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: "Marcas",
+        key: "id"
+      }
+    }
   };
   let config = {
     tableName: "products",
@@ -47,11 +71,19 @@ module.exports = (sequelize, dataTypes) => {
 
   Productos.associate = (models) => {
     Productos.belongsToMany(models.Usuarios, {
-      as: "paraUsuarios",
+      as: "forUsers",
       through: "CarritoProductos",
       foreignKey: "product_id",
       otherKey: "user_id",
       timestamps: false
+    })
+    Productos.belongsTo(models.Descuentos, {
+      as: "discount",
+      foreignKey: "discount_id"
+    })
+    Productos.belongsTo(models.Marcas, {
+      as: "brand",
+      foreignKey: "brand_id"
     })
   }
 

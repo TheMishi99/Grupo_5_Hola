@@ -13,6 +13,8 @@ module.exports = {
           password:
             "$2a$10$yHzqKtFBAgdyT6gf.e0FOuRoME97hMlAPIJ7h5LqcAi/Ei4IpLdyq",
           phoneNumber: "+5493856182988",
+          province: "Santiago del Estero",
+          adress: "Belgrano 170",
           profilePicture:
             "user-1704916916773-320161635_1199762810748263_7301277919038224907_n.jpg",
           authLevel: 1,
@@ -25,6 +27,8 @@ module.exports = {
           password:
             "$2a$10$0cgZgcRY6O4riqy96WDYkeS.2bjcPC1BtDrc2ACb8NtrUwS.apwgC",
           phoneNumber: "3854132687",
+          province: "Buenos Aires",
+          adress: "Belgrano 170",
           profilePicture: "user-1704939334545-IMG-20231021-WA0090.jpg",
           authLevel: 1,
           active: 1,
@@ -36,6 +40,8 @@ module.exports = {
           password:
             "$2a$10$0PRHECR9RwxzzmfDofKN1.LVZIwDo/j/KY8xhtIgNE.BD0iyCJ99i",
           phoneNumber: "1234",
+          province: "Cordoba",
+          adress: "Belgrano 170",
           profilePicture:
             "user-1704940551245-mujer-bonita-joven-alegre-mirando-al-frente-sonriendo-aislado-pared-verde-oliva.jpg",
           authLevel: 1,
@@ -48,6 +54,8 @@ module.exports = {
           password:
             "$2a$10$Ypo0pC20UY6YDFuc9urYa.AskC2P4zVR.3aFwpn5SC/ModV9NMPi.",
           phoneNumber: "+5438561231231",
+          province: "San Luis",
+          adress: "Belgrano 170",
           profilePicture:
             "user-1705075228342-abstract-art-design-smoke-wallpaper-thumb.jpg",
           authLevel: 1,

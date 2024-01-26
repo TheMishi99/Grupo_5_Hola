@@ -29,6 +29,8 @@ const usersController = {
         password,
         confirmpassword,
         phonenumber,
+        province,
+        adress,
         profilePicture,
         termycond,
         politicPriv,
@@ -38,6 +40,8 @@ const usersController = {
         email: email,
         password: bcryptjs.hashSync(password, 10),
         phoneNumber: phonenumber,
+        province:province,
+        adress: adress,
         profilePicture: req.file.filename,
         authLevel: 2,
         active: 1

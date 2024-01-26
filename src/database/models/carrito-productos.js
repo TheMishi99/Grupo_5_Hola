@@ -21,6 +21,18 @@ module.exports = (sequelize, dataTypes) => {
           model: "Productos",
           key: "id"
       }
+    },
+    paymentMethod:{
+      type:dataTypes.STRING,
+      allowNull: false
+    },
+    total:{
+      type:dataTypes.FLOAT,
+      allowNull: false
+    },
+    yesDelivery:{
+      type:dataTypes.BOOLEAN,
+      allowNull: false
     }
   };
   let config = {
@@ -31,11 +43,11 @@ module.exports = (sequelize, dataTypes) => {
 
   CarritoProductos.associate = (models) => {
     CarritoProductos.belongsTo(models.Usuarios, {
-      as: "usuario",
+      as: "user",
       foreignKey: "user_id"
     })
     CarritoProductos.belongsTo(models.Productos, {
-      as: "producto",
+      as: "product",
       foreignKey: "product_id"
     })
   }
