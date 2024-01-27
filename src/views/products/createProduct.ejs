@@ -31,15 +31,15 @@
             <h1 class="tit-links">Crear tu producto</h1>
           </section>
           <div class="campos">
-            <label for="code">Código de Barra:</label>
-            <input type="text" name="code" id="code" required />
-            <br>
             <label for="img">Imágen:</label>
             <input type="file" name="img" id="img" required />
             <br />
             <label for="name">Nombre:</label>
             <input type="text" name="name" id="name" required />
             <br />
+            <label for="code">Código de Barra:</label>
+            <input type="text" name="code" id="code" required />
+            <br>
             <label for="stock">Stock:</label>
             <input type="number" name="stock" id="stock" required />
             <br />
@@ -55,16 +55,19 @@
             <input type="text" name="elaborationDate" id="elaborationDate" required />
             <br />
             <label for="expirationDate">Fecha de Expiración:</label>
-            <input type="number" name="expirationDate" id="expirationDate" required />
+            <input type="text" name="expirationDate" id="expirationDate" required />
             <br />
             <label for="price">Precio:</label>
             <input type="number" name="price" id="price" required />
             <br />
-            <label for="idDiscount">Id Descuento:</label>
-            <input type="number" name="idDiscount" id="idDiscount" required />
+            <label for="category_id">Id Categoría:</label>
+            <input type="number" name="category_id" id="category_id" required />
             <br />
-            <label for="idBrand">id Marca:</label>
-            <input type="number" name="idBrand" id="idBrand" required />
+            <label for="discount_id">Id Descuento:</label>
+            <input type="number" name="discount_id" id="discount_id" required />
+            <br />
+            <label for="brand_id">Id Marca:</label>
+            <input type="number" name="brand_id" id="brand_id" required />
             <br />
             <input class="create-button" type="submit" value="Crear Producto" />
           </div>

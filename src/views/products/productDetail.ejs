@@ -21,10 +21,6 @@
           <div class="name-page">
             <h2>Detalle del Producto</h2>
           </div>
-          <div class="buttons_edit_delete">
-            <a class="buttonDetail_edit" href="/products/<%= product.id %>/edit"><button>Editar</button></a>
-            <a class="buttonDetail_delete" href="/products/delete/<%= product.id %>"><button>Eliminar</button></a>
-          </div>
         </div>
         <div class="product">
           <div class="product-img">
@@ -32,27 +28,14 @@
           </div>
           <div class="product-details">
             <div class="product-name-details">
-              <h3><%= product.title %></h3>
-              <ul>
-                <li>
-                  <p>Marca: <%= product.brand %></p>
-                </li>
-                <li>
-                  <p>Caracteristicas: <%= product.info %></p>
-                </li>
-                <li>
-                  <p>Peso: <%= product.weight %> Kg</p>
-                </li>
-              </ul>
+              <h3><%= product.name %></h3>
             </div>
-
             <div class="product-buttons">
               <div class="product-code">
-                <h4>Codigo de producto: <%= product.code %></h4>
+                <h4>Código de producto: <%= product.code %></h4>
               </div>
-              <div class="add-favorite">
-                <i class="fa-regular fa-heart" style="color: #d97652"></i>
-                <h4>Añadir favorito</h4>
+              <div class="brand">
+                <h4>Marca: <%= product.brand_id %></h4>
               </div>
               <div class="cant">
                 <div class="icons-math">
@@ -74,10 +57,19 @@
             </div>
             <div class="product-price">
               <h3>Precio: $<%= product.price %></h3>
+              <h3>Descuento: <%= product.discount_id %></h3>
             </div>
             <div class="product-description">
               <h3>Descripción:</h3>
               <p><%= product.description %></p>
+            </div>
+            <div>
+            <a class="buttons_edit_delete" href="/products/<%= product.id %>/edit">
+              <button> Editar <i class="fa-solid fa-pen-to-square"></i></button>
+            </a>
+            <a class="buttons_edit_delete" href="/products/delete/<%= product.id %>">
+              <button> Eliminar <i class="fa-solid fa-trash-can"></i></button>
+            </a>
             </div>
           </div>
         </div>

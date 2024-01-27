@@ -16,14 +16,13 @@
     <link href="../../css/home-style.css" rel="stylesheet" />
     <link href="../../css/products-style.css" rel="stylesheet" />
   </head>
-
   <body>
     <%- include("../partials/header") %>
     <main>
       <div class="container__allProducts">
         <h1 class="title__allProducts">LISTADO DE PRODUCTOS</h1>
         <div class="containerButtons__allProducts">
-          <a href="/products/create"> <button>Crear anuncio</button></a>
+          <a href="/products/create"> <button class="button_createProduct">Crear producto</button></a>
         </div>
       </div>
       <section class="section__allProducts">
@@ -33,11 +32,11 @@
             <img
               src="../img/<%= product.img %>"
               width="92%"
-              alt="<%= product.title %>"
+              alt="<%= product.name %>"
             />
           </div>
           <div class="product-name">
-            <p><%= product.title %></p>
+            <a href="/products/<%= product.id %>"><p><%= product.name %></p></a>
           </div>
           <div class="product-price">
             <h3>$<%= product.price %></h3>

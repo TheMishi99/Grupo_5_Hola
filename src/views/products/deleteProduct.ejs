@@ -3,54 +3,49 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Detalle de producto</title>
+    <title>Eliminar producto</title>
     <%- include("../partials/head") %>
     <script
       src="https://kit.fontawesome.com/6d37a11b52.js"
       crossorigin="anonymous"
     ></script>
     <!--Hoja de Estilos para Delete de producto-->
-    <link href="../css/productDetail-style.css" rel="stylesheet" />
+    <link href="../../../public\css\deleteProduct.css" rel="stylesheet" /> 
   </head>
-
   <body>
     <%- include("../partials/header") %>
-    <main>
+    <main class="delete_product">
       <section>
         <div class="confirm">
           <h2>¿Desea eliminar de forma permanente este producto?</h2>
             <form action="/products/<%= product.id %>?_method=DELETE" method="POST">
-            <button type="submit" class="save_button">
+            <button type="submit" class="delete_button">
               <i class="fa-solid fa-floppy-disk"> <strong>SI</strong></i>
             </button>
             </form>
-            <a href="/products/<%= product.id %>"><button>NO</button></a>
+            <a href="/products/<%= product.id %>">
+              <button><i class="fa-solid fa-rectangle-xmark"></i>NO</button>
+            </a>
         </div>
-        <div class="product">
-          <div class="product-img">
-            <img src="<%= product.img %>" width="100%" alt=" " />
+        <div>
+          <div >
+            <img src="<%= product.img %>"/>
           </div>
-          <div class="product-details">
-            <div class="product-name-details">
-              <h3><%= product.title %></h3>
+          <div >
+            <div>
+              <h3><%= product.name %></h3>
               <ul>
                 <li>
-                  <p>Marca: <%= product.brand %></p>
+                  <p>Marca: <%= product.brand_id %></p>
                 </li>
                 <li>
-                  <p>Caracteristicas: <%= product.info %></p>
-                </li>
-                <li>
-                  <p>Peso: <%= product.weight %> Kg</p>
+                  <p>Descripción: <%= product.description %></p>
                 </li>
                 <li>
                   <p>Codigo de producto: <%= product.code %></p>
                 </li>
                 <li>
-                    <p>Precio: <%= product.price %> Kg</p>
-                </li>
-                <li>
-                    <p>Descripción: <%= product.description %> Kg</p>
+                    <p>Precio: $<%= product.price %></p>
                 </li>
               </ul>
             </div>    

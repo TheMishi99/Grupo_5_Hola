@@ -64,9 +64,12 @@ main {
   padding: 3% 0%;
   max-width: 450px;
 }
+.product-name-details p {
+  font-weight: bold;
+}
 
 .product-code,
-.add-favorite,
+.brand,
 .add-product {
   background-color: #f2f2f2;
   width: 90%;
@@ -78,17 +81,12 @@ main {
   max-width: 450px;
 }
 
-.add-favorite {
+.brand {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   max-width: 450px;
-}
-
-.add-favorite i {
-  font-size: 20px;
-  margin-right: 5%;
 }
 
 .product-price {
@@ -140,6 +138,17 @@ main {
   background-color: green;
   border-radius: 8px;
   color: #f2f2f2;
+}
+
+.buttons_edit_delete button{
+  color: #d97652;
+  font-size: 1.17em;
+  font-weight: bold;
+  border: 1px solid;
+  padding: 10px;
+  border-radius: 13px;
+  cursor: pointer;
+  margin: 12px;
 }
 
 /* tablet */

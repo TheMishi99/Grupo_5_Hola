@@ -24,44 +24,50 @@
         <form class="edit_product" action="/products/<%= product.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
           <h3 class="modify_title_article">Editar producto</h3>
           <div class="modify_camp">
-            <h4>Imágen:</h4>
-            <input type="file" name="img" id="img"/>
-          </div>
-          <div class="modify_camp">
-            <h4>Título</h4>
-            <input type="text" name="title" id="title" value="<%= product.title %>">
-          </div>
-          <div class="modify_camp">
-            <h4>Código</h4>
-            <input type="text" name="code" id="code" value="<%= product.code %>">
-          </div>
-          <div class="modify_camp">
-            <h4>Marca</h4>
-            <input type="text" name="brand" id="brand" value="<%= product.brand %>">
-          </div>
-          <div class="modify_camp">
-            <h4>Característica</h4>
-            <input type="text" name="info" id="info" value="<%= product.info %>">
-          </div>
-          <div class="modify_camp">
-            <h4>Peso</h4>
-            <input type="text" name="weight" id="weight" value="<%= product.weight %>">
-          </div>
-          <div class="modify_camp">
-            <h4>Precio</h4>
-            <input type="text" name="price" id="price" value="<%= product.price %>">
-          </div>
-          <div class="modify_camp">
-            <h4>Oferta</h4>
-            <input type="text" name="off" id="off" value="<%= product.off %>">
-          </div>
-          <div class="modify_camp">
-            <h4>Descripción</h4>
-            <textarea name="description" id="description"><%= product.description %></textarea>
+            <label for="img">Imágen:</label>
+            <input type="file" name="img" id="img" value="<%= product.img %>" />
+            <br />
+            <label for="name">Nombre:</label>
+            <input type="text" name="name" id="name" value="<%= product.name %>" />
+            <br />
+            <label for="code">Código de Barra:</label>
+            <input type="text" name="code" id="code" value="<%= product.code %>" />
+            <br>
+            <label for="stock">Stock:</label>
+            <input type="number" name="stock" id="stock" value="<%= product.stock %>" />
+            <br />
+            <label class="description" for="description">Descripción: </label>
+            <textarea
+              name="description"
+              id="description"
+              rows="4"
+            > <%= product.description %> </textarea>
+            <br />
+            <label for="elaborationDate">Fecha de Elaboración:</label>
+            <input type="text" name="elaborationDate" id="elaborationDate" value="<%= product.elaborationDate %>" />
+            <br />
+            <label for="expirationDate">Fecha de Expiración:</label>
+            <input type="number" name="expirationDate" id="expirationDate" value="<%= product.expirationDate %>" />
+            <br />
+            <label for="price">Precio:</label>
+            <input type="number" name="price" id="price" value="<%= product.price %>" />
+            <br />
+            <label for="category_id">Categoría:</label>
+            <input type="number" name="category_id" id="category_id" value="<%= product.category_id %>" />
+            <br />
+            <label for="discount_id">Descuento:</label>
+            <input type="number" name="discount_id" id="discount_id" value="<%= product.discount_id %>" />
+            <br />
+            <label for="brand_id">Marca:</label>
+            <input type="number" name="brand_id" id="brand_id" value="<%= product.brand_id %>" />
+            <br />
           </div>
           <button type="submit" class="save_button">
             <i class="fa-solid fa-floppy-disk"> <strong>Guardar cambios</strong></i>
           </button>
+          <a href="/products/<%= product.id %>" class="cancel_button">
+            <i class="fa-solid fa-rectangle-xmark"></i> Cancelar cambios y volver
+          </a>
         </form>
       </div>
     </main>

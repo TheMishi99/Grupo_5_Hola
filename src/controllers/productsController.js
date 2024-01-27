@@ -29,17 +29,19 @@ const productsController = {
   },
   create: async (req,res)=>{
     try { 
-      const {title, code, brand, info, weight, price, description } = req.body;
+      const {code, name, stock, description, elaborationDate, expirationDate, price, category_id, discount_id, brand_id} = req.body;
       await db.Productos.create({
         img: req.file.filename,
-        title: title,
+        name: name,
         code: code ? code : "N/C",
-        brand: brand,
-        info: info,
-        weight: parseFloat(weight),
-        price: parseFloat(price),
-        off: null,
+        stock: stock,
         description: description,
+        elaborationDate: elaborationDate,
+        expirationDate: expirationDate,
+        price: parseFloat(price),
+        category_id: category_id,
+        discount_id: discount_id,
+        brand_id: brand_id
       })
       res.redirect('/products')
     }catch(error){
@@ -57,19 +59,21 @@ const productsController = {
   modify: async (req, res) => {
     try{
       const id = req.params.id
-      const {title, code, brand, info, weight, price, off, description } = req.body;
+      const {code, name, stock, description, elaborationDate, expirationDate, price, category_id, discount_id, brand_id} = req.body;
       const product = await db.Productos.findByPk(req.params.id)
       const img = req.file ? req.file.filename : product.img
       await db.Productos.update({
         img: img,
-        title: title,
+        name: name,
         code: code ? code : "N/C",
-        brand: brand,
-        info: info,
-        weight: parseFloat(weight),
-        price: parseFloat(price),
-        off: off,
+        stock: stock,
         description: description,
+        elaborationDate: elaborationDate,
+        expirationDate: expirationDate,
+        price: parseFloat(price),
+        category_id: category_id,
+        discount_id: discount_id,
+        brand_id: brand_id
       },
        {
           where: {id: id}
