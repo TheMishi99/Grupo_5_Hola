@@ -1,58 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Eliminar producto</title>
-    <%- include("../partials/head") %>
-    <script
-      src="https://kit.fontawesome.com/6d37a11b52.js"
-      crossorigin="anonymous"
-    ></script>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eliminar producto</title>
+  <%- include("../partials/head") %>
+    <script src="https://kit.fontawesome.com/6d37a11b52.js" crossorigin="anonymous"></script>
     <!--Hoja de Estilos para Delete de producto-->
-    <link href="../../../public\css\deleteProduct.css" rel="stylesheet" /> 
-  </head>
-  <body>
-    <%- include("../partials/header") %>
+    <link href="../../css/deleteProduct.css" rel="stylesheet" />
+</head>
+
+<body>
+  <%- include("../partials/header") %>
     <main class="delete_product">
       <section>
         <div class="confirm">
           <h2>¿Desea eliminar de forma permanente este producto?</h2>
+          <div class="buttons_YES_NO">
             <form action="/products/<%= product.id %>?_method=DELETE" method="POST">
-            <button type="submit" class="delete_button">
-              <i class="fa-solid fa-floppy-disk"> <strong>SI</strong></i>
-            </button>
+              <button type="submit" class="delete_button">
+                <i class="fa-solid fa-floppy-disk"> <strong> SI </strong></i>
+              </button>
             </form>
             <a href="/products/<%= product.id %>">
-              <button><i class="fa-solid fa-rectangle-xmark"></i>NO</button>
+              <button class="delete_button"><i class="fa-solid fa-rectangle-xmark"></i> NO </button>
             </a>
+          </div>
         </div>
-        <div>
-          <div >
-            <img src="<%= product.img %>"/>
-          </div>
-          <div >
-            <div>
-              <h3><%= product.name %></h3>
-              <ul>
-                <li>
-                  <p>Marca: <%= product.brand_id %></p>
-                </li>
-                <li>
-                  <p>Descripción: <%= product.description %></p>
-                </li>
-                <li>
-                  <p>Codigo de producto: <%= product.code %></p>
-                </li>
-                <li>
-                    <p>Precio: $<%= product.price %></p>
-                </li>
-              </ul>
-            </div>    
-          </div>
+        <div class="container_product_to_delete">
+          <img src="<%= product.img %>" />
+          <h3>
+            <%= product.name %>
+          </h3>
+          <h4>Codigo de producto: <%= product.code %>
+          </h4>
         </div>
       </section>
     </main>
     <%- include("../partials/footer") %>
-  </body>
+</body>
+
 </html>

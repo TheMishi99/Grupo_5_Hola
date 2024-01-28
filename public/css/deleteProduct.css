@@ -1,17 +1,57 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: "League Spartan", sans-serif;
+    font-family: "Roboto", sans-serif;
+  }
+
 main.delete_product {
-    background-image: url(/img/fondo-edit.jpg);
-    padding: 5% 10%;
+   background-image: url(/img/fondo-edit.jpg);
+   padding: 5% 10%;
 }
 
-.confirm {
-    font-size: 10px;
-    padding: 15px;
-    text-align: center;
-    background-color: #d97652;
-    width: 100%;
-    margin: auto;
-    border-radius: 30px;
+main.delete_product .confirm{
+   background-color: black;
+   opacity: 0.9;
+   color:white;
+   padding:2em;
+   border-radius: 12px;
 }
-div.delete_product .product-img{
-    width:50%;
+
+div.buttons_YES_NO{
+    display: flex;
+    text-align: center;
+    justify-content: space-evenly;
+}
+
+button.delete_button{
+    padding: 10px;
+    font-size: 1em;
+    border-radius: 10px;
+    border: none;
+    background-color: #d97652;
+    color: white;
+}
+
+div.container_product_to_delete{
+  background-color:#d97652;
+  color:white;
+  border-radius:10px;
+  margin:10px;
+  padding: 16px;
+  font-size:1.17em;
+  text-align: center;
+}
+
+div.container_product_to_delete img{
+    width: 50%;
+}
+
+div.container_product_to_delete h3, 
+div.container_product_to_delete h4{
+    background-color: bisque;
+    color:#d97652;
+    border-radius: 10px;
+    margin:5px
 }

@@ -14,22 +14,29 @@ const productsController = {
   cart: async (req, res) => {
     const id = req.session.isLogged.id;
     const user = await db.Usuarios.findByPk(id, {
-      include: [{association: "productsCart"}]
+      include: [{ association: "productsCart" }]
     })
     const myProductsCart = user.productsCart;
 
     res.render("./products/productCart", { list: myProductsCart, userLogged: req.session.isLogged });
   },
-  list: async (req,res) =>{
-    const list = await db.Productos.findAll()
-    res.render('./products/allProducts', { list , userLogged: req.session.isLogged})
+  list: async (req, res) => {
+    const list = await db.Productos.findAll({
+      include: ['discount', 'brand']
+    })
+    res.render('./products/allProducts', { list, userLogged: req.session.isLogged })
   },
-  createView: (req, res) => {
-    res.render("./products/createProduct", { userLogged: req.session.isLogged });
+  createView: async (req, res) => {
+    const brands = await db.Marcas.findAll()
+    const discounts = await db.Descuentos.findAll()
+    const categories = await db.Categorias.findAll()
+    res.render("./products/createProduct",
+      { categories, brands, discounts, userLogged: req.session.isLogged }
+    );
   },
-  create: async (req,res)=>{
-    try { 
-      const {code, name, stock, description, elaborationDate, expirationDate, price, category_id, discount_id, brand_id} = req.body;
+  create: async (req, res) => {
+    try {
+      const { code, name, stock, description, elaborationDate, expirationDate, price, category_id, discount_id, brand_id } = req.body;
       await db.Productos.create({
         img: req.file.filename,
         name: name,
@@ -44,22 +51,36 @@ const productsController = {
         brand_id: brand_id
       })
       res.redirect('/products')
-    }catch(error){
+    } catch (error) {
       res.send(error);
-    } 
+    }
   },
-  detail: async  (req, res) => {
-      const product = await db.Productos.findByPk(req.params.id)
-      res.render('./products/productDetail', {product: product, userLogged: req.session.isLogged});
+  detail: async (req, res) => {
+    const product = await db.Productos.findByPk(req.params.id, {
+      include: ['discount', 'brand']
+    })
+    const brands = await db.Marcas.findAll()
+    const discounts = await db.Descuentos.findAll()
+    const categories = await db.Categorias.findAll()
+    res.render('./products/productDetail',
+      { product: product, brands: brands, discounts: discounts, categories: categories, userLogged: req.session.isLogged }
+    );
   },
   modifyView: async (req, res) => {
-      const product = await db.Productos.findByPk(req.params.id)
-      res.render("./products/modifyProduct", {product: product, userLogged: req.session.isLogged});
+    const product = await db.Productos.findByPk(req.params.id, {
+      include: ['discount', 'brand']
+    })
+    const brands = await db.Marcas.findAll()
+    const discounts = await db.Descuentos.findAll()
+    const categories = await db.Categorias.findAll()
+    res.render("./products/modifyProduct",
+      { product: product, brands: brands, discounts: discounts, categories: categories, userLogged: req.session.isLogged }
+    );
   },
   modify: async (req, res) => {
-    try{
+    try {
       const id = req.params.id
-      const {code, name, stock, description, elaborationDate, expirationDate, price, category_id, discount_id, brand_id} = req.body;
+      const { code, name, stock, description, elaborationDate, expirationDate, price, category_id, discount_id, brand_id } = req.body;
       const product = await db.Productos.findByPk(req.params.id)
       const img = req.file ? req.file.filename : product.img
       await db.Productos.update({
@@ -75,23 +96,23 @@ const productsController = {
         discount_id: discount_id,
         brand_id: brand_id
       },
-       {
-          where: {id: id}
-       }
+        {
+          where: { id: id }
+        }
       );
       res.redirect("/products/" + id);
-    }catch(error){
+    } catch (error) {
       res.send(error)
     }
   },
-  delete: async (req,res) => {
-      const product = await db.Productos.findByPk(req.params.id)
-      res.render("./products/deleteProduct", {product: product, userLogged: req.session.isLogged});
+  delete: async (req, res) => {
+    const product = await db.Productos.findByPk(req.params.id)
+    res.render("./products/deleteProduct", { product: product, userLogged: req.session.isLogged });
   },
   destroy: async (req, res) => {
     const id = req.params.id
     await db.Productos.destroy({
-      where: {id: req.params.id}
+      where: { id: req.params.id }
     })
     res.redirect("/products");
   }

@@ -73,11 +73,11 @@ main {
 .add-product {
   background-color: #f2f2f2;
   width: 90%;
-  margin: 20px;
+  margin: 5px;
   border: 1px;
   border-radius: 15px;
   text-align: center;
-  padding: 3% 0%;
+  padding: 3% 2%;
   max-width: 450px;
 }
 
@@ -105,11 +105,11 @@ main {
   border: 1px solid rgb(158, 150, 150);
   width: 90%;
   max-width: 450px;
-  margin: 20px;
+  margin: 5px;
   border: 1px;
   border-radius: 15px;
   text-align: center;
-  padding: 3% 0%;
+  padding: 3% 2%;
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-around;
@@ -187,6 +187,7 @@ main {
   }
   .product-buttons {
     display: flex;
+    justify-content: space-around;
   }
   .cant {
     display: flex;
@@ -201,6 +202,7 @@ main {
 @media (min-width: 992px) {
   .product-details {
     max-height: 1100px;
+    padding: 5px;
   }
   .product {
     flex-direction: row;

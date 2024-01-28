@@ -57,10 +57,16 @@ div.modify_camp textarea {
     border: none;
 }
 
-/*div.modify_camp textarea {
+div.modify_camp textarea {
     height: 90px;
     resize: none;
-}*/
+}
+
+div.modify_camp select{
+    font-size: 0.8em;
+    border: none;
+    border-radius: 5px;
+}
 
 button.save_button {
     text-align: center;
