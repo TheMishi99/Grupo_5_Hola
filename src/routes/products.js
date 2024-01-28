@@ -20,6 +20,7 @@ router.get("/cart", userLogged, productsController.cart);
 
 /* OBTENER DETALLES DEL PRODUCTO POR ID */
 router.get("/:id", productsController.detail);
+router.post("/:id", productsController.addToCart);
 
 /* FORMULARIO Y ACCION DE EDITAR EL PRODUCTO POR ID */
 router.get("/:id/edit", userLogged, productsController.modifyView);

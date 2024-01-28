@@ -44,23 +44,28 @@
                   </h4>
                   <% }); %>
               </div>
-              <div class="cant">
-                <div class="icons-math">
-                  <button>
-                    <i class="fa-solid fa-minus cart-minus-btn"></i>
+              <form action="/products/<%= product.id %>" method="POST">
+                <div class="cant">
+                  <div class="icons-math">
+                    <button type="button">
+                      <i class="fa-solid fa-minus cart-minus-btn"></i>
+                    </button>
+                  </div>
+                  <h3>1</h3>
+                  <div class="icons-math">
+                    <button type="button">
+                      <i class="fa-solid fa-plus cart-plus-btn"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="add-product">
+                  <input type="number">
+                  <i class="fa-solid fa-cart-plus" style="color: #d97652"></i>
+                  <button type="submit">
+                    <h4>Agregar al carrito</h4>
                   </button>
                 </div>
-                <h3>1</h3>
-                <div class="icons-math">
-                  <button>
-                    <i class="fa-solid fa-plus cart-plus-btn"></i>
-                  </button>
-                </div>
-              </div>
-              <div class="add-product">
-                <i class="fa-solid fa-cart-plus" style="color: #d97652"></i>
-                <h4>Agregar al carrito</h4>
-              </div>
+              </form>
             </div>
             <div class="product-price">
               <h3>Precio: $<%= product.price %>
