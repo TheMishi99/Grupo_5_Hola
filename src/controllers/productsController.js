@@ -1,9 +1,6 @@
 const { readFileSync } = require("fs");
 const { join } = require("path");
 
-/*const list = require("../data/productsDataBase");
-const { index, findOne, save } = require("../models/product-model");*/
-
 /* IMPLEMENTANDO BASE DE DATOS */
 const db = require("../database/models")
 const sequelize = db.sequelize;
