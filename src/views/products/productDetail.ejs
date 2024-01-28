@@ -1,52 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Detalle de producto</title>
-    <%- include("../partials/head") %>
-    <script
-      src="https://kit.fontawesome.com/6d37a11b52.js"
-      crossorigin="anonymous"
-    ></script>
+  
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Detalle de producto</title>
+  <%- include("../partials/head") %>
+    <script src="https://kit.fontawesome.com/6d37a11b52.js" crossorigin="anonymous"></script>
     <!--Hoja de Estilos para detalle de producto-->
     <link href="../css/productDetail-style.css" rel="stylesheet" />
-  </head>
+</head>
 
-  <body>
-    <%- include("../partials/header") %>
+<body>
+  <%- include("../partials/header") %>
     <main>
       <section>
-        <div class="name-page">
-          <h2>Detalle del Producto</h2>
+        <div class="containerTitle_productDetail">
+          <div class="name-page">
+            <h2>Detalle del Producto</h2>
+          </div>
         </div>
         <div class="product">
           <div class="product-img">
-            <img src="<%= productoBuscado.img %>" width="100%" alt=" " />
+            <img src="<%= product.img %>" alt="<%= product.name %>" />
           </div>
           <div class="product-details">
             <div class="product-name-details">
-              <h3><%= productoBuscado.title %></h3>
-              <ul>
-                <li>
-                  <p>Marca: <%= productoBuscado.brand %></p>
-                </li>
-                <li>
-                  <p>Caracteristicas: <%= productoBuscado.info %></p>
-                </li>
-                <li>
-                  <p>Peso: <%= productoBuscado.weight %> Kg</p>
-                </li>
-              </ul>
+              <h3>
+                <%= product.name %>
+              </h3>
             </div>
-
             <div class="product-buttons">
               <div class="product-code">
-                <h4>Codigo de producto: <%= productoBuscado.code %></h4>
+                <h4>Código de producto: <%= product.code %>
+                </h4>
               </div>
-              <div class="add-favorite">
-                <i class="fa-regular fa-heart" style="color: #d97652"></i>
-                <h4>Añadir favorito</h4>
+              <div class="brand">
+                <% brands.forEach(brand=> { %>
+                  <h4>
+                    <% if (product.brand_id==brand.id) {%>
+                      <%= brand.name %>
+                        <%}%>
+                  </h4>
+                  <% }); %>
               </div>
               <div class="cant">
                 <div class="icons-math">
@@ -67,16 +63,35 @@
               </div>
             </div>
             <div class="product-price">
-              <h3>Precio: $<%= productoBuscado.price %></h3>
+              <h3>Precio: $<%= product.price %>
+              </h3>
+              <% discounts.forEach(discount=> { %>
+                <h3>
+                  <% if (product.discount_id==discount.id){%>
+                    <%= discount.description %>
+                      <%}%>
+                </h3>
+                <% }); %>
             </div>
             <div class="product-description">
               <h3>Descripción:</h3>
-              <p><%= productoBuscado.description %></p>
+              <p>
+                <%= product.description %>
+              </p>
+            </div>
+            <div>
+              <a class="buttons_edit_delete" href="/products/<%= product.id %>/edit">
+                <button> Editar <i class="fa-solid fa-pen-to-square"></i></button>
+              </a>
+              <a class="buttons_edit_delete" href="/products/delete/<%= product.id %>">
+                <button> Eliminar <i class="fa-solid fa-trash-can"></i></button>
+              </a>
             </div>
           </div>
         </div>
       </section>
     </main>
     <%- include("../partials/footer") %>
-  </body>
+</body>
+
 </html>

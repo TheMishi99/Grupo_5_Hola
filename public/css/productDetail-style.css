@@ -64,31 +64,29 @@ main {
   padding: 3% 0%;
   max-width: 450px;
 }
+.product-name-details p {
+  font-weight: bold;
+}
 
 .product-code,
-.add-favorite,
+.brand,
 .add-product {
   background-color: #f2f2f2;
   width: 90%;
-  margin: 20px;
+  margin: 5px;
   border: 1px;
   border-radius: 15px;
   text-align: center;
-  padding: 3% 0%;
+  padding: 3% 2%;
   max-width: 450px;
 }
 
-.add-favorite {
+.brand {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   max-width: 450px;
-}
-
-.add-favorite i {
-  font-size: 20px;
-  margin-right: 5%;
 }
 
 .product-price {
@@ -107,11 +105,11 @@ main {
   border: 1px solid rgb(158, 150, 150);
   width: 90%;
   max-width: 450px;
-  margin: 20px;
+  margin: 5px;
   border: 1px;
   border-radius: 15px;
   text-align: center;
-  padding: 3% 0%;
+  padding: 3% 2%;
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-around;
@@ -140,6 +138,17 @@ main {
   background-color: green;
   border-radius: 8px;
   color: #f2f2f2;
+}
+
+.buttons_edit_delete button{
+  color: #d97652;
+  font-size: 1.17em;
+  font-weight: bold;
+  border: 1px solid;
+  padding: 10px;
+  border-radius: 13px;
+  cursor: pointer;
+  margin: 12px;
 }
 
 /* tablet */
@@ -178,6 +187,7 @@ main {
   }
   .product-buttons {
     display: flex;
+    justify-content: space-around;
   }
   .cant {
     display: flex;
@@ -192,6 +202,7 @@ main {
 @media (min-width: 992px) {
   .product-details {
     max-height: 1100px;
+    padding: 5px;
   }
   .product {
     flex-direction: row;

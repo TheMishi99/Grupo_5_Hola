@@ -40,11 +40,10 @@ button.save_button {
 
 div.modify_camp {
     width: 100%;
-}
-
-div.modify_camp h4 {
     color: white;
-    padding: 5px;
+    font-size: 1.17em;
+    font-weight: bold;
+    line-height: 1.3em;
 }
 
 div.modify_camp input,
@@ -61,6 +60,12 @@ div.modify_camp textarea {
 div.modify_camp textarea {
     height: 90px;
     resize: none;
+}
+
+div.modify_camp select{
+    font-size: 0.8em;
+    border: none;
+    border-radius: 5px;
 }
 
 button.save_button {
@@ -87,6 +92,18 @@ button.save_button i {
     margin: 10px;
     padding: 5px;
     border-radius: 20px;
+}
+a.cancel_button{
+    background-color: white;
+    color: #d97652;
+    font-size: 1em;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 10px;
+    cursor: pointer;
 }
 
 /*desktop*/

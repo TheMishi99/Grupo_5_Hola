@@ -9,7 +9,7 @@ const { upload } = require("../middlewares/multerProducts");
 const userLogged = require("../middlewares/userLogged");
 
 /* MOSTRAR TODOS LOS PRODUCTOS */
-router.get("/", productsController.showAll);
+router.get("/", productsController.list);
 
 /* FORMULARIO Y ACCION DE CREACION DE PRODUCTO */
 router.get("/create", userLogged, productsController.createView);
@@ -23,9 +23,10 @@ router.get("/:id", productsController.detail);
 
 /* FORMULARIO Y ACCION DE EDITAR EL PRODUCTO POR ID */
 router.get("/:id/edit", userLogged, productsController.modifyView);
-router.put("/:id", productsController.modify);
+router.put("/:id", userLogged, upload.single("img"), productsController.modify);
 
-/* ACCION ELIMINAR  */
-router.delete("/:id", productsController.destroy);
+/* FORMULARIO Y ACCION ELIMINAR EL PRODUCTO POR ID */
+router.get("/delete/:id", userLogged, productsController.delete);
+router.delete("/:id", userLogged, productsController.destroy);
 
 module.exports = router;

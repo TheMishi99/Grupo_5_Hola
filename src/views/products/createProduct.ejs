@@ -18,68 +18,79 @@
 
   <body>
     <%- include("../partials/header") %>
-    <main class="create-main">
-      <div class="container_createProduct">
-        <form
-          class="create-form"
-          action="/products/"
-          method="post"
-          onsubmit="showSuccessAlert()"
-          enctype="multipart/form-data"
-        >
-          <section class="register-title-form">
-            <h1 class="tit-links">Crear tu producto</h1>
-          </section>
-          <div class="campos">
-            <label for="code">Código de Barra:</label>
-            <input type="text" name="code" id="code" required />
-            <br>
-            <label for="img">Imágen:</label>
-            <input type="file" name="img" id="img" required />
-            <br />
-            <label for="name">Nombre:</label>
-            <input type="text" name="name" id="name" required />
-            <br />
-            <label for="stock">Stock:</label>
-            <input type="number" name="stock" id="stock" required />
-            <br />
-            <label class="description" for="description">Descripción:</label>
-            <textarea
-              name="description"
-              id="description"
-              rows="4"
-              required
-            ></textarea>
-            <br />
-            <label for="elaborationDate">Fecha de Elaboración:</label>
-            <input type="text" name="elaborationDate" id="elaborationDate" required />
-            <br />
-            <label for="expirationDate">Fecha de Expiración:</label>
-            <input type="number" name="expirationDate" id="expirationDate" required />
-            <br />
-            <label for="price">Precio:</label>
-            <input type="number" name="price" id="price" required />
-            <br />
-            <label for="idDiscount">Id Descuento:</label>
-            <input type="number" name="idDiscount" id="idDiscount" required />
-            <br />
-            <label for="idBrand">id Marca:</label>
-            <input type="number" name="idBrand" id="idBrand" required />
-            <br />
-            <input class="create-button" type="submit" value="Crear Producto" />
-          </div>
-        </form>
-      </div>
-    </main>
-    <script>
-      function showSuccessAlert() {
-        const success = true;
-        if (success) {
-          alert("¡Producto creado con éxito!");
+      <main class="create-main">
+        <div class="container_createProduct">
+          <form class="create-form" action="/products/" method="post" onsubmit="showSuccessAlert()"
+            enctype="multipart/form-data">
+            <section class="register-title-form">
+              <h1 class="tit-links">Crear tu producto</h1>
+            </section>
+            <div class="campos">
+              <label for="img">Imágen:</label>
+              <input type="file" name="img" id="img" required />
+              <br />
+              <label for="name">Nombre:</label>
+              <input type="text" name="name" id="name" required />
+              <br />
+              <label for="code">Código de Barra:</label>
+              <input type="text" name="code" id="code" required />
+              <br>
+              <label for="stock">Stock:</label>
+              <input type="number" name="stock" id="stock" required />
+              <br />
+              <label class="description" for="description">Descripción:</label>
+              <textarea name="description" id="description" rows="4" required></textarea>
+              <br />
+              <label for="elaborationDate">Fecha de Elaboración:</label>
+              <input type="text" name="elaborationDate" id="elaborationDate" required />
+              <br />
+              <label for="expirationDate">Fecha de Expiración:</label>
+              <input type="text" name="expirationDate" id="expirationDate" required />
+              <br />
+              <label for="price">Precio:</label>
+              <input type="number" name="price" id="price" required />
+              <br />
+              <label for="category_id">Categoría:</label>
+              <select name="category_id" id="" required>
+                <% categories.forEach(category=> { %>
+                  <option value="<%= category.id %>">
+                    <%= category.name %>
+                  </option>
+                  <% }); %>
+              </select>
+              <br />
+              <label for="discount_id">Descuento:</label>
+              <select name="discount_id" id="" required>
+                <% discounts.forEach(discount=> { %>
+                  <option value="<%= discount.id %>">
+                    <%= discount.description %>
+                  </option>
+                  <% }); %>
+              </select>
+              <br />
+              <label for="brand_id">Marca:</label>
+              <select name="brand_id" id="" required>
+                <% brands.forEach(brand=> { %>
+                  <option value="<%= brand.id %>">
+                    <%= brand.name %>
+                  </option>
+                  <% }); %>
+              </select>
+              <br />
+              <input class="create-button" type="submit" value="Crear Producto" />
+            </div>
+          </form>
+        </div>
+      </main>
+      <script>
+        function showSuccessAlert() {
+          const success = true;
+          if (success) {
+            alert("¡Producto creado con éxito!");
+          }
+          return success;
         }
-        return success;
-      }
-    </script>
-    <%- include("../partials/footer") %>
+      </script>
+      <%- include("../partials/footer") %>
   </body>
 </html>

@@ -36,11 +36,11 @@
             <img
               src="/img/<%= product.img %>"
               width="100%"
-              alt="<%= product.title %>"
+              alt="<%= product.name %>"
             />
           </div>
           <div class="product-name">
-            <p><%= product.title %></p>
+            <p><%= product.name %></p>
           </div>
           <div class="product-price">
             <h3>$ <%= product.price %></h3>
@@ -60,20 +60,22 @@
         <% off.forEach(product => { %>
         <article>
           <div class="promotion">
-            <h2><%= product.off %></h2>
+            <% discounts.forEach(discount => { %>
+              <h2><% if (product.discount_id == discount.id){%><%= discount.description %><%}%></h2>
+            <% }); %> 
           </div>
           <div class="products-img">
             <% if (product.img.includes('png')) { %>
             <img
               src="/img/<%= product.img %>"
               width="100%"
-              alt="<%= product.title %>"
+              alt="<%= product.name %>"
             />
             <% } else { %>
             <img
               src="../img/img_notfound.png"
               width="100%"
-              alt="<%= product.title %>"
+              alt="<%= product.name %>"
             />
             <% } %>
           </div>

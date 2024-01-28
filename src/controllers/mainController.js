@@ -7,10 +7,11 @@ const db = require("../database/models")
 
 const mainController = {
   index: async (req, res) => {
-    const list = index();
-    // const list = await db.Productos.findAll();
+    //const list = index();
+    const list = await db.Productos.findAll();
+    const discounts = await db.Descuentos.findAll();
     const offProducts = [];
-    const latestProducts = index().reverse();
+    const latestProducts = list.reverse();
     const latest4Products = latestProducts.slice(0, 4);
     list.forEach((product) => {
       if (product.off !== null) {
@@ -20,6 +21,7 @@ const mainController = {
     const off4Products = offProducts.slice(0, 4);
 
     res.render("index", {
+      discounts:discounts,
       latestProducts: latest4Products,
       off: off4Products,
       userLogged: req.session.isLogged
