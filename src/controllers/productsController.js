@@ -113,7 +113,12 @@ const productsController = {
     })
     res.redirect("/products");
   },
-  cart: async (req, res) => {
+  checkout: async (req, res) => {
+    // const id = req.session.isLogged.id;
+    // const user = await db.Usuarios.findByPk(id, {
+    //   include: [{ association: "productsCart" }]
+    // })
+    // const myProductsCart = user.productsCart;
     res.render("./products/checkout", {userLogged: req.session.isLogged });
   }
 };
