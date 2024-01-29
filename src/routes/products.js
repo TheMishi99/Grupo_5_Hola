@@ -17,6 +17,7 @@ router.post("/", userLogged, upload.single("img"), productsController.create);
 
 /* VISTA DE CARRITO */
 router.get("/cart", userLogged, productsController.cart);
+router.get("/cart/checkout", productsController.checkout);
 
 /* OBTENER DETALLES DEL PRODUCTO POR ID */
 router.get("/:id", productsController.detail);

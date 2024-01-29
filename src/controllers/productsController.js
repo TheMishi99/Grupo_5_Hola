@@ -112,6 +112,9 @@ const productsController = {
       where: { id: req.params.id }
     })
     res.redirect("/products");
+  },
+  cart: async (req, res) => {
+    res.render("./products/checkout", {userLogged: req.session.isLogged });
   }
 };
 
