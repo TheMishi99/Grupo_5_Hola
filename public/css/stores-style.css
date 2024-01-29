@@ -1,0 +1,41 @@
+.container {
+    display: flex;
+}
+
+.column {
+    flex: 0 0 40%;
+}
+
+.list-group {
+    padding: 10px;
+}
+
+.list-group-item {
+    cursor: pointer;
+}
+
+.scroll-container {
+    height: 300px;
+    overflow-y: scroll;
+    border: 1px solid #ccc;
+    padding: 10px;
+    scroll-behavior: smooth; /* Controla el comportamiento de desplazamiento */
+}
+
+.section {
+    margin-bottom: 20px;
+}
+
+style attribute {
+    position: absolute;
+    z-index: 0;
+    left: 0px;
+    top: 0px;
+    height: 100%;
+    width: 100%;
+    padding: 0px;
+    border-width: 0px;
+    margin: 0px;
+    cursor: url(https://maps.gstatic.com/mapfiles/openhand_8_8.cur), default;
+    touch-action: pan-x pan-y;
+}

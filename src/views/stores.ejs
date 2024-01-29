@@ -9,11 +9,64 @@
     <script src="https://kit.fontawesome.com/6d37a11b52.js" crossorigin="anonymous"></script>
     <!--Hoja de Estilo para Stores-->
     <link href="../css/stores-style.css" rel="stylesheet" />
+
 </head>
 
 <body>
   <%- include("./partials/header") %>
     <main>
+      <div>
+        <h4>Sucursales</h4>
+      </div>
+      <div>
+        <p>
+          Preservemos la salud y el bienestar de todos.
+          Atención al Cliente:
+          0810-999-6288 (natural) o contactate con la sucursal
+        </p>
+      </div>
+      <div class="row">
+          <div class="container">
+            <!-- <div class="column">
+                <div id="list-example" class="list-group">
+                    <a class="list-group-item list-group-item-action" href="#section-1">Item 1</a>
+                    <a class="list-group-item list-group-item-action" href="#section-2">Item 2</a>
+                    <a class="list-group-item list-group-item-action" href="#section-3">Item 3</a>
+                    <a class="list-group-item list-group-item-action" href="#section-4">Item 4</a>
+                </div>
+            </div> -->
+            <div class="column scroll-container" id="scroll-container">
+                <div id="section-1" class="section">
+                    <h4>Av. Belgrano Nte. 79</h4>
+                    <p>Av. Belgrano Nte. 79, G4200 HUG, Santiago del Estero</p>
+                </div>
+                <div id="section-2" class="section">
+                    <h4>Av. Belgrano Nte. 139</h4>
+                    <p>Av. Belgrano Nte. 139, G4200 HUK, Santiago del Estero</p>
+                </div>
+                <div id="section-3" class="section">
+                  <h4>Independencia 28</h4>
+                  <p>Independencia 28, G4204 Santiago del Estero</p>
+              </div>
+                <div id="section-4" class="section">
+                    <h4>Las Heras 64</h4>
+                    <p>Las Heras 64, La Banda, Santiago del Estero</p>
+                </div>
+                <div id="section-5" class="section">
+                    <h4>Avellaneda 70</h4>
+                    <p>Avellaneda 70, La Banda, Santiago del Estero</p>
+                </div>
+                <div id="section-6" class="section">
+                  <h4>España 227</h4>
+                  <p>España 227, La Banda, Santiago del Estero</p>
+              </div>
+            </div>
+          </div>
+          <div id="map"></div>
+          <div class="map-container">
+            <img src="logo-sin-fondo.png" alt="Logo" class="logo-overlay">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3529.837030771201!2d-64.26912358811792!3d-27.783995230072748!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x943b526ad150b283%3A0x5b67ca0b81c4cc19!2sAv.%20Belgrano%20Nte.%2079%2C%20G4200%20HUG%2C%20Santiago%20del%20Estero!5e0!3m2!1ses-419!2sar!4v1706487989464!5m2!1ses-419!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
     </main>
     <%- include("./partials/footer") %>
 </body>

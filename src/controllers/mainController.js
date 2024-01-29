@@ -29,7 +29,7 @@ const mainController = {
   },
   stores: async (req, res) => {
     res.render("stores",{userLogged: req.session.isLogged})
-  },
+  }
 };
 
 module.exports = mainController;
