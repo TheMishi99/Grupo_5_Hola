@@ -132,6 +132,11 @@ input.cupon {
   cursor: pointer;
 }
 
+.delete_button{
+  background: none;
+  border: none;
+}
+
 /* tablet */
 @media (min-width: 576px) {
   .single-product {

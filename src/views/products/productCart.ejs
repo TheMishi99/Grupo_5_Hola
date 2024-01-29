@@ -26,19 +26,21 @@
           <h2>Carrito de Compras</h2>
         </div>
         <!--Add Tags-->
-        <% list.forEach(product => { %>
+        <% list.forEach((product,index) => { %>
         <div class="single-product">
           <div class="container-line">
             <div class="product-img">
-              <img src="/img/<%= product.img %>" alt=" " />
+              <img src="<%= product.img %>" alt=" " />
             </div>
             <div class="product-name">
-              <p><%= product.title %></p>
+              <p><strong>Nombre</strong><br>
+              <%= product.name %></p>
             </div>
             <div class="product-details">
-              <p>Marca: <%= product.brand %></p>
-              <p>Característica: <%= product.info %></p>
-              <p>Peso: <%= product.weight %></p>
+              <p><strong>Código</strong> <%= product.code %></p>
+              <!-- <p>Características: <%= product.description %></p> -->
+              <p><strong>Brand</strong> <%= product.brand.name %></p>
+              <p><strong>Category</strong> <%= product.categories.name %></p>
             </div>
           </div>
           <div class="container-line">
@@ -55,7 +57,11 @@
               <h3>$ <%= product.price %></h3>
             </div>
           </div>
-          <i class="fa-solid fa-xmark" style="color: #000000"></i>
+          <form action="/products/cart/<%= cart[index].CarritoProductos.id %>?_method=DELETE" method="POST">
+            <button type="submit" class="delete_button">
+              <i class="fa-solid fa-xmark" style="color: #000000"></i>
+            </button>
+          </form>
         </div>
         <% }) %>
 
@@ -68,11 +74,15 @@
           </form>
         </div>
         <div class="resumen">
-          <h3>SubTotal: $ 65.500,00</h3>
+          <% let subTotal = 0%> <% let discounts = 0%> <% list.forEach(product => { %> 
+            <% subTotal += parseFloat(product.price) %> 
+            <% discounts += parseFloat(product.price) * (product.discount.quantity/100)%> 
+          <% }) %>
+          <h3>SubTotal $ <%= subTotal %></h3>
           <br />
-          <h3>Descuento: $ 10.000,00</h3>
+          <h3>Descuento: $ <%= discounts %></h3>
           <br />
-          <h2>Total: $ 55.500,00</h2>
+          <h2>Total: $ <%= (subTotal - discounts).toFixed(2) %></h2>
         </div>
         <div class="cart__buttons">
           <button class="cart__button">Seguir comprando</button>

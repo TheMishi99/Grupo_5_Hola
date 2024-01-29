@@ -102,7 +102,6 @@ const usersController = {
             email: email
           }
         })
-        console.log(userToLogin);
         if (userToLogin && userToLogin.active == 1) {
           const isOkThePassword = bcryptjs.compareSync(
             password,
@@ -110,7 +109,7 @@ const usersController = {
           );
           if (isOkThePassword) {
             if (remember !== undefined) {
-              res.cookie("userEmail", email, { maxAge: 900000 });
+              res.cookie("userEmail", email, { maxAge: 900000*4 });
             }
 
             req.session.isLogged = userToLogin;

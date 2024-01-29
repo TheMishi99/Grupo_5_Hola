@@ -17,10 +17,11 @@ router.post("/", userLogged, upload.single("img"), productsController.create);
 
 /* VISTA DE CARRITO */
 router.get("/cart", userLogged, productsController.cart);
+router.post("/cart/:id", productsController.addToCart);
+router.delete("/cart/:id", productsController.deleteItemCart);
 
 /* OBTENER DETALLES DEL PRODUCTO POR ID */
 router.get("/:id", productsController.detail);
-router.post("/:id", productsController.addToCart);
 
 /* FORMULARIO Y ACCION DE EDITAR EL PRODUCTO POR ID */
 router.get("/:id/edit", userLogged, productsController.modifyView);

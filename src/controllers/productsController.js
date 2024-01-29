@@ -9,16 +9,29 @@ const { Op, where } = require("sequelize");
 
 const productsController = {
   cart: async (req, res) => {
-    const id = req.session.isLogged.id;
-    const user = await db.Usuarios.findByPk(id, {
-      include: [{ association: "productsCart" }],
-    });
-    const myProductsCart = user.productsCart;
+    try {
+      const id = req.session.isLogged.id;
+      const user = await db.Usuarios.findByPk(id, {
+        include: [{ association: "productsCart" }],
+      });
+      const cartProductsPromises = user.productsCart.map(async (e) => {
+        const producto = await db.Productos.findByPk(e.id, {
+          include: ["discount", "brand", "categories"],
+        });
+        return producto;
+      });
 
-    res.render("./products/productCart", {
-      list: myProductsCart,
-      userLogged: req.session.isLogged,
-    });
+      const cartProducts = await Promise.all(cartProductsPromises);
+
+      res.render("./products/productCart", {
+        cart: user.productsCart,
+        list: cartProducts,
+        userLogged: req.session.isLogged,
+      });
+    } catch (err) {
+      console.error(err);
+      res.status(500).send("Error en el servidor");
+    }
   },
   list: async (req, res) => {
     const list = await db.Productos.findAll({
@@ -189,7 +202,19 @@ const productsController = {
 
       res.redirect("/products/" + producto.id);
     } catch (error) {
-      res.status(500).send("Error interno del servidor");
+      res.status(500).send("Error al intentar agregar el carrito");
+    }
+  },
+  deleteItemCart: async (req, res) => {
+    try {
+      await db.CarritoProductos.destroy({
+        where: {
+          id: req.params.id,
+        },
+      });
+      res.redirect("/products/cart");
+    } catch (error) {
+      res.status(500).send("Error al intentar eliminar el item del carrito");
     }
   },
 };
