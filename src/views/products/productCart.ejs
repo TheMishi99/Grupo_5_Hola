@@ -37,24 +37,41 @@
               <%= product.name %></p>
             </div>
             <div class="product-details">
-              <p><strong>Código</strong> <%= product.code %></p>
+              <p><strong>Código</strong> <br> <%= product.code %></p>
               <!-- <p>Características: <%= product.description %></p> -->
-              <p><strong>Brand</strong> <%= product.brand.name %></p>
-              <p><strong>Category</strong> <%= product.categories.name %></p>
+              <p><strong>Marca</strong> <br> <%= product.brand.name %></p>
+              <p><strong>Categoría</strong> <br> <%= product.categories.name %></p>
             </div>
           </div>
           <div class="container-line">
-            <div class="cant">
-              <div class="icons-math">
-                <i class="fa-solid fa-minus" style="color: #000000"></i>
+            <div class="cant2">
+               <strong>Cantidad</strong>
+               <br>
+               <div class="cant">
+                 <div class="icons-math">
+                  <form action="/products/cart/removeOne/<%= product.id %>?_method=DELETE" method="post">
+                    <button type="submit">
+                      <i class="fa-solid fa-minus" style="color: #000000"></i>
+                    </button>
+                  </form>
+                 </div>
+                 <h3><%= cart[index].CarritoProductos.quantity %></h3>
+                 <div class="icons-math">
+                  <form action="/products/cart/addOne/<%= product.id %>" method="post">
+                    <button type="submit">
+                      <i class="fa-solid fa-plus" style="color: #000000"></i>
+                    </button>
+                  </form>
+                 </div>
+               </div>
               </div>
-              <h3>1</h3>
-              <div class="icons-math">
-                <i class="fa-solid fa-plus" style="color: #000000"></i>
-              </div>
+              <div class="total">
+                <strong>Precio Unit.</strong>
+              <h3>$ <%= product.price %></h3>
             </div>
             <div class="total">
-              <h3>$ <%= product.price %></h3>
+              <strong>Sub total</strong>
+              <h3>$ <%= (product.price * cart[index].CarritoProductos.quantity).toFixed(2) %></h3>
             </div>
           </div>
           <form action="/products/cart/<%= cart[index].CarritoProductos.id %>?_method=DELETE" method="POST">
@@ -74,13 +91,13 @@
           </form>
         </div>
         <div class="resumen">
-          <% let subTotal = 0%> <% let discounts = 0%> <% list.forEach(product => { %> 
-            <% subTotal += parseFloat(product.price) %> 
-            <% discounts += parseFloat(product.price) * (product.discount.quantity/100)%> 
+          <% let subTotal = 0%> <% let discounts = 0%> <% list.forEach((product, index) => { %> 
+            <% subTotal += parseFloat(product.price) * cart[index].CarritoProductos.quantity %> 
+            <% discounts += (parseFloat(product.price) * (product.discount.quantity/100)) * cart[index].CarritoProductos.quantity %> 
           <% }) %>
-          <h3>SubTotal $ <%= subTotal %></h3>
+          <h3>SubTotal $ <%= subTotal.toFixed(2) %></h3>
           <br />
-          <h3>Descuento: $ <%= discounts %></h3>
+          <h3>Descuento: $ <%= discounts.toFixed(2) %></h3>
           <br />
           <h2>Total: $ <%= (subTotal - discounts).toFixed(2) %></h2>
         </div>

@@ -8,31 +8,6 @@ const { Op, where } = require("sequelize");
 /* ************************* */
 
 const productsController = {
-  cart: async (req, res) => {
-    try {
-      const id = req.session.isLogged.id;
-      const user = await db.Usuarios.findByPk(id, {
-        include: [{ association: "productsCart" }],
-      });
-      const cartProductsPromises = user.productsCart.map(async (e) => {
-        const producto = await db.Productos.findByPk(e.id, {
-          include: ["discount", "brand", "categories"],
-        });
-        return producto;
-      });
-
-      const cartProducts = await Promise.all(cartProductsPromises);
-
-      res.render("./products/productCart", {
-        cart: user.productsCart,
-        list: cartProducts,
-        userLogged: req.session.isLogged,
-      });
-    } catch (err) {
-      console.error(err);
-      res.status(500).send("Error en el servidor");
-    }
-  },
   list: async (req, res) => {
     const list = await db.Productos.findAll({
       include: ["discount", "brand"],
@@ -169,6 +144,31 @@ const productsController = {
     });
     res.redirect("/products");
   },
+  cart: async (req, res) => {
+    try {
+      const id = req.session.isLogged.id;
+      const user = await db.Usuarios.findByPk(id, {
+        include: [{ association: "productsCart" }],
+      });
+      const cartProductsPromises = user.productsCart.map(async (e) => {
+        const producto = await db.Productos.findByPk(e.id, {
+          include: ["discount", "brand", "categories"],
+        });
+        return producto;
+      });
+
+      const cartProducts = await Promise.all(cartProductsPromises);
+
+      res.render("./products/productCart", {
+        cart: user.productsCart,
+        list: cartProducts,
+        userLogged: req.session.isLogged,
+      });
+    } catch (err) {
+      console.error(err);
+      res.status(500).send("Error en el servidor");
+    }
+  },
   addToCart: async (req, res) => {
     try {
       const idProducto = req.params.id;
@@ -215,6 +215,67 @@ const productsController = {
       res.redirect("/products/cart");
     } catch (error) {
       res.status(500).send("Error al intentar eliminar el item del carrito");
+    }
+  },
+  increaseQuantity: async (req, res) => {
+    try {
+      const idProducto = req.params.id;
+      const usuario = await db.Usuarios.findOne({
+        where: {
+          email: req.cookies.userEmail,
+        },
+      });
+
+      if (!usuario) {
+        return res.status(404).send("Usuario no encontrado");
+      }
+
+      // Obtener el producto del carrito
+      const carritoProducto = await db.CarritoProductos.findOne({
+        where: { user_id: usuario.id, product_id: idProducto },
+      });
+
+      if (!carritoProducto) {
+        return res.status(404).send("El producto no está en el carrito");
+      }
+
+      // Incrementar la cantidad en 1
+      carritoProducto.quantity += 1;
+      await carritoProducto.save();
+
+      res.redirect("/products/cart");
+    } catch (error) {
+      res.status(500).send("Error al intentar incrementar la cantidad");
+    }
+  },
+  decreaseQuantity: async (req, res) => {
+    try {
+      const idProducto = req.params.id;
+      const usuario = await db.Usuarios.findOne({
+        where: {
+          email: req.cookies.userEmail,
+        },
+      });
+
+      if (!usuario) {
+        return res.status(404).send("Usuario no encontrado");
+      }
+
+      const carritoProducto = await db.CarritoProductos.findOne({
+        where: { user_id: usuario.id, product_id: idProducto },
+      });
+
+      if (!carritoProducto) {
+        return res.status(404).send("El producto no está en el carrito");
+      }
+
+      // Decrementar la cantidad en 1, mínimo 1
+      carritoProducto.quantity = Math.max(carritoProducto.quantity - 1, 1);
+      await carritoProducto.save();
+
+      res.redirect("/products/cart");
+    } catch (error) {
+      res.status(500).send("Error al intentar decrementar la cantidad");
     }
   },
 };

@@ -9,6 +9,7 @@ module.exports = {
         {
           id: 1,
           user_id: 4,
+          quantity: 1,
           product_id: 1,
           paymentMethod: "Credit Card",
           total: 500,
@@ -17,6 +18,7 @@ module.exports = {
         {
           id: 2,
           user_id: 4,
+          quantity: 1,
           product_id: 2,
           paymentMethod: "Credit Card",
           total: 500,
@@ -25,6 +27,7 @@ module.exports = {
         {
           id: 3,
           user_id: 4,
+          quantity: 1,
           product_id: 3,
           paymentMethod: "Credit Card",
           total: 500,
@@ -33,7 +36,26 @@ module.exports = {
         {
           id: 4,
           user_id: 4,
+          quantity: 1,
           product_id: 4,
+          paymentMethod: "Credit Card",
+          total: 500,
+          yesDelivery: true,
+        },
+        {
+          id: 5,
+          user_id: 1,
+          quantity: 1,
+          product_id: 4,
+          paymentMethod: "Credit Card",
+          total: 500,
+          yesDelivery: true,
+        },
+        {
+          id: 6,
+          user_id: 1,
+          quantity: 3,
+          product_id: 3,
           paymentMethod: "Credit Card",
           total: 500,
           yesDelivery: true,

@@ -48,11 +48,23 @@ main {
 }
 
 .cant {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
   border: 1px solid rgb(158, 150, 150);
   border-radius: 10px;
+  width: 60%;
+  text-align: center;
+  padding: 1%;
+  margin-right: 10px;
+}
+.cant2 {
   width: 30%;
   text-align: center;
   display: flex;
+  flex-direction: column;
+  align-items: center;
   flex-wrap: nowrap;
   justify-content: space-around;
   padding: 1%;
