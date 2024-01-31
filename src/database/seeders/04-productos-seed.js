@@ -77,9 +77,9 @@ module.exports = {
           elaborationDate: "2024-01-19",
           expirationDate: "2028-01-19",
           price: 29551,
-          category_id: 5,
-          discount_id: 5,
-          brand_id:5
+          category_id: 1,
+          discount_id: 2,
+          brand_id:7
         },
         {
           id: 6,
@@ -92,9 +92,9 @@ module.exports = {
           elaborationDate: "2024-01-19",
           expirationDate: "2028-01-19",
           price: 27909,
-          category_id: 6,
-          discount_id: 6,
-          brand_id:6
+          category_id: 1,
+          discount_id: 2,
+          brand_id:7
         },
         {
           id: 7,
@@ -107,9 +107,9 @@ module.exports = {
           elaborationDate: "2024-01-19",
           expirationDate: "2028-01-19",
           price: 790,
-          category_id: 7,
-          discount_id: 7,
-          brand_id:7
+          category_id: 1,
+          discount_id: 1,
+          brand_id:1
         },
         {
           id: 8,
@@ -122,9 +122,9 @@ module.exports = {
           elaborationDate: "2024-01-19",
           expirationDate: "2028-01-19",
           price: 26603,
-          category_id: 8,
-          discount_id: 8,
-          brand_id:8
+          category_id: 1,
+          discount_id: 2,
+          brand_id:6
         },
         {
           id: 9,
@@ -137,9 +137,9 @@ module.exports = {
           elaborationDate: "2024-01-19",
           expirationDate: "2028-01-19",
           price: 23020,
-          category_id: 9,
-          discount_id: 9,
-          brand_id:9
+          category_id: 1,
+          discount_id: 3,
+          brand_id:5
         },
         {
           id: 10,
@@ -152,9 +152,9 @@ module.exports = {
           elaborationDate: "2024-01-19",
           expirationDate: "2028-01-19",
           price: 29900,
-          category_id: 10,
-          discount_id: 10,
-          brand_id:10
+          category_id: 1,
+          discount_id: 3,
+          brand_id:5
         },
         {
           id: 11,
@@ -166,9 +166,9 @@ module.exports = {
           elaborationDate: "2024-01-19",
           expirationDate: "2028-01-19",
           price: 25000,
-          category_id: 11,
-          discount_id: 11,
-          brand_id:11
+          category_id: 2,
+          discount_id: 1,
+          brand_id:2
         },
         {
           id: 12,
@@ -181,9 +181,9 @@ module.exports = {
           elaborationDate: "2024-01-19",
           expirationDate: "2028-01-19",
           price: 6900,
-          category_id: 12,
-          discount_id: 12,
-          brand_id:12
+          category_id: 2,
+          discount_id: 1,
+          brand_id:2
         },
         {
           id: 13,
@@ -196,9 +196,9 @@ module.exports = {
           elaborationDate: "2024-01-19",
           expirationDate: "2028-01-19",
           price: 79900,
-          category_id: 4,
-          discount_id: 4,
-          brand_id:4
+          category_id: 2,
+          discount_id: 3,
+          brand_id:2
         },
         {
           id: 14,
@@ -211,9 +211,9 @@ module.exports = {
           elaborationDate: "2024-01-19",
           expirationDate: "2028-01-19",
           price: 8400,
-          category_id: 14,
-          discount_id: 14,
-          brand_id:14
+          category_id: 3,
+          discount_id: 1,
+          brand_id:2
         },
         {
           id: 15,
@@ -226,9 +226,9 @@ module.exports = {
           elaborationDate: "2024-01-19",
           expirationDate: "2028-01-19",
           price: 79900,
-          category_id: 15,
-          discount_id: 15,
-          brand_id:15
+          category_id: 2,
+          discount_id: 2,
+          brand_id:2
         },
         {
           id: 16,
@@ -241,9 +241,9 @@ module.exports = {
           elaborationDate: "2024-01-19",
           expirationDate: "2028-01-19",
           price: 4900,
-          category_id: 16,
-          discount_id: 16,
-          brand_id:16
+          category_id: 2,
+          discount_id: 2,
+          brand_id:2
         }
       ],
       {}
