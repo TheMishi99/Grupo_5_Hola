@@ -1,7 +1,3 @@
-.container {
-    display: flex;
-}
-
 .column {
     flex: 0 0 40%;
 }
@@ -38,4 +34,21 @@ style attribute {
     margin: 0px;
     cursor: url(https://maps.gstatic.com/mapfiles/openhand_8_8.cur), default;
     touch-action: pan-x pan-y;
+}
+
+.row{
+    display:flex;
+    align-items: center;
+    margin: auto;
+    justify-content: center;
+    padding: 0% 2% 5% 2%;
+}
+
+.description{
+    text-align: center;
+    padding: 5% 2%;
+}
+
+.list-stores{
+    height: 300px;
 }
