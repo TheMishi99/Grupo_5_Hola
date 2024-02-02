@@ -17,6 +17,10 @@ module.exports = {
           key: "id",
         },
       },
+      quantity: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
       product_id: {
         type: DataTypes.INTEGER,
         allowNull: false,

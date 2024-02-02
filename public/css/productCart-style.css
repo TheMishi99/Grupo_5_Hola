@@ -48,11 +48,23 @@ main {
 }
 
 .cant {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
   border: 1px solid rgb(158, 150, 150);
   border-radius: 10px;
+  width: 60%;
+  text-align: center;
+  padding: 1%;
+  margin-right: 10px;
+}
+.cant2 {
   width: 30%;
   text-align: center;
   display: flex;
+  flex-direction: column;
+  align-items: center;
   flex-wrap: nowrap;
   justify-content: space-around;
   padding: 1%;
@@ -97,6 +109,27 @@ div.icons-math {
   font-size: medium;
 }
 
+.icons-math button {
+  background-color: none;
+  border: none;
+  cursor: pointer;
+  padding: 2px;
+}
+
+.cart-minus-btn {
+  padding: 5px;
+  background-color: red;
+  border-radius: 8px;
+  color: #f2f2f2;
+}
+
+.cart-plus-btn {
+  padding: 5px;
+  background-color: green;
+  border-radius: 8px;
+  color: #f2f2f2;
+}
+
 .discount {
   background-color: #f2f2f2;
   margin: 2% 5%;
@@ -130,6 +163,11 @@ input.cupon {
   font-size: 24px;
   color: #ff0000;
   cursor: pointer;
+}
+
+.delete_button{
+  background: none;
+  border: none;
 }
 
 /* tablet */

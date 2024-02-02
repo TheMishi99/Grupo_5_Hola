@@ -17,7 +17,12 @@ router.post("/", userLogged, upload.single("img"), productsController.create);
 
 /* VISTA DE CARRITO */
 router.get("/cart", userLogged, productsController.cart);
+router.post("/cart/:id", productsController.addToCart);
+router.delete("/cart/:id", productsController.deleteItemCart);
+router.post("/cart/addOne/:id", productsController.increaseQuantity);
+router.delete("/cart/removeOne/:id", productsController.decreaseQuantity);
 router.get("/cart/checkout", productsController.checkout);
+
 
 /* OBTENER DETALLES DEL PRODUCTO POR ID */
 router.get("/:id", productsController.detail);

@@ -4,36 +4,40 @@ module.exports = (sequelize, dataTypes) => {
     id: {
       type: dataTypes.INTEGER,
       primaryKey: true,
-      autoIncrement: true
+      autoIncrement: true,
     },
     user_id: {
       type: dataTypes.INTEGER,
       allowNull: false,
       references: {
-          model: "Usuarios",
-          key: "id"
-      }
+        model: "Usuarios",
+        key: "id",
+      },
+    },
+    quantity: {
+      type: dataTypes.INTEGER,
+      allowNull: false,
     },
     product_id: {
       type: dataTypes.INTEGER,
       allowNull: false,
       references: {
-          model: "Productos",
-          key: "id"
-      }
+        model: "Productos",
+        key: "id",
+      },
     },
-    paymentMethod:{
-      type:dataTypes.STRING,
-      allowNull: false
+    paymentMethod: {
+      type: dataTypes.STRING,
+      allowNull: false,
     },
-    total:{
-      type:dataTypes.FLOAT,
-      allowNull: false
+    total: {
+      type: dataTypes.FLOAT,
+      allowNull: false,
     },
-    yesDelivery:{
-      type:dataTypes.BOOLEAN,
-      allowNull: false
-    }
+    yesDelivery: {
+      type: dataTypes.BOOLEAN,
+      allowNull: false,
+    },
   };
   let config = {
     tableName: "product_cart",
@@ -44,13 +48,13 @@ module.exports = (sequelize, dataTypes) => {
   CarritoProductos.associate = (models) => {
     CarritoProductos.belongsTo(models.Usuarios, {
       as: "user",
-      foreignKey: "user_id"
-    })
+      foreignKey: "user_id",
+    });
     CarritoProductos.belongsTo(models.Productos, {
       as: "product",
-      foreignKey: "product_id"
-    })
-  }
+      foreignKey: "product_id",
+    });
+  };
 
   return CarritoProductos;
 };

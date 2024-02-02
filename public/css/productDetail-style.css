@@ -80,7 +80,11 @@ main {
   padding: 3% 2%;
   max-width: 450px;
 }
-
+.add-product{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .brand {
   display: flex;
   flex-wrap: wrap;

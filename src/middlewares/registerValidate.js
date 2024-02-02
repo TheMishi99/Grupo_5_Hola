@@ -17,7 +17,6 @@ const registerValidate = [
                     email: req.body.email
                 }
             })
-            console.log(userInDB);
             if(userInDB){
                 throw new Error("El correo electrónico ingresado ya se encuentra registrado")
             }
