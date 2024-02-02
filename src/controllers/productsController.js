@@ -194,6 +194,7 @@ const productsController = {
 
       carrito = await db.CarritoProductos.create({
         user_id: usuario.id,
+        quantity: req.body.quantity,
         product_id: producto.id,
         paymentMethod: "Credit Card",
         total: producto.price,

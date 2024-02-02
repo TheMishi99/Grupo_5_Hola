@@ -109,6 +109,27 @@ div.icons-math {
   font-size: medium;
 }
 
+.icons-math button {
+  background-color: none;
+  border: none;
+  cursor: pointer;
+  padding: 2px;
+}
+
+.cart-minus-btn {
+  padding: 5px;
+  background-color: red;
+  border-radius: 8px;
+  color: #f2f2f2;
+}
+
+.cart-plus-btn {
+  padding: 5px;
+  background-color: green;
+  border-radius: 8px;
+  color: #f2f2f2;
+}
+
 .discount {
   background-color: #f2f2f2;
   margin: 2% 5%;

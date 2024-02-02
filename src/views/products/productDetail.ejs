@@ -41,11 +41,12 @@
                     <% if (product.brand_id==brand.id) {%>
                       <%= brand.name %>
                         <%}%>
-                  </h4>
-                  <% }); %>
+                      </h4>
+                      <% }); %>
               </div>
-              <form action="/products/cart/<%= product.id %>" method="POST">
-                <div class="cant">
+              <div class="cant">
+                <form action="/products/cart/<%= product.id %>" method="POST">
+               <!--  <div class="cant">
                   <div class="icons-math">
                     <button type="button">
                       <i class="fa-solid fa-minus cart-minus-btn"></i>
@@ -57,15 +58,28 @@
                       <i class="fa-solid fa-plus cart-plus-btn"></i>
                     </button>
                   </div>
-                </div>
-                <div class="add-product">
-                  <input type="number">
-                  <i class="fa-solid fa-cart-plus" style="color: #d97652"></i>
-                  <button type="submit">
-                    <h4>Agregar al carrito</h4>
-                  </button>
-                </div>
-              </form>
+                </div> -->
+                    <div class="add-product">
+                      <div class="icons-math">
+                        <button type="button">
+                          <i class="fa-solid fa-minus cart-minus-btn"></i>
+                        </button>
+                      </div>
+                      <input id="quantity" name="quantity" type="number">
+                      <div class="icons-math">
+                        <button type="button">
+                          <i class="fa-solid fa-plus cart-plus-btn"></i>
+                        </button>
+                      </div>
+                    </div>
+                    <div class="cart-button">
+                      <i class="fa-solid fa-cart-plus" style="color: #d97652"></i>
+                      <button type="submit">
+                        <h4>Agregar al carrito</h4>
+                      </button>
+                    </div>
+                </form>
+              </div>
             </div>
             <div class="product-price">
               <h3>Precio: $<%= product.price %>
