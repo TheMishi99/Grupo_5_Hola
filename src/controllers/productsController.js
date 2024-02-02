@@ -279,6 +279,14 @@ const productsController = {
       res.status(500).send("Error al intentar decrementar la cantidad");
     }
   },
+  checkout: async (req, res) => {
+    // const id = req.session.isLogged.id;
+    // const user = await db.Usuarios.findByPk(id, {
+    //   include: [{ association: "productsCart" }]
+    // })
+    // const myProductsCart = user.productsCart;
+    res.render("./products/checkout", {userLogged: req.session.isLogged });
+  }
 };
 
 module.exports = productsController;
