@@ -21,11 +21,13 @@
     <main>
       <div class="container__allProducts">
         <h1 class="title__allProducts">LISTADO DE PRODUCTOS</h1>
-        <div class="containerButtons__allProducts">
-          <a href="/products/create">
-            <button class="button_createProduct">Crear producto</button></a
-          >
-        </div>
+        <% if (userLogged && userLogged.authLevel === 1) { %>
+          <div class="containerButtons__allProducts">
+            <a href="/products/create">
+              <button class="button_createProduct">Crear producto</button></a
+            >
+          </div>
+        <% } %>
       </div>
       <section class="section__allProducts">
         <% list.forEach(product => { %>
