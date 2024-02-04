@@ -22,18 +22,28 @@
       <div class="container__allProducts">
         <h1 class="title__allProducts">LISTADO DE PRODUCTOS</h1>
         <div class="containerButtons__allProducts">
-          <a href="/products/create"> <button class="button_createProduct">Crear producto</button></a>
+          <a href="/products/create">
+            <button class="button_createProduct">Crear producto</button></a
+          >
         </div>
       </div>
       <section class="section__allProducts">
         <% list.forEach(product => { %>
         <article>
           <div class="products-img">
-            <img
-              src="../img/<%= product.img %>"
-              width="92%"
-              alt="<%= product.name %>"
-            />
+            <% if (product.img) { %>
+              <img
+                src="<%= product.img %>"
+                width="92%"
+                alt="<%= product.name %>"
+              />
+            <% } else { %>
+              <img
+                src="../img/img_notfound.png"
+                width="92%"
+                alt="<%= product.name %>"
+              />
+            <% } %>
           </div>
           <div class="product-name">
             <a href="/products/<%= product.id %>"><p><%= product.name %></p></a>
