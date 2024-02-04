@@ -20,11 +20,17 @@
     <%- include("../partials/header") %>
     <main>
       <div class="container__allProducts">
-        <h1 class="title__allProducts">LISTADO DE PRODUCTOS</h1>
+        <h1 class="title__allProducts">Listado de Productos</h1>
         <div class="containerButtons__allProducts">
           <a href="/products/create"> <button class="button_createProduct">Crear producto</button></a>
         </div>
       </div>
+      <% if(list.length==0){%>
+        <div class="searchResult">
+          <h3> No se encontraron productos que coincidan con la busqueda realizada </h3>
+          <a href="/products" class="buttonSearchResult"><button>Ver todos los productos</button></a>
+        </div>
+        <%}%>
       <section class="section__allProducts">
         <% list.forEach(product => { %>
         <article>

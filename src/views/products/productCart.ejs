@@ -81,15 +81,6 @@
           </form>
         </div>
         <% }) %>
-
-        <div class="discount">
-          <h3>¿Tenés un cupón de descuento?</h3>
-          <br />
-          <form action="procesar_cupon.php" method="post">
-            <input class="cupon" type="text" id="cupon" name="cupon" />
-            <input type="submit" value="Añadir" />
-          </form>
-        </div>
         <div class="resumen">
           <% let subTotal = 0%> <% let discounts = 0%> <% list.forEach((product, index) => { %> 
             <% subTotal += parseFloat(product.price) * cart[index].CarritoProductos.quantity %> 

@@ -61,6 +61,20 @@ module.exports = {
           authLevel: 1,
           active: 1,
         },
+        {
+          id: 5,
+          name: "Vero Bianchi",
+          email: "dvbianchi92@gmail.com",
+          password:
+            "$2a$10$jHVTxiKSE7678mXdz.lRge20EuC3QosxypRQNaTdMPeoOOWZXXcbi",
+          phoneNumber: "2147483647",
+          province: "Santiago del Estero",
+          adress: "Belgrano 170",
+          profilePicture:
+            "user-1706912938967-4.jpg",
+          authLevel: 1,
+          active: 1,
+        },
       ],
       {}
     );
