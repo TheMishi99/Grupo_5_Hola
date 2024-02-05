@@ -33,11 +33,19 @@
         <% latestProducts.forEach(product => { %>
         <article>
           <div class="products-img">
-            <img
-              src="/img/<%= product.img %>"
-              width="100%"
-              alt="<%= product.name %>"
-            />
+            <% if (product.img) { %>
+              <img
+                src="<%= product.img %>"
+                width="100%"
+                alt="<%= product.name %>"
+              />
+              <% } else { %>
+              <img
+                src="../img/img_notfound.png"
+                width="100%"
+                alt="<%= product.name %>"
+              />
+              <% } %>
           </div>
           <div class="product-name">
             <p><%= product.name %></p>
@@ -65,9 +73,9 @@
             <% }); %> 
           </div>
           <div class="products-img">
-            <% if (product.img.includes('png')) { %>
+            <% if (product.img) { %>
             <img
-              src="/img/<%= product.img %>"
+              src="<%= product.img %>"
               width="100%"
               alt="<%= product.name %>"
             />

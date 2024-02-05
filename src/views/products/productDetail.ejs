@@ -98,14 +98,16 @@
                 <%= product.description %>
               </p>
             </div>
-            <div>
-              <a class="buttons_edit_delete" href="/products/<%= product.id %>/edit">
-                <button> Editar <i class="fa-solid fa-pen-to-square"></i></button>
-              </a>
-              <a class="buttons_edit_delete" href="/products/delete/<%= product.id %>">
-                <button> Eliminar <i class="fa-solid fa-trash-can"></i></button>
-              </a>
-            </div>
+            <% if (userLogged && userLogged.authLevel === 1) { %>
+              <div>
+                <a class="buttons_edit_delete" href="/products/<%= product.id %>/edit">
+                  <button> Editar <i class="fa-solid fa-pen-to-square"></i></button>
+                </a>
+                <a class="buttons_edit_delete" href="/products/delete/<%= product.id %>">
+                  <button> Eliminar <i class="fa-solid fa-trash-can"></i></button>
+                </a>
+              </div>
+            <% } %>
           </div>
         </div>
       </section>
