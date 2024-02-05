@@ -39,13 +39,14 @@
               <input type="number" name="stock" id="stock" required />
               <br />
               <label class="description" for="description">Descripción:</label>
+              <br />
               <textarea name="description" id="description" rows="4" required></textarea>
               <br />
               <label for="elaborationDate">Fecha de Elaboración:</label>
-              <input type="text" name="elaborationDate" id="elaborationDate" required />
+              <input type="datetime" name="elaborationDate" id="elaborationDate" required />
               <br />
               <label for="expirationDate">Fecha de Expiración:</label>
-              <input type="text" name="expirationDate" id="expirationDate" required />
+              <input type="datetime" name="expirationDate" id="expirationDate" required />
               <br />
               <label for="price">Precio:</label>
               <input type="number" name="price" id="price" required />
@@ -77,8 +78,8 @@
                   <% }); %>
               </select>
               <br />
-              <input class="create-button" type="submit" value="Crear Producto" />
             </div>
+            <button type="submit" class="create-button"> Crear Producto </button>
           </form>
         </div>
       </main>

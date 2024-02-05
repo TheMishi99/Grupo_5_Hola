@@ -50,6 +50,26 @@ const registerValidate = [
             }
             return true;
         }).bail(),
+    body('province')
+        .custom((value, {req})=> {
+            let province = req.body.province
+            if(province.length == 0){
+                return true
+            }else if(province.length<5){
+                throw new Error("La provincia ingresada no es válida")
+            }
+            return true
+        }).bail(),
+    body('adress')
+        .custom((value, { req }) => {
+            let address = req.body.adress
+            if (address.length == 0) {
+                return true
+            } else if (address.length < 5) {
+                throw new Error("La dirección ingresada no es válida")
+            }
+            return true
+        }).bail(),
     body('termycond')
         .notEmpty().withMessage("Debes aceptar nuestros términos y condiciones para poder continuar"),
     body('politicPriv')

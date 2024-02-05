@@ -36,11 +36,19 @@
         <article>
           <div class="products-img">
             <% if (product.img) { %>
-              <img
+              <% if(product.img.includes("https")){%>
+                <img
                 src="<%= product.img %>"
-                width="92%"
+                width="70%"
                 alt="<%= product.name %>"
-              />
+                />
+              <%}else{%>
+                <img
+                src="/img/<%= product.img %>"
+                width="70%"
+                alt="<%= product.name %>"
+                />
+              <%}%>
             <% } else { %>
               <img
                 src="../img/img_notfound.png"

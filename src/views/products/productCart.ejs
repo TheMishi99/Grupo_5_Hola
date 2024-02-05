@@ -30,7 +30,17 @@
         <div class="single-product">
           <div class="container-line">
             <div class="product-img">
-              <img src="<%= product.img %>" alt=" " />
+              <% if(product.img.includes("https")){%>
+                <img
+                src="<%= product.img %>"
+                alt="<%= product.name %>"
+                />
+              <%}else{%>
+                <img
+                src="/img/<%= product.img %>"
+                alt="<%= product.name %>"
+                />
+              <%}%>
             </div>
             <div class="product-name">
               <p><strong>Nombre</strong><br>

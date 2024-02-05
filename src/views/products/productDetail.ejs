@@ -22,7 +22,17 @@
         </div>
         <div class="product">
           <div class="product-img">
-            <img src="<%= product.img %>" alt="<%= product.name %>" />
+            <% if(product.img.includes("https")){%>
+              <img
+              src="<%= product.img %>"
+              alt="<%= product.name %>"
+              />
+            <%}else{%>
+              <img
+              src="/img/<%= product.img %>"
+              alt="<%= product.name %>"
+              />
+            <%}%>
           </div>
           <div class="product-details">
             <div class="product-name-details">
@@ -30,81 +40,55 @@
                 <%= product.name %>
               </h3>
             </div>
-            <div class="product-buttons">
-              <div class="product-code">
-                <h4>Código de producto: <%= product.code %>
-                </h4>
-              </div>
-              <div class="brand">
-                <% brands.forEach(brand=> { %>
-                  <h4>
-                    <% if (product.brand_id==brand.id) {%>
-                      <%= brand.name %>
-                        <%}%>
-                      </h4>
-                      <% }); %>
-              </div>
-              <div class="cant">
-                <form action="/products/cart/<%= product.id %>" method="POST">
-               <!--  <div class="cant">
-                  <div class="icons-math">
-                    <button type="button">
-                      <i class="fa-solid fa-minus cart-minus-btn"></i>
-                    </button>
-                  </div>
-                  <h3>1</h3>
-                  <div class="icons-math">
-                    <button type="button">
-                      <i class="fa-solid fa-plus cart-plus-btn"></i>
-                    </button>
-                  </div>
-                </div> -->
-                    <div class="add-product">
-                      <div class="icons-math">
-                        <button type="button">
-                          <i class="fa-solid fa-minus cart-minus-btn"></i>
-                        </button>
-                      </div>
-                      <input id="quantity" name="quantity" type="number">
-                      <div class="icons-math">
-                        <button type="button">
-                          <i class="fa-solid fa-plus cart-plus-btn"></i>
-                        </button>
-                      </div>
-                    </div>
-                    <div class="cart-button">
-                      <i class="fa-solid fa-cart-plus" style="color: #d97652"></i>
-                      <button type="submit">
-                        <h4>Agregar al carrito</h4>
-                      </button>
-                    </div>
-                </form>
-              </div>
-            </div>
-            <div class="product-price">
-              <h3>Precio: $<%= product.price %>
-              </h3>
-              <% discounts.forEach(discount=> { %>
-                <h3>
-                  <% if (product.discount_id==discount.id){%>
-                    <%= discount.description %>
-                      <%}%>
-                </h3>
-                <% }); %>
-            </div>
             <div class="product-description">
               <h3>Descripción:</h3>
               <p>
                 <%= product.description %>
               </p>
             </div>
+            <div class="product-code-brand">
+              <h4> Código de producto: <%= product.code %>
+              </h4>
+              <h4> Marca: 
+                <% brands.forEach(brand=> { %>
+                  <% if (product.brand_id==brand.id) {%>
+                    <%= brand.name %>
+                      <%}%>
+                        <% }); %>
+              </h4>
+            </div>
+            <div class="product-price">
+              <h3> $ <%= product.price %>
+              </h3>
+              <% discounts.forEach(discount=> { %>
+                <h5>
+                  <% if (product.discount_id==discount.id){%>
+                    <%= discount.description %>
+                      <%}%>
+                </h5>
+              <% }); %>
+            </div>
+            <div class="cant">
+              <form action="/products/cart/<%= product.id %>" method="POST">
+                  <div class="add-product">
+                    <h4 for="quantity"> Cantidad </h4>
+                    <input id="quantity" name="quantity" type="number">
+                  </div>
+                  <div class="cart-button">
+                    <button type="submit">
+                      <i class="fa-solid fa-cart-plus"></i>
+                      <h4>Agregar al carrito</h4>
+                    </button>
+                  </div>
+              </form>
+            </div>
             <% if (userLogged && userLogged.authLevel === 1) { %>
               <div>
-                <a class="buttons_edit_delete" href="/products/<%= product.id %>/edit">
-                  <button> Editar <i class="fa-solid fa-pen-to-square"></i></button>
+                <a class="button_edit" href="/products/<%= product.id %>/edit">
+                  <button><i class="fa-solid fa-pen-to-square"></i> Editar</button>
                 </a>
-                <a class="buttons_edit_delete" href="/products/delete/<%= product.id %>">
-                  <button> Eliminar <i class="fa-solid fa-trash-can"></i></button>
+                <a class="button_delete" href="/products/delete/<%= product.id %>">
+                  <button><i class="fa-solid fa-trash-can"></i> Eliminar </button>
                 </a>
               </div>
             <% } %>
