@@ -25,13 +25,29 @@ div.buttons_YES_NO{
     justify-content: space-evenly;
 }
 
-button.delete_button{
+button.delete_button_Y,
+button.delete_button_N{
     padding: 10px;
+    margin-top: 1em;
     font-size: 1em;
     border-radius: 10px;
     border: none;
-    background-color: #d97652;
     color: white;
+    cursor:pointer;
+}
+
+button.delete_button_Y{
+    background-color: #038554;
+}
+
+button.delete_button_N{
+    background-color: #c63637;
+}
+
+button.delete_button_Y:hover,
+button.delete_button_N:hover{
+    transition: all 0.3s;
+    transform: scale(1.1);
 }
 
 div.container_product_to_delete{
@@ -54,4 +70,11 @@ div.container_product_to_delete h4{
     color:#d97652;
     border-radius: 10px;
     margin:5px
+}
+
+/*desktop*/
+@media (min-width: 992px) {
+    main.delete_product{
+        padding: 5% 20%;
+    } 
 }

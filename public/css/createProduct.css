@@ -19,10 +19,10 @@ div.container_createProduct {
 
 form.create-form {
     background-color: rgba(0, 0, 0, 0.8);
-    padding: 15px;
-    line-height: 1.4em;
+    padding: 1em;
+    line-height: 1em;
     border-radius: 20px;
-
+    color:#cc9c84;
 }
 
 .tit-links {
@@ -34,10 +34,19 @@ section.register-title-form {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-bottom: 0.5em;
 }
 
-form.create-form input {
+form.create-form input,
+form.create-form textarea,
+form.create-form select{
     width: 100%;
+    border-radius: 5px;
+    border: none;
+    padding: 0.3em;
+    margin: 0.5em;
+    resize: none;
+    font-size: medium;
 }
 
 label{
@@ -54,9 +63,13 @@ label{
     width: 40%;
     height: 100%;
     font-size: 1em;
+    font-weight: bold;
     padding: 5px;
     border-radius: 20px;
-    cursor: pointer;
+    border: none;
+    margin-top: 0.5em;
+    margin-left: 30%;
+    cursor:pointer;
 };
 
 .create-button:hover {

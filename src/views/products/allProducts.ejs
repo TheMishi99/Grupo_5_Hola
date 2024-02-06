@@ -20,25 +20,35 @@
     <%- include("../partials/header") %>
     <main>
       <div class="container__allProducts">
-        <h1 class="title__allProducts">LISTADO DE PRODUCTOS</h1>
-        <% if (userLogged && userLogged.authLevel === 1) { %>
-          <div class="containerButtons__allProducts">
-            <a href="/products/create">
-              <button class="button_createProduct">Crear producto</button></a
-            >
-          </div>
-        <% } %>
+        <h1 class="title__allProducts">Listado de Productos</h1>
+        <div class="containerButtons__allProducts">
+          <a href="/products/create"> <button class="button_createProduct">Crear producto</button></a>
+        </div>
       </div>
+      <% if(list.length==0){%>
+        <div class="searchResult">
+          <h3> No se encontraron productos que coincidan con la busqueda realizada </h3>
+          <a href="/products" class="buttonSearchResult"><button>Ver todos los productos</button></a>
+        </div>
+        <%}%>
       <section class="section__allProducts">
         <% list.forEach(product => { %>
         <article>
           <div class="products-img">
             <% if (product.img) { %>
-              <img
+              <% if(product.img.includes("https")){%>
+                <img
                 src="<%= product.img %>"
-                width="92%"
+                width="70%"
                 alt="<%= product.name %>"
-              />
+                />
+              <%}else{%>
+                <img
+                src="/img/<%= product.img %>"
+                width="70%"
+                alt="<%= product.name %>"
+                />
+              <%}%>
             <% } else { %>
               <img
                 src="../img/img_notfound.png"

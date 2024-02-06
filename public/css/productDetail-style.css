@@ -68,8 +68,7 @@ main {
   font-weight: bold;
 }
 
-.product-code,
-.brand,
+.product-code-brand,
 .add-product {
   background-color: #f2f2f2;
   width: 90%;
@@ -79,29 +78,34 @@ main {
   text-align: center;
   padding: 3% 2%;
   max-width: 450px;
+
 }
+
+.product-code-brand h4,
+.add-product h4 {
+  color:black;
+  font-size: bold;
+  margin-right: 0.5em;
+}
+
 .add-product{
   display: flex;
   align-items: center;
   justify-content: center;
-}
-.brand {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  max-width: 450px;
 }
 
 .product-price {
   background-color: #f2f2f2;
   width: 90%;
   margin: 20px;
-  border: 1px;
   border-radius: 15px;
   text-align: center;
-  padding: 3% 0%;
-  max-width: 450px;
+  padding: 4%;
+  font-size: 1.8em;
+  color: #009846;
+}
+.product-price h5{
+  color: #008080;
 }
 
 .cant {
@@ -119,40 +123,41 @@ main {
   justify-content: space-around;
 }
 
+div.cart-button button{
+  background-color: blueviolet;
+  color:white;
+  border:none;
+  border-radius: 5px; 
+  padding: 0.5em;
+  cursor:pointer; 
+}
+div.cart-button h4{
+  color:white;
+}
+
 .product-description {
   display: none;
 }
 
-.icons-math button {
-  background-color: none;
-  border: none;
-  cursor: pointer;
-  padding: 2px;
-}
 
-.cart-minus-btn {
-  padding: 5px;
-  background-color: red;
-  border-radius: 8px;
-  color: #f2f2f2;
-}
-
-.cart-plus-btn {
-  padding: 5px;
-  background-color: green;
-  border-radius: 8px;
-  color: #f2f2f2;
-}
-
-.buttons_edit_delete button{
-  color: #d97652;
+.button_edit button,
+.button_delete button{
   font-size: 1.17em;
   font-weight: bold;
-  border: 1px solid;
+  border: none;
   padding: 10px;
   border-radius: 13px;
   cursor: pointer;
   margin: 12px;
+}
+
+.button_edit button{
+  background-color: #c8ca66;
+  color:white;
+}
+.button_delete button{
+  background-color: #c63637;
+  color:white;
 }
 
 /* tablet */
@@ -186,13 +191,9 @@ main {
     background-color: #f28c0f;
     border-radius: 15px;
     border: 2px solid #f2f2f2;
-    max-height: 880px;
     margin: 20px;
   }
-  .product-buttons {
-    display: flex;
-    justify-content: space-around;
-  }
+
   .cant {
     display: flex;
     align-items: center;
@@ -207,6 +208,7 @@ main {
   .product-details {
     max-height: 1100px;
     padding: 5px;
+    width: 65%;
   }
   .product {
     flex-direction: row;

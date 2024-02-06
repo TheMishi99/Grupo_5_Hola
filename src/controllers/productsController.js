@@ -17,6 +17,23 @@ const productsController = {
       userLogged: req.session.isLogged,
     });
   },
+  search: async (req, res) => {
+    try {
+      const searchProducts = await db.Productos.findAll({
+        where: {
+          name: { [Op.like]: '%' + req.body.searchProduct + '%' }
+        }
+      })
+      if(searchProducts.length != null) {
+        res.render("./products/allProducts", {
+          list: searchProducts,
+          userLogged: req.session.isLogged,
+        })
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  },
   createView: async (req, res) => {
     const brands = await db.Marcas.findAll();
     const discounts = await db.Descuentos.findAll();
@@ -285,7 +302,7 @@ const productsController = {
     //   include: [{ association: "productsCart" }]
     // })
     // const myProductsCart = user.productsCart;
-    res.render("./products/checkout", {userLogged: req.session.isLogged });
+    res.render("./products/checkout", { userLogged: req.session.isLogged });
   }
 };
 

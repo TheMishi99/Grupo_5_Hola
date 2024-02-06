@@ -35,4 +35,7 @@ router.put("/:id", userLogged, upload.single("img"), productsController.modify);
 router.get("/delete/:id", userLogged, productsController.delete);
 router.delete("/:id", userLogged, productsController.destroy);
 
+/*BUSCAR PRODUCTO*/
+router.post("/search",productsController.search)
+
 module.exports = router;

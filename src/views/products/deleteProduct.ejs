@@ -19,17 +19,27 @@
           <h2>¿Desea eliminar de forma permanente este producto?</h2>
           <div class="buttons_YES_NO">
             <form action="/products/<%= product.id %>?_method=DELETE" method="POST">
-              <button type="submit" class="delete_button">
-                <i class="fa-solid fa-floppy-disk"> <strong> SI </strong></i>
+              <button type="submit" class="delete_button_Y">
+                <i class="fa-solid fa-square-check"></i><strong> SI </strong></i>
               </button>
             </form>
             <a href="/products/<%= product.id %>">
-              <button class="delete_button"><i class="fa-solid fa-rectangle-xmark"></i> NO </button>
+              <button class="delete_button_N"><i class="fa-solid fa-rectangle-xmark"></i> NO </button>
             </a>
           </div>
         </div>
         <div class="container_product_to_delete">
-          <img src="<%= product.img %>" />
+          <% if(product.img.includes("https")){%>
+            <img
+            src="<%= product.img %>"
+            alt="<%= product.name %>"
+            />
+          <%}else{%>
+            <img
+            src="/img/<%= product.img %>"
+            alt="<%= product.name %>"
+            />
+          <%}%>
           <h3>
             <%= product.name %>
           </h3>
