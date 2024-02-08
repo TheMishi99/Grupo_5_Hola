@@ -59,13 +59,13 @@
                <br>
                <div class="cant">
                  <div class="icons-math">
-                  <form action="/products/cart/removeOne/<%= product.id %>?_method=DELETE" method="post">
+                  <form class="cart-form" action="/products/cart/removeOne/<%= product.id %>?_method=DELETE" method="post">
                     <button type="submit">
                       <i class="fa-solid fa-minus cart-minus-btn" style="color: #000000"></i>
                     </button>
                   </form>
                  </div>
-                 <h3><%= cart[index].CarritoProductos.quantity %></h3>
+                 <h3 class="quantity"><%= cart[index].CarritoProductos.quantity %></h3>
                  <div class="icons-math">
                   <form action="/products/cart/addOne/<%= product.id %>" method="post">
                     <button type="submit">
@@ -108,6 +108,7 @@
         </div>
       </div>
     </main>
+    <script src="/js/productCart.js"></script>
     <%- include("../partials/footer") %>
   </body>
 </html>

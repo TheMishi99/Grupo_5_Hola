@@ -94,6 +94,13 @@ main {
   justify-content: center;
 }
 
+.add-product input{
+  text-align: center;
+  font-size: medium;
+  font-weight: 700;
+  max-width: 50px;
+}
+
 .product-price {
   background-color: #f2f2f2;
   width: 90%;
@@ -129,7 +136,11 @@ div.cart-button button{
   border:none;
   border-radius: 5px; 
   padding: 0.5em;
-  cursor:pointer; 
+  cursor:pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+div.cart-button button:hover {
+  transform: scale(1.04);
 }
 div.cart-button h4{
   color:white;
@@ -149,6 +160,7 @@ div.cart-button h4{
   border-radius: 13px;
   cursor: pointer;
   margin: 12px;
+  transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
 .button_edit button{
@@ -159,7 +171,10 @@ div.cart-button h4{
   background-color: #c63637;
   color:white;
 }
-
+.button_edit button:hover,
+.button_delete button:hover{
+  transform: scale(1.03);
+}
 /* tablet */
 @media (min-width: 576px) {
   .product-description {
