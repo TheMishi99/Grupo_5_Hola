@@ -14,7 +14,7 @@ const usersController = {
   register: (req, res) => {
     res.render("./users/register", { userLogged: req.session.isLogged });
   },
-  createRegister: (req, res) => {
+  createRegister: async (req, res) => {
     const resultValidation = validationResult(req);
     if (resultValidation.errors.length > 0) {
       res.render("./users/register", {
@@ -30,18 +30,18 @@ const usersController = {
         confirmpassword,
         phonenumber,
         province,
-        adress,
+        address,
         profilePicture,
         termycond,
         politicPriv,
       } = req.body;
-      db.Usuarios.create({
+      await db.Usuarios.create({
         name: name,
         email: email,
         password: bcryptjs.hashSync(password, 10),
         phoneNumber: phonenumber,
         province:province,
-        adress: adress,
+        address: address,
         profilePicture: req.file.filename,
         authLevel: 2,
         active: 1

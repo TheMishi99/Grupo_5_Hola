@@ -22,14 +22,14 @@ module.exports = {
         allowNull: false,
       },
       phoneNumber: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.BIGINT,
         allowNull: false,
       },
       province: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      adress: {
+      address: {
         type: DataTypes.STRING,
         allowNull: false,
       },

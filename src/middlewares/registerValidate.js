@@ -60,9 +60,9 @@ const registerValidate = [
             }
             return true
         }).bail(),
-    body('adress')
+    body('address')
         .custom((value, { req }) => {
-            let address = req.body.adress
+            let address = req.body.address
             if (address.length == 0) {
                 return true
             } else if (address.length < 5) {
