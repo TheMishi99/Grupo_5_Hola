@@ -80,7 +80,7 @@ const usersController = {
       /* ACTUALIZO LA COOKIE POR 15 MINUTOS NUEVAMENTE*/
       let email = req.cookies.userEmail;
       res.clearCookie("userEmail");
-      res.cookie("userEmail", email, { maxAge: 900000 });
+      res.cookie("userEmail", email, { maxAge: 900000*4 });
 
       return res.redirect("/users/" + userToLogin.id + "/profile")
     }
