@@ -6,26 +6,36 @@ const productsController = require("../controllers/productsController");
 /* IMPORTACION MIDDLEWARES */
 
 const { upload } = require("../middlewares/multerProducts");
-const userloggedMiddleware = require("../middlewares/userLogged");
+const userLogged = require("../middlewares/userLogged");
 
 /* MOSTRAR TODOS LOS PRODUCTOS */
-router.get("/", productsController.showAll);
+router.get("/", productsController.list);
 
 /* FORMULARIO Y ACCION DE CREACION DE PRODUCTO */
-router.get("/create", userloggedMiddleware, productsController.createView);
-router.post("/", upload.single("img"), productsController.create);
+router.get("/create", userLogged, productsController.createView);
+router.post("/", userLogged, upload.single("img"), productsController.create);
 
 /* VISTA DE CARRITO */
-router.get("/cart", productsController.cart);
+router.get("/cart", userLogged, productsController.cart);
+router.post("/cart/:id", productsController.addToCart);
+router.delete("/cart/:id", productsController.deleteItemCart);
+router.post("/cart/addOne/:id", productsController.increaseQuantity);
+router.delete("/cart/removeOne/:id", productsController.decreaseQuantity);
+router.get("/cart/checkout", productsController.checkout);
+
 
 /* OBTENER DETALLES DEL PRODUCTO POR ID */
 router.get("/:id", productsController.detail);
 
 /* FORMULARIO Y ACCION DE EDITAR EL PRODUCTO POR ID */
-router.get("/:id/edit", userloggedMiddleware, productsController.modifyView);
-router.put("/:id", productsController.modify);
+router.get("/:id/edit", userLogged, productsController.modifyView);
+router.put("/:id", userLogged, upload.single("img"), productsController.modify);
 
-/* ACCION ELIMINAR  */
-router.delete("/:id", productsController.destroy);
+/* FORMULARIO Y ACCION ELIMINAR EL PRODUCTO POR ID */
+router.get("/delete/:id", userLogged, productsController.delete);
+router.delete("/:id", userLogged, productsController.destroy);
+
+/*BUSCAR PRODUCTO*/
+router.post("/search",productsController.search)
 
 module.exports = router;

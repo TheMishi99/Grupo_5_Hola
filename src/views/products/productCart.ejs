@@ -26,60 +26,90 @@
           <h2>Carrito de Compras</h2>
         </div>
         <!--Add Tags-->
-        <% list.forEach(product => { %>
+        <% list.forEach((product,index) => { %>
         <div class="single-product">
           <div class="container-line">
             <div class="product-img">
-              <img src="/img/<%= product.img %>" alt=" " />
+              <% if(product.img.includes("https")){%>
+                <img
+                src="<%= product.img %>"
+                alt="<%= product.name %>"
+                />
+              <%}else{%>
+                <img
+                src="/img/<%= product.img %>"
+                alt="<%= product.name %>"
+                />
+              <%}%>
             </div>
             <div class="product-name">
-              <p><%= product.title %></p>
+              <p><strong>Nombre</strong><br>
+              <%= product.name %></p>
             </div>
             <div class="product-details">
-              <p>Marca: <%= product.brand %></p>
-              <p>Característica: <%= product.info %></p>
-              <p>Peso: <%= product.weight %></p>
+              <p><strong>Código</strong> <br> <%= product.code %></p>
+              <!-- <p>Características: <%= product.description %></p> -->
+              <p><strong>Marca</strong> <br> <%= product.brand.name %></p>
+              <p><strong>Categoría</strong> <br> <%= product.categories.name %></p>
             </div>
           </div>
           <div class="container-line">
-            <div class="cant">
-              <div class="icons-math">
-                <i class="fa-solid fa-minus" style="color: #000000"></i>
+            <div class="cant2">
+               <strong>Cantidad</strong>
+               <br>
+               <div class="cant">
+                 <div class="icons-math">
+                  <form class="cart-form" action="/products/cart/removeOne/<%= product.id %>?_method=DELETE" method="post">
+                    <button type="submit">
+                      <i class="fa-solid fa-minus cart-minus-btn" style="color: #000000"></i>
+                    </button>
+                  </form>
+                 </div>
+                 <h3 class="quantity"><%= cart[index].CarritoProductos.quantity %></h3>
+                 <div class="icons-math">
+                  <form action="/products/cart/addOne/<%= product.id %>" method="post">
+                    <button type="submit">
+                      <i class="fa-solid fa-plus cart-plus-btn" style="color: #000000"></i>
+                    </button>
+                  </form>
+                 </div>
+               </div>
               </div>
-              <h3>1</h3>
-              <div class="icons-math">
-                <i class="fa-solid fa-plus" style="color: #000000"></i>
-              </div>
-            </div>
-            <div class="total">
+              <div class="total">
+                <strong>Precio Unit.</strong>
               <h3>$ <%= product.price %></h3>
             </div>
+            <div class="total">
+              <strong>Sub total</strong>
+              <h3>$ <%= (product.price * cart[index].CarritoProductos.quantity).toFixed(2) %></h3>
+            </div>
           </div>
-          <i class="fa-solid fa-xmark" style="color: #000000"></i>
-        </div>
-        <% }) %>
-
-        <div class="discount">
-          <h3>¿Tenés un cupón de descuento?</h3>
-          <br />
-          <form action="procesar_cupon.php" method="post">
-            <input class="cupon" type="text" id="cupon" name="cupon" />
-            <input type="submit" value="Añadir" />
+          <form action="/products/cart/<%= cart[index].CarritoProductos.id %>?_method=DELETE" method="POST">
+            <button type="submit" class="delete_button">
+              <i class="fa-solid fa-xmark" style="color: #000000"></i>
+            </button>
           </form>
         </div>
+        <% }) %>
         <div class="resumen">
-          <h3>SubTotal: $ 65.500,00</h3>
+          <% let subTotal = 0%> <% let discounts = 0%> <% list.forEach((product, index) => { %> 
+            <% subTotal += parseFloat(product.price) * cart[index].CarritoProductos.quantity %> 
+            <% discounts += (parseFloat(product.price) * (product.discount.quantity/100)) * cart[index].CarritoProductos.quantity %> 
+          <% }) %>
+          <h3>SubTotal $ <%= subTotal.toFixed(2) %></h3>
           <br />
-          <h3>Descuento: $ 10.000,00</h3>
+          <h3>Descuento: $ <%= discounts.toFixed(2) %></h3>
           <br />
-          <h2>Total: $ 55.500,00</h2>
+          <h2>Total: $ <%= (subTotal - discounts).toFixed(2) %></h2>
         </div>
         <div class="cart__buttons">
-          <button class="cart__button">Seguir comprando</button>
-          <button class="cart__button">Pagar</button>
+          <a href="/products"><button class="cart__button">Seguir comprando</button></a>
+          <button class="cart__button">Finalizar compra</button>
+          <!-- <a href="/products/cart/checkout"><button class="cart__button">Finalizar compra</button></a> -->
         </div>
       </div>
     </main>
+    <script src="/js/productCart.js"></script>
     <%- include("../partials/footer") %>
   </body>
 </html>

@@ -18,7 +18,7 @@ form.edit_product {
     justify-content: space-evenly;
     align-items: center;
     text-align: left;
-    width: 80%;
+    width: 90%;
     padding: 15px;
     line-height: 1.4em;
     border-radius: 20px;
@@ -40,15 +40,15 @@ button.save_button {
 
 div.modify_camp {
     width: 100%;
-}
-
-div.modify_camp h4 {
     color: white;
-    padding: 5px;
+    font-size: 1.17em;
+    font-weight: bold;
+    line-height: 1.5em;
 }
 
 div.modify_camp input,
-div.modify_camp textarea {
+div.modify_camp textarea,
+div.modify_camp select {
     background-color: white;
     color: black;
     /* color: #d97652; */
@@ -63,39 +63,58 @@ div.modify_camp textarea {
     resize: none;
 }
 
+div.modify_camp select{
+    font-size: 0.8em;
+    border: none;
+    border-radius: 5px;
+}
+
 button.save_button {
     text-align: center;
-    background-color: white;
+    background-color: #038554;
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
 
-button.save_button:hover{
+button.save_button:hover,
+a.cancel_button:hover{
     transition: all 0.3s;
     transform: scale(1.1);
 }
 
-button.save_button:hover i{
-    color: blueviolet;
-}
-
 button.save_button i {
-    background-color: white;
-    color: #d97652;
+    /*background-color: #038554;*/
+    color: white;
     font-size: 1.3em;
     margin: 10px;
     padding: 5px;
     border-radius: 20px;
 }
+a.cancel_button{
+    background-color: #c63637;
+    color: white;
+    font-size: 1em;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 10px;
+    cursor: pointer;
+}
 
 /*desktop*/
 @media (min-width: 992px) {
+    main{
+        padding: 5% 25%;
+    } 
+
     div.caract_product img {
         width: 40%;
     }
 
     form.edit_product {
-        width: 70%;
+        width: 90%;
     }
 }

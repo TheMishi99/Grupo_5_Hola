@@ -1,6 +1,7 @@
 const { body } = require("express-validator");
 const path  = require("path");
-const userModel = require("../models/user-model");
+// const userModel = require("../models/user-model");
+const db = require("../database/models");
 
 const registerValidate = [
     body('name')
@@ -9,8 +10,13 @@ const registerValidate = [
     body('email')
         .notEmpty().withMessage("Debes completar este campo").bail()
         .isEmail().withMessage("Introduzca una dirección de correo electrónico válida").bail()
-        .custom((value, {req}) =>{
-            let userInDB = userModel.findByField('email' , req.body.email)
+        .custom(async (value, {req}) =>{
+            // let userInDB = userModel.findByField('email' , req.body.email)
+            let userInDB = await db.Usuarios.findOne({
+                where: {
+                    email: req.body.email
+                }
+            })
             if(userInDB){
                 throw new Error("El correo electrónico ingresado ya se encuentra registrado")
             }
@@ -43,6 +49,26 @@ const registerValidate = [
                 }
             }
             return true;
+        }).bail(),
+    body('province')
+        .custom((value, {req})=> {
+            let province = req.body.province
+            if(province.length == 0){
+                return true
+            }else if(province.length<5){
+                throw new Error("La provincia ingresada no es válida")
+            }
+            return true
+        }).bail(),
+    body('adress')
+        .custom((value, { req }) => {
+            let address = req.body.adress
+            if (address.length == 0) {
+                return true
+            } else if (address.length < 5) {
+                throw new Error("La dirección ingresada no es válida")
+            }
+            return true
         }).bail(),
     body('termycond')
         .notEmpty().withMessage("Debes aceptar nuestros términos y condiciones para poder continuar"),

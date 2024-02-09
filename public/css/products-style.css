@@ -15,11 +15,32 @@
   text-align: center;
   margin-bottom: 15px;
 }
+
+div.searchResult{
+  color:#702963;
+  text-align: center;
+  font-size: 1.3em;
+}
+
+div a.buttonSearchResult button{
+  color: white;
+  background-color: #702963;
+  font-size: 1em;
+  border-radius: 5px;
+  border: none;
+  padding: 0.5em;
+  margin-top: 0.5em;
+}
+
 .container__allProducts {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+
+.product-name a{
+  color:black;
 }
 
 .containerButtons__allProducts > a > button {
@@ -32,4 +53,10 @@
 }
 .containerButtons__allProducts > a:hover > button {
   transform: scale(1.05);
+}
+
+button.button_createProduct{
+  background-color: #d97652;
+  color: white;
+  font-size: 1.17em;
 }

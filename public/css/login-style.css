@@ -39,12 +39,19 @@ i.login-icons {
 
 .login-button {
   color: #d97652;
-  width: 100%;
+  width: 120px;
   height: 100%;
   font-size: 1em;
-  padding: 5px;
+  padding: 12px;
   border-radius: 10px;
   cursor: pointer;
+  margin-top: 9px;
+  margin-bottom: 9px;
+}
+.container-login-button{
+  display: flex;
+  justify-content: center;
+  text-align: center;
 }
 .login-button:hover {
   transition: all 0.5s;
@@ -61,4 +68,31 @@ div.text-danger{
   font-size: medium;
   text-align: center;
   margin: auto;
+}
+.input-email,.input-password{
+  background-color: white;
+  border-radius: 10px;
+  margin:10px;
+}
+
+.input-email input,
+.input-password input {
+  border: none;
+  padding: 15px;
+  border-radius: 10px;
+  width:300px;
+  font-size: 15px;
+}
+
+.input-email input{
+  background-image: url("/img/mail-icon.png");
+  background-position: right center;
+  background-size: 2.5rem 2.5rem;
+  background-repeat: no-repeat;
+}
+.input-password input{
+  background-image: url("/img/password-icon.png");
+  background-position: right center;
+  background-size: 2.5rem 2.5rem;
+  background-repeat: no-repeat;
 }

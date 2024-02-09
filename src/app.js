@@ -43,5 +43,5 @@ app.use("/users", usersRoutes);
 
 /* MANEJO DE ERROR POR URL */
 app.use((req, res, next) => {
-  res.status(404).render("./error/error");
+  res.status(404).render("./error/error", { userLogged: req.session.isLogged });
 });
