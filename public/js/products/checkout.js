@@ -6,6 +6,7 @@ let gifGato = document.querySelector(".catGif")
 let botonConfirm = document.querySelector(".confirm-button")
 
 botonEnvio.addEventListener('click', function(event){
+    event.preventDefault();
     inputRetiro.style.display = 'none';
     formEnvio.style.display = 'block';
     gifGato.style.display = 'block';
@@ -14,6 +15,7 @@ botonEnvio.addEventListener('click', function(event){
 });
 
 botonRetiro.addEventListener('click', function(event){
+    event.preventDefault();
     formEnvio.style.display = 'none';
     gifGato.style.display = 'none';
     inputRetiro.style.display = 'block';
@@ -48,5 +50,5 @@ function mostrarVentana() {
     // Agregar la ventana emergente al cuerpo del documento
     document.body.appendChild(ventanaEmergente);
     
-    // event.preventDefault();
+    event.preventDefault();
 }
