@@ -40,33 +40,28 @@
         <label for="inputAddress2" class="form-label">Address 2</label>
         <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
       </div>
-      <div class="col-md-6">
-        <label for="inputCity" class="form-label">City</label>
-        <input type="text" class="form-control" id="inputCity">
-      </div>
-      <div class="col-md-4">
-        <label for="inputState" class="form-label">State</label>
-        <select id="inputState" class="form-select">
-          <option selected>Choose...</option>
-          <option>...</option>
-        </select>
-      </div>
-      <div class="col-md-2">
-        <label for="inputZip" class="form-label">Zip</label>
-        <input type="text" class="form-control" id="inputZip">
-      </div>
-      <div class="col-12">
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="gridCheck">
-          <label class="form-check-label" for="gridCheck">
-            Check me out
-          </label>
-        </div>
-      </div>
-      <div class="col-12">
-        <button type="submit" class="btn btn-primary">Sign in</button>
-      </div>
+    <img class="catGif" src="/img/shippingCat3.gif" width="10%">
+    <form class="shipping-form">
+      <section class="shipping-section">
+        <div class="campos">
+          <p><label for="province">Provincia</label></p>
+          <input type="text" name="province" id="province" placeholder="Santiago del Estero">
+
+          <p><label for="city">Ciudad</label></p>
+          <input type="city" name="city" id="city" placeholder="La Banda">
+
+          <p><label for="cp">Codigo Postal</label></p>
+          <input type="cp" name="cp" id="cp" placeholder="4300">
+
+          <p><label for="town">Barrio</label></p>
+          <input type="town" name="town" id="town" placeholder="Centro">
+
+          <p><label for="adress">Dirección</label></p>
+          <input type="adress" name="adress" id="adress" placeholder="Belgrano 1700">
     </form>
+    <div class="confirm-container">
+      <button class="confirm-button">Confirmar</button>
+    </div>
   </main>
   <%- include("../partials/footer") %>
 </body>
