@@ -1,16 +1,165 @@
 /* /ESTILOS PARA ENVIO/ */
+.title {
+    text-align: center;
+    color: black;
+    padding: 30px;
+}
 
+.options {
+    margin: auto;
+    /* display: flex; */
+    text-align: center;
+    justify-content: center;
+    padding-bottom: 30px;
+}
+
+.shipping-form {
+    margin: auto;
+    display: none;
+    text-align: center;
+    justify-content: center;
+}
+
+.input-pick-up {
+    display: none;
+}
+
+.map-container {
+    margin: auto;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+
+.inputAS-container {
+    margin: auto;
+    text-align: center;
+    padding: 30px;
+    color:black;
+    font-weight: bold;
+}
+
+.shipping,
+.pick-up {
+    background-color: white;
+    color: black;
+    padding: 0.5rem;
+    text-align: center;
+    border-radius: 10px;
+    font-size: medium;
+    width: 250px
+}
+.confirm-button{
+    background-color: rgb(217, 118, 82);
+    color: white;
+    padding: 0.5rem;
+    text-align: center;
+    border-radius: 10px;
+    font-size: medium;
+    width: 150px;
+    margin:10px
+}
+.shipping-main {
+    color: white;
+    background-color: #cc9c84;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    font-size: 1em;
+}
+
+form.shipping-form {
+    background-color: rgba(0, 0, 0, 0.8);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    line-height: 1.4em;
+    border-radius: 20px;
+}
+
+section.shipping-section {
+    color: darkgrey;
+    font-size: 0.9em;
+}
+
+.campos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+div.campos input,div.inputAS-container input{
+    width: 25vh;
+    border: none;
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 15px;
+    margin: 8px
+}
+
+.campos input[type="file"],.inputAS-container input[type="text"]{
+    width: 100%;
+    border: 1px solid #ccc;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.catGif{
+    display: none;
+    width:30%
+}
+.ventana-emergente {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #000;
+    z-index: 9999;
+}
+.ventana-emergente button {
+    display: block;
+    margin-top: 10px;
+}
 
 /* tablet */
 @media (min-width: 576px) {
-    div.campos input {
-      width: 40vh;
+    div.campos input,div.inputAS-container input{
+        width: 40vh;
+    }
+    .options {
+        margin: auto;
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        padding-bottom: 30px;
+    }
+    .catGif{
+        display: none;
+        width:12%
     }
 }
 
-/* desktop */
+/* desktop  */
 @media (min-width: 992px) {
-    div.campos input {
-      width: 40vh;
+    div.campos input,div.inputAS-container input {
+        width: 40vh;
+    }
+    .options {
+        margin: auto;
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        padding-bottom: 30px;
+    }
+    .catGif{
+        display: none;
+        width:12%
     }
 }

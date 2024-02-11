@@ -14,32 +14,26 @@
           crossorigin="anonymous"
         ></script>
         <!--Hoja de Estilo para carrito de producto-->
-        <link href="../css/checkout.css" rel="stylesheet" />
+        <link href="../../../css/checkout-style.css" rel="stylesheet" />
       </head>
 <body>
   <%- include("../partials/header") %>
-  <main class="delivery-main">
-    <form class="row g-3">
-      <section class="delivery-title-form">
-        <h1 class="tit-links"></h1>
-        <a>DETALLES DE ENVIO</a>
-      </section>
-      <div class="col-md-6">
-        <label for="inputEmail4" class="form-label">Email</label>
-        <input type="email" class="form-control" id="inputEmail4">
+  <main class="shipping-main">
+    <h2 class="title">Finalizar la Compra</h2>
+    <div class="options">
+      <button class="shipping">Enviar</button>
+      <button class="pick-up">Retirar</button>
+    </div>
+    <div class="input-pick-up">
+      <div class="map-container">
+        <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1z7oMpmkWRTBGNk6qCuGv5j4O5FYED8A&ehbc=2E312F" width="640" height="480"></iframe>
       </div>
-      <div class="col-md-6">
-        <label for="inputPassword4" class="form-label">Password</label>
-        <input type="password" class="form-control" id="inputPassword4">
+      <div class="inputAS-container">
+        <label for="inputAS" class="inputAS">Dirección de Sucursal</label>
+        <input type="text" class="inputAS" id="inputAS">
+        <button class="confirm-button">Confirmar</button>
       </div>
-      <div class="col-12">
-        <label for="inputAddress" class="form-label">Address</label>
-        <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-      </div>
-      <div class="col-12">
-        <label for="inputAddress2" class="form-label">Address 2</label>
-        <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-      </div>
+    </div>
     <img class="catGif" src="/img/shippingCat3.gif" width="10%">
     <form class="shipping-form">
       <section class="shipping-section">
@@ -59,10 +53,16 @@
           <p><label for="adress">Dirección</label></p>
           <input type="adress" name="adress" id="adress" placeholder="Belgrano 1700">
     </form>
+    <br>
+    <p>*Nuestro equipo se comunicará vía Whatsapp 
+      <br>para coordinar el envio a la dirección proporcionada
+    </p>
+    <br>
     <div class="confirm-container">
-      <button class="confirm-button">Confirmar</button>
+      <button onclick="mostrarVentana()" class="confirm-button">Confirmar</button>
     </div>
   </main>
   <%- include("../partials/footer") %>
+  <script src="/js/products/checkout.js"></script>
 </body>
 </html>
