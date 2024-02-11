@@ -11,7 +11,6 @@ botonEnvio.addEventListener('click', function(event){
     gifGato.style.display = 'block';
     botonRetiro.style.backgroundColor="white"
     botonEnvio.style.backgroundColor="rgb(217, 118, 82)";
-    event.preventDefault();
 });
 
 botonRetiro.addEventListener('click', function(event){
@@ -20,7 +19,6 @@ botonRetiro.addEventListener('click', function(event){
     inputRetiro.style.display = 'block';
     botonEnvio.style.backgroundColor="white"
     botonRetiro.style.backgroundColor="rgb(217, 118, 82)";
-    event.preventDefault();
 });
 
 function mostrarVentana() {
