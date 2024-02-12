@@ -5,6 +5,17 @@ let inputRetiro = document.querySelector(".input-pick-up")
 let gifGato = document.querySelector(".catGif")
 let botonConfirm = document.querySelector(".confirm-button")
 
+function provincias(){
+    fetch("https://apis.datos.gob.ar/georef/api/provincias")
+    .then(res => res.ok ? res.json() : Promise.reject(res))
+    .then(data => {
+        let $options = `<option value="Elige una provincia">Elige una provincia</option>`
+        data.provincias.forEach(provincia => $options += `<option value="${provincia.nombre}">${provincia.nombre}</option>`);
+        document.getElementById("province").innerHTML = $options
+    })
+}
+provincias()
+
 botonEnvio.addEventListener('click', function(event){
     event.preventDefault();
     inputRetiro.style.display = 'none';
