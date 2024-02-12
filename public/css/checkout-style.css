@@ -1,8 +1,66 @@
 /* /ESTILOS PARA ENVIO/ */
+.title {
+    text-align: center;
+    color: black;
+    padding: 30px;
+}
 
-.delivery-main {
+.options {
+    margin: auto;
+    /* display: flex; */
+    text-align: center;
+    justify-content: center;
+    padding-bottom: 30px;
+}
+
+.shipping-form {
+    margin: auto;
+    display: none;
+    text-align: center;
+    justify-content: center;
+}
+
+.input-pick-up {
+    display: none;
+}
+
+.map-container {
+    margin: auto;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+
+.inputAS-container {
+    margin: auto;
+    text-align: center;
+    padding: 30px;
+    color:black;
+    font-weight: bold;
+}
+
+.shipping,
+.pick-up {
+    background-color: white;
+    color: black;
+    padding: 0.5rem;
+    text-align: center;
+    border-radius: 10px;
+    font-size: medium;
+    width: 250px
+}
+.confirm-button{
+    background-color: rgb(217, 118, 82);
     color: white;
-    background-image: url(/img/fondo-login.png);
+    padding: 0.5rem;
+    text-align: center;
+    border-radius: 10px;
+    font-size: medium;
+    width: 150px;
+    margin:10px
+}
+.shipping-main {
+    color: white;
     background-color: #cc9c84;
     background-position: center;
     background-size: contain;
@@ -11,12 +69,11 @@
     flex-direction: column;
     align-items: center;
     padding: 15px;
-    font-size: 1.17em;
+    font-size: 1em;
 }
-  
-form.row g-3 {
+
+form.shipping-form {
     background-color: rgba(0, 0, 0, 0.8);
-    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -24,105 +81,85 @@ form.row g-3 {
     line-height: 1.4em;
     border-radius: 20px;
 }
-  
-.tit-links {
-    color: #d97652;
-}
-  
-section.delivery-title-form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-  
-  
-section.register-section {
+
+section.shipping-section {
     color: darkgrey;
     font-size: 0.9em;
 }
-  
-.register-title-form h1{
-    margin: 10px;
-}
-  
-.register-title-form a{
-    margin: 10px;
-}
-  
-.campos{
+
+.campos {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-  
-div.campos input {
+
+div.campos input,div.inputAS-container input{
     width: 25vh;
     border: none;
     padding: 12px;
     border-radius: 10px;
     font-size: 15px;
-    margin:8px
+    margin: 8px
 }
 
-.campos input[type="file"] {
-    width: 100%; 
+.campos input[type="file"],.inputAS-container input[type="text"]{
+    width: 100%;
     border: 1px solid #ccc;
-    margin-left: auto; 
-    margin-right: auto; 
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.register-button {
-    color: #d97652;
-    width: 50%;
-    height: 100%;
-    font-size: 1.2em;
-    padding: 12px;
-    border-radius: 20px;
-    cursor: pointer;
+.catGif{
+    display: none;
+    width:30%
+}
+.ventana-emergente {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #000;
+    z-index: 9999;
+}
+.ventana-emergente button {
+    display: block;
+    margin-top: 10px;
 }
 
-.container-register-button{
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    padding-bottom: 18px;
-}
-  
-.register-button:hover {
-    transition: all 0.5s;
-    color: #f2f2f2;
-    background-color: #d97652;
-    transform: scale(1.03);
-}
-  
-.text-error{
-    color:red;
-    font-weight: lighter ;
-    font-style: italic;
-}
-  
-.checkbox{
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    padding:20px
-}
-  
-p{
-    text-align: center;
-}
-  
 /* tablet */
 @media (min-width: 576px) {
-    div.campos input {
-      width: 40vh;
+    div.campos input,div.inputAS-container input{
+        width: 40vh;
+    }
+    .options {
+        margin: auto;
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        padding-bottom: 30px;
+    }
+    .catGif{
+        display: none;
+        width:12%
     }
 }
 
-/* desktop */
+/* desktop  */
 @media (min-width: 992px) {
-    div.campos input {
-      width: 40vh;
+    div.campos input,div.inputAS-container input {
+        width: 40vh;
+    }
+    .options {
+        margin: auto;
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        padding-bottom: 30px;
+    }
+    .catGif{
+        display: none;
+        width:12%
     }
 }

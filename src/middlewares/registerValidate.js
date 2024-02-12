@@ -6,7 +6,7 @@ const db = require("../database/models");
 const registerValidate = [
     body('name')
         .notEmpty().withMessage("Debes completar este campo").bail()
-        .isLength({ min: 5 }).withMessage("Debes completar con un nombre y apellido válido"),
+        .isLength({ min: 2 }).withMessage("Debes completar con un nombre y apellido válido"),
     body('email')
         .notEmpty().withMessage("Debes completar este campo").bail()
         .isEmail().withMessage("Introduzca una dirección de correo electrónico válida").bail()

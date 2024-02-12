@@ -59,7 +59,7 @@ module.exports = {
           paymentMethod: "Credit Card",
           total: 500,
           yesDelivery: true,
-        },
+        }
       ],
       {}
     );
