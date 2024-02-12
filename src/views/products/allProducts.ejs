@@ -41,13 +41,11 @@
               <% if(product.img.includes("https")){%>
                 <img
                 src="<%= product.img %>"
-                width="70%"
                 alt="<%= product.name %>"
                 />
               <%}else{%>
                 <img
                 src="/img/<%= product.img %>"
-                width="70%"
                 alt="<%= product.name %>"
                 />
               <%}%>

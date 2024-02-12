@@ -4,6 +4,9 @@
   box-sizing: border-box;
   font-family: "League Spartan", sans-serif;
   font-family: "Roboto", sans-serif;
+  scrollbar-color: orange skyblue;
+  scrollbar-width: auto;
+  scrollbar-arrow-color:orange;
 }
 
 /*
@@ -201,7 +204,16 @@ h4 {
 }
 
 .products-img {
+  aspect-ratio: 1/1.5;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.products-img img {
+  max-width: 200px;
+  object-fit: contain;
 }
 
 .promotion {
