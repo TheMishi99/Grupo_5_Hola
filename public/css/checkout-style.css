@@ -111,7 +111,7 @@ div.campos input,div.inputAS-container input{
 
 .catGif{
     display: none;
-    width:30%
+    width:15%
 }
 .ventana-emergente {
     position: fixed;
@@ -128,6 +128,21 @@ div.campos input,div.inputAS-container input{
     margin-top: 10px;
 }
 
+.provinces{
+    padding:12px;
+    width:40vh;
+    border-radius: 10px;
+    font-size: 15px;
+    margin: 8px;
+}
+.options-stores{
+    padding:12px;
+    width:40vh;
+    border-radius: 10px;
+    font-size: 15px;
+    margin: 8px;
+}
+
 /* tablet */
 @media (min-width: 576px) {
     div.campos input,div.inputAS-container input{
@@ -142,7 +157,7 @@ div.campos input,div.inputAS-container input{
     }
     .catGif{
         display: none;
-        width:12%
+        width:15%
     }
 }
 
@@ -160,6 +175,6 @@ div.campos input,div.inputAS-container input{
     }
     .catGif{
         display: none;
-        width:12%
+        width:10%
     }
 }

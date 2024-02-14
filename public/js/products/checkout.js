@@ -5,14 +5,48 @@ let inputRetiro = document.querySelector(".input-pick-up")
 let gifGato = document.querySelector(".catGif")
 let botonConfirm = document.querySelector(".confirm-button")
 
-function provincias(){
+// function provincias(){
+//     fetch("https://apis.datos.gob.ar/georef/api/provincias")
+//     .then(res => res.ok ? res.json() : Promise.reject(res))
+//     .then(data => {
+//         let $options = `<option value="Elige una provincia">Elige una provincia</option>`
+//         data.provincias.forEach(provincia => $options += `<option value="${provincia.nombre}">${provincia.nombre}</option>`);
+//         document.getElementById("province").innerHTML = $options
+//     })
+// }
+
+function provincias() {
     fetch("https://apis.datos.gob.ar/georef/api/provincias")
-    .then(res => res.ok ? res.json() : Promise.reject(res))
-    .then(data => {
-        let $options = `<option value="Elige una provincia">Elige una provincia</option>`
-        data.provincias.forEach(provincia => $options += `<option value="${provincia.nombre}">${provincia.nombre}</option>`);
-        document.getElementById("province").innerHTML = $options
-    })
+        .then(res => res.ok ? res.json() : Promise.reject(res))
+        .then(data => {
+            // Obtener el select
+            let selectProvince = document.getElementById("province");
+
+            // Guardar la opción "Elige una provincia" para luego reinsertarla
+            let defaultOption = selectProvince.querySelector('option[value="Elige una provincia"]');
+
+            // Limpiar opciones existentes
+            selectProvince.innerHTML = '';
+
+            // Crear un array para almacenar los nombres de las provincias
+            let provinciasArray = data.provincias.map(provincia => provincia.nombre);
+
+            // Ordenar el array alfabéticamente
+            provinciasArray.sort();
+
+            // Reinsertar la opción "Elige una provincia" al inicio
+            if (defaultOption) {
+                selectProvince.appendChild(defaultOption);
+            }
+
+            // Crear y añadir opciones al select
+            provinciasArray.forEach(provincia => {
+                let option = document.createElement('option');
+                option.textContent = provincia;
+                option.value = provincia;
+                selectProvince.appendChild(option);
+            });
+        });
 }
 provincias()
 
