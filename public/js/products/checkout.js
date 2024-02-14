@@ -11,10 +11,23 @@ function provincias(){
     .then(data => {
         let $options = `<option value="Elige una provincia">Elige una provincia</option>`
         data.provincias.forEach(provincia => $options += `<option value="${provincia.nombre}">${provincia.nombre}</option>`);
-        document.getElementById("province").innerHTML = $options
+        document.getElementById("province").innerHTML = $options;
+        document.getElementById("province").addEventListener("change", function() {
+            ciudades(encodeURIComponent(this.value));
+        });
     })
 }
-provincias()
+provincias();
+
+function ciudades(prov){
+    fetch(`https://apis.datos.gob.ar/georef/api/departamentos?provincia=${prov}&max=50`)
+    .then(res => res.ok ? res.json() : Promise.reject(res))
+    .then(data => {
+        let $options = `<option value="Elige una ciudad">Elige una ciudad</option>`
+        data.departamentos.forEach(ciudad => $options += `<option value="${ciudad.nombre}">${ciudad.nombre}</option>`);
+        document.getElementById("city").innerHTML = $options
+    })
+}
 
 botonEnvio.addEventListener('click', function(event){
     event.preventDefault();
