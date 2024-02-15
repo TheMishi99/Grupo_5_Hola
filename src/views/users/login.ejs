@@ -15,20 +15,22 @@
   <%- include("../partials/header") %>
     <main class="login-main">
       <div class="login-container">
-        <form class="login-form" action="#" method="post">
+        <form class="login-form" action="#" method="post" novalidate>
           <h2>Iniciar sesión</h2>
           <i id="user-icon" class="fa-solid fa-circle-user login-icons"></i>
           <div class="input-email">
-            <input type="email" name="email" id="email" placeholder="Email" required autocomplete="off" />
+            <input type="email" name="email" id="email" placeholder="Email" autocomplete="off" />
           </div>
+          <span id="email-error" class="text-danger"></span>
           <div class="input-password">
-            <input type="password" name="password" id="password" placeholder="Contraseña" required autocomplete="off" />
+            <input type="password" name="password" id="password" placeholder="Contraseña" autocomplete="off" />
             <% if (locals.errors && errors.email) { %>
                 <div class="text-danger">
                     <%= errors.email.msg %>
                 </div>
             <% } %>
-        </div>
+          </div>
+          <span id="password-error" class="text-danger"></span>
           <a class="login-access" href="#">¿Olvidaste tu contraseña?</a>
           <a><input type="checkbox" name="remember" value="recordarUsuarioyContraseña" />
             Recordar usuario y contraseña</a>
@@ -41,6 +43,7 @@
         </form>
       </div>
     </main>
+    <script src="/js/users/login.js"></script>
     <%- include("../partials/footer") %>
 </body>
 
