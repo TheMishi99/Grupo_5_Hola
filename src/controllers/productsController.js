@@ -21,17 +21,17 @@ const productsController = {
     try {
       const searchProducts = await db.Productos.findAll({
         where: {
-          name: { [Op.like]: '%' + req.body.searchProduct + '%' }
-        }
-      })
-      if(searchProducts.length != null) {
+          name: { [Op.like]: "%" + req.body.searchProduct + "%" },
+        },
+      });
+      if (searchProducts.length != null) {
         res.render("./products/allProducts", {
           list: searchProducts,
           userLogged: req.session.isLogged,
-        })
+        });
       }
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   },
   createView: async (req, res) => {
@@ -155,7 +155,6 @@ const productsController = {
     });
   },
   destroy: async (req, res) => {
-    const id = req.params.id;
     await db.Productos.destroy({
       where: { id: req.params.id },
     });
@@ -163,24 +162,27 @@ const productsController = {
   },
   cart: async (req, res) => {
     try {
-      const id = req.session.isLogged.id;
-      const user = await db.Usuarios.findByPk(id, {
-        include: [{ association: "productsCart" }],
-      });
-      const cartProductsPromises = user.productsCart.map(async (e) => {
-        const producto = await db.Productos.findByPk(e.id, {
-          include: ["discount", "brand", "categories"],
+      if (req.session.isLogged.id) {
+        const id = req.session.isLogged.id;
+        const user = await db.Usuarios.findByPk(id, {
+          include: [{ association: "productsCart" }],
         });
-        return producto;
-      });
+        const cartProductsPromises = user.productsCart.map(async (e) => {
+          const producto = await db.Productos.findByPk(e.id, {
+            include: ["discount", "brand", "categories"],
+          });
+          return producto;
+        });
 
-      const cartProducts = await Promise.all(cartProductsPromises);
-
-      res.render("./products/productCart", {
-        cart: user.productsCart,
-        list: cartProducts,
-        userLogged: req.session.isLogged,
-      });
+        const cartProducts = await Promise.all(cartProductsPromises);
+        res.render("./products/productCart", {
+          cart: user.productsCart,
+          list: cartProducts,
+          userLogged: req.session.isLogged,
+        });
+      } else {
+        res.redirect("/users/login");
+      }
     } catch (err) {
       console.error(err);
       res.status(500).send("Error en el servidor");
@@ -188,110 +190,127 @@ const productsController = {
   },
   addToCart: async (req, res) => {
     try {
-      const idProducto = req.params.id;
-      const usuario = await db.Usuarios.findOne({
-        where: {
-          email: req.cookies.userEmail,
-        },
-      });
+      if (req.session.isLogged) {
+        const idProducto = req.params.id;
+        const usuario = await db.Usuarios.findOne({
+          where: {
+            email: req.session.isLogged.email,
+          },
+        });
 
-      if (!usuario) {
-        return res.status(404).send("Usuario no encontrado");
+        if (!usuario) {
+          return res.status(404).send("Usuario no encontrado");
+        }
+
+        let carrito = await db.CarritoProductos.findOne({
+          where: { user_id: usuario.id },
+          include: [{ model: db.Productos, as: "product" }],
+        });
+        const producto = await db.Productos.findByPk(idProducto);
+
+        if (!producto) {
+          return res.status(404).send("Producto no encontrado");
+        }
+
+        carrito = await db.CarritoProductos.create({
+          user_id: usuario.id,
+          quantity: req.body.quantity,
+          product_id: producto.id,
+          paymentMethod: "Credit Card",
+          total: producto.price,
+          yesDelivery: false,
+        });
+
+        res.redirect("/products/" + producto.id);
+      } else {
+        res.redirect("/users/login");
       }
-
-      let carrito = await db.CarritoProductos.findOne({
-        where: { user_id: usuario.id },
-        include: [{ model: db.Productos, as: "product" }],
-      });
-      const producto = await db.Productos.findByPk(idProducto);
-
-      if (!producto) {
-        return res.status(404).send("Producto no encontrado");
-      }
-
-      carrito = await db.CarritoProductos.create({
-        user_id: usuario.id,
-        quantity: req.body.quantity,
-        product_id: producto.id,
-        paymentMethod: "Credit Card",
-        total: producto.price,
-        yesDelivery: false,
-      });
-
-      res.redirect("/products/" + producto.id);
     } catch (error) {
       res.status(500).send("Error al intentar agregar el carrito");
     }
   },
   deleteItemCart: async (req, res) => {
     try {
-      await db.CarritoProductos.destroy({
-        where: {
-          id: req.params.id,
-        },
-      });
-      res.redirect("/products/cart");
+      if (req.session.isLogged) {
+        await db.CarritoProductos.destroy({
+          where: {
+            id: req.params.id,
+          },
+        });
+        res.redirect("/products/cart");
+      } else {
+        res.redirect("/users/login");
+      }
     } catch (error) {
       res.status(500).send("Error al intentar eliminar el item del carrito");
     }
   },
   increaseQuantity: async (req, res) => {
     try {
-      const idProducto = req.params.id;
-      const usuario = await db.Usuarios.findOne({
-        where: {
-          email: req.cookies.userEmail,
-        },
-      });
+      if (req.session.isLogged) {
+        const idProducto = req.params.id;
+        const usuario = await db.Usuarios.findOne({
+          where: {
+            email: req.session.isLogged.email,
+          },
+        });
 
-      if (!usuario) {
-        return res.status(404).send("Usuario no encontrado");
+        if (!usuario) {
+          return res.status(404).send("Usuario no encontrado");
+        }
+
+        // Obtener el producto del carrito
+        const carritoProducto = await db.CarritoProductos.findOne({
+          where: { user_id: usuario.id, product_id: idProducto },
+        });
+
+        if (!carritoProducto) {
+          return res.status(404).send("El producto no está en el carrito");
+        }
+
+        // Incrementar la cantidad en 1
+        carritoProducto.quantity += 1;
+        await carritoProducto.save();
+
+        res.redirect("/products/cart");
+      } else {
+        res.redirect("/users/login");
       }
-
-      // Obtener el producto del carrito
-      const carritoProducto = await db.CarritoProductos.findOne({
-        where: { user_id: usuario.id, product_id: idProducto },
-      });
-
-      if (!carritoProducto) {
-        return res.status(404).send("El producto no está en el carrito");
-      }
-
-      // Incrementar la cantidad en 1
-      carritoProducto.quantity += 1;
-      await carritoProducto.save();
-
-      res.redirect("/products/cart");
     } catch (error) {
       res.status(500).send("Error al intentar incrementar la cantidad");
     }
   },
   decreaseQuantity: async (req, res) => {
+    console.log(req.session.userLogged);
     try {
-      const idProducto = req.params.id;
-      const usuario = await db.Usuarios.findOne({
-        where: {
-          email: req.cookies.userEmail,
-        },
-      });
+      if (req.session.isLogged) {
+        const idProducto = req.params.id;
+        const usuario = await db.Usuarios.findOne({
+          where: {
+            email: req.session.isLogged.email,
+          },
+        });
 
-      if (!usuario) {
-        return res.status(404).send("Usuario no encontrado");
+        if (!usuario) {
+          return res.status(404).send("Usuario no encontrado");
+        }
+
+        const carritoProducto = await db.CarritoProductos.findOne({
+          where: { user_id: usuario.id, product_id: idProducto },
+        });
+
+        if (!carritoProducto) {
+          return res.status(404).send("El producto no está en el carrito");
+        }
+
+        // Decrementar la cantidad en 1, mínimo 1
+        carritoProducto.quantity = Math.max(carritoProducto.quantity - 1, 1);
+        await carritoProducto.save();
+
+        res.redirect("/products/cart");
+      } else {
+        res.redirect("/users/login");
       }
-
-      const carritoProducto = await db.CarritoProductos.findOne({
-        where: { user_id: usuario.id, product_id: idProducto },
-      });
-
-      if (!carritoProducto) {
-        return res.status(404).send("El producto no está en el carrito");
-      }
-
-      // Decrementar la cantidad en 1, mínimo 1
-      carritoProducto.quantity = Math.max(carritoProducto.quantity - 1, 1);
-      await carritoProducto.save();
-
-      res.redirect("/products/cart");
     } catch (error) {
       res.status(500).send("Error al intentar decrementar la cantidad");
     }
@@ -303,7 +322,7 @@ const productsController = {
     // })
     // const myProductsCart = user.productsCart;
     res.render("./products/checkout", { userLogged: req.session.isLogged });
-  }
+  },
 };
 
 module.exports = productsController;
