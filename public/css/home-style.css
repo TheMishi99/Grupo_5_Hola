@@ -6,7 +6,7 @@
   font-family: "Roboto", sans-serif;
   scrollbar-color: orange skyblue;
   scrollbar-width: auto;
-  scrollbar-arrow-color:orange;
+  scrollbar-arrow-color: orange;
 }
 
 /*
@@ -65,7 +65,7 @@ header form input {
   padding: 4px;
   font-size: 1.5rem;
 }
-.cart:hover{
+.cart:hover {
   transition: all 0.3s;
   transform: scale(1.1);
 }
@@ -110,7 +110,7 @@ header form input {
   border-radius: 10px;
 }
 
-.login{
+.login {
   display: flex;
   align-items: center;
   padding: 1%;
@@ -188,11 +188,57 @@ header form input {
   justify-content: center;
 }
 
-.slider {
+/* .slider {
   padding-top: 1rem;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
   text-align: center;
+} */
+
+.slider {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+  margin-top: 10px;
+  width: 100%;
+  height: 550px;
+}
+
+.arrow {
+  cursor: pointer;
+}
+
+.imagenes img {
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.85);
+  width: 95%;
+  border-radius: 15px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.puntos {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  z-index: 1;
+}
+
+.puntos p {
+  position: relative;
+  bottom: 0;
+  font-size: 52px;
+  font-weight: 500;
+  margin: 0 5px;
+  color: rgb(255, 255, 255);
+}
+
+.puntos .bold {
+  font-weight: 700;
 }
 
 h4 {
@@ -209,7 +255,6 @@ h4 {
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
 .products-img img {
   max-width: 200px;
@@ -269,6 +314,10 @@ main {
   font-family: "League Spartan", sans-serif;
   font-family: "Roboto", sans-serif;
   background-color: #f2f2f2;
+}
+
+main .slider {
+  text-align: center;
 }
 
 .container {
@@ -374,7 +423,7 @@ ul {
     text-decoration: none;
     font-size: 1em;
   }
-  
+
   .container {
     display: flex;
     flex-wrap: wrap;
