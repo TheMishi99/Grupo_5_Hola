@@ -13,85 +13,101 @@
       src="https://kit.fontawesome.com/6d37a11b52.js"
       crossorigin="anonymous"
     ></script>
-    <link rel="stylesheet" href="../css/createProduct.css" />
+    <link rel="stylesheet" href="/css/createProduct.css" />
   </head>
 
   <body>
     <%- include("../partials/header") %>
-      <main class="create-main">
-        <div class="container_createProduct">
-          <form class="create-form" action="/products/" method="post" onsubmit="showSuccessAlert()"
-            enctype="multipart/form-data">
-            <section class="register-title-form">
-              <h1 class="tit-links">Crear tu producto</h1>
-            </section>
-            <div class="campos">
-              <label for="img">Imágen:</label>
-              <input type="file" name="img" id="img" required />
-              <br />
-              <label for="name">Nombre:</label>
-              <input type="text" name="name" id="name" required />
-              <br />
-              <label for="code">Código de Barra:</label>
-              <input type="text" name="code" id="code" required />
-              <br>
-              <label for="stock">Stock:</label>
-              <input type="number" name="stock" id="stock" required />
-              <br />
-              <label class="description" for="description">Descripción:</label>
-              <br />
-              <textarea name="description" id="description" rows="4" required></textarea>
-              <br />
-              <label for="elaborationDate">Fecha de Elaboración:</label>
-              <input type="datetime" name="elaborationDate" id="elaborationDate" required />
-              <br />
-              <label for="expirationDate">Fecha de Expiración:</label>
-              <input type="datetime" name="expirationDate" id="expirationDate" required />
-              <br />
-              <label for="price">Precio:</label>
-              <input type="number" name="price" id="price" required />
-              <br />
-              <label for="category_id">Categoría:</label>
-              <select name="category_id" id="" required>
-                <% categories.forEach(category=> { %>
-                  <option value="<%= category.id %>">
-                    <%= category.name %>
-                  </option>
-                  <% }); %>
-              </select>
-              <br />
-              <label for="discount_id">Descuento:</label>
-              <select name="discount_id" id="" required>
-                <% discounts.forEach(discount=> { %>
-                  <option value="<%= discount.id %>">
-                    <%= discount.description %>
-                  </option>
-                  <% }); %>
-              </select>
-              <br />
-              <label for="brand_id">Marca:</label>
-              <select name="brand_id" id="" required>
-                <% brands.forEach(brand=> { %>
-                  <option value="<%= brand.id %>">
-                    <%= brand.name %>
-                  </option>
-                  <% }); %>
-              </select>
-              <br />
-            </div>
-            <button type="submit" class="create-button"> Crear Producto </button>
-          </form>
-        </div>
-      </main>
-      <script>
-        function showSuccessAlert() {
-          const success = true;
-          if (success) {
-            alert("¡Producto creado con éxito!");
-          }
-          return success;
-        }
-      </script>
-      <%- include("../partials/footer") %>
+    <main class="create-main">
+      <div class="container_createProduct">
+        <form
+          class="create-form"
+          action="/products"
+          method="post"
+          enctype="multipart/form-data"
+          novalidate
+        >
+          <section class="register-title-form">
+            <h1 class="tit-links">Crear tu producto</h1>
+          </section>
+          <div class="campos">
+            <label for="img">Imágen:</label>
+            <p class="err" id="img-err"></p>
+            <input type="file" name="img" id="img" required />
+            <br />
+            <label for="name">Nombre:</label>
+            <p class="err" id="name-err"></p>
+            <input type="text" name="name" id="name" required />
+            <br />
+            <label for="code">Código de Barra:</label>
+            <p class="err" id="code-err"></p>
+            <input type="text" name="code" id="code" required />
+            <br />
+            <label for="stock">Stock:</label>
+            <p class="err" id="stock-err"></p>
+            <input type="number" name="stock" id="stock" required />
+            <br />
+            <label class="description" for="description">Descripción:</label>
+            <br />
+            <p class="err" id="description-err"></p>
+            <textarea
+              name="description"
+              id="description"
+              rows="4"
+              required
+            ></textarea>
+            <br />
+            <label for="elaborationDate">Fecha de Elaboración:</label>
+            <p class="err" id="elaborationDate-err"></p>
+            <input
+              type="datetime-local"
+              name="elaborationDate"
+              id="elaborationDate"
+              required
+            />
+            <br />
+            <label for="expirationDate">Fecha de Expiración:</label>
+            <p class="err" id="expirationDate-err"></p>
+            <input
+              type="datetime-local"
+              name="expirationDate"
+              id="expirationDate"
+              required
+            />
+            <br />
+            <label for="price">Precio:</label>
+            <p class="err" id="price-err"></p>
+            <input type="number" name="price" id="price" required />
+            <br />
+            <label for="category_id">Categoría:</label>
+            <select name="category_id" id="" required>
+              <% categories.forEach(category=> { %>
+              <option value="<%= category.id %>"><%= category.name %></option>
+              <% }); %>
+            </select>
+            <br />
+            <label for="discount_id">Descuento:</label>
+            <select name="discount_id" id="" required>
+              <% discounts.forEach(discount=> { %>
+              <option value="<%= discount.id %>">
+                <%= discount.description %>
+              </option>
+              <% }); %>
+            </select>
+            <br />
+            <label for="brand_id">Marca:</label>
+            <select name="brand_id" id="" required>
+              <% brands.forEach(brand=> { %>
+              <option value="<%= brand.id %>"><%= brand.name %></option>
+              <% }); %>
+            </select>
+            <br />
+          </div>
+          <button type="submit" class="create-button">Crear Producto</button>
+        </form>
+      </div>
+    </main>
+    <script src="/js/products/createProduct.js"></script>
+    <%- include("../partials/footer") %>
   </body>
 </html>

@@ -13,8 +13,7 @@
       src="https://kit.fontawesome.com/6d37a11b52.js"
       crossorigin="anonymous"
     ></script>
-    <link href="../../css/home-style.css" rel="stylesheet" />
-    <link href="../../css/modifyProduct-style.css" rel="stylesheet" />
+    <link href="/css/modifyProduct-style.css" rel="stylesheet" />
   </head>
 
   <body>
@@ -27,7 +26,7 @@
             <div class="modify_camp">
               <label for="img">Imágen:</label>
               <br />
-              <% if(product.img.includes("https")){%>
+              <% if(product.img.includes("http")){%>
                 <img
                 src="<%= product.img %>"
                 width="30%"
@@ -40,28 +39,36 @@
                 alt="<%= product.name %>"
                 />
               <%}%>
+              <p class="err" id="img-err"></p>
               <input type="file" name="img" id="img" />
               <br />
               <label for="name">Nombre:</label>
               <input type="text" name="name" id="name" value="<%= product.name %>" />
+              <p class="err" id="name-err"></p>
               <br />
               <label for="code">Código de Barra:</label>
               <input type="text" name="code" id="code" value="<%= product.code %>" />
+              <p class="err" id="code-err"></p>
               <br>
               <label for="stock">Stock:</label>
               <input type="number" name="stock" id="stock" value="<%= product.stock %>" />
+              <p class="err" id="stock-err"></p>
               <br />
               <label class="description" for="description">Descripción: </label>
               <textarea name="description" id="description" rows="4"><%=product.description%></textarea>
+              <p class="err" id="description-err"></p>
               <br />
               <label for="elaborationDate">Fecha de Elaboración:</label>
-              <input type="datetime" name="elaborationDate" id="elaborationDate" value="<%= product.elaborationDate %>" />
+              <input type="datetime-local" name="elaborationDate" id="elaborationDate" value="<%= product.elaborationDate.toISOString().slice(0, 16) %>" />
+              <p class="err" id="elaborationDate-err"></p>
               <br />
               <label for="expirationDate">Fecha de Expiración:</label>
-              <input type="datetime" name="expirationDate" id="expirationDate" value="<%= product.expirationDate %>" />
+              <input type="datetime-local" name="expirationDate" id="expirationDate" value="<%= product.expirationDate.toISOString().slice(0, 16) %>" />
+              <p class="err" id="expirationDate-err"></p>
               <br />
               <label for="price">Precio:</label>
               <input type="number" name="price" id="price" value="<%= product.price %>" />
+              <p class="err" id="price-err"></p>
               <br />
               <label for="category_id">Categoría:</label>
               <br />
@@ -106,6 +113,7 @@
           </form>
         </div>
       </main>
+      <script src="/js/products/modifyProduct.js"></script>
       <%- include("../partials/footer") %>
   </body>
 </html>
