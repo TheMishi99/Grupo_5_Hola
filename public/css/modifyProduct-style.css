@@ -1,5 +1,6 @@
 main {
-    background-image: url(/img/fondo-edit.jpg);;
+    background-image: url(/img/fondo-edit.jpg);
+    ;
     padding: 5% 10%;
 }
 
@@ -63,10 +64,15 @@ div.modify_camp textarea {
     resize: none;
 }
 
-div.modify_camp select{
+div.modify_camp select {
     font-size: 0.8em;
     border: none;
     border-radius: 5px;
+}
+
+form.edit_product div.modify_camp p.err {
+    color: rgb(226, 0, 0);
+    margin: 5px 0px 0px;
 }
 
 button.save_button {
@@ -78,7 +84,7 @@ button.save_button {
 }
 
 button.save_button:hover,
-a.cancel_button:hover{
+a.cancel_button:hover {
     transition: all 0.3s;
     transform: scale(1.1);
 }
@@ -91,7 +97,8 @@ button.save_button i {
     padding: 5px;
     border-radius: 20px;
 }
-a.cancel_button{
+
+a.cancel_button {
     background-color: #c63637;
     color: white;
     font-size: 1em;
@@ -106,9 +113,9 @@ a.cancel_button{
 
 /*desktop*/
 @media (min-width: 992px) {
-    main{
+    main {
         padding: 5% 25%;
-    } 
+    }
 
     div.caract_product img {
         width: 40%;

@@ -96,6 +96,8 @@ const productsController = {
     const product = await db.Productos.findByPk(req.params.id, {
       include: ["discount", "brand"],
     });
+    product.elaborationDate.setHours(product.elaborationDate.getHours() - 3);
+    product.expirationDate.setHours(product.expirationDate.getHours() - 3);
     const brands = await db.Marcas.findAll();
     const discounts = await db.Descuentos.findAll();
     const categories = await db.Categorias.findAll();
