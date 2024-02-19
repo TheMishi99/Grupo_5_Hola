@@ -46,6 +46,9 @@ function provincias() {
                 option.value = provincia;
                 selectProvince.appendChild(option);
             });
+            document.getElementById("province").addEventListener("change", function () {
+                ciudades(encodeURIComponent(this.value));
+              });
         });
 }
 provincias();
@@ -91,7 +94,7 @@ function mostrarVentana() {
   // Crear el contenido de la ventana emergente
   var contenido = document.createElement("div");
   contenido.className = "contenido";
-  contenido.innerHTML = "<p>¡Compra realizada con éxito!</p>";
+  contenido.innerHTML = "<p class='hola'>¡Compra realizada con éxito!</p>";
 
   // Crear un botón para cerrar la ventana emergente
   var botonCerrar = document.createElement("button");
