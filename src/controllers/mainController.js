@@ -32,6 +32,9 @@ const mainController = {
   },
   workWithUs: async (req, res) => {
     res.render("workWithUs",{userLogged: req.session.isLogged})
+  },
+  cambiosyDev: async (req, res) => {
+    res.render("changes",{userLogged: req.session.isLogged})
   }
 };
 
