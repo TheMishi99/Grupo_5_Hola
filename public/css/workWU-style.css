@@ -23,16 +23,6 @@ h1{
     font-weight: bold;
 }
 
-a {
-    text-decoration: none;
-}
-a:visited {
-    color: inherit;
-}
-a:hover {
-    color: white;
-}
-
 /* tablet */
 @media (min-width: 576px) {
     main{
