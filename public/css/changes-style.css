@@ -1,0 +1,42 @@
+.title-changes{
+    text-align: center;
+    padding-top: 30px;
+    color:#D97652;
+}
+.final-text{
+    text-align: center;
+    padding-bottom: 30px;
+    color:#D97652;
+}
+.principal-text{
+    white-space: pre-line;
+    text-align: justify;
+    padding:10px;
+    padding-bottom: 25px;
+}
+.text-container{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+.container-img-changes img{
+    width:250px;
+    border-radius: 30%;
+    padding-top:30px;
+}
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.important {
+    background-color: #D97652;
+    color: white; 
+    padding: 10px; 
+    font-weight: bold; 
+    text-align: center;
+    margin-top: 20px;
+}
+.text{
+    font-style: italic;
+}

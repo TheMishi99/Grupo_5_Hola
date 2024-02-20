@@ -1,6 +1,7 @@
-h1{
+.title-work{
     color:#D97652;
 }
+
 .container-info{
     align-items: center;
 }
@@ -8,6 +9,7 @@ h1{
     max-width:100%;
     padding:30px;
     align-self: center;
+    border-radius: 12%;
 }
 
 .principal-text{
