@@ -11,7 +11,6 @@ const registerValidate = [
         .notEmpty().withMessage("Debes completar este campo").bail()
         .isEmail().withMessage("Introduzca una dirección de correo electrónico válida").bail()
         .custom(async (value, {req}) =>{
-            // let userInDB = userModel.findByField('email' , req.body.email)
             let userInDB = await db.Usuarios.findOne({
                 where: {
                     email: req.body.email
@@ -24,7 +23,9 @@ const registerValidate = [
         }),
     body('password')
         .notEmpty().withMessage("Debes completar este campo").bail()
-        .isLength({ min: 8 }).withMessage("La contraseña debe tener al menos 8 caracteres"),
+        .isLength({ min: 8 }).withMessage("La contraseña debe tener al menos 8 caracteres")
+        .isLength({ max: 20 }).withMessage("La contraseña debe tener como máximo 20 caracteres")
+        .matches(/^(?=.*[A-Z]{1,})(?=.*[a-z]{1,})(?=.*\d{1,})(?=.*\W{1,})+/).withMessage('La contraseña debe contener al menos un número, una mayúscula, una minúscula y un carácter especial'),
     body('confirmpassword')
         .notEmpty().withMessage("Debes completar este campo").bail()
         .custom((value, { req }) => {
