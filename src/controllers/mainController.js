@@ -29,6 +29,9 @@ const mainController = {
   },
   stores: async (req, res) => {
     res.render("stores",{userLogged: req.session.isLogged})
+  },
+  aboutMishis: async (req, res) => {
+    res.render("aboutMishis",{userLogged: req.session.isLogged})
   }
 };
 
