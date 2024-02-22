@@ -32,6 +32,12 @@ const mainController = {
   },
   aboutMishis: async (req, res) => {
     res.render("aboutMishis",{userLogged: req.session.isLogged})
+  },
+  contactUs: async (req, res) => {
+    res.render("contactUs",{userLogged: req.session.isLogged})
+  },
+  privacyPolicies: async (req, res) => {
+    res.render("privacyPolicies",{userLogged: req.session.isLogged})
   }
 };
 

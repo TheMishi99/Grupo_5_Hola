@@ -6,5 +6,7 @@ const mainController = require("../controllers/mainController")
 router.get("/", mainController.index)
 router.get("/stores", mainController.stores)
 router.get("/aboutMishis", mainController.aboutMishis)
+router.get("/contactUs", mainController.contactUs)
+router.get("/privacyPolicies", mainController.privacyPolicies)
 
 module.exports = router

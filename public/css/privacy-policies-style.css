@@ -1,0 +1,23 @@
+.big-container-1{
+    padding: 3% 10%;
+}
+
+.big-container-2{
+    padding: 4%;
+    margin: 2% 4%;
+    background-color: rgb(235, 187, 156);
+    border-radius: 5%;
+}
+
+h1 {
+    color: #d97652;
+    text-align: center;
+}
+
+h3{
+    color: #d97652; 
+}
+
+.container-img{
+    text-align: center;
+}
