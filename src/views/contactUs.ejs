@@ -8,66 +8,41 @@
         <title>Document</title>
         <script src="https://kit.fontawesome.com/6d37a11b52.js" crossorigin="anonymous"></script>
         <!--Hoja de Estilo para Stores-->
-        <link href="../css/about-mishis-style.css" rel="stylesheet" />
+        <link href="../css/contact-us-style.css" rel="stylesheet" />
 </head>
 
 <body>
     <%- include("./partials/header") %>
         <main>
             <div class="big-container-1">
-                <h1>Politicas de Privacidad</h1>
-
+                <h1>Contáctanos</h1>
                 <div class="big-container-1">
-                    <h4>Política de Privacidad</h4>
-
-                    <p>En Mishis, valoramos y respetamos su privacidad. Esta Política de Privacidad describe cómo
-                        recopilamos, usamos y protegemos la información que usted proporciona cuando utiliza nuestro
-                        sitio web Mishis y nuestros servicios relacionados. Al utilizar nuestros servicios, usted
-                        acepta el procesamiento de su información de acuerdo con esta Política de Privacidad.</p>
-
-                    <h4>Recopilación de Información</h4>
-                    <p>Recopilamos información personal que usted nos proporciona de manera voluntaria, como su nombre,
-                        dirección de correo electrónico, información de contacto y cualquier otra información que elija
-                        proporcionarnos al utilizar nuestros servicios.</p>
-
-                    <h4>Uso de la Información</h4>
-                    <p>Utilizamos la información que recopilamos para proporcionarle nuestros servicios, responder a sus
-                        consultas, mejorar nuestros servicios y comunicarnos con usted. También podemos utilizar su
-                        información para enviarle actualizaciones, noticias y ofertas especiales sobre nuestros
-                        productos y servicios, siempre y cuando haya dado su consentimiento para recibir dichas
-                        comunicaciones.</p>
-
-                    <h4>Protección de la Información</h4>
-                    <p>Nos comprometemos a proteger la seguridad de su información personal y tomamos medidas razonables
-                        para mantenerla segura contra accesos no autorizados, uso indebido o divulgación.</p>
-
-                    <h4>Divulgación de Información</h4>
-                    <p>No compartiremos su información personal con terceros sin su consentimiento, excepto cuando sea
-                        necesario para cumplir con las leyes aplicables o proteger nuestros derechos, propiedad o
-                        seguridad, o los derechos, propiedad o seguridad de otros.</p>
-
-                    <h4>Cookies y Tecnologías Similares</h4>
-                    <p>Utilizamos cookies y otras tecnologías similares para mejorar su experiencia en nuestro sitio web
-                        y comprender cómo lo utiliza. Puede optar por desactivar las cookies en la configuración de su
-                        navegador, pero tenga en cuenta que algunas partes de nuestro sitio web pueden no funcionar
-                        correctamente si lo hace.</p>
-
-                    <h4>Cambios en la Política de Privacidad</h4>
-                    <p>Nos reservamos el derecho de actualizar esta Política de Privacidad en cualquier momento. Se le
-                        notificará sobre cualquier cambio mediante una notificación en nuestro sitio web. Le
-                        recomendamos que
-                        revise periódicamente esta Política de Privacidad para estar informado sobre cómo protegemos su
-                        información.</p>
-
-                    <h4>Contacto</h4>
-                    <p>Si tiene alguna pregunta sobre esta Política de Privacidad, comuníquese con nosotros a través de
-                        nuestras redes.</p>
-
-                    <h5>Última actualización: 21/02/2024</h5>
+                        <form class="contact-form" action="/contactUs" method="POST">
+                            <h4>Nombre</h4>
+                          <div class="input-nombre">
+                            <input type="text" name="nombre" id="nombre" placeholder="Nombre" required autocomplete="off"/>
+                          </div>
+                          <h4>Correo electrónico</h4>
+                          <div class="input-email">
+                            <input type="email" name="email" id="email" placeholder="Email" required autocomplete="off"/>
+                        </div>
+                        <h4>Teléfono</h4>
+                        <div class="input-phone">
+                            <input type="number" name="phone" id="phone" placeholder="Teléfono" required autocomplete="off"/>
+                        </div>
+                        <h4>Comentarios</h4>
+                        <div class="input-comment">
+                            <textarea type="text" name="comment" id="comment" placeholder="Comentarios" required autocomplete="off"></textarea>
+                        </div>
+                        <div class="container-send-button">
+                          <button onclick="mostrarVentana()" class="send-button">Enviar</button>
+                          </div>
+                        </form>
+                      </div>
                 </div>
-            </div>
         </main>
         <%- include("./partials/footer") %>
+        <script src="/js/contactUs.js"></script>
 </body>
 
 </html>
