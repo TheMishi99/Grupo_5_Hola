@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <%- include("partials/head") %>
+    <title>Formas de Entrega</title>
+    <script src="https://kit.fontawesome.com/6d37a11b52.js" crossorigin="anonymous"></script>
+    <!--Hoja de Estilo para Stores-->
+    <link href="../css/methodDelivery-style.css" rel="stylesheet" />
+
+</head>
+
+<body>
+  <%- include("./partials/header") %>
+  <main>
+    <div class="container-img"><img src="/img/cat-shipping.png" alt="Envíos"></div>
+    <h1 class="title-delivery">Formas de Entrega</h1>
+    <div class="text-container">
+      <div class="principal-text">
+        <p>
+          En Mishis, entendemos la importancia de facilitar al máximo tus compras para tu gato. Por eso, te ofrecemos 
+          la conveniencia de hacer tus pedidos desde la comodidad de tu hogar. Con nuestra amplia gama de productos para 
+          tu felino amigo, puedes elegir la forma de envío que se ajuste mejor a tus necesidades y horarios. Nos esforzamos 
+          por brindarte un proceso de compra simple y cómodo, para que puedas recibir tus productos de manera rápida y eficiente.
+        </p>
+        <div class="important">DESDE TU HOGAR</div>
+        <div class="container-home-delivery">
+          <div>
+            <div class="container-img-delivery"><img src="/img/cat-delivery.png" alt="Envíos con Cadete"></div>
+            <h4>Envíos con Cadete</h4>
+            <p>Envíos de Lunes a Sábado, comprá y 
+              recibí tu pedido al instante! Aplica para 
+              Santiago del Estero y Zonas seleccionadas.
+              Costo de envío: a acordar
+              Envío <strong>GRATIS</strong> para compras superiores a $25.000
+            </p>
+          </div>
+          <div>
+            <div class="container-img-delivery"><img src="/img/cat-delivery.png" alt="Envíos a todo el país"></div>
+            <h4>Envíos a todo el país</h4>
+            <p>Alcanzamos cada rincón del país. Realiza 
+              tus compras online en nuestro sitio web y 
+              recibe tus productos cómodamente en tu hogar 
+              con nuestro servicio de envío a nivel nacional. 
+              Ahorra tiempo y dinero al comprar en Mishis.
+            </p>
+          </div>
+        </div>
+        <div class="important">RETIRO EN SUCURSAL</div>
+        <div class="container-img-home"><img src="/img/cat-home.png" alt="Retiro en Sucursal"></div>
+        <div class="container-delivery-store">
+          <h4>Sin cargo en Sucursal</h4>
+          <p>
+            Al hacer tu pedido online, seleccioná 
+            “Retiro en Tienda” y elegí la sucursal 
+            que más te convenga. 
+          </p>
+        </div>
+      </div>
+    </div>
+  </main>
+  <%- include("./partials/footer") %>
+</body>
+</html>

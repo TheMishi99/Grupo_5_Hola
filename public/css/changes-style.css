@@ -10,9 +10,9 @@
 }
 .principal-text{
     white-space: pre-line;
-    text-align: justify;
-    padding:10px;
+    text-align: center;
     padding-bottom: 25px;
+    padding:10px;
 }
 .text-container{
     display: flex;
