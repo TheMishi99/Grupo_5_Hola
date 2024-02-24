@@ -29,6 +29,18 @@ const mainController = {
   },
   stores: async (req, res) => {
     res.render("stores",{userLogged: req.session.isLogged})
+  },
+  workWithUs: async (req, res) => {
+    res.render("workWithUs",{userLogged: req.session.isLogged})
+  },
+  cambiosyDev: async (req, res) => {
+    res.render("changes",{userLogged: req.session.isLogged})
+  },
+  methodDelivery:async (req, res) => {
+    res.render("methodDelivery",{userLogged: req.session.isLogged})
+  },
+  terms:async (req, res) => {
+    res.render("terms",{userLogged: req.session.isLogged})
   }
 };
 

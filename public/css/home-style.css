@@ -381,6 +381,21 @@ ul {
   display: none;
 }
 
+a {
+  text-decoration: none;
+}
+a:visited {
+  color: inherit;
+}
+a:hover {
+  color: white;
+}
+a>i{
+  color:black
+}
+a>i:hover{
+  color:white
+}
 /*tablet*/
 @media (min-width: 576px) {
   .home__navbar {
