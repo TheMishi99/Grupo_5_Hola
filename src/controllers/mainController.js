@@ -35,6 +35,12 @@ const mainController = {
   },
   cambiosyDev: async (req, res) => {
     res.render("changes",{userLogged: req.session.isLogged})
+  },
+  methodDelivery:async (req, res) => {
+    res.render("methodDelivery",{userLogged: req.session.isLogged})
+  },
+  terms:async (req, res) => {
+    res.render("terms",{userLogged: req.session.isLogged})
   }
 };
 
