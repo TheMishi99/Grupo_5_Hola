@@ -12,9 +12,7 @@ const editValidate = [
         .custom((value, { req }) => {
             const file = req.file;
             const acceptedExtensions = ['.jpg','.png','.jpeg','.gif'];
-            if (!file) {
-                throw new Error("Debes subir una imagen de perfil")
-            }else{
+            if (file) {
                 const fileExtension = path.extname(file.originalname);
                 if(!acceptedExtensions.includes(fileExtension)){
                     throw new Error(`Las extensiones de archivo permitidas son ${acceptedExtensions.join(', ')}`)

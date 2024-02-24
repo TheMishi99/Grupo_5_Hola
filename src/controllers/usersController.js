@@ -178,11 +178,12 @@ const usersController = {
         name,
         phonenumber
       } = req.body;
-      db.Usuarios.update(
+      let user = await db.Usuarios.findByPk(req.params.id)
+      await db.Usuarios.update(
         {
           name: name,
           phoneNumber: phonenumber,
-          profilePicture: req.file.filename
+          profilePicture: req.file ? req.file.filename : user.profilePicture
         },
         {
           where: {

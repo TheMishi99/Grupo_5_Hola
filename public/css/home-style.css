@@ -65,6 +65,7 @@ header form input {
   padding: 4px;
   font-size: 1.5rem;
 }
+
 .cart:hover {
   transition: all 0.3s;
   transform: scale(1.1);
@@ -165,11 +166,13 @@ header form input {
   padding: 5px;
   border-radius: 10px;
 }
+
 .home__navbar ul li a:hover {
   transition: all 0.5s;
   color: #f2f2f2;
   background-color: rgba(217, 119, 84, 0.7);
 }
+
 .home__navbar ul li a:active {
   color: #f2f2f2;
   background-color: rgba(217, 119, 84, 1);
@@ -256,6 +259,7 @@ h4 {
   justify-content: center;
   align-items: center;
 }
+
 .products-img img {
   max-width: 200px;
   object-fit: contain;
@@ -323,6 +327,7 @@ main .slider {
 .container {
   margin-top: 1rem;
 }
+
 .container-brands {
   display: flex;
   align-items: center;
@@ -330,13 +335,16 @@ main .slider {
   width: 100%;
   margin-top: 1rem;
 }
+
 .brands {
   width: 25%;
   padding: 2%;
 }
+
 .brands img {
   width: 100%;
 }
+
 /*
   Footer (para todas las paginas?)
 */
@@ -349,7 +357,8 @@ footer {
 }
 
 ul {
-  list-style-type: none; /* Elimina los puntos de la lista */
+  /* Elimina los puntos de la lista */
+  list-style-type: none;
 }
 
 .links {
@@ -384,18 +393,23 @@ ul {
 a {
   text-decoration: none;
 }
+
 a:visited {
   color: inherit;
 }
+
 a:hover {
   color: white;
 }
-a>i{
-  color:black
+
+a>i {
+  color: black
 }
-a>i:hover{
-  color:white
+
+a>i:hover {
+  color: white
 }
+
 /*tablet*/
 @media (min-width: 576px) {
   .home__navbar {
@@ -434,6 +448,7 @@ a>i:hover{
     width: 50%;
     margin: 0;
   }
+
   div.search-bar input {
     text-decoration: none;
     font-size: 1em;
@@ -472,12 +487,31 @@ a>i:hover{
 
 /*desktop*/
 @media (min-width: 992px) {
+  .dropdown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   .login {
-    width: 14%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    margin: 0;
+    padding: 5px;
+    gap: 10px;
+    max-width: 350px;
   }
 
   .login span {
     font-size: large;
+  }
+
+  .dropdown-content {
+    position: absolute;
+    top: 85px;
   }
 
   .cart {
