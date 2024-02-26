@@ -38,6 +38,9 @@ const mainController = {
   },
   privacyPolicies: async (req, res) => {
     res.render("privacyPolicies",{userLogged: req.session.isLogged})
+  },
+  frequentQuestions: async (req, res) => {
+    res.render("frequentQuestions",{userLogged: req.session.isLogged})
   }
 };
 
