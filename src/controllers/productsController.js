@@ -1,5 +1,6 @@
 const { readFileSync } = require("fs");
 const { join } = require("path");
+const { validationResult } = require("express-validator");
 
 /* IMPLEMENTANDO BASE DE DATOS */
 const db = require("../database/models");
@@ -47,32 +48,47 @@ const productsController = {
   },
   create: async (req, res) => {
     try {
-      const {
-        code,
-        name,
-        stock,
-        description,
-        elaborationDate,
-        expirationDate,
-        price,
-        category_id,
-        discount_id,
-        brand_id,
-      } = req.body;
-      await db.Productos.create({
-        img: req.file.filename,
-        name: name,
-        code: code ? code : "N/C",
-        stock: stock,
-        description: description,
-        elaborationDate: elaborationDate,
-        expirationDate: expirationDate,
-        price: parseFloat(price),
-        category_id: category_id,
-        discount_id: discount_id,
-        brand_id: brand_id,
-      });
-      res.redirect("/products");
+      const brands = await db.Marcas.findAll();
+      const discounts = await db.Descuentos.findAll();
+      const categories = await db.Categorias.findAll();
+      const resultValidation = validationResult(req);
+      if (resultValidation.errors.length > 0) {
+        res.render("./products/createProduct", {
+          errors: resultValidation.mapped(),
+          old: req.body,
+          userLogged: req.session.isLogged,
+          brands,
+          discounts,
+          categories,
+        });
+      } else {
+        const {
+          code,
+          name,
+          stock,
+          description,
+          elaborationDate,
+          expirationDate,
+          price,
+          category_id,
+          discount_id,
+          brand_id,
+        } = req.body;
+        await db.Productos.create({
+          img: req.file.filename,
+          name: name,
+          code: code ? code : "N/C",
+          stock: stock,
+          description: description,
+          elaborationDate: elaborationDate,
+          expirationDate: expirationDate,
+          price: parseFloat(price),
+          category_id: category_id,
+          discount_id: discount_id,
+          brand_id: brand_id,
+        });
+        res.redirect("/products");
+      }
     } catch (error) {
       res.send(error);
     }
@@ -111,40 +127,59 @@ const productsController = {
   },
   modify: async (req, res) => {
     try {
-      const id = req.params.id;
-      const {
-        code,
-        name,
-        stock,
-        description,
-        elaborationDate,
-        expirationDate,
-        price,
-        category_id,
-        discount_id,
-        brand_id,
-      } = req.body;
-      const product = await db.Productos.findByPk(req.params.id);
-      const img = req.file ? req.file.filename : product.img;
-      await db.Productos.update(
-        {
-          img: img,
-          name: name,
-          code: code ? code : "N/C",
-          stock: stock,
-          description: description,
-          elaborationDate: elaborationDate,
-          expirationDate: expirationDate,
-          price: parseFloat(price),
-          category_id: category_id,
-          discount_id: discount_id,
-          brand_id: brand_id,
-        },
-        {
-          where: { id: id },
-        }
-      );
-      res.redirect("/products/" + id);
+      const product = await db.Productos.findByPk(req.params.id, {
+        include: ["discount", "brand"],
+      })
+      const brands = await db.Marcas.findAll();
+      const discounts = await db.Descuentos.findAll();
+      const categories = await db.Categorias.findAll();
+      const resultValidation = validationResult(req);
+      if (resultValidation.errors.length > 0) {
+        res.render("./products/modifyProduct", {
+          product:product,
+          errors: resultValidation.mapped(),
+          old: req.body,
+          userLogged: req.session.isLogged,
+          brands,
+          discounts,
+          categories,
+        });
+      } else {
+        const id = req.params.id;
+        const {
+          code,
+          name,
+          stock,
+          description,
+          elaborationDate,
+          expirationDate,
+          price,
+          category_id,
+          discount_id,
+          brand_id,
+        } = req.body;
+        const product = await db.Productos.findByPk(req.params.id);
+        const img = req.file ? req.file.filename : product.img;
+        await db.Productos.update(
+          {
+            img: img,
+            name: name,
+            code: code ? code : "N/C",
+            stock: stock,
+            description: description,
+            elaborationDate: elaborationDate,
+            expirationDate: expirationDate,
+            price: parseFloat(price),
+            category_id: category_id,
+            discount_id: discount_id,
+            brand_id: brand_id,
+          },
+          {
+            where: { id: id },
+          }
+        );
+        res.redirect("/products/" + id);
+      }
     } catch (error) {
       res.send(error);
     }
