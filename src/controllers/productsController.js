@@ -9,13 +9,83 @@ const { Op, where } = require("sequelize");
 
 const productsController = {
   list: async (req, res) => {
-    const list = await db.Productos.findAll({
-      include: ["discount", "brand"],
-    });
-    res.render("./products/allProducts", {
-      list,
-      userLogged: req.session.isLogged,
-    });
+    let currentPage = parseInt(req.query.page) || 1;
+    const perPage = 10;
+    const offset = (currentPage - 1) * perPage;
+
+    try {
+      const totalProducts = await db.Productos.count();
+      const totalPages = Math.ceil(totalProducts / perPage);
+
+      if (currentPage < 1) {
+        currentPage = 1;
+      } else if (currentPage > totalPages) {
+        currentPage = totalPages;
+      }
+
+      const list = await db.Productos.findAll({
+        include: ["discount", "brand"],
+        limit: perPage,
+        offset: offset,
+      });
+
+      res.render("./products/allProducts", {
+        list,
+        userLogged: req.session.isLogged,
+        currentPage: currentPage,
+        totalPages: totalPages,
+      });
+    } catch (error) {
+      console.error("Error:", error);
+      // Manejar el error apropiadamente
+      res.status(500).send("Error interno del servidor");
+    }
+  },
+  listOffers: async (req, res) => {
+    let currentPage = parseInt(req.query.page) || 1;
+    const perPage = 10;
+    const offset = (currentPage - 1) * perPage;
+
+    try {
+      const totalOffers = await db.Productos.count({
+        include: ["discount"],
+        where: {
+          "$discount.description$": {
+            [Op.ne]: "Sin descuento",
+          },
+        },
+      });
+
+      const totalPages = Math.ceil(totalOffers / perPage);
+
+      if (currentPage < 1) {
+        currentPage = 1;
+      } else if (currentPage > totalPages) {
+        currentPage = totalPages;
+      }
+
+      const listOffers = await db.Productos.findAll({
+        include: ["discount", "brand"],
+        where: {
+          "$discount.description$": {
+            [Op.ne]: "Sin descuento",
+          },
+        },
+        limit: perPage,
+        offset: offset,
+      });
+
+      res.render("./products/allOffers", {
+        listOffers,
+        userLogged: req.session.isLogged,
+        currentPage: currentPage,
+        totalPages: totalPages,
+      });
+    } catch (error) {
+      console.error("Error:", error);
+      // Manejar el error apropiadamente
+      res.status(500).send("Error interno del servidor");
+    }
   },
   search: async (req, res) => {
     try {

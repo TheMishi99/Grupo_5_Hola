@@ -4,9 +4,9 @@
   box-sizing: border-box;
   font-family: "League Spartan", sans-serif;
   font-family: "Roboto", sans-serif;
-  scrollbar-color: orange skyblue;
+  scrollbar-color: #d97652 rgb(220, 235, 241);
   scrollbar-width: auto;
-  scrollbar-arrow-color: orange;
+  scrollbar-arrow-color: #d97652;
 }
 
 /*
@@ -372,9 +372,13 @@ ul {
 .promotion {
   background-color: red;
   width: 100%;
-  height: 100%;
+  height: 100px;
   text-align: center;
-  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.1rem;
+  margin-top: -10px;
   color: white;
 }
 
@@ -400,12 +404,12 @@ a:hover {
   color: white;
 }
 
-a>i {
-  color: black
+a > i {
+  color: black;
 }
 
-a>i:hover {
-  color: white
+a > i:hover {
+  color: white;
 }
 
 /*tablet*/
@@ -481,7 +485,7 @@ a>i:hover {
   footer {
     padding-bottom: 5%;
   }
-  .slider{
+  .slider {
     height: 280px;
   }
 }
@@ -557,12 +561,12 @@ a>i:hover {
   footer {
     padding-bottom: 5%;
   }
-  
-  .slider{
+
+  .slider {
     height: 550px;
   }
 
-  .imagenes img{
+  .imagenes img {
     width: 95%;
   }
 }
