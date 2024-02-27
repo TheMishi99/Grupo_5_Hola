@@ -1,6 +1,6 @@
-const { readFileSync } = require("fs");
-const { join } = require("path");
+const path = require("path");
 const { validationResult } = require("express-validator");
+const fs = require('fs'); 
 
 /* IMPLEMENTANDO BASE DE DATOS */
 const db = require("../database/models");
@@ -53,6 +53,8 @@ const productsController = {
       const categories = await db.Categorias.findAll();
       const resultValidation = validationResult(req);
       if (resultValidation.errors.length > 0) {
+        let fileDelete = path.resolve(__dirname, "../../public/img", req.file.filename)
+        fs.unlinkSync(fileDelete)
         res.render("./products/createProduct", {
           errors: resultValidation.mapped(),
           old: req.body,
@@ -60,7 +62,7 @@ const productsController = {
           brands,
           discounts,
           categories,
-        });
+        })
       } else {
         const {
           code,
@@ -135,6 +137,8 @@ const productsController = {
       const categories = await db.Categorias.findAll();
       const resultValidation = validationResult(req);
       if (resultValidation.errors.length > 0) {
+        let fileDelete = path.resolve(__dirname, "../../public/img", req.file.filename)
+        fs.unlinkSync(fileDelete)
         res.render("./products/modifyProduct", {
           product:product,
           errors: resultValidation.mapped(),
@@ -160,6 +164,10 @@ const productsController = {
         } = req.body;
         const product = await db.Productos.findByPk(req.params.id);
         const img = req.file ? req.file.filename : product.img;
+        if(req.file){
+          let fileDelete = path.resolve(__dirname, "../../public/img", product.img)
+          fs.unlinkSync(fileDelete)
+        }
         await db.Productos.update(
           {
             img: img,
