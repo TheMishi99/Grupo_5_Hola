@@ -100,13 +100,48 @@ div.icons-math {
   justify-content: space-around;
 }
 
+.cart__button:hover {
+  transform: scale(1.05);
+}
 .cart__button {
-  background-color: rgb(90, 180, 90);
-  color: white;
-  padding: 0.5rem;
+  background: rgb(90, 180, 90);
   text-align: center;
-  border-radius: 10px;
-  font-size: medium;
+  cursor: pointer;
+  border: none;
+  padding: 1rem;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  position: relative;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+}
+
+.cart__button:hover::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #6eaa5e, #63e863, #4fce21, #63e863, #6eaa5e, #63e863, #4fce21, #63e863);
+  background-size: 800%;
+  border-radius: 12px;
+  filter: blur(8px);
+  animation: glowing 20s linear infinite;
+}
+
+@keyframes glowing {
+  0% {
+      background-position: 0 0;
+  }
+  50% {
+      background-position: 400% 0;
+  }
+  100% {
+      background-position: 0 0;
+  }
 }
 
 .icons-math button {
@@ -165,7 +200,7 @@ input.cupon {
   cursor: pointer;
 }
 
-.delete_button{
+.delete_button {
   background: none;
   border: none;
 }
