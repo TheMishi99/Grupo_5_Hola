@@ -353,7 +353,10 @@ footer {
   font-family: "League Spartan", sans-serif;
   font-family: "Roboto", sans-serif;
   text-align: center;
-  padding-bottom: 10%;
+  padding: 20px;
+  position: relative;
+  width: 100%;
+  bottom: 0;
 }
 
 ul {
@@ -550,7 +553,7 @@ a>i:hover {
 
   .logo {
     padding: 0;
-    width: 40%;
+    width: 20%;
   }
 
   footer {

@@ -73,8 +73,8 @@ botonEnvio.addEventListener("click", function (event) {
   inputRetiro.style.display = "none";
   formEnvio.style.display = "block";
   gifGato.style.display = "block";
-  botonRetiro.style.backgroundColor = "white";
-  botonEnvio.style.backgroundColor = "rgb(217, 118, 82)";
+  botonRetiro.classList.remove("boton-clicked");
+  botonEnvio.classList.add("boton-clicked");
 });
 
 botonRetiro.addEventListener("click", function (event) {
@@ -82,8 +82,8 @@ botonRetiro.addEventListener("click", function (event) {
   formEnvio.style.display = "none";
   gifGato.style.display = "none";
   inputRetiro.style.display = "block";
-  botonEnvio.style.backgroundColor = "white";
-  botonRetiro.style.backgroundColor = "rgb(217, 118, 82)";
+  botonEnvio.classList.remove("boton-clicked");
+  botonRetiro.classList.add("boton-clicked");
 });
 
 function mostrarVentana() {
