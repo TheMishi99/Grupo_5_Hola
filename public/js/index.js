@@ -11,8 +11,12 @@ window.onload = function () {
   const puntos = $d.getElementById("puntos");
   
   const actualizarImagen = () => {
-    imagen.src = imagenes[actual];
-    actualizarPuntos();
+    imagen.style.opacity = 0;
+    setTimeout(() => {
+      imagen.src = imagenes[actual];
+      imagen.style.opacity = 1;
+      actualizarPuntos();
+    }, 500);
   };
   
   const actualizarPuntos = () => {
@@ -33,5 +37,5 @@ window.onload = function () {
   $d.getElementById("adelante").addEventListener("click", avanzar);
 
   actualizarPuntos();
-  setInterval(avanzar, 5000); // Cambia de imagen automáticamente cada 5 segundos
+  setInterval(avanzar, 7000);
 };
