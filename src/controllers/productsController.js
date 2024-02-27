@@ -37,7 +37,6 @@ const productsController = {
       });
     } catch (error) {
       console.error("Error:", error);
-      // Manejar el error apropiadamente
       res.status(500).send("Error interno del servidor");
     }
   },
@@ -83,7 +82,6 @@ const productsController = {
       });
     } catch (error) {
       console.error("Error:", error);
-      // Manejar el error apropiadamente
       res.status(500).send("Error interno del servidor");
     }
   },
