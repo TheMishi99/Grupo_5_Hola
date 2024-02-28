@@ -16,13 +16,13 @@
   margin-bottom: 15px;
 }
 
-div.searchResult{
-  color:#702963;
+div.searchResult {
+  color: #702963;
   text-align: center;
   font-size: 1.3em;
 }
 
-div a.buttonSearchResult button{
+div a.buttonSearchResult button {
   color: white;
   background-color: #702963;
   font-size: 1em;
@@ -39,8 +39,8 @@ div a.buttonSearchResult button{
   flex-direction: column;
 }
 
-.product-name a{
-  color:black;
+.product-name a {
+  color: black;
 }
 
 .containerButtons__allProducts > a > button {
@@ -55,8 +55,34 @@ div a.buttonSearchResult button{
   transform: scale(1.05);
 }
 
-button.button_createProduct{
+button.button_createProduct {
   background-color: #d97652;
   color: white;
   font-size: 1.17em;
+}
+
+.pagination {
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.pagination a,
+.pagination .current {
+  display: inline-block;
+  padding: 8px 16px;
+  margin: 0 4px;
+  color: #333;
+  border: 1px solid #ccc;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.pagination a:hover {
+  background-color: #f4f4f4;
+}
+
+.pagination .current {
+  background-color: rgb(217, 118, 82);
+  color: #fff;
+  border-color: rgb(217, 118, 82);
 }

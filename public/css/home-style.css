@@ -4,9 +4,9 @@
   box-sizing: border-box;
   font-family: "League Spartan", sans-serif;
   font-family: "Roboto", sans-serif;
-  scrollbar-color: orange skyblue;
+  scrollbar-color: #d97652 rgb(220, 235, 241);
   scrollbar-width: auto;
-  scrollbar-arrow-color: orange;
+  scrollbar-arrow-color: #d97652;
 }
 
 /*
@@ -178,10 +178,100 @@ header form input {
   background-color: rgba(217, 119, 84, 1);
 }
 
+/* ESTILOS PARA LA BURGUER */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(217, 118, 82, 0.9);
+  z-index: 9999;
+  overflow-y: auto;
+  padding-top: 50px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.mobile-menu.show {
+  display: block;
+  opacity: 1;
+}
+
+.user-info {
+  text-align: center;
+  padding: 20px;
+  color: white;
+  transition: margin 0.3s ease, font-size 0.3s ease;
+}
+
+.user-info a,
+.user-info span {
+  display: block;
+  margin-top: 20px;
+  color: white;
+  text-decoration: none;
+  font-size: x-large;
+}
+
+.user-info :nth-child(3) {
+  color: rgb(117, 32, 32);
+  font-weight: bolder;
+}
+
+.user-info span {
+  margin-bottom: 30px;
+}
+
+.mobile-menu hr {
+  border: 1px solid white;
+  margin: 20px auto;
+  width: 80%;
+}
+
+/* BOTON BURGUER */
 .home__hamburguer {
+  z-index: 10000;
   background: none;
   border: none;
   font-size: 1.5rem;
+  cursor: pointer;
+  color: white;
+  transition: transform 0.3s ease;
+}
+
+.home__hamburguer.fixed {
+  position: fixed;
+  top: 50px;
+  left: 30px;
+  transform: scale(1.8);
+}
+
+/* MENU BURGUER */
+.home__navbarBurguer {
+  position: relative;
+  font-size: x-large;
+  text-align: center;
+  width: 100%;
+  z-index: 999;
+  color: white;
+}
+
+.home__navbarBurguer ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.home__navbarBurguer li {
+  padding: 10px 0;
+}
+
+.home__navbarBurguer a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
 }
 
 .banner {
@@ -191,13 +281,6 @@ header form input {
   justify-content: center;
 }
 
-/* .slider {
-  padding-top: 1rem;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-  text-align: center;
-} */
-
 .slider {
   position: relative;
   display: flex;
@@ -206,7 +289,7 @@ header form input {
   overflow: hidden;
   margin-top: 10px;
   width: 100%;
-  height: 550px;
+  height: 150px;
 }
 
 .arrow {
@@ -215,10 +298,12 @@ header form input {
 
 .imagenes img {
   box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.85);
-  width: 95%;
+  width: 98%;
   border-radius: 15px;
   object-fit: cover;
   transition: transform 0.5s ease;
+  opacity: 1;
+  transition: opacity 0.5s ease;
 }
 
 .puntos {
@@ -386,7 +471,10 @@ footer {
   font-family: "League Spartan", sans-serif;
   font-family: "Roboto", sans-serif;
   text-align: center;
-  padding-bottom: 10%;
+  padding: 20px;
+  position: relative;
+  width: 100%;
+  bottom: 0;
 }
 
 ul {
@@ -407,9 +495,13 @@ ul {
 .promotion {
   background-color: red;
   width: 100%;
-  height: 100%;
+  height: 100px;
   text-align: center;
-  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.1rem;
+  margin-top: -10px;
   color: white;
 }
 
@@ -435,12 +527,12 @@ a:hover {
   color: white;
 }
 
-a>i {
-  color: black
+a > i {
+  color: black;
 }
 
-a>i:hover {
-  color: white
+a > i:hover {
+  color: white;
 }
 
 /*tablet*/
@@ -516,6 +608,9 @@ a>i:hover {
   footer {
     padding-bottom: 5%;
   }
+  .slider {
+    height: 280px;
+  }
 }
 
 /*desktop*/
@@ -544,7 +639,7 @@ a>i:hover {
 
   .dropdown-content {
     position: absolute;
-    top: 85px;
+    top: 80px;
   }
 
   .cart {
@@ -583,10 +678,18 @@ a>i:hover {
 
   .logo {
     padding: 0;
-    width: 40%;
+    width: 20%;
   }
 
   footer {
     padding-bottom: 5%;
+  }
+
+  .slider {
+    height: 550px;
+  }
+
+  .imagenes img {
+    width: 95%;
   }
 }

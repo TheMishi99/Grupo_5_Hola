@@ -49,7 +49,8 @@ form.create-form select{
     font-size: medium;
 }
 
-form.create-form p.err {
+form.create-form p.err,
+form.create-form div.err{
     color: crimson;
     margin: 5px 0px 0px;
 }

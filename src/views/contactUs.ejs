@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include("partials/head") %>
+        <title>Contáctanos</title>
+        <script src="https://kit.fontawesome.com/6d37a11b52.js" crossorigin="anonymous"></script>
+        <!--Hoja de Estilo para Stores-->
+        <link href="../css/contact-us-style.css" rel="stylesheet" />
+</head>
+
+<body>
+    <%- include("./partials/header") %>
+        <main>
+            <div class="big-container-1">
+                <h1>Contáctanos</h1>
+                <div class="big-container-1">
+                        <form class="contact-form" action="/contactUs" method="POST">
+                            <h4>Nombre</h4>
+                          <div class="input-nombre">
+                            <input type="text" name="nombre" id="nombre" placeholder="Nombre" required autocomplete="off"/>
+                          </div>
+                          <h4>Correo electrónico</h4>
+                          <div class="input-email">
+                            <input type="email" name="email" id="email" placeholder="Email" required autocomplete="off"/>
+                        </div>
+                        <h4>Teléfono</h4>
+                        <div class="input-phone">
+                            <input type="number" name="phone" id="phone" placeholder="Teléfono" required autocomplete="off"/>
+                        </div>
+                        <h4>Comentarios</h4>
+                        <div class="input-comment">
+                            <textarea type="text" name="comment" id="comment" placeholder="Comentarios" required autocomplete="off"></textarea>
+                        </div>
+                        <div class="container-send-button">
+                          <button onclick="mostrarVentana()" class="send-button">Enviar</button>
+                          </div>
+                        </form>
+                      </div>
+                </div>
+        </main>
+        <%- include("./partials/footer") %>
+        <script src="/js/contactUs.js"></script>
+</body>
+
+</html>

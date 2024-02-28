@@ -33,19 +33,34 @@
           <div class="campos">
             <label for="img">Imágen:</label>
             <p class="err" id="img-err"></p>
-            <input type="file" name="img" id="img" required />
+            <input type="file" name="img" id="img"/>              
+            <% if(locals.errors && errors.img){%>
+              <div class="err"><%= errors.img.msg %></div>
+            <%}%>
             <br />
             <label for="name">Nombre:</label>
             <p class="err" id="name-err"></p>
-            <input type="text" name="name" id="name" required />
+            <input type="text" name="name" id="name" 
+            value="<%= locals.old && old.name ? old.name : "" %>" />
+            <% if(locals.errors && errors.name){%>
+              <div class="err"><%= errors.name.msg %></div>
+            <%}%>
             <br />
             <label for="code">Código de Barra:</label>
             <p class="err" id="code-err"></p>
-            <input type="text" name="code" id="code" required />
+            <input type="text" name="code" id="code" 
+            value="<%= locals.old && old.code ? old.code : "" %>" />
+            <% if(locals.errors && errors.code){%>
+              <div class="err"><%= errors.code.msg %></div>
+            <%}%>
             <br />
             <label for="stock">Stock:</label>
             <p class="err" id="stock-err"></p>
-            <input type="number" name="stock" id="stock" required />
+            <input type="number" name="stock" id="stock"
+            value="<%= locals.old && old.stock ? old.stock : "" %>" />
+            <% if(locals.errors && errors.stock){%>
+              <div class="err"><%= errors.stock.msg %></div>
+            <%}%>
             <br />
             <label class="description" for="description">Descripción:</label>
             <br />
@@ -55,7 +70,10 @@
               id="description"
               rows="4"
               required
-            ></textarea>
+            ><%= locals.old && old.description ? old.description : "" %></textarea>
+            <% if(locals.errors && errors.description){%>
+              <div class="err"><%= errors.description.msg %></div>
+            <%}%>
             <br />
             <label for="elaborationDate">Fecha de Elaboración:</label>
             <p class="err" id="elaborationDate-err"></p>
@@ -64,7 +82,10 @@
               name="elaborationDate"
               id="elaborationDate"
               required
-            />
+              value="<%= locals.old && old.elaborationDate ? old.elaborationDate : "" %>" />
+              <% if(locals.errors && errors.elaborationDate){%>
+                <div class="err"><%= errors.elaborationDate.msg %></div>
+              <%}%>
             <br />
             <label for="expirationDate">Fecha de Expiración:</label>
             <p class="err" id="expirationDate-err"></p>
@@ -72,12 +93,18 @@
               type="datetime-local"
               name="expirationDate"
               id="expirationDate"
-              required
-            />
+              value="<%= locals.old && old.expirationDate ? old.expirationDate : "" %>" />
+              <% if(locals.errors && errors.elaborationDate){%>
+                <div class="err"><%= errors.elaborationDate.msg %></div>
+              <%}%>
             <br />
             <label for="price">Precio:</label>
             <p class="err" id="price-err"></p>
-            <input type="number" name="price" id="price" required />
+            <input type="number" name="price" id="price" 
+            value="<%= locals.old && old.price ? old.price : "" %>" />
+            <% if(locals.errors && errors.price){%>
+              <div class="err"><%= errors.price.msg %></div>
+            <%}%>
             <br />
             <label for="category_id">Categoría:</label>
             <select name="category_id" id="" required>

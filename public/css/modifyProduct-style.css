@@ -70,7 +70,8 @@ div.modify_camp select {
     border-radius: 5px;
 }
 
-form.edit_product div.modify_camp p.err {
+form.edit_product div.modify_camp p.err,
+form.edit_product div.modify_camp div.err {
     color: rgb(226, 0, 0);
     margin: 5px 0px 0px;
 }

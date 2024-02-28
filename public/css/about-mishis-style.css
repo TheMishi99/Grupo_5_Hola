@@ -1,0 +1,54 @@
+.big-container-1{
+    padding: 3% 10% 2%;
+    background-color: aliceblue;
+}
+
+.big-container-2{
+    padding: 3% 10%;
+    background-color: rgb(235, 187, 156);
+}
+
+.container-img-services img{
+    width: 150px;
+    align-self: center;
+    padding: 10px;
+    border-radius: 50%;
+    background-color: #d97652;
+}
+
+.description-service{
+    text-align: center;
+    margin-top: 15px;
+}
+
+.each-service {
+    width: 45%;
+    padding: 0% 2%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.services{
+    display: flex;
+    padding: 5%;
+}
+
+h1 {
+    color: #d97652;
+    text-align: center;
+}
+
+.box-des-img{
+    display: flex;
+    align-items: center;
+    padding: 3% 5%;
+}
+
+.container-img img{
+    width: 400px;
+    align-self: center;
+    border-radius: 12%;
+    margin-left: 60px;
+}
+

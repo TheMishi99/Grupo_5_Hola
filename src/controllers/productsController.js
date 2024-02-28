@@ -1,5 +1,6 @@
-const { readFileSync } = require("fs");
-const { join } = require("path");
+const path = require("path");
+const { validationResult } = require("express-validator");
+const fs = require("fs");
 
 /* IMPLEMENTANDO BASE DE DATOS */
 const db = require("../database/models");
@@ -9,13 +10,81 @@ const { Op, where } = require("sequelize");
 
 const productsController = {
   list: async (req, res) => {
-    const list = await db.Productos.findAll({
-      include: ["discount", "brand"],
-    });
-    res.render("./products/allProducts", {
-      list,
-      userLogged: req.session.isLogged,
-    });
+    let currentPage = parseInt(req.query.page) || 1;
+    const perPage = 10;
+    const offset = (currentPage - 1) * perPage;
+
+    try {
+      const totalProducts = await db.Productos.count();
+      const totalPages = Math.ceil(totalProducts / perPage);
+
+      if (currentPage < 1) {
+        currentPage = 1;
+      } else if (currentPage > totalPages) {
+        currentPage = totalPages;
+      }
+
+      const list = await db.Productos.findAll({
+        include: ["discount", "brand"],
+        limit: perPage,
+        offset: offset,
+      });
+
+      res.render("./products/allProducts", {
+        list,
+        userLogged: req.session.isLogged,
+        currentPage: currentPage,
+        totalPages: totalPages,
+      });
+    } catch (error) {
+      console.error("Error:", error);
+      res.status(500).send("Error interno del servidor");
+    }
+  },
+  listOffers: async (req, res) => {
+    let currentPage = parseInt(req.query.page) || 1;
+    const perPage = 10;
+    const offset = (currentPage - 1) * perPage;
+
+    try {
+      const totalOffers = await db.Productos.count({
+        include: ["discount"],
+        where: {
+          "$discount.description$": {
+            [Op.ne]: "Sin descuento",
+          },
+        },
+      });
+
+      const totalPages = Math.ceil(totalOffers / perPage);
+
+      if (currentPage < 1) {
+        currentPage = 1;
+      } else if (currentPage > totalPages) {
+        currentPage = totalPages;
+      }
+
+      const listOffers = await db.Productos.findAll({
+        include: ["discount", "brand"],
+        where: {
+          "$discount.description$": {
+            [Op.ne]: "Sin descuento",
+          },
+        },
+        limit: perPage,
+        offset: offset,
+      });
+
+      res.render("./products/allOffers", {
+        listOffers,
+        userLogged: req.session.isLogged,
+        currentPage: currentPage,
+        totalPages: totalPages,
+      });
+    } catch (error) {
+      console.error("Error:", error);
+      res.status(500).send("Error interno del servidor");
+    }
   },
   search: async (req, res) => {
     try {
@@ -31,7 +100,7 @@ const productsController = {
         });
       }
     } catch (error) {
-      console.log(error);
+      res.status(500).json({ error: error.msg });
     }
   },
   createView: async (req, res) => {
@@ -47,32 +116,53 @@ const productsController = {
   },
   create: async (req, res) => {
     try {
-      const {
-        code,
-        name,
-        stock,
-        description,
-        elaborationDate,
-        expirationDate,
-        price,
-        category_id,
-        discount_id,
-        brand_id,
-      } = req.body;
-      await db.Productos.create({
-        img: req.file.filename,
-        name: name,
-        code: code ? code : "N/C",
-        stock: stock,
-        description: description,
-        elaborationDate: elaborationDate,
-        expirationDate: expirationDate,
-        price: parseFloat(price),
-        category_id: category_id,
-        discount_id: discount_id,
-        brand_id: brand_id,
-      });
-      res.redirect("/products");
+      const brands = await db.Marcas.findAll();
+      const discounts = await db.Descuentos.findAll();
+      const categories = await db.Categorias.findAll();
+      const resultValidation = validationResult(req);
+      if (resultValidation.errors.length > 0) {
+        let fileDelete = path.resolve(
+          __dirname,
+          "../../public/img",
+          req.file.filename
+        );
+        fs.unlinkSync(fileDelete);
+        res.render("./products/createProduct", {
+          errors: resultValidation.mapped(),
+          old: req.body,
+          userLogged: req.session.isLogged,
+          brands,
+          discounts,
+          categories,
+        });
+      } else {
+        const {
+          code,
+          name,
+          stock,
+          description,
+          elaborationDate,
+          expirationDate,
+          price,
+          category_id,
+          discount_id,
+          brand_id,
+        } = req.body;
+        await db.Productos.create({
+          img: req.file.filename,
+          name: name,
+          code: code ? code : "N/C",
+          stock: stock,
+          description: description,
+          elaborationDate: elaborationDate,
+          expirationDate: expirationDate,
+          price: parseFloat(price),
+          category_id: category_id,
+          discount_id: discount_id,
+          brand_id: brand_id,
+        });
+        res.redirect("/products");
+      }
     } catch (error) {
       res.send(error);
     }
@@ -111,40 +201,73 @@ const productsController = {
   },
   modify: async (req, res) => {
     try {
-      const id = req.params.id;
-      const {
-        code,
-        name,
-        stock,
-        description,
-        elaborationDate,
-        expirationDate,
-        price,
-        category_id,
-        discount_id,
-        brand_id,
-      } = req.body;
-      const product = await db.Productos.findByPk(req.params.id);
-      const img = req.file ? req.file.filename : product.img;
-      await db.Productos.update(
-        {
-          img: img,
-          name: name,
-          code: code ? code : "N/C",
-          stock: stock,
-          description: description,
-          elaborationDate: elaborationDate,
-          expirationDate: expirationDate,
-          price: parseFloat(price),
-          category_id: category_id,
-          discount_id: discount_id,
-          brand_id: brand_id,
-        },
-        {
-          where: { id: id },
+      const product = await db.Productos.findByPk(req.params.id, {
+        include: ["discount", "brand"],
+      });
+      const brands = await db.Marcas.findAll();
+      const discounts = await db.Descuentos.findAll();
+      const categories = await db.Categorias.findAll();
+      const resultValidation = validationResult(req);
+      if (resultValidation.errors.length > 0) {
+        let fileDelete = path.resolve(
+          __dirname,
+          "../../public/img",
+          req.file.filename
+        );
+        fs.unlinkSync(fileDelete);
+        res.render("./products/modifyProduct", {
+          product: product,
+          errors: resultValidation.mapped(),
+          old: req.body,
+          userLogged: req.session.isLogged,
+          brands,
+          discounts,
+          categories,
+        });
+      } else {
+        const id = req.params.id;
+        const {
+          code,
+          name,
+          stock,
+          description,
+          elaborationDate,
+          expirationDate,
+          price,
+          category_id,
+          discount_id,
+          brand_id,
+        } = req.body;
+        const product = await db.Productos.findByPk(req.params.id);
+        const img = req.file ? req.file.filename : product.img;
+        if (req.file) {
+          let fileDelete = path.resolve(
+            __dirname,
+            "../../public/img",
+            product.img
+          );
+          fs.unlinkSync(fileDelete);
         }
-      );
-      res.redirect("/products/" + id);
+        await db.Productos.update(
+          {
+            img: img,
+            name: name,
+            code: code ? code : "N/C",
+            stock: stock,
+            description: description,
+            elaborationDate: elaborationDate,
+            expirationDate: expirationDate,
+            price: parseFloat(price),
+            category_id: category_id,
+            discount_id: discount_id,
+            brand_id: brand_id,
+          },
+          {
+            where: { id: id },
+          }
+        );
+        res.redirect("/products/" + id);
+      }
     } catch (error) {
       res.send(error);
     }
@@ -283,7 +406,6 @@ const productsController = {
     }
   },
   decreaseQuantity: async (req, res) => {
-    console.log(req.session.userLogged);
     try {
       if (req.session.isLogged) {
         const idProducto = req.params.id;
