@@ -26,11 +26,58 @@
     </div>
     <div class="input-pick-up">
       <div class="map-container">
-        <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1z7oMpmkWRTBGNk6qCuGv5j4O5FYED8A&ehbc=2E312F" width="640" height="480"></iframe>
+        <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1z7oMpmkWRTBGNk6qCuGv5j4O5FYED8A&ehbc=2E312F"></iframe>
       </div>
       <div class="inputAS-container">
         <label for="inputAS" class="inputAS">Dirección de Sucursal</label>
-        <input type="text" class="inputAS" id="inputAS">
+        <br>
+        <select class="options-stores">
+          <option>
+            <p>Av. Belgrano Nte. 79, G4200 HUG, Santiago del Estero</p>
+          </option>
+          <option>
+            <p>Av. Belgrano Nte. 139, G4200 HUK, Santiago del Estero</p>
+          </option>
+          <option>
+            <p>Independencia 28, G4204 Santiago del Estero</p>
+          </option>
+          <option>
+            <p>Las Heras 64, La Banda, Santiago del Estero</p>
+          </option>
+          <option>
+            <p>Avellaneda 70, La Banda, Santiago del Estero</p>
+          </option>
+          <option>
+            <p>España 227, La Banda, Santiago del Estero</p>
+          </option>
+          <option>
+            <p>Coronel Rivas 125, La Banda, Santiago del Estero</p>
+          </option>
+          <option>
+            <p>Av. Rivadavia 4200, G4200LYD Santiago del Estero</p>
+          </option>
+          <option>
+            <p>Av. Belgrano 576, La Banda, Santiago del Estero</p>
+          </option>
+          <option>
+            <p>Republica del Líbano Sur 107, La Banda, Santiago del Estero</p>
+          </option>
+          <option>
+            <p>Autopista Juan D. Perón Building 46, G4300 Santiago del Estero</p>
+          </option>
+          <option>
+            <p>Av. Belgrano Sur 1770, G4300 Santiago del Estero</p>
+          </option>
+          <option>
+            <p>Av. Colón 1058, G4300 Santiago del Estero</p>
+          </option>
+          <option>
+            <p>C. Leopoldo Lugones 1398, G4300 Santiago del Estero</p>
+          </option>
+          <option>
+            <p>Necochea 793, G4202 La Banda, Santiago del Estero</p>
+          </option>
+        </select>
         <button onclick="mostrarVentana()" class="confirm-button">Confirmar</button>
       </div>
     </div>
@@ -39,11 +86,15 @@
       <section class="shipping-section">
         <div class="campos">
           <p><label for="province">Provincia</label></p>
-          <input type="text" name="province" id="province" placeholder="Santiago del Estero">
-
+          <!-- <input type="text" name="province" id="province" placeholder="Santiago del Estero"> -->
+          <select class="provinces" name="province" id="province">
+            <option value="Elige una provincia">Elige una provincia</option>
+          </select>
           <p><label for="city">Ciudad</label></p>
-          <input type="city" name="city" id="city" placeholder="La Banda">
-
+          <!-- <input type="city" name="city" id="city" placeholder="La Banda"> -->
+          <select class="provinces" name="city" id="city">
+            <option value="Elige una provincia">Elige una ciudad</option>
+          </select>
           <p><label for="cp">Codigo Postal</label></p>
           <input type="cp" name="cp" id="cp" placeholder="4300">
 

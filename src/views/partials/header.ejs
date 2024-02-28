@@ -1,6 +1,6 @@
 <header>
   <div class="container-logo-cart-user">
-    <button class="home__hamburguer">
+    <button class="home__hamburguer" id="menuButton">
       <i class="fa-solid fa-bars"></i>
     </button>
     <a href="/"><img src="/img/logo2.png" alt="logo" /></a>
@@ -46,10 +46,36 @@
 </header>
 <nav class="home__navbar">
   <ul>
-    <li><a href="/">Home</a></li>
-    <li><a href="/products">Productos</a></li>
-    <li><a href="#">Promociones</a></li>
+    <li><a href="/">Inicio</a></li>
+    <li><a href="/products">Tienda</a></li>
+    <li><a href="/products/allOffers">Promociones</a></li>
     <li><a href="/stores">Sucursales</a></li>
     <li><a href="/contactUs">Contáctanos</a></li>
   </ul>
 </nav>
+
+<!-- MENU BURGUER -->
+<div class="mobile-menu" id="mobileMenu">
+  <div class="user-info">
+    <% if (userLogged===undefined || userLogged===null || userLogged===false) { %>
+      <a href="/users/register">Registrarse</a>
+      <a href="/users/login">Iniciar Sesión</a>
+    <% } else { %>
+      <span>¡ Hola, <br> <%= userLogged.name %> !</span>
+      <a href="/users/<%= userLogged.id %>/profile">Mi Perfil</a>
+      <a href="/users/<%= userLogged.id %>/logout">Cerrar Sesión</a>
+    <% } %>
+  </div>
+  <hr>
+  <nav class="home__navbarBurguer">
+    <ul>
+      <li><a href="/">Inicio</a></li>
+      <li><a href="/products">Tienda</a></li>
+      <li><a href="/products/allOffers">Promociones</a></li>
+      <li><a href="/stores">Sucursales</a></li>
+      <li><a href="/contactUs">Contáctanos</a></li>
+    </ul>
+  </nav>
+</div>
+
+<script src="/js/header.js"></script>

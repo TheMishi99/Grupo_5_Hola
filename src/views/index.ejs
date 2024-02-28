@@ -22,9 +22,13 @@
         <img src="img/cat-banner-2.gif" width="100%" alt="gift-banner" />
       </div>
       <div class="slider">
-        <img src="img/gatos-banner.png" width="95%" alt="banner-promotion" />
+        <div id="atras" class="arrow"><img src="img/atras.svg" alt="atras" loading="lazy"></div>
+        <div class="imagenes">
+          <img id="img" src="img/banner-mishis1.png" alt="banner-promotion" loading="lazy">
+        </div>
+        <div id="adelante" class="arrow"><img src="img/adelante.svg" alt="adelante" loading="lazy"></div>
+        <div class="puntos" id="puntos"></div>      
       </div>
-
       <div class="recent-products">
         <h3>Productos más recientes</h3>
         <h4><a href="/products">Ver todos los productos ></a></h4>
@@ -70,7 +74,7 @@
 
       <div class="recent-products">
         <h3>Promociones vigentes</h3>
-        <h4>Ver todas las promociones ></h4>
+        <h4><a href="/products/allOffers">Ver todas las promociones ></a></h4>
       </div>
       <div class="container">
         <% off.forEach(product => { %>
@@ -157,6 +161,7 @@
         </div>
       </div> -->
     </main>
+    <script src="/js/index.js"></script>
     <%- include("./partials/footer") %>
     <script src="/js/index.js"></script>
   </body>
