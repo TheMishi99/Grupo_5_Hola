@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Preguntas frecuentes</title>
+        <%- include("partials/head") %>
+        <script
+          src="https://kit.fontawesome.com/b42ec8045a.js"
+          crossorigin="anonymous"
+        ></script>
+        <script
+          src="https://kit.fontawesome.com/6d37a11b52.js"
+          crossorigin="anonymous"
+        ></script>
+        <!--Hoja de Estilo para carrito de producto-->
+        <link href="../../../css/frequentQuestions-style.css" rel="stylesheet" />
+      </head>
+<body>
+  <%- include("partials/header") %>
+  <main class="fq-main">
+    <h1>Preguntas frecuentes</h1>
+    <div class="options">
+      <button class="q1">Mi pedido todavía no ha llegado</button>
+      <button class="q2">Más información sobre un producto</button>
+      <button class="q3">Como puedo devolver un artículo</button>
+      <button class="q4">Tiempo de abono</button>
+    </div>
+      <div class="question-1">
+        <h3 class="subtitle">Mi pedido todavía no ha llegado</h3>
+        <p>
+          Si tu pedido no ha llegado, puede ser por varios motivos.
+          Primero comprueba la fecha estimada de entrega y el estado del pedido en tu menú de usuario, o también la verás en el correo de confirmación de tu pedido que has recibido.
+          Si la fecha de entrega es superior al día de hoy, no te preocupes, todo va bajo lo previsto.
+        </p>
+        <br>
+        <h4>Tu pedido aún no ha salido de almacén:</h4>
+        <p>
+          Una vez tu pedido salga de nuestras instalaciones, te enviaremos un correo electrónico con un enlace para que puedas realizar el seguimiento, ¡estate atento!
+          En caso que la fecha límite de entrega haya pasado y no hayas recibido todavía tu pedido, nos vamos a poner en contacto contigo en breve, de todas formas si tienes dudas nos puedes contactar.
+        </p>
+        <br>
+        <h4> Mi pedido se encuentra en estado procesando:</h4>
+        <p>
+          Si tu pedido aparece como procesando es que se encuentra en nuestras instalaciones y está siendo preparado para el envío. El plazo de este estado puede durar entre 1-10 días dependiendo de tu compra, si los sobrepasa puede que haya alguna incidencia.
+          En este caso, te vamos a informar en cuánto antes. Revisa tu correo electrónico, seguramente ya tendrás noticias nuestras. De todas formas, si lo prefieres puedes contactarnos.
+          Una vez tu pedido salga de nuestras instalaciones, te enviaremos un correo electrónico con un enlace para que puedas realizar el seguimiento, ¡estate atento!
+        </p>
+        <br>
+        <h4> Tu pedido está en envío:</h4>
+        <p>
+          En este caso quiere decir que estás a punto de recibirlo. Revisa tu correo porque en él tendrás el código de seguimiento del transportista. Si no has recibido el correo con la información, también lo podrás encontrar en tu menú de usuario.
+          Tu pedido puede entregarse entre las 8:00 y las 20:00 de lunes a viernes (excepto días festivos).
+        </p>
+        </div>
+        <div class="question-2">
+          <h3 class="subtitle">Más información sobre un producto</h3>
+          <p>
+              Disponemos de un equipo de especialistas que introduce toda la información de cada producto en la web. El equipo además escribe diferentes opiniones que te ayudarán a escoger mejor entre un producto u otro.
+              No obstante, si hay algún tipo de información que necesites y no hemos ofrecido, nos puedes enviar la pregunta y te la responderemos en el menor tiempo posible. El tiempo de respuesta dependerá de si tenemos que hablar con nuestro proveedores o es exclusivamente una consulta de opinión de nuestro equipo de especialistas.
+          </p>
+        </div>
+        <div class="question-3">
+          <h3 class="subtitle">Como puedo devolver un artículo</h3>
+          <br>
+          <h4>¿Cuándo puedo devolver un producto?</h4>
+          <p>
+              Puedes devolver los artículos en su estado original en un plazo de 14 días tras recibirlos. 
+              El producto a devolver debe estar en las condiciones originales del fabricante, es decir, en la misma caja de origen, bien precintada, y dentro de otra caja o bolsa, para que el transporte no enganche etiquetas en el producto.
+              Cualquier anomalía o desperfecto en la paquetería o el producto, podría dar lugar a la anulación de la devolución del importe.
+              Excepción: no se aceptan devoluciones de medicamentos o productos antiparasitarios en ningún caso, salvo que por error nuestro se envíe un producto equivocado, en cuyo caso recogeremos y enviaremos el producto correcto.
+          </p>
+          <br>
+          <h4>Como trámito la devolución</h4>
+          <p>
+              Empaqueta todos los productos de forma segura para que no sufrán daños.
+              Imprime, rellena e introduce en el interior del paquete la hoja de devoluciones. 
+              Para realizar el envío acude a la agencia de transportes que prefieras e indícale el nombre y dirección del remitente de nuestras instalaciones logísticas:
+            </p>
+              <br>
+              <p>
+              Mishis SL
+              Avda. Mentira, 135
+              La Banda, Santiago del Estero.
+            </p>
+              <br>
+              <p>
+              Sobretodo recuerda introducir la hoja de devoluciones  para que sepamos los datos de tu pedido.
+            </p>
+          </div>
+        <div class="question-4">
+          <h3 class="subtitle">Mi pedido todavía no ha llegado</h3>
+          <p>
+              El plazo para recibir la devolución del importe pendiente es de 14 días máximo desde el momento de la cancelación/modificiación.
+              Si se trata de una devolución debes tener en cuenta que primero nuestro almacén confirme que el producto devuelto está en las condiciones en las que fue recibido por el cliente. (consultar apartado devoluciones)
+          </p>
+        </div>
+  </main>
+  <%- include("partials/footer") %>
+  <script src="/js/frequentQuestions.js"></script>
+</body>
+</html>
