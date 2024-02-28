@@ -318,6 +318,7 @@ main {
   font-family: "League Spartan", sans-serif;
   font-family: "Roboto", sans-serif;
   background-color: #f2f2f2;
+  /* padding-bottom: 5%; */
 }
 
 main .slider {
@@ -343,6 +344,38 @@ main .slider {
 
 .brands img {
   width: 100%;
+}
+
+.carousel-container {
+  margin: 0 auto;
+  position: relative;
+  padding: 0% 5%;
+}
+
+.carousel-slide {
+  display: flex;
+  overflow: hidden;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.carousel-slide img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.button-container {
+  text-align: center;
+}
+
+#prevBtn,
+#nextBtn {
+  background: #333;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
 }
 
 /*
