@@ -7,7 +7,7 @@ var cookieParser = require("cookie-parser");
 const methodOverride = require("method-override");
 
 /* SESSION */
-const session = require("express-session")
+const session = require("express-session");
 
 /* IMPORTACIONES DE RUTAS */
 const mainRoutes = require("./routes/main");
@@ -19,7 +19,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser());
 app.use(methodOverride("_method"));
-app.use(session({secret: "secreto_mishi"}))
+app.use(session({ secret: "secreto_mishi" }));
 app.use(express.static(path.join(__dirname, "../public")));
 
 /* EJS Seteado */
@@ -43,5 +43,11 @@ app.use("/users", usersRoutes);
 
 /* MANEJO DE ERROR POR URL */
 app.use((req, res, next) => {
-  res.status(404).render("./error/error", { userLogged: req.session.isLogged });
+  res
+    .status(404)
+    .render("./error/error", {
+      userLogged: req.session.isLogged,
+      status: 404,
+      message: "¡Miau! Página no encontrada",
+    });
 });
