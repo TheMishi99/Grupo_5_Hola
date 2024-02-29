@@ -14,7 +14,7 @@
 <body>
   <%- include("../partials/header") %>
   <main class="register-main">
-    <form class="register-form" action="/users/register" method="POST" enctype="multipart/form-data">
+    <form class="register-form" action="/users/register" method="POST" enctype="multipart/form-data" novalidate>
       <section class="register-title-form">
         <h1 class="tit-links">Crear cuenta</h1>
         <a>Comprá más rápido y llevá el control de tus pedidos, ¡en un solo
@@ -29,6 +29,7 @@
                 <div class="text-error"><%= errors.name.msg %></div>
               <%}%>
               <span id="name-error" class="text-error"></span>
+              <span id="nameLength-error" class="text-error"></span>
 
           <p><label for="email">Correo electrónico</label></p>
           <input type="email" name="email" id="email" placeholder="juan@email.com"
@@ -77,15 +78,16 @@
                 <div class="text-error"><%= errors.address.msg %></div>
               <%}%>  
               <span id="address-error" class="text-error"></span>
-
-          <p><label for="profilePicture">Imagen de perfil</label></p>
-          <input type="file" name="profilePicture" id="profilePicture" 
+              
+              <p><label for="profilePicture">Imagen de perfil</label></p>
+              <input type="file" name="profilePicture" id="profilePicture" 
               value="<%= locals.old && old.profilePicture ? old.profilePicture : "" %>"/>
               <% if(locals.errors && errors.profilePicture){%>
                 <div class="text-error"><%= errors.profilePicture.msg %></div>
-              <%}%>
-        </div>
-        <div class="checkbox">
+                <%}%>
+                <span id="profilePicture-error" class="text-error"></span>
+              </div>
+              <div class="checkbox">
           <div>
             <input type="checkbox" name="termycond" id="termycond" value="aceptaTérminosyCondiciones"
             value="<%= locals.old && old.termycond ? old.termycond : "" %>"/>

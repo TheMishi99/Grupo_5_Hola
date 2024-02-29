@@ -4,6 +4,9 @@
   box-sizing: border-box;
   font-family: "League Spartan", sans-serif;
   font-family: "Roboto", sans-serif;
+  scrollbar-color: #d97652 rgb(220, 235, 241);
+  scrollbar-width: auto;
+  scrollbar-arrow-color: #d97652;
 }
 
 /*
@@ -62,7 +65,8 @@ header form input {
   padding: 4px;
   font-size: 1.5rem;
 }
-.cart:hover{
+
+.cart:hover {
   transition: all 0.3s;
   transform: scale(1.1);
 }
@@ -107,7 +111,7 @@ header form input {
   border-radius: 10px;
 }
 
-.login{
+.login {
   display: flex;
   align-items: center;
   padding: 1%;
@@ -162,20 +166,112 @@ header form input {
   padding: 5px;
   border-radius: 10px;
 }
+
 .home__navbar ul li a:hover {
   transition: all 0.5s;
   color: #f2f2f2;
   background-color: rgba(217, 119, 84, 0.7);
 }
+
 .home__navbar ul li a:active {
   color: #f2f2f2;
   background-color: rgba(217, 119, 84, 1);
 }
 
+/* ESTILOS PARA LA BURGUER */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(217, 118, 82, 0.9);
+  z-index: 9999;
+  overflow-y: auto;
+  padding-top: 50px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.mobile-menu.show {
+  display: block;
+  opacity: 1;
+}
+
+.user-info {
+  text-align: center;
+  padding: 20px;
+  color: white;
+  transition: margin 0.3s ease, font-size 0.3s ease;
+}
+
+.user-info a,
+.user-info span {
+  display: block;
+  margin-top: 20px;
+  color: white;
+  text-decoration: none;
+  font-size: x-large;
+}
+
+.user-info :nth-child(3) {
+  color: rgb(117, 32, 32);
+  font-weight: bolder;
+}
+
+.user-info span {
+  margin-bottom: 30px;
+}
+
+.mobile-menu hr {
+  border: 1px solid white;
+  margin: 20px auto;
+  width: 80%;
+}
+
+/* BOTON BURGUER */
 .home__hamburguer {
+  z-index: 10000;
   background: none;
   border: none;
   font-size: 1.5rem;
+  cursor: pointer;
+  color: white;
+  transition: transform 0.3s ease;
+}
+
+.home__hamburguer.fixed {
+  position: fixed;
+  top: 50px;
+  left: 30px;
+  transform: scale(1.8);
+}
+
+/* MENU BURGUER */
+.home__navbarBurguer {
+  position: relative;
+  font-size: x-large;
+  text-align: center;
+  width: 100%;
+  z-index: 999;
+  color: white;
+}
+
+.home__navbarBurguer ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.home__navbarBurguer li {
+  padding: 10px 0;
+}
+
+.home__navbarBurguer a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
 }
 
 .banner {
@@ -186,10 +282,51 @@ header form input {
 }
 
 .slider {
-  padding-top: 1rem;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-  text-align: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+  margin-top: 10px;
+  width: 100%;
+  height: 150px;
+}
+
+.arrow {
+  cursor: pointer;
+}
+
+.imagenes img {
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.85);
+  width: 98%;
+  border-radius: 15px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+.puntos {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  z-index: 1;
+}
+
+.puntos p {
+  position: relative;
+  bottom: 0;
+  font-size: 52px;
+  font-weight: 500;
+  margin: 0 5px;
+  color: rgb(255, 255, 255);
+}
+
+.puntos .bold {
+  font-weight: 700;
 }
 
 h4 {
@@ -201,7 +338,16 @@ h4 {
 }
 
 .products-img {
+  aspect-ratio: 1/1.5;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.products-img img {
+  max-width: 200px;
+  object-fit: contain;
 }
 
 .promotion {
@@ -257,11 +403,17 @@ main {
   font-family: "League Spartan", sans-serif;
   font-family: "Roboto", sans-serif;
   background-color: #f2f2f2;
+  /* padding-bottom: 5%; */
+}
+
+main .slider {
+  text-align: center;
 }
 
 .container {
   margin-top: 1rem;
 }
+
 .container-brands {
   display: flex;
   align-items: center;
@@ -269,13 +421,48 @@ main {
   width: 100%;
   margin-top: 1rem;
 }
+
 .brands {
   width: 25%;
   padding: 2%;
 }
+
 .brands img {
   width: 100%;
 }
+
+.carousel-container {
+  margin: 0 auto;
+  position: relative;
+  padding: 0% 5%;
+}
+
+.carousel-slide {
+  display: flex;
+  overflow: hidden;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.carousel-slide img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.button-container {
+  text-align: center;
+}
+
+#prevBtn,
+#nextBtn {
+  background: #333;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}
+
 /*
   Footer (para todas las paginas?)
 */
@@ -284,11 +471,15 @@ footer {
   font-family: "League Spartan", sans-serif;
   font-family: "Roboto", sans-serif;
   text-align: center;
-  padding-bottom: 10%;
+  padding: 20px;
+  position: relative;
+  width: 100%;
+  bottom: 0;
 }
 
 ul {
-  list-style-type: none; /* Elimina los puntos de la lista */
+  /* Elimina los puntos de la lista */
+  list-style-type: none;
 }
 
 .links {
@@ -304,9 +495,13 @@ ul {
 .promotion {
   background-color: red;
   width: 100%;
-  height: 100%;
+  height: 100px;
   text-align: center;
-  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.1rem;
+  margin-top: -10px;
   color: white;
 }
 
@@ -318,6 +513,26 @@ ul {
 
 .list {
   display: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:visited {
+  color: inherit;
+}
+
+a:hover {
+  color: white;
+}
+
+a > i {
+  color: black;
+}
+
+a > i:hover {
+  color: white;
 }
 
 /*tablet*/
@@ -358,11 +573,12 @@ ul {
     width: 50%;
     margin: 0;
   }
+
   div.search-bar input {
     text-decoration: none;
     font-size: 1em;
   }
-  
+
   .container {
     display: flex;
     flex-wrap: wrap;
@@ -392,16 +608,38 @@ ul {
   footer {
     padding-bottom: 5%;
   }
+  .slider {
+    height: 280px;
+  }
 }
 
 /*desktop*/
 @media (min-width: 992px) {
+  .dropdown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   .login {
-    width: 14%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    margin: 0;
+    padding: 5px;
+    gap: 10px;
+    max-width: 350px;
   }
 
   .login span {
     font-size: large;
+  }
+
+  .dropdown-content {
+    position: absolute;
+    top: 80px;
   }
 
   .cart {
@@ -440,10 +678,18 @@ ul {
 
   .logo {
     padding: 0;
-    width: 40%;
+    width: 20%;
   }
 
   footer {
     padding-bottom: 5%;
+  }
+
+  .slider {
+    height: 550px;
+  }
+
+  .imagenes img {
+    width: 95%;
   }
 }

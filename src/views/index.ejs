@@ -22,9 +22,13 @@
         <img src="img/cat-banner-2.gif" width="100%" alt="gift-banner" />
       </div>
       <div class="slider">
-        <img src="img/gatos-banner.png" width="95%" alt="banner-promotion" />
+        <div id="atras" class="arrow"><img src="img/atras.svg" alt="atras" loading="lazy"></div>
+        <div class="imagenes">
+          <img id="img" src="img/banner-mishis1.png" alt="banner-promotion" loading="lazy">
+        </div>
+        <div id="adelante" class="arrow"><img src="img/adelante.svg" alt="adelante" loading="lazy"></div>
+        <div class="puntos" id="puntos"></div>      
       </div>
-
       <div class="recent-products">
         <h3>Productos más recientes</h3>
         <h4><a href="/products">Ver todos los productos ></a></h4>
@@ -70,7 +74,7 @@
 
       <div class="recent-products">
         <h3>Promociones vigentes</h3>
-        <h4>Ver todas las promociones ></h4>
+        <h4><a href="/products/allOffers">Ver todas las promociones ></a></h4>
       </div>
       <div class="container">
         <% off.forEach(product => { %>
@@ -116,11 +120,25 @@
         <% }) %>
       </div>
 
-      <div class="recent-products">
+      <div class="recent-products" id="marcas">
         <h3>Nuestras marcas</h3>
         <h4>Ver todas las marcas ></h4>
       </div>
-      <div class="container-brands">
+      <div class="carousel-container">
+        <div class="carousel-slide">
+          <img src="../img/banner-brands.png" alt="Imagen 1">
+          <img src="../img/1.png" alt="Imagen 2">
+          <img src="../img/2.png" alt="Imagen 3">
+          <img src="../img/3.png" alt="Imagen 4">
+          <img src="../img/4.png" alt="Imagen 5">
+          <img src="../img/5.png" alt="Imagen 6">  
+        </div>
+        <div class="button-container">
+        <button id="prevBtn" onclick="moveSlide(-1)">Anterior</button>
+        <button id="nextBtn" onclick="moveSlide(1)">Siguiente</button>
+      </div>
+    </div> 
+      <!-- <div class="container-brands">
         <div class="brands">
           <a href="https://www.purina.com.ar/purina-one"
             ><img src="/img/logo-purina.png" alt=" "
@@ -141,8 +159,10 @@
             ><img src="/img/logo-catpro.png" alt=" "
           /></a>
         </div>
-      </div>
+      </div> -->
     </main>
+    <script src="/js/index.js"></script>
     <%- include("./partials/footer") %>
+    <script src="/js/index.js"></script>
   </body>
 </html>

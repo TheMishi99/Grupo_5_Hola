@@ -1,3 +1,21 @@
+.stores-main{
+    color: white;
+    background-color: rgba(255, 255, 255, 0.8);
+    background-position: center;
+    background-size: contain;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    font-size: 1.17em;
+}
+.main-container{
+    background-image: url(/img/fondo-sucursales.jpg);
+}
+.section {
+    border-bottom: 1px solid black; 
+    padding-bottom: 10px; 
+}
 .column {
     flex: 0 0 40%;
 }
@@ -37,18 +55,71 @@ style attribute {
 }
 
 .row{
-    display:flex;
+    /* display:flex; */
     align-items: center;
     margin: auto;
     justify-content: center;
     padding: 0% 2% 5% 2%;
+    width:100%;
+    height: 50%;
 }
 
 .description{
     text-align: center;
-    padding: 5% 2%;
+    padding: 2% 2%;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 25px;
+    margin-bottom: 20px;
 }
 
 .list-stores{
     height: 300px;
+}
+
+.map-container{
+    align-items: center;
+    justify-content: center;
+
+}
+
+.list-stores{
+    background-color: #D97652;
+}
+
+h4,h2,p{
+    color:black
+}
+.map-container iframe{
+    width:100%;
+    height: 350px;
+}
+/* tablet */
+@media (min-width: 576px) {
+    .map-container iframe{
+        width:100%;
+        height: 550px;
+    }
+}
+  
+/* desktop  */
+@media (min-width: 992px) {
+    .map-container{
+        align-items: center;
+        justify-content: center;
+        padding-left: 4%;
+    }
+    .row{
+        display:flex;
+        align-items: center;
+        margin: auto;
+        justify-content: center;
+        padding: 0% 2% 5% 2%;
+        width:100%;
+        height: 50%;
+    }
+    .map-container iframe{
+        width:650px;
+        height: 550px;
+    }
 }

@@ -14,60 +14,106 @@
           crossorigin="anonymous"
         ></script>
         <!--Hoja de Estilo para carrito de producto-->
-        <link href="../css/checkout.css" rel="stylesheet" />
+        <link href="../../../css/checkout-style.css" rel="stylesheet" />
       </head>
 <body>
   <%- include("../partials/header") %>
-  <main class="delivery-main">
-    <form class="row g-3">
-      <section class="delivery-title-form">
-        <h1 class="tit-links"></h1>
-        <a>DETALLES DE ENVIO</a>
-      </section>
-      <div class="col-md-6">
-        <label for="inputEmail4" class="form-label">Email</label>
-        <input type="email" class="form-control" id="inputEmail4">
+  <main class="shipping-main">
+    <h2 class="title">Finalizar la Compra</h2>
+    <div class="options">
+      <button class="shipping">Enviar</button>
+      <button class="pick-up">Retirar</button>
+    </div>
+    <div class="input-pick-up">
+      <div class="map-container">
+        <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1z7oMpmkWRTBGNk6qCuGv5j4O5FYED8A&ehbc=2E312F"></iframe>
       </div>
-      <div class="col-md-6">
-        <label for="inputPassword4" class="form-label">Password</label>
-        <input type="password" class="form-control" id="inputPassword4">
-      </div>
-      <div class="col-12">
-        <label for="inputAddress" class="form-label">Address</label>
-        <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-      </div>
-      <div class="col-12">
-        <label for="inputAddress2" class="form-label">Address 2</label>
-        <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-      </div>
-      <div class="col-md-6">
-        <label for="inputCity" class="form-label">City</label>
-        <input type="text" class="form-control" id="inputCity">
-      </div>
-      <div class="col-md-4">
-        <label for="inputState" class="form-label">State</label>
-        <select id="inputState" class="form-select">
-          <option selected>Choose...</option>
-          <option>...</option>
+      <div class="inputAS-container">
+        <label for="inputAS" class="inputAS">Dirección de Sucursal</label>
+        <br>
+        <select class="options-stores">
+          <option>
+            <p>Av. Belgrano Nte. 79, G4200 HUG, Santiago del Estero</p>
+          </option>
+          <option>
+            <p>Av. Belgrano Nte. 139, G4200 HUK, Santiago del Estero</p>
+          </option>
+          <option>
+            <p>Independencia 28, G4204 Santiago del Estero</p>
+          </option>
+          <option>
+            <p>Las Heras 64, La Banda, Santiago del Estero</p>
+          </option>
+          <option>
+            <p>Avellaneda 70, La Banda, Santiago del Estero</p>
+          </option>
+          <option>
+            <p>España 227, La Banda, Santiago del Estero</p>
+          </option>
+          <option>
+            <p>Coronel Rivas 125, La Banda, Santiago del Estero</p>
+          </option>
+          <option>
+            <p>Av. Rivadavia 4200, G4200LYD Santiago del Estero</p>
+          </option>
+          <option>
+            <p>Av. Belgrano 576, La Banda, Santiago del Estero</p>
+          </option>
+          <option>
+            <p>Republica del Líbano Sur 107, La Banda, Santiago del Estero</p>
+          </option>
+          <option>
+            <p>Autopista Juan D. Perón Building 46, G4300 Santiago del Estero</p>
+          </option>
+          <option>
+            <p>Av. Belgrano Sur 1770, G4300 Santiago del Estero</p>
+          </option>
+          <option>
+            <p>Av. Colón 1058, G4300 Santiago del Estero</p>
+          </option>
+          <option>
+            <p>C. Leopoldo Lugones 1398, G4300 Santiago del Estero</p>
+          </option>
+          <option>
+            <p>Necochea 793, G4202 La Banda, Santiago del Estero</p>
+          </option>
         </select>
+        <button onclick="mostrarVentana()" class="confirm-button">Confirmar</button>
       </div>
-      <div class="col-md-2">
-        <label for="inputZip" class="form-label">Zip</label>
-        <input type="text" class="form-control" id="inputZip">
-      </div>
-      <div class="col-12">
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="gridCheck">
-          <label class="form-check-label" for="gridCheck">
-            Check me out
-          </label>
-        </div>
-      </div>
-      <div class="col-12">
-        <button type="submit" class="btn btn-primary">Sign in</button>
-      </div>
+    </div>
+    <img class="catGif" src="/img/shippingCat3.gif" width="10%">
+    <form class="shipping-form">
+      <section class="shipping-section">
+        <div class="campos">
+          <p><label for="province">Provincia</label></p>
+          <!-- <input type="text" name="province" id="province" placeholder="Santiago del Estero"> -->
+          <select class="provinces" name="province" id="province">
+            <option value="Elige una provincia">Elige una provincia</option>
+          </select>
+          <p><label for="city">Ciudad</label></p>
+          <!-- <input type="city" name="city" id="city" placeholder="La Banda"> -->
+          <select class="provinces" name="city" id="city">
+            <option value="Elige una provincia">Elige una ciudad</option>
+          </select>
+          <p><label for="cp">Codigo Postal</label></p>
+          <input type="cp" name="cp" id="cp" placeholder="4300">
+
+          <p><label for="town">Barrio</label></p>
+          <input type="town" name="town" id="town" placeholder="Centro">
+
+          <p><label for="adress">Dirección</label></p>
+          <input type="adress" name="adress" id="adress" placeholder="Belgrano 1700">
     </form>
+    <br>
+    <p>*Nuestro equipo se comunicará vía Whatsapp 
+      <br>para coordinar el envio a la dirección proporcionada
+    </p>
+    <br>
+    <div class="confirm-container">
+      <button onclick="mostrarVentana()" class="confirm-button">Confirmar</button>
+    </div>
   </main>
   <%- include("../partials/footer") %>
+  <script src="/js/products/checkout.js"></script>
 </body>
 </html>

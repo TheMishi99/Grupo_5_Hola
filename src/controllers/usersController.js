@@ -1,7 +1,7 @@
-const { readFileSync } = require("fs");
-const { join } = require("path");
 const { validationResult } = require("express-validator");
 const bcryptjs = require("bcryptjs");
+const fs = require('fs'); 
+const path = require("path");
 
 /* YA NO SE USARA */
 // const userModel = require("../models/user-model");
@@ -17,6 +17,8 @@ const usersController = {
   createRegister: async (req, res) => {
     const resultValidation = validationResult(req);
     if (resultValidation.errors.length > 0) {
+      let fileDelete = path.resolve(__dirname, "../../public/img/Users", req.file.filename)
+      fs.unlinkSync(fileDelete)
       res.render("./users/register", {
         errors: resultValidation.mapped(),
         old: req.body,
@@ -46,22 +48,6 @@ const usersController = {
         authLevel: 2,
         active: 1
       })
-      // const nuevoRegistro = {
-      //   id: userModel.generateId(),
-      //   name: name,
-      //   email: email,
-      //   password: bcryptjs.hashSync(password, 10),
-      //   confirmPassword: bcryptjs.hashSync(confirmpassword, 10),
-      //   phoneNumber: phonenumber,
-      //   profilePicture: req.file.filename,
-      //   termycond: termycond,
-      //   politicPriv: politicPriv,
-      // };
-      // const registrosActuales = JSON.parse(
-      //   readFileSync(join(__dirname, "../data", "usersDataBase.json"), "utf-8")
-      // );
-      // registrosActuales.push(nuevoRegistro);
-      // userModel.save(registrosActuales);
       res.redirect("./login");
     }
   },
@@ -178,11 +164,12 @@ const usersController = {
         name,
         phonenumber
       } = req.body;
-      db.Usuarios.update(
+      let user = await db.Usuarios.findByPk(req.params.id)
+      await db.Usuarios.update(
         {
           name: name,
           phoneNumber: phonenumber,
-          profilePicture: req.file.filename
+          profilePicture: req.file ? req.file.filename : user.profilePicture
         },
         {
           where: {
