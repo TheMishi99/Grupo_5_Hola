@@ -29,6 +29,9 @@ router.post("/cart/addOne/:id", productsController.increaseQuantity);
 router.delete("/cart/removeOne/:id", productsController.decreaseQuantity);
 router.get("/cart/checkout", productsController.checkout);
 
+/*BUSCAR PRODUCTO*/
+router.get("/search", productsController.search);
+
 /* OBTENER DETALLES DEL PRODUCTO POR ID */
 router.get("/:id", productsController.detail);
 
@@ -40,7 +43,5 @@ router.put("/:id", userLogged, adminVerify, upload.single("img"), modifyPValidat
 router.get("/delete/:id", userLogged, adminVerify, productsController.delete);
 router.delete("/:id", userLogged, adminVerify, productsController.destroy);
 
-/*BUSCAR PRODUCTO*/
-router.get("/search", productsController.search);
 
 module.exports = router;
