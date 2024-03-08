@@ -35,6 +35,7 @@ const productsController = {
         userLogged: req.session.isLogged,
         currentPage: currentPage,
         totalPages: totalPages,
+        term: null,
       });
     } catch (error) {
       console.error("Error:", error);
@@ -88,19 +89,22 @@ const productsController = {
   },
   search: async (req, res) => {
     let currentPage = parseInt(req.query.page) || 1;
-    const perPage = 6;
+    const perPage = 10;
     const offset = (currentPage - 1) * perPage;
 
     try {
-      const searchProducts = await db.Productos.findAll({
+      /* 
+        findAndCountAll es un findAll combinado a un Count
+        Desestructuro para solo obtener la cantidad de resultados y
+        no ocupar memoria con los productos aun sin paginar
+      */
+      const { count } = await db.Productos.findAndCountAll({
         where: {
-          name: { [Op.like]: "%" + req.body.searchProduct + "%" },
+          name: { [Op.like]: "%" + req.query.term + "%" },
         },
-        limit: perPage,
-        offset: offset,
       });
 
-      const totalPages = Math.ceil(searchProducts.length / perPage);
+      const totalPages = Math.ceil(count / perPage);
 
       if (currentPage < 1) {
         currentPage = 1;
@@ -108,20 +112,28 @@ const productsController = {
         currentPage = totalPages;
       }
 
-      console.log(searchProducts.length);
-      
+      const searchProducts = await db.Productos.findAll({
+        where: {
+          name: { [Op.like]: "%" + req.query.term + "%" },
+        },
+        limit: perPage,
+        offset: offset,
+      });
+
       if (searchProducts.length != null) {
         res.render("./products/allProducts", {
           list: searchProducts,
           userLogged: req.session.isLogged,
           currentPage: currentPage,
           totalPages: totalPages,
+          term: req.query.term,
         });
       }
     } catch (error) {
       res.status(500).json({ error: error.msg });
     }
   },
+
   createView: async (req, res) => {
     const brands = await db.Marcas.findAll();
     const discounts = await db.Descuentos.findAll();

@@ -41,6 +41,6 @@ router.get("/delete/:id", userLogged, adminVerify, productsController.delete);
 router.delete("/:id", userLogged, adminVerify, productsController.destroy);
 
 /*BUSCAR PRODUCTO*/
-router.post("/search", productsController.search);
+router.get("/search", productsController.search);
 
 module.exports = router;
