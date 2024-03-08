@@ -87,16 +87,35 @@ const productsController = {
     }
   },
   search: async (req, res) => {
+    let currentPage = parseInt(req.query.page) || 1;
+    const perPage = 6;
+    const offset = (currentPage - 1) * perPage;
+
     try {
       const searchProducts = await db.Productos.findAll({
         where: {
           name: { [Op.like]: "%" + req.body.searchProduct + "%" },
         },
+        limit: perPage,
+        offset: offset,
       });
+
+      const totalPages = Math.ceil(searchProducts.length / perPage);
+
+      if (currentPage < 1) {
+        currentPage = 1;
+      } else if (currentPage > totalPages) {
+        currentPage = totalPages;
+      }
+
+      console.log(searchProducts.length);
+      
       if (searchProducts.length != null) {
         res.render("./products/allProducts", {
           list: searchProducts,
           userLogged: req.session.isLogged,
+          currentPage: currentPage,
+          totalPages: totalPages,
         });
       }
     } catch (error) {

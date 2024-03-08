@@ -69,7 +69,7 @@
         </article>
         <% }) %>
       </section>
-      <% if (totalPages > 1) { %>
+      <% if (totalPages >= 1) { %>
         <div class="pagination">
           <% if (currentPage > 1) { %>
             <a href="?page=<%= currentPage - 1 %>">Anterior</a>

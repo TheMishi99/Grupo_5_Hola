@@ -434,7 +434,7 @@ main .slider {
 .carousel-container {
   margin: 0 auto;
   position: relative;
-  padding: 0% 5%;
+  padding: 0% 5% 5% 5%;
 }
 
 .carousel-slide {
@@ -442,6 +442,7 @@ main .slider {
   overflow: hidden;
   max-width: 1000px;
   margin: auto;
+  margin-bottom: 15px;
 }
 
 .carousel-slide img {
