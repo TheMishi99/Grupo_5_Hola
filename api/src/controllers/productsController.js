@@ -93,12 +93,7 @@ const productsController = {
     const offset = (currentPage - 1) * perPage;
 
     try {
-      /* 
-        findAndCountAll es un findAll combinado a un Count
-        Desestructuro para solo obtener la cantidad de resultados y
-        no ocupar memoria con los productos aun sin paginar
-      */
-      const { count } = await db.Productos.findAndCountAll({
+      const count = await db.Productos.count({
         where: {
           name: { [Op.like]: "%" + req.query.term + "%" },
         },

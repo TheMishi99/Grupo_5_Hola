@@ -11,6 +11,7 @@ const session = require("express-session");
 
 /* IMPORTACIONES DE RUTAS */
 const mainRoutes = require("./routes/main");
+const productsAPIRoutes = require("./routes/api/productsAPI");
 const productsRoutes = require("./routes/products");
 const usersRoutes = require("./routes/users");
 
@@ -37,17 +38,16 @@ app.listen(PORT, () => {
 });
 
 /* IMPLEMENTACIÓN DE LAS RUTAS */
-app.use("/", mainRoutes);
+app.use("/api/products", productsAPIRoutes);
 app.use("/products", productsRoutes);
 app.use("/users", usersRoutes);
+app.use("/", mainRoutes);
 
 /* MANEJO DE ERROR POR URL */
 app.use((req, res, next) => {
-  res
-    .status(404)
-    .render("./error/error", {
-      userLogged: req.session.isLogged,
-      status: 404,
-      message: "¡Miau! Página no encontrada",
-    });
+  res.status(404).render("./error/error", {
+    userLogged: req.session.isLogged,
+    status: 404,
+    message: "¡Miau! Página no encontrada",
+  });
 });
