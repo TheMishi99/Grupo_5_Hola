@@ -32,7 +32,7 @@ const controller = {
       name,
       email,
       province,
-      profilePicture: `localhost:5000/img/Users/${profilePicture}`,
+      profilePicture: `http://localhost:5000/img/Users/${profilePicture}`,
     };
     return res.send(response);
   },
