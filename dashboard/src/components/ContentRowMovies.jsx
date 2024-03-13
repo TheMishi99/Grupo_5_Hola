@@ -1,5 +1,10 @@
-import React from "react";
+import React, { useEffect,useState } from "react";
 import SmallCard from "./SmallCard";
+
+
+function ContentRowMovies() {
+  const [productsCount,setProductsCount] = useState(0);
+  const [productsCategoryCount, setProductsCategoryCount] = useState({});
 
 /*  Cada set de datos es un objeto literal */
 
@@ -12,27 +17,44 @@ let moviesInDB = {
   icon: "fa-clipboard-list",
 };
 
-/* <!-- Total awards --> */
+/* <!-- Total Productos --> */
 
-let totalAwards = {
-  title: " Total awards",
+let totalProducts = {
+  title: "Total Products",
   color: "success",
-  cuantity: "79",
+  cuantity: productsCount,
   icon: "fa-award",
 };
 
-/* <!-- Actors quantity --> */
-
-let actorsQuantity = {
-  title: "Actors quantity",
+/* <!-- Categories quantity --> */
+let categoriesQuantity = {
+  title: "Categories quantity",
   color: "warning",
-  cuantity: "49",
+  cuantity: Object.keys(productsCategoryCount).length,
   icon: "fa-user-check",
 };
 
-let cartProps = [moviesInDB, totalAwards, actorsQuantity];
+let cartProps = [moviesInDB, totalProducts,categoriesQuantity];
 
-function ContentRowMovies() {
+  const getProducts = async () => {
+    try {
+      const response = await fetch(
+        `http://localhost:5000/api/products`
+      );
+      const data = await response.json();
+      // console.log(data);
+      setProductsCount(data.count)
+      // console.log(data.countByCategory)
+      setProductsCategoryCount(data.countByCategory)
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    getProducts();
+  },[])
+
   return (
     <div className="row">
       {cartProps.map((movie, i) => {

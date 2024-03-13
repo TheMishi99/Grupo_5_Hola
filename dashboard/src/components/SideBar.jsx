@@ -27,7 +27,7 @@ function SideBar() {
         <li className="nav-item active">
           <Link className="nav-link" to="/">
             <i className="fas fa-fw fa-tachometer-alt"></i>
-            <span>Dashboard - DH movies</span>
+            <span>Dashboard - Mishis</span>
           </Link>
         </li>
 
@@ -41,7 +41,7 @@ function SideBar() {
         <li className="nav-item">
           <Link className="nav-link" to="/GenresInDb">
             <i className="fas fa-fw fa-folder"></i>
-            <span>Genres In Db</span>
+            <span>Categories In Db</span>
           </Link>
         </li>
 
@@ -57,7 +57,7 @@ function SideBar() {
         <li className="nav-item nav-link">
           <Link className="nav-link" to="/ContentRowMovies">
             <i className="fas fa-fw fa-table"></i>
-            <span>Content Row Movies</span>
+            <span>Content Row Products</span>
           </Link>
         </li>
 
