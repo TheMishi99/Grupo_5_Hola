@@ -12,6 +12,7 @@ const session = require("express-session");
 /* IMPORTACIONES DE RUTAS */
 const mainRoutes = require("./routes/main");
 const productsAPIRoutes = require("./routes/api/productsAPI");
+const usersAPIRoutes = require("./routes/api/usersAPI");
 const productsRoutes = require("./routes/products");
 const usersRoutes = require("./routes/users");
 
@@ -39,6 +40,7 @@ app.listen(PORT, () => {
 
 /* IMPLEMENTACIÓN DE LAS RUTAS */
 app.use("/api/products", productsAPIRoutes);
+app.use("/api/users", usersAPIRoutes);
 app.use("/products", productsRoutes);
 app.use("/users", usersRoutes);
 app.use("/", mainRoutes);
