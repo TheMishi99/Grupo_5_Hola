@@ -3,17 +3,18 @@ import SmallCard from "./SmallCard";
 
 
 function ContentRowMovies() {
+  const [usersCount,setUsersCount] = useState(0);
   const [productsCount,setProductsCount] = useState(0);
   const [productsCategoryCount, setProductsCategoryCount] = useState({});
 
 /*  Cada set de datos es un objeto literal */
 
-/* <!-- Movies in DB --> */
+/* <!-- Total Users --> */
 
-let moviesInDB = {
-  title: "Movies in Data Base",
+let totalUsers = {
+  title: "Total Users",
   color: "primary",
-  cuantity: 21,
+  cuantity: usersCount,
   icon: "fa-clipboard-list",
 };
 
@@ -34,7 +35,7 @@ let categoriesQuantity = {
   icon: "fa-user-check",
 };
 
-let cartProps = [moviesInDB, totalProducts,categoriesQuantity];
+let cartProps = [totalUsers, totalProducts,categoriesQuantity];
 
   const getProducts = async () => {
     try {
@@ -51,9 +52,23 @@ let cartProps = [moviesInDB, totalProducts,categoriesQuantity];
     }
   };
 
+  const getUsers = async () => {
+    try {
+      const response = await fetch(
+        `http://localhost:5000/api/users`
+      );
+      const data = await response.json();
+      setUsersCount(data.count)
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
   useEffect(() => {
     getProducts();
+    getUsers()
   },[])
+
 
   return (
     <div className="row">
