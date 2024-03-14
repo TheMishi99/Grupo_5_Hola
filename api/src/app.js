@@ -3,6 +3,8 @@ const app = express();
 const path = require("path");
 const PORT = 5000;
 var cookieParser = require("cookie-parser");
+const cors = require('cors');
+
 /* PARA APLICAR MODIFICACION DE METODOS */
 const methodOverride = require("method-override");
 
@@ -22,6 +24,8 @@ app.use(cookieParser());
 app.use(methodOverride("_method"));
 app.use(session({ secret: "secreto_mishi" }));
 app.use(express.static(path.join(__dirname, "../public")));
+
+app.use(cors(["localhost:5000"]));
 
 /* EJS Seteado */
 app.set("views", path.join(__dirname, "views"));
