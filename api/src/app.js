@@ -1,7 +1,6 @@
 const express = require("express");
 const app = express();
 const path = require("path");
-const cors = require("cors");
 const PORT = 5000;
 var cookieParser = require("cookie-parser");
 const cors = require('cors');
