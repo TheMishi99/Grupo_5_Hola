@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 
 function Products() {
-  //Estado para almacenar los productos y la busqueda
+  //Estado para almacenar los productos, busqueda y paginado
   const [products, setProducts] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
+  const [currentPage, setCurrentPage] = useState(1);
+  const [productsPerPage] = useState(7);
 
   // Función para obtener productos de la API
   const getProducts = async () => {
@@ -24,6 +26,7 @@ function Products() {
   // Función para manejar el cambio en el input de búsqueda
   const searchChange = (e) => {
     setSearchTerm(e.target.value);
+    setCurrentPage(1); 
   };
 
   // Filtrar los productos basados en el término de búsqueda
@@ -35,12 +38,25 @@ function Products() {
     product.relations.brands[0].name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
+   //Lógica para el paginado
+    const lastProductIndex = currentPage * productsPerPage;
+    const firstProductIndex = lastProductIndex - productsPerPage;
+    const currentProducts = filteredProducts.slice(firstProductIndex, lastProductIndex);
+    const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
+
+    const nextPage = () => {
+      setCurrentPage(currentPage + 1);
+    };
+  
+    const prevPage = () => {
+      setCurrentPage(currentPage - 1);
+    };
+
   //Renderizar los productos
   return (
     <div>
       <div className="container mt-5">
         <h2>Product List</h2>
-        {/* Input de Búsqueda */}
         <input
           type="text"
           className="form-control mb-4"
@@ -48,7 +64,6 @@ function Products() {
           value={searchTerm}
           onChange={searchChange}
         />
-        {/* Listado de Productos */}
         <table className="table table-striped table-bordered table-responsive">
           <thead className='table-dark'>
             <tr>
@@ -62,7 +77,7 @@ function Products() {
             </tr>
           </thead>
           <tbody className='table-bordered'>
-            {filteredProducts.map((product) => (
+            {currentProducts.map((product) => (
               <tr key={product.id}>
                 <td>{product.id}</td>
                 <td>{product.name}</td>
@@ -75,7 +90,14 @@ function Products() {
             ))}
           </tbody>
         </table>
-        <div style={{ marginBottom: '2em' }}></div>
+        <div className="pagination" style={{ marginBottom: '2em' }}>
+          {currentPage > 1 && (
+            <button onClick={prevPage}> Anterior </button>
+          )}
+          {currentPage < totalPages && (
+            <button onClick={nextPage}> Siguiente </button>
+          )}
+        </div>
       </div>
     </div>
   );
