@@ -1,13 +1,33 @@
-import React from "react";
-import imagenFondo from "../assets/images/mandalorian.jpg";
+import React, { useEffect,useState } from "react";
 
-function LastMovieInDb() {
+function LastUserInDb() {
+  const [lastUser,setLastUser] = useState({});
+  const getLastUser = async () => {
+    try {
+      const response = await fetch(
+        `http://localhost:5000/api/users`
+      );
+      const data = await response.json();
+      const response2 = await fetch(
+        `http://localhost:5000/api/users/${data.users[data.users.length-1].id}`
+      );
+      const data2 = await response2.json();
+      setLastUser(data2)
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  useEffect(() => {
+    getLastUser();
+  },[])
+
   return (
     <div className="col-lg-6 mb-4">
       <div className="card shadow mb-4">
         <div className="card-header py-3">
           <h5 className="m-0 font-weight-bold text-gray-800">
-            Last movie in Data Base
+            Last Product in Data Base
           </h5>
         </div>
         <div className="card-body">
@@ -15,25 +35,23 @@ function LastMovieInDb() {
             <img
               className="img-fluid px-3 px-sm-4 mt-3 mb-4"
               style={{ width: 40 + "rem" }}
-              src={imagenFondo}
-              alt=" Star Wars - Mandalorian "
+              src={lastUser.profilePicture}
+              alt={"Foto de"+lastUser.name}
             />
           </div>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores,
-            consequatur explicabo officia inventore libero veritatis iure
-            voluptate reiciendis a magnam, vitae, aperiam voluptatum non
-            corporis quae dolorem culpa citationem ratione aperiam voluptatum
-            non corporis ratione aperiam voluptatum quae dolorem culpa ratione
-            aperiam voluptatum?
+            {lastUser.name}
           </p>
-          <a className="btn btn-danger" target="_blank" rel="nofollow" href="/">
-            View movie detail
-          </a>
+          <p>
+           {lastUser.email}
+          </p>
+          <p>
+            {lastUser.province}
+          </p>
         </div>
       </div>
     </div>
   );
 }
 
-export default LastMovieInDb;
+export default LastUserInDb;
