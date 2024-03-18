@@ -31,6 +31,9 @@
     --danger: #e74a3b;
     --light: #f8f9fc;
     --dark: #5a5c69;
+    --orangeMishis:#D97652;
+    --orangeMishis2:#F28C0F;
+    --darkMishis:#151918;
     --breakpoint-xs: 0;
     --breakpoint-sm: 576px;
     --breakpoint-md: 768px;
@@ -10442,7 +10445,7 @@ button.bg-dark:hover {
 }
 
 .text-primary {
-    color: #4e73df !important
+    color: var(--orangeMishis) !important
 }
 
 a.text-primary:focus,
@@ -10460,7 +10463,7 @@ a.text-secondary:hover {
 }
 
 .text-success {
-    color: #1cc88a !important
+    color: var(--orangeMishis) !important
 }
 
 a.text-success:focus,
@@ -10478,7 +10481,7 @@ a.text-info:hover {
 }
 
 .text-warning {
-    color: #f6c23e !important
+    color: var(--orangeMishis)!important
 }
 
 a.text-warning:focus,
@@ -10786,8 +10789,8 @@ a:focus {
 }
 
 .bg-gradient-secondary {
-    background-color: #858796;
-    background-image: linear-gradient(180deg, #858796 10%, #60616f 100%);
+    background-color: var(--orangeMishis);
+    background-image: linear-gradient(180deg, var(--orangeMishis) 10%, var(--orangeMishis2) 100%);
     background-size: cover
 }
 
@@ -10921,7 +10924,7 @@ a:focus {
 }
 
 .border-left-primary {
-    border-left: .25rem solid #4e73df !important
+    border-left: .25rem solid var(--orangeMishis2) !important
 }
 
 .border-bottom-primary {
@@ -10937,7 +10940,7 @@ a:focus {
 }
 
 .border-left-success {
-    border-left: .25rem solid #1cc88a !important
+    border-left: .25rem solid var(--orangeMishis2) !important
 }
 
 .border-bottom-success {
@@ -10953,7 +10956,7 @@ a:focus {
 }
 
 .border-left-warning {
-    border-left: .25rem solid #f6c23e !important
+    border-left: .25rem solid var(--orangeMishis2) !important
 }
 
 .border-bottom-warning {
@@ -11550,43 +11553,43 @@ a:focus {
 }
 
 .sidebar-dark hr.sidebar-divider {
-    border-top: 1px solid rgba(255, 255, 255, .15)
+    border-top: 1px solid rgba(21, 25, 24, .15)
 }
 
 .sidebar-dark .sidebar-heading {
-    color: rgba(255, 255, 255, .4)
+    color: rgba(21, 25, 24, .9)
 }
 
 .sidebar-dark .nav-item .nav-link {
-    color: rgba(255, 255, 255, .8)
+    color: rgba(21, 25, 24, .9)
 }
 
 .sidebar-dark .nav-item .nav-link i {
-    color: rgba(255, 255, 255, .3)
+    color: rgba(21, 25, 24, .5)
 }
 
 .sidebar-dark .nav-item .nav-link:active,
 .sidebar-dark .nav-item .nav-link:focus,
 .sidebar-dark .nav-item .nav-link:hover {
-    color: #fff
+    color: var(--darkMishis)
 }
 
 .sidebar-dark .nav-item .nav-link:active i,
 .sidebar-dark .nav-item .nav-link:focus i,
 .sidebar-dark .nav-item .nav-link:hover i {
-    color: #fff
+    color: var(--darkMishis)
 }
 
 .sidebar-dark .nav-item .nav-link[data-toggle=collapse]::after {
-    color: rgba(255, 255, 255, .5)
+    color: rgba(21, 25, 24, .5)
 }
 
 .sidebar-dark .nav-item.active .nav-link {
-    color: #fff
+    color: var(--darkMishis)
 }
 
 .sidebar-dark .nav-item.active .nav-link i {
-    color: #fff
+    color: var(--darkMishis)
 }
 
 .sidebar-dark #sidebarToggle {
