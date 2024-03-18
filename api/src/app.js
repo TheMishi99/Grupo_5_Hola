@@ -21,14 +21,13 @@ const usersRoutes = require("./routes/users");
 
 /* PARA PETICIONES */
 app.use(express.urlencoded({ extended: true }));
-app.use(cors())
 app.use(express.json());
 app.use(cookieParser());
 app.use(methodOverride("_method"));
 app.use(session({ secret: "secreto_mishi" }));
 app.use(express.static(path.join(__dirname, "../public")));
 
-// app.use(cors(["localhost:5000"]));
+app.use(cors(["localhost:5000","localhost:5173"]));
 
 /* EJS Seteado */
 app.set("views", path.join(__dirname, "views"));

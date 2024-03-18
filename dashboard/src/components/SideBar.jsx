@@ -49,7 +49,7 @@ function SideBar() {
         <li className="nav-item">
           <Link className="nav-link" to="/LastMovieInDb">
             <i className="fas fa-fw fa-chart-area"></i>
-            <span>Last Movie In Db</span>
+            <span>Last User In Db</span>
           </Link>
         </li>
 
