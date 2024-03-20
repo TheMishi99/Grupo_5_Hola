@@ -1,13 +1,12 @@
 import React from "react";
 import SideBar from "./SideBar";
 import ContentWrapper from "./ContentWrapper";
-import GenresInDb from "./GenresInDb";
-import LastMovieInDb from "./LastMovieInDb";
-import ContentRowMovies from "./ContentRowMovies";
+import CategoriesInDb from "./CategoriesInDb";
+import LastUserInDb from "./LastUserInDb";
+import ContentRowProducts from "./ContentRowProducts";
 import NotFound from "./NotFound";
 import { Route, Routes } from "react-router-dom";
-import SearchMovies from "./SearchMovies";
-import Products from "./ProductsInDb"
+import ProductsInDb from "./ProductsInDb"
 
 function App() {
   return (
@@ -17,18 +16,18 @@ function App() {
         {/*<!-- End Microdesafio 2 -->*/}
         <Routes>
           <Route path="/" element={<ContentWrapper />} />
-          <Route path="/GenresInDb" element={<GenresInDb />} />
-          <Route path="/LastMovieInDb" element={<LastMovieInDb />} />
-          <Route path="/SearchMovies" element={<SearchMovies />} />
-          <Route path="/Products" element={<Products />} />
+          <Route path="/CategoriesInDb" element={<CategoriesInDb />} />
+          <Route path="/LastUserInDb" element={<LastUserInDb />} />
+          <Route path="/ProductsInDb" element={<ProductsInDb />} />
           <Route
-            path="/ContentRowMovies"
+            path="/ContentRowProducts"
             element={
               <div className="container-fluid">
-                <ContentRowMovies />
+                <ContentRowProducts />
               </div>
             }
           />
+          <Route path="*" element={<NotFound/>}/>
         </Routes>
       </div>
     </React.Fragment>

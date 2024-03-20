@@ -39,7 +39,7 @@ function SideBar() {
 
         {/*<!-- Nav Item - Pages -->*/}
         <li className="nav-item">
-          <Link className="nav-link" to="/GenresInDb">
+          <Link className="nav-link" to="/CategoriesInDb">
             <i className="fas fa-fw fa-folder"></i>
             <span>Categories In Db</span>
           </Link>
@@ -47,7 +47,7 @@ function SideBar() {
 
         {/*<!-- Nav Item - Charts -->*/}
         <li className="nav-item">
-          <Link className="nav-link" to="/LastMovieInDb">
+          <Link className="nav-link" to="/LastUserInDb">
             <i className="fas fa-fw fa-chart-area"></i>
             <span>Last User In Db</span>
           </Link>
@@ -55,29 +55,20 @@ function SideBar() {
 
         {/*<!-- Nav Item - Tables -->*/}
         <li className="nav-item nav-link">
-          <Link className="nav-link" to="/ContentRowMovies">
+          <Link className="nav-link" to="/ContentRowProducts">
             <i className="fas fa-fw fa-table"></i>
             <span>Content Row Products</span>
           </Link>
         </li>
 
-        {/*<!-- Nav Item - Search -->*/}
-        <li className="nav-item nav-link">
-          <Link className="nav-link" to="/SearchMovies">
-            <i className="fas fa-fw fa-table"></i>
-            <span>Search Movies</span>
-          </Link>
-        </li>
-
         {/*<!-- Nav Item - Products -->*/}
         <li className="nav-item nav-link">
-          <Link className="nav-link" to="/Products">
+          <Link className="nav-link" to="/ProductsInDb">
             <i className="fas fa-fw fa-table"></i>
-            <span>All Products</span>
+            <span>Products In Db</span>
           </Link>
         </li>
         
-
         {/*<!-- Divider -->*/}
         <hr className="sidebar-divider d-none d-md-block" />
       </ul>

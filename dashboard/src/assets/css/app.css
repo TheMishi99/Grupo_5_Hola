@@ -9,6 +9,16 @@
  * Copyright 2011-2019 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
+
+
+ /*ESTILO PARA NOT FOUND*/
+ .containerNotFound{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+ /*ESTILO PARA EL RESTO DEL DASHBOARD*/
 :root {
     --blue: #4e73df;
     --indigo: #6610f2;

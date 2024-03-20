@@ -3,7 +3,7 @@ const app = express();
 const path = require("path");
 const PORT = 5000;
 var cookieParser = require("cookie-parser");
-// const cors = require('cors');
+const cors = require('cors');
 
 /* PARA APLICAR MODIFICACION DE METODOS */
 const methodOverride = require("method-override");

@@ -45,9 +45,14 @@ header form {
   padding: 1.5%;
 }
 
-header form button {
+header form .button-search{
   border: none;
   background: none;
+  color:#d97652;
+  cursor: pointer;
+}
+header form .button-search i {
+  font-size: 1.3em;
 }
 
 header form input {
@@ -56,6 +61,7 @@ header form input {
   border: none;
   outline: none;
   text-decoration: underline;
+  font-size: 0.8em;
 }
 
 .cart {

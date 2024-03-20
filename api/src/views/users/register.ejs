@@ -91,7 +91,7 @@
           <div>
             <input type="checkbox" name="termycond" id="termycond" value="aceptaTérminosyCondiciones"
             value="<%= locals.old && old.termycond ? old.termycond : "" %>"/>
-            <a>Acepto los </a><a class="tit-links" href="#">Términos y Condiciones</a>
+            <a>Acepto los </a><a class="tit-links" href="/terms">Términos y Condiciones</a>
               <% if(locals.errors && errors.termycond){%>
                 <div class="text-error"><%= errors.termycond.msg %></div>
               <%}%>
@@ -99,7 +99,7 @@
           <div>
             <input type="checkbox" name="politicPriv" id="politicPriv" value="aceptaPolíticasDePrivacidad" 
             value="<%= locals.old && old.politicPriv ? old.politicPriv : "" %>"/>
-            <a>Acepto las </a><a class="tit-links" href="#">Políticas de Privacidad</a>
+            <a>Acepto las </a><a class="tit-links" href="/privacyPolicies">Políticas de Privacidad</a>
               <% if(locals.errors && errors.politicPriv){%>
                 <div class="text-error"><%= errors.politicPriv.msg %></div>
               <%}%>

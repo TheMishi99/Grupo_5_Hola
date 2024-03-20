@@ -2,7 +2,7 @@ import React, { useEffect,useState } from "react";
 import SmallCard from "./SmallCard";
 
 
-function ContentRowMovies() {
+function ContentRowProducts() {
   const [usersCount,setUsersCount] = useState(0);
   const [productsCount,setProductsCount] = useState(0);
   const [productsCategoryCount, setProductsCategoryCount] = useState({});
@@ -15,7 +15,7 @@ let totalUsers = {
   title: "Total Users",
   color: "primary",
   cuantity: usersCount,
-  icon: "fa-clipboard-list",
+  icon:"fa-thin fa-users",
 };
 
 /* <!-- Total Productos --> */
@@ -24,7 +24,7 @@ let totalProducts = {
   title: "Total Products",
   color: "success",
   cuantity: productsCount,
-  icon: "fa-award",
+  icon:"fa-thin fa-truck-ramp-box",
 };
 
 /* <!-- Categories quantity --> */
@@ -32,7 +32,7 @@ let categoriesQuantity = {
   title: "Categories quantity",
   color: "warning",
   cuantity: Object.keys(productsCategoryCount).length,
-  icon: "fa-user-check",
+  icon: "fa-clipboard-list",
 };
 
 let cartProps = [totalUsers, totalProducts,categoriesQuantity];
@@ -71,7 +71,7 @@ let cartProps = [totalUsers, totalProducts,categoriesQuantity];
 
 
   return (
-    <div className="row">
+    <div className="row" style={{ marginTop: '1em' }}>
       {cartProps.map((movie, i) => {
         return <SmallCard {...movie} key={i} />;
       })}
@@ -79,4 +79,4 @@ let cartProps = [totalUsers, totalProducts,categoriesQuantity];
   );
 }
 
-export default ContentRowMovies;
+export default ContentRowProducts;
