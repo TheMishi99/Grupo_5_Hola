@@ -13,7 +13,6 @@ function App() {
     <React.Fragment>
       <div id="wrapper">
         <SideBar />
-        {/*<!-- End Microdesafio 2 -->*/}
         <Routes>
           <Route path="/" element={<ContentWrapper />} />
           <Route path="/CategoriesInDb" element={<CategoriesInDb />} />

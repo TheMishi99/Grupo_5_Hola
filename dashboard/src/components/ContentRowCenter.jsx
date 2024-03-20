@@ -5,11 +5,11 @@ import CategoriesInDb from "./CategoriesInDb";
 function ContentRowCenter() {
   return (
     <div className="row">
-      {/*<!-- Last Movie in DB -->*/}
+      {/*<!-- Last User in DB -->*/}
       <LastUserInDb />
-      {/*<!-- End content row last movie in Data Base -->*/}
+      {/*<!-- End content row last User in Data Base -->*/}
 
-      {/*<!-- Genres in DB -->*/}
+      {/*<!-- Categories in DB -->*/}
       <CategoriesInDb />
     </div>
   );

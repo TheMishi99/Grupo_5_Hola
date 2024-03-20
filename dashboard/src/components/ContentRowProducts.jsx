@@ -72,8 +72,8 @@ let cartProps = [totalUsers, totalProducts,categoriesQuantity];
 
   return (
     <div className="row" style={{ marginTop: '1em' }}>
-      {cartProps.map((movie, i) => {
-        return <SmallCard {...movie} key={i} />;
+      {cartProps.map((data, i) => {
+        return <SmallCard {...data} key={i} />;
       })}
     </div>
   );

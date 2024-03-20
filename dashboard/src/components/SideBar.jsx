@@ -37,7 +37,7 @@ function SideBar() {
         {/*<!-- Heading -->*/}
         <div className="sidebar-heading">Actions</div>
 
-        {/*<!-- Nav Item - Pages -->*/}
+        {/*<!-- Nav Item - Categories In Db -->*/}
         <li className="nav-item">
           <Link className="nav-link" to="/CategoriesInDb">
             <i className="fas fa-fw fa-folder"></i>
@@ -45,7 +45,7 @@ function SideBar() {
           </Link>
         </li>
 
-        {/*<!-- Nav Item - Charts -->*/}
+        {/*<!-- Nav Item - Last User In Db -->*/}
         <li className="nav-item">
           <Link className="nav-link" to="/LastUserInDb">
             <i className="fas fa-fw fa-chart-area"></i>
@@ -53,7 +53,7 @@ function SideBar() {
           </Link>
         </li>
 
-        {/*<!-- Nav Item - Tables -->*/}
+        {/*<!-- Nav Item - Content Row Products -->*/}
         <li className="nav-item nav-link">
           <Link className="nav-link" to="/ContentRowProducts">
             <i className="fas fa-fw fa-table"></i>
@@ -61,7 +61,7 @@ function SideBar() {
           </Link>
         </li>
 
-        {/*<!-- Nav Item - Products -->*/}
+        {/*<!-- Nav Item - Products In Db -->*/}
         <li className="nav-item nav-link">
           <Link className="nav-link" to="/ProductsInDb">
             <i className="fas fa-fw fa-table"></i>
