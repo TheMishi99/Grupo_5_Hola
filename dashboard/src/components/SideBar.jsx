@@ -57,7 +57,7 @@ function SideBar() {
         <li className="nav-item nav-link">
           <Link className="nav-link" to="/ContentRowProducts">
             <i className="fas fa-fw fa-table"></i>
-            <span>Content Row Products</span>
+            <span>Content Row</span>
           </Link>
         </li>
 

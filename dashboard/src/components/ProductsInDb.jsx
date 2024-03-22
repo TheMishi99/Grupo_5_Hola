@@ -24,8 +24,9 @@ function Products() {
   }, []);
 
   // Función para manejar el cambio en el input de búsqueda
-  const searchChange = (e) => {
-    setSearchTerm(e.target.value);
+  const searchChange = e => {
+    e.preventDefault();
+    setSearchTerm(e.target.search.value);
     setCurrentPage(1); 
   };
 
@@ -57,13 +58,21 @@ function Products() {
     <div>
       <div className="container mt-5">
         <h2>Product List</h2>
-        <input
-          type="text"
-          className="form-control mb-4"
-          placeholder="Buscar productos..."
-          value={searchTerm}
-          onChange={searchChange}
-        />
+        <form onSubmit={searchChange}>
+          <div className="input-group mb-3">
+            <input
+              type="text"
+              name='search'
+              className="form-control"
+              placeholder="Buscar productos..."
+            />
+            <div className="input-group-append">
+              <button className="btn btn-danger" type="submit">
+                <i className={"fas fa-1x text-white-300 fa-thin fa-paw"}></i>
+              </button>
+            </div>
+          </div>
+        </form>
         <table className="table table-striped table-bordered table-responsive">
           <thead className='table-dark'>
             <tr>
