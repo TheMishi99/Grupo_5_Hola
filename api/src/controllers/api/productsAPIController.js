@@ -1,23 +1,37 @@
 const db = require("../../database/models");
 const controller = {
   list: async (req, res) => {
+    const page = parseInt(req.query.page) || 1;
+    const pageSize = parseInt(req.query.pageSize) || 10;
+    const offset = (page - 1) * pageSize;
     const productsList = await db.Productos.findAll({
       include: ["discount", "brand", "categories"],
-      /* AQUI IRIAN LOS OFFSET Y LIMIT OPCIONALES */
+      offset: offset,
+      limit: pageSize,
     });
+
+    const totalCount = await db.Productos.count();
+    const totalPages = Math.ceil(totalCount / pageSize);
 
     const categoriesList = await db.Categorias.findAll({
       include: ["products"],
     });
 
     const countByCategory = {};
-    categoriesList.map((category) => {
+    categoriesList.forEach((category) => {
       countByCategory[category.name] = category.products.length;
     });
+
+    const nextPage = page < totalPages ? `http://localhost:5000/api/products?page=${page+1}&pageSize=${pageSize}` : null;
+    const prevPage = page > 1 ? `http://localhost:5000/api/products?page=${page-1}&pageSize=${pageSize}` : null;
 
     const response = {
       count: productsList.length,
       countByCategory: countByCategory,
+      totalPages: totalPages,
+      currentPage: page,
+      nextPage: nextPage,
+      prevPage: prevPage,
       products: productsList.map((product) => {
         return {
           id: product.id,
@@ -40,7 +54,6 @@ const controller = {
           detail: `http://localhost:5000/api/products/${product.id}`,
         };
       }),
-      /* AQUI PUEDES AÑADIR LAS URLS DE PAGINADO OPCIONALES */
     };
     return res.send(response);
   },
