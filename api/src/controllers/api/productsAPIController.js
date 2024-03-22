@@ -1,17 +1,28 @@
 const db = require("../../database/models");
 const controller = {
   list: async (req, res) => {
+    let productsList;
     const page = parseInt(req.query.page) || 1;
     const pageSize = parseInt(req.query.pageSize) || 10;
-    const offset = (page - 1) * pageSize;
-    const productsList = await db.Productos.findAll({
-      include: ["discount", "brand", "categories"],
-      offset: offset,
-      limit: pageSize,
-    });
+    let totalPages, nextPage, prevPage;
 
-    const totalCount = await db.Productos.count();
-    const totalPages = Math.ceil(totalCount / pageSize);
+    if (req.query.page && req.query.pageSize) {
+      const offset = (page - 1) * pageSize;
+      productsList = await db.Productos.findAll({
+        include: ["discount", "brand", "categories"],
+        offset: offset,
+        limit: pageSize,
+      });
+
+      const totalCount = await db.Productos.count();
+      totalPages = Math.ceil(totalCount / pageSize);
+      nextPage = page < totalPages ? `http://localhost:5000/api/products?page=${page + 1}&pageSize=${pageSize}` : null;
+      prevPage = page > 1 ? `http://localhost:5000/api/products?page=${page - 1}&pageSize=${pageSize}` : null;
+    } else {
+      productsList = await db.Productos.findAll({
+        include: ["discount", "brand", "categories"],
+      });
+    }
 
     const categoriesList = await db.Categorias.findAll({
       include: ["products"],
@@ -22,16 +33,9 @@ const controller = {
       countByCategory[category.name] = category.products.length;
     });
 
-    const nextPage = page < totalPages ? `http://localhost:5000/api/products?page=${page+1}&pageSize=${pageSize}` : null;
-    const prevPage = page > 1 ? `http://localhost:5000/api/products?page=${page-1}&pageSize=${pageSize}` : null;
-
     const response = {
       count: productsList.length,
       countByCategory: countByCategory,
-      totalPages: totalPages,
-      currentPage: page,
-      nextPage: nextPage,
-      prevPage: prevPage,
       products: productsList.map((product) => {
         return {
           id: product.id,
@@ -55,6 +59,12 @@ const controller = {
         };
       }),
     };
+
+    if (nextPage !== undefined) response.nextPage = nextPage;
+    if (prevPage !== undefined) response.prevPage = prevPage;
+    if (totalPages !== undefined) response.totalPages = totalPages;
+    if (page !== undefined) response.currentPage = page;
+
     return res.send(response);
   },
   detail: async (req, res) => {
