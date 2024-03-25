@@ -1,3 +1,4 @@
+//Importamos React, useEffect y useState
 import React, { useState, useEffect } from 'react';
 
 function Products() {
@@ -18,7 +19,7 @@ function Products() {
       console.error("Error al obtener los productos:", error);
     }
   };
-
+  //Utilizamos el hook useEffect para llamar a la función getProducts cuando el componente se monta por primera vez
   useEffect(() => {
     getProducts();
   }, []);
@@ -53,7 +54,8 @@ function Products() {
       setCurrentPage(currentPage - 1);
     };
 
-  //Renderizar los productos
+
+  //Renderizamos la lista de productos y el input de búsqueda en el documento HTML.
   return (
     <div>
       <div className="container mt-5">

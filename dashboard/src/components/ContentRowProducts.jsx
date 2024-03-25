@@ -1,7 +1,9 @@
+//Importamos React, useEffect y useState
 import React, { useEffect,useState } from "react";
+//Importamos el componente SmallCard desde el archivo SmallCard.js
 import SmallCard from "./SmallCard";
 
-
+//Definimos tres estados mediante el hook useState para almacenar  el número total de usuarios, productos y categorías de productos disponibles.
 function ContentRowProducts() {
   const [usersCount,setUsersCount] = useState(0);
   const [productsCount,setProductsCount] = useState(0);
@@ -10,7 +12,7 @@ function ContentRowProducts() {
 /*  Cada set de datos es un objeto literal */
 
 /* <!-- Total Users --> */
-
+//Creamos objetos literales y los agrupamos en un arreglo llamado cartProps.
 let totalUsers = {
   title: "Total Users",
   color: "primary",
@@ -37,15 +39,15 @@ let categoriesQuantity = {
 
 let cartProps = [totalUsers, totalProducts,categoriesQuantity];
 
+//Implementamos funciones asincronicas getProducts y getUsers para obtener datos de la API
+//Utilizamos el método fetch para hacer solicitudes a los endpoints (/api/products y /api/users).
   const getProducts = async () => {
     try {
       const response = await fetch(
         `http://localhost:5000/api/products`
       );
       const data = await response.json();
-      // console.log(data);
       setProductsCount(data.count)
-      // console.log(data.countByCategory)
       setProductsCategoryCount(data.countByCategory)
     } catch (error) {
       console.error(error);
@@ -63,13 +65,13 @@ let cartProps = [totalUsers, totalProducts,categoriesQuantity];
       console.error(error);
     }
   }
-
+//Utilizamos el hook useEffect para llamar a estas funciones cuando el componente se monta por primera vez
   useEffect(() => {
     getProducts();
     getUsers()
   },[])
 
-
+//Renderizamos dinámicamente las tarjetas del dashboard utilizando la información proporcionada por cartProps.
   return (
     <div className="row" style={{ marginTop: '1em' }}>
       {cartProps.map((data, i) => {

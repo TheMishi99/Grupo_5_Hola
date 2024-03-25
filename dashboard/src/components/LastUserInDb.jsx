@@ -1,7 +1,12 @@
+//Importamos React, useEffect y useState
 import React, { useEffect,useState } from "react";
 
+
 function LastUserInDb() {
+  //Inicializamos un estado lastUser mediante el hook useState para almacenar un objeto 
   const [lastUser,setLastUser] = useState({});
+  //Definimos una función asíncrona getLastUser que utiliza el método fetch para hacer 
+  //una solicitud a la API (/api/users) y obtener los datos sobre todos los usuarios registrados.
   const getLastUser = async () => {
     try {
       const response = await fetch(
@@ -18,10 +23,12 @@ function LastUserInDb() {
     }
   }
 
+  //Utilizamos el hook useEffect para llamar a la función getLastUser cuando el componente se monta por primera vez,
   useEffect(() => {
     getLastUser();
   },[])
 
+  //Renderizamos la información del último usuario en el documento HTML utilizando la información almacenada en lastUser.
   return (
     <div className="col-lg-6 mb-4" style={{ marginTop: '1em' }}>
       <div className="card shadow mb-4">
