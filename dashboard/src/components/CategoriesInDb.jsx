@@ -38,7 +38,6 @@ function CategoriesInDb() {
               return (
                 <div className="col-lg-6 mb-4" key={key + 1}>
                   <div className="card bg-dark text-white shadow">
-                    {console.log(key)}
                     <Link to={"/ProductsByCategory?category="+key}>
                       <div className="card-body">
                         {key} - {productsCategoryCount[key]}

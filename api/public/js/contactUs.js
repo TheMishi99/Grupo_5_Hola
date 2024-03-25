@@ -2,7 +2,6 @@ let botonEnviar = document.querySelector(".confirm-button")
 
 botonEnviar.addEventListener('click', function(event){
     event.preventDefault();
-    console.log("Hola")
 });
 
 function mostrarVentana() {

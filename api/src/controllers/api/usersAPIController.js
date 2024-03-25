@@ -14,8 +14,18 @@ const controller = {
       });
       const totalCount = await db.Usuarios.count();
       totalPages = Math.ceil(totalCount / pageSize);
-      nextPage = page < totalPages ? `http://localhost:5000/api/users?page=${page + 1}&pageSize=${pageSize}` : null;
-      prevPage = page > 1 ? `http://localhost:5000/api/users?page=${page - 1}&pageSize=${pageSize}` : null;
+      nextPage =
+        page < totalPages
+          ? `http://localhost:5000/api/users?page=${
+              page + 1
+            }&pageSize=${pageSize}`
+          : null;
+      prevPage =
+        page > 1
+          ? `http://localhost:5000/api/users?page=${
+              page - 1
+            }&pageSize=${pageSize}`
+          : null;
     } else {
       usersList = await db.Usuarios.findAll();
     }
@@ -37,7 +47,7 @@ const controller = {
     if (totalPages !== undefined) response.totalPages = totalPages;
     if (page !== undefined) response.currentPage = page;
 
-    return res.send(response);
+    return res.json(response);
   },
   detail: async (req, res) => {
     const users = await db.Usuarios.findByPk(req.params.id, {});
@@ -49,7 +59,7 @@ const controller = {
       province,
       profilePicture: `http://localhost:5000/img/Users/${profilePicture}`,
     };
-    return res.send(response);
+    return res.json(response);
   },
 };
 

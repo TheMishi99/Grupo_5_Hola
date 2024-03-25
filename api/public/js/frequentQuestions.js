@@ -16,7 +16,6 @@ boton1.addEventListener('click', function(event){
 });
 
 boton2.addEventListener('click', function(event){
-    console.log("hola")
     event.preventDefault();
     pregunta1.style.display = 'none';
     pregunta3.style.display = 'none';

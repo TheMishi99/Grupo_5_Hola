@@ -16,8 +16,18 @@ const controller = {
 
       const totalCount = await db.Productos.count();
       totalPages = Math.ceil(totalCount / pageSize);
-      nextPage = page < totalPages ? `http://localhost:5000/api/products?page=${page + 1}&pageSize=${pageSize}` : null;
-      prevPage = page > 1 ? `http://localhost:5000/api/products?page=${page - 1}&pageSize=${pageSize}` : null;
+      nextPage =
+        page < totalPages
+          ? `http://localhost:5000/api/products?page=${
+              page + 1
+            }&pageSize=${pageSize}`
+          : null;
+      prevPage =
+        page > 1
+          ? `http://localhost:5000/api/products?page=${
+              page - 1
+            }&pageSize=${pageSize}`
+          : null;
     } else {
       productsList = await db.Productos.findAll({
         include: ["discount", "brand", "categories"],
@@ -43,9 +53,7 @@ const controller = {
           description: product.description,
           relations: {
             categories:
-              typeof product.categories == "object"
-                ? [product.categories]
-                : product.categories,
+              typeof categories == "object" ? [categories] : categories,
             dicounts:
               typeof product.discount == "object"
                 ? [product.discount]
@@ -94,16 +102,9 @@ const controller = {
       elaborationDate,
       expirationDate,
       price,
-      categories:
-        typeof product.categories == "object"
-          ? [product.categories]
-          : product.categories,
-      dicounts:
-        typeof product.discount == "object"
-          ? [product.discount]
-          : product.discount,
-      brands:
-        typeof product.brand == "object" ? [product.brand] : product.brand,
+      categories: typeof categories == "object" ? [categories] : categories,
+      dicounts: typeof discount == "object" ? [discount] : discount,
+      brands: typeof brand == "object" ? [brand] : brand,
       image_url: img,
     };
     return res.json(response);
