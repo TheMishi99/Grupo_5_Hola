@@ -1,8 +1,8 @@
 //Importamos React, useEffect y useState
 import React, { useEffect, useState } from "react";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
-//Definimos una función asíncrona getProducts que utiliza el método fetch para hacer una solicitud 
+//Definimos una función asíncrona getProducts que utiliza el método fetch para hacer una solicitud
 //a la API (/api/products) y obtener los datos sobre las categorías de productos.
 function CategoriesInDb() {
   //Inicializamos un estado productsCategoryCount mediante el hook useState para almacenar un objeto.
@@ -38,9 +38,14 @@ function CategoriesInDb() {
               return (
                 <div className="col-lg-6 mb-4" key={key + 1}>
                   <div className="card bg-dark text-white shadow">
-                    <Link to={"/ProductsByCategory?category="+key}>
-                      <div className="card-body">
-                        {key} - {productsCategoryCount[key]}
+                    <Link
+                      to={"/ProductsByCategory?category=" + key}
+                      style={{ textDecoration: "none" }}
+                    >
+                      <div className="d-flex p-3">
+                        <p style={{ color: "white", margin: "0px" }}>
+                          {key} - {productsCategoryCount[key]}
+                        </p>
                       </div>
                     </Link>
                   </div>

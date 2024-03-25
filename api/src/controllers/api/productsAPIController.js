@@ -53,7 +53,9 @@ const controller = {
           description: product.description,
           relations: {
             categories:
-              typeof categories == "object" ? [categories] : categories,
+              typeof product.categories == "object"
+                ? [product.categories]
+                : product.categories,
             dicounts:
               typeof product.discount == "object"
                 ? [product.discount]
