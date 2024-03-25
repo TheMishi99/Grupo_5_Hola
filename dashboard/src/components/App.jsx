@@ -7,6 +7,7 @@ import ContentRowProducts from "./ContentRowProducts";
 import NotFound from "./NotFound";
 import { Route, Routes } from "react-router-dom";
 import ProductsInDb from "./ProductsInDb"
+import { ProductsByCategory } from "./ProductsByCategory";
 
 function App() {
   return (
@@ -18,6 +19,9 @@ function App() {
           <Route path="/CategoriesInDb" element={<CategoriesInDb />} />
           <Route path="/LastUserInDb" element={<LastUserInDb />} />
           <Route path="/ProductsInDb" element={<ProductsInDb />} />
+
+          <Route path="/ProductsByCategory" element={<ProductsByCategory />} />
+
           <Route
             path="/ContentRowProducts"
             element={

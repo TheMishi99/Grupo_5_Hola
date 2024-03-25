@@ -65,7 +65,7 @@ const controller = {
     if (totalPages !== undefined) response.totalPages = totalPages;
     if (page !== undefined) response.currentPage = page;
 
-    return res.send(response);
+    return res.json(response);
   },
   detail: async (req, res) => {
     const product = await db.Productos.findByPk(req.params.id, {
@@ -106,7 +106,7 @@ const controller = {
         typeof product.brand == "object" ? [product.brand] : product.brand,
       image_url: img,
     };
-    return res.send(response);
+    return res.json(response);
   },
 };
 
