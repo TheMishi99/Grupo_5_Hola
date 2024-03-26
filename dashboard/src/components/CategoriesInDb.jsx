@@ -23,6 +23,8 @@ function CategoriesInDb() {
   }, []);
 
   //Renderizamos dinámicamente las tarjetas de categorías utilizando la información almacenada en productsCategoryCount.
+  const handleMouseOver = (e)=>{e.target.style.color="lightgray"}
+  const handleMouseOut = (e)=>{e.target.style.color="white"}
   return (
     <div className="col-lg-6 mb-4" style={{ marginTop: "1em" }}>
       <div className="card shadow mb-4">
@@ -43,7 +45,7 @@ function CategoriesInDb() {
                       style={{ textDecoration: "none" }}
                     >
                       <div className="d-flex p-3">
-                        <p style={{ color: "white", margin: "0px" }}>
+                        <p style={{ color: "white", margin: "0px" }} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
                           {key} - {productsCategoryCount[key]}
                         </p>
                       </div>

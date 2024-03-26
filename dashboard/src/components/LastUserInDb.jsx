@@ -30,7 +30,7 @@ function LastUserInDb() {
 
   //Renderizamos la información del último usuario en el documento HTML utilizando la información almacenada en lastUser.
   return (
-    <div className="col-lg-6 mb-4" style={{ marginTop: '1em' }}>
+    <div className="col-lg-4 mb-4" style={{ marginTop: '1em' }}>
       <div className="card shadow mb-4">
         <div className="card-header py-3">
           <h5 className="m-0 font-weight-bold text-gray-800">
@@ -41,18 +41,18 @@ function LastUserInDb() {
           <div className="text-center">
             <img
               className="img-fluid px-3 px-sm-4 mt-3 mb-4"
-              style={{ width: 40 + "rem" }}
+              style={{ maxWidth: 75 + "%" }}
               src={lastUser.profilePicture}
               alt={"Foto de"+lastUser.name}
             />
           </div>
-          <p>
+          <p className="text-center" style={{fontWeight:"bold",fontSize:"25px"}}>
             {lastUser.name}
           </p>
-          <p>
+          <p className="text-center" style={{fontSize:"20px"}}>
            {lastUser.email}
           </p>
-          <p>
+          <p className="text-center" style={{fontSize:"20px"}}>
             {lastUser.province}
           </p>
         </div>
