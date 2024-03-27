@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <%- include("../partials/head") %>
+    <title>Store</title>
+    <script
+      src="https://kit.fontawesome.com/b42ec8045a.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://kit.fontawesome.com/6d37a11b52.js"
+      crossorigin="anonymous"
+    ></script>
+    <link href="../../css/home-style.css" rel="stylesheet" />
+    <link href="../../css/products-style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <%- include("../partials/header") %>
+    <main>
+      <div class="container__allProducts">
+        <h1 class="title__allProducts">Listado de Productos</h1>
+        <% if(userLogged && userLogged.authLevel === 1){ %>
+          <div class="containerButtons__allProducts">
+            <a href="/products/create"> <button class="button_createProduct">Crear producto</button></a>
+          </div>
+        <% } %>
+      </div>
+      <% if(list.length==0){%>
+        <div class="searchResult">
+          <h3> No se encontraron productos que coincidan con la busqueda realizada </h3>
+          <a href="/products" class="buttonSearchResult"><button>Ver todos los productos</button></a>
+        </div>
+        <%}%>
+      <section class="section__allProducts">
+        <% list.forEach(product => { %>
+        <article>
+          <div class="products-img">
+            <% if (product.img) { %>
+              <% if(product.img.includes("https")){%>
+                <img
+                src="<%= product.img %>"
+                alt="<%= product.name %>"
+                />
+              <%}else{%>
+                <img
+                src="/img/<%= product.img %>"
+                alt="<%= product.name %>"
+                />
+              <%}%>
+            <% } else { %>
+              <img
+                src="../img/img_notfound.png"
+                width="92%"
+                alt="<%= product.name %>"
+              />
+            <% } %>
+          </div>
+          <div class="product-name">
+            <a href="/products/<%= product.id %>"><p><%= product.name %></p></a>
+          </div>
+          <div class="product-price">
+            <h3>$<%= product.price %></h3>
+          </div>
+          <a href="/products/<%= product.id %>">
+            <div class="bottom-buy"><strong>Comprar</strong></div>
+          </a>
+        </article>
+        <% }) %>
+      </section>
+      <% if (totalPages >= 1) { %>
+        <div class="pagination">
+          <% if (currentPage > 1) { %>
+            <a href="?page=<%= currentPage - 1 %><%= term != null ? "&term=" + term  : "" %>">Anterior</a>
+          <% } %>
+
+          <% for (let i = 1; i <= totalPages; i++) { %>
+            <% if (i === currentPage) { %>
+              <span class="current"><%= i %></span>
+            <% } else { %>
+              <a href="?page=<%= i %><%= term != null ? "&term=" + term  : "" %>"><%= i %></a>
+            <% } %>
+          <% } %>
+
+          <% if (currentPage < totalPages) { %>
+            <a href="?page=<%= currentPage + 1 %><%= term != null ? "&term=" + term  : "" %>">Siguiente</a>
+          <% } %>
+        </div>
+      <% } %>
+    </main>
+    <%- include("../partials/footer") %>
+  </body>
+</html>

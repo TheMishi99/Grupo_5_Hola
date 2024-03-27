@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <%- include("../partials/head") %>
+  <title>Register</title>
+  <script src="https://kit.fontawesome.com/6d37a11b52.js" crossorigin="anonymous"></script>
+  <!--Hoja de Estilos para register-->
+  <link href="../css/register-style.css" rel="stylesheet" />
+</head>
+
+<body>
+  <%- include("../partials/header") %>
+  <main class="register-main">
+    <form class="register-form" action="/users/register" method="POST" enctype="multipart/form-data" novalidate>
+      <section class="register-title-form">
+        <h1 class="tit-links">Crear cuenta</h1>
+        <a>Comprá más rápido y llevá el control de tus pedidos, ¡en un solo
+          lugar!</a>
+      </section>
+      <section class="register-section">
+        <div class="campos">
+          <p><label for="name">Nombre y apellido</label></p>
+          <input type="text" name="name" id="name" placeholder="Juan Perez" 
+              value="<%= locals.old && old.name ? old.name : "" %>" />
+              <% if(locals.errors && errors.name){%>
+                <div class="text-error"><%= errors.name.msg %></div>
+              <%}%>
+              <span id="name-error" class="text-error"></span>
+              <span id="nameLength-error" class="text-error"></span>
+
+          <p><label for="email">Correo electrónico</label></p>
+          <input type="email" name="email" id="email" placeholder="juan@email.com"
+              value="<%= locals.old && old.email ? old.email : "" %>"/>
+              <% if(locals.errors && errors.email){%>
+                <div class="text-error"><%= errors.email.msg %></div>
+              <%}%>
+              <span id="email-error" class="text-error"></span>
+
+          <p><label for="password">Contraseña</label></p>
+          <input type="password" name="password" id="password" placeholder="********" />
+              <% if(locals.errors && errors.password){%>
+              <div class="text-error"><%= errors.password.msg %></div>
+              <%}%>
+              <span id="password-error" class="text-error"></span>
+              
+              <p><label for="confirmpassword">Confirmar contraseña</label></p>
+              <input type="password" name="confirmpassword" id="confirmpassword" placeholder="********" />
+              <% if(locals.errors && errors.confirmpassword){%>
+                <div class="text-error"><%= errors.confirmpassword.msg %></div>
+              <%}%>
+              <span id="confirmpassword-error" class="text-error"></span>
+                
+          <p><label for="phonenumber">Teléfono</label></p>
+          <input type="tel" name="phonenumber" id="phonenumber" placeholder="3851234567" 
+              value="<%= locals.old && old.phonenumber ? old.phonenumber : "" %>"/>
+              <% if(locals.errors && errors.phonenumber){%>
+                <div class="text-error"><%= errors.phonenumber.msg %></div>
+              <%}%>
+              <span id="phonenumber-error" class="text-error"></span>
+
+          <p><label for="province">Provincia</label></p>
+          <input type="province" name="province" id="province" placeholder="Santiago del Estero"
+              value="<%= locals.old && old.province ? old.province : "" %>" />
+              <% if(locals.errors && errors.province){%>
+                <div class="text-error">
+                  <%= errors.province.msg %>
+                </div>
+              <%}%>
+              <span id="province-error" class="text-error"></span>
+            
+          <p><label for="address">Dirección</label></p>
+          <input type="dire" name="address" id="address" placeholder="Belgrano 170" 
+              value="<%= locals.old && old.address ? old.address : "" %>"/>
+              <% if(locals.errors && errors.address){%>
+                <div class="text-error"><%= errors.address.msg %></div>
+              <%}%>  
+              <span id="address-error" class="text-error"></span>
+              
+              <p><label for="profilePicture">Imagen de perfil</label></p>
+              <input type="file" name="profilePicture" id="profilePicture" 
+              value="<%= locals.old && old.profilePicture ? old.profilePicture : "" %>"/>
+              <% if(locals.errors && errors.profilePicture){%>
+                <div class="text-error"><%= errors.profilePicture.msg %></div>
+                <%}%>
+                <span id="profilePicture-error" class="text-error"></span>
+              </div>
+              <div class="checkbox">
+          <div>
+            <input type="checkbox" name="termycond" id="termycond" value="aceptaTérminosyCondiciones"
+            value="<%= locals.old && old.termycond ? old.termycond : "" %>"/>
+            <a>Acepto los </a><a class="tit-links" href="/terms">Términos y Condiciones</a>
+              <% if(locals.errors && errors.termycond){%>
+                <div class="text-error"><%= errors.termycond.msg %></div>
+              <%}%>
+          </div>
+          <div>
+            <input type="checkbox" name="politicPriv" id="politicPriv" value="aceptaPolíticasDePrivacidad" 
+            value="<%= locals.old && old.politicPriv ? old.politicPriv : "" %>"/>
+            <a>Acepto las </a><a class="tit-links" href="/privacyPolicies">Políticas de Privacidad</a>
+              <% if(locals.errors && errors.politicPriv){%>
+                <div class="text-error"><%= errors.politicPriv.msg %></div>
+              <%}%>
+          </div>
+        </div>
+        <div class="container-register-button">
+          <input class="register-button" type="submit" value="Registrarme" />
+        </div>
+      </section>
+      <span>
+        <p>¿Ya tienes una cuenta?</p>
+        <p>Iniciá sesión <a class="tit-links" href="/users/login">aquí </a></p>
+      </span>
+    </form>
+  </main>
+  <%- include("../partials/footer") %>
+  <script src="/js/users/register.js"></script>
+</body>
+
+</html>
